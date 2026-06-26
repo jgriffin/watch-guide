@@ -93,7 +93,7 @@ Scope research to what the format needs (table below), from a few high-yield sou
 - [x] Lock data depth (maximal) into a structured single-source file
 - [x] Iterate phone-first presentation; settle section order (look frozen in `example.html`)
 - [x] Pivot from procedural pipeline → exemplar-driven single prompt (`watch-guide-prompt.md`)
-- [ ] **Test-drive the prompt end-to-end on a fresh fixture** (prove portability + colors-per-team)
+- [ ] **NEXT: test-drive the prompt on TWO user-provided fixtures.** Run mode = follow `watch-guide-prompt.md` LITERALLY (it's the artifact under test — note any underspecified spots). For each: fan out research per the recipe → write `matches/<home>-<away>/index.html` → open next to `example.html` to compare. Then tighten the prompt from what we learn. (User will supply the two games.)
 - [x] Refactor to lighter architecture: `template.html` (Jinja2) + thin `render.py` + `matches/`/`archive/` layout
 - [x] Efficient squad-number research (Wikipedia WC squads ⋈ predicted XI) → full numbered roster, all 52 players
 - [ ] Polish pass on the regenerated sheet (spacing, roster density on phone)
