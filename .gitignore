@@ -1,0 +1,5 @@
+# research scratch / tool caches (regenerable)
+.firecrawl/
+
+# macOS
+.DS_Store

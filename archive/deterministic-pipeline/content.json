@@ -1,0 +1,236 @@
+{
+  "meta": {
+    "title": "Egypt vs Iran — 2026 World Cup, Group G decider",
+    "dataAsOf": "2026-06-26",
+    "kickoffStatus": "pre-match (confirmed XIs + shirt numbers drop ~1hr before kickoff)",
+    "verificationNote": "Spine fact-checked against Wikipedia/ESPN/Al Jazeera/FOX/Opta. Player clubs/values from Transfermarkt June 2026. Shirt numbers are from the official 2026 World Cup squad list (Wikipedia). Tactics/lineups are projected from current squads, not a confirmed teamsheet.",
+    "knownCorrections": [
+      "Marmoush had a QUIET 2025-26 at Man City (~3 PL goals) — the draft's '27-goal season' is false (that was Frankfurt 2024-25).",
+      "Taremi ~58 goals / ~103 caps pre-WC, now at Olympiacos (not Inter, not 60/104).",
+      "Ramy Rabia is at Al Ain (UAE), not Al Ahly. Hamdy Fathy at Al-Wakrah (Qatar) and a MATCH DOUBT. Ibrahim Adel at Nordsjælland.",
+      "Jahanbakhsh at FCV Dender (Belgium); Ghoddos at Kalba (UAE); Ezatolahi at Shabab Al-Ahli (UAE).",
+      "Sardar Azmoun is NOT in Iran's 2026 squad (political omission) — notable absence, not a player to watch.",
+      "Egypt's most-capped player is Ahmed Hassan (184); Hossam Hassan holds the SCORING record (69). Salah is on 68 — one shy of his own coach's all-time tally (already Egypt's all-time WC-finals scorer).",
+      "Hajsafi on ~148 caps — playing tonight EQUALS Nekounam's 149 record (count is live).",
+      "Iran does NOT lead Asia in WC appearances (South Korea, 12, does). Iran on its 7th.",
+      "Lumen Field is a FORMER loudest-stadium record holder (137.6 dB vs Saints 2013; Arrowhead now leads at 142.2)."
+    ]
+  },
+
+  "match": {
+    "competition": "FIFA World Cup 2026",
+    "stage": "Group G — Matchday 3 (final round)",
+    "matchNumber": 63,
+    "date": "Friday, June 26, 2026",
+    "kickoffLocal": "8:00 PM PDT",
+    "kickoffOther": "11:00 PM ET · 3:00 GMT Sat",
+    "venue": "Lumen Field (FIFA: 'Seattle Stadium')",
+    "city": "Seattle, WA",
+    "broadcast": { "english": "FS1 / FOX One", "spanish": "Universo + Peacock" },
+    "referee": {
+      "name": "Szymon Marciniak (Poland)",
+      "note": "IFFHS World's Best Referee 2022 & 2023. Did the 2022 WC final AND 2023 UCL final. ~4 yellows/match — a let-it-flow game-manager. A final-caliber ref on a group game signals FIFA sees this as a high-stakes fixture."
+    },
+    "weather": {
+      "summary": "Open pitch (Lumen's roof covers ~70% of seats, NOT the field).",
+      "temp": "upper-50s to ~60°F at kickoff",
+      "rain": "30-40% chance of showers, slim thunderstorm chance",
+      "wind": "S 9-14 mph, gusts ~21 mph",
+      "effect": "Possibly damp/skiddy surface + gusty wind → nudges toward faster, more direct, set-piece-influenced play."
+    },
+    "parallelMatch": "New Zealand vs Belgium (Vancouver) kicks off simultaneously."
+  },
+
+  "group": {
+    "name": "Group G",
+    "standingsAfterMD2": [
+      { "team": "Egypt", "p": 2, "w": 1, "d": 1, "l": 0, "gf": 4, "ga": 2, "gd": "+2", "pts": 4 },
+      { "team": "Iran", "p": 2, "w": 0, "d": 2, "l": 0, "gf": 2, "ga": 2, "gd": "0", "pts": 2 },
+      { "team": "Belgium", "p": 2, "w": 0, "d": 2, "l": 0, "gf": 1, "ga": 1, "gd": "0", "pts": 2 },
+      { "team": "New Zealand", "p": 2, "w": 0, "d": 1, "l": 1, "gf": 3, "ga": 5, "gd": "-2", "pts": 1 }
+    ],
+    "results": {
+      "egypt": [
+        { "date": "Jun 15", "opponent": "Belgium", "score": "1-1", "result": "D" },
+        { "date": "Jun 21", "opponent": "New Zealand", "score": "3-1", "result": "W", "note": "Egypt's first-ever World Cup win" }
+      ],
+      "iran": [
+        { "date": "Jun 15", "opponent": "New Zealand", "score": "2-2", "result": "D" },
+        { "date": "Jun 21", "opponent": "Belgium", "score": "0-0", "result": "D", "note": "Beiranvand MOTM, 7 saves" }
+      ]
+    },
+    "upsideDown": "Belgium, the group heavyweight, sit 3rd after two draws and must beat NZ to be sure of advancing."
+  },
+
+  "stakes": {
+    "egypt": "Win = group winners + first-ever knockout berth. Draw = guaranteed top-2 (advances), full stop — the only 'unless Belgium win by 3+' caveat decides 1st vs 2nd place/seeding, NOT survival. Lose = need to scoreboard-watch Vancouver.",
+    "iran": "Win = essentially through (~5 pts), tops group if Belgium don't win. Draw = 3 pts but likely not enough; relies on best-third math (8 of 12 thirds advance) + the NZ-Belgium result. Lose = out.",
+    "fanShortcut": "Egypt fans only need to glance at Vancouver if Iran are winning in Seattle. Iran fans: win and you're in.",
+    "opta": "Egypt 44.1% win · Draw 31.3% · Iran 24.6% (25k sims). Egypt ~61% to top Group G."
+  },
+
+  "headToHead": {
+    "summary": "First-ever COMPETITIVE meeting. Only ~2 prior, both friendlies — Iran 2-1 (1975), 1-1 draw (2000 LG Cup, Egypt won shootout). Egypt has never beaten Iran in regulation.",
+    "biggerPicture": "Neither nation has EVER reached a World Cup knockout round. Whoever advances tonight makes history."
+  },
+
+  "teams": {
+    "egypt": {
+      "nickname": "The Pharaohs",
+      "nicknameOrigin": "After ancient Egypt's rulers — heritage, power, dynasty.",
+      "fifaRank": 28,
+      "coach": { "name": "Hossam Hassan", "note": "Egypt's all-time record SCORER (69 goals). The record Salah is chasing belongs to his own manager. Identical twin Ibrahim Hassan also a famous Egypt international. Appointed Feb 2024." },
+      "captain": "Mohamed Salah",
+      "formation": "4-2-3-1",
+      "tactical": {
+        "identity": "Attack-minded but defensively excellent (~0.2 goals conceded/game in qualifying). Quick transition into 1v1s for the stars, not patient possession.",
+        "inPossession": "Two holders (Attia + a partner) screen; Salah inverts from the right, Marmoush runs the channels as a mobile No. 9.",
+        "vulnerability": "A packed low block (exactly Iran's offer) blunts the fast-break game; advanced full-backs leave space behind."
+      },
+      "honours": "Record 7 AFCON titles (incl. only-ever three-in-a-row 2006-08-10). EFA founded 1921, joined FIFA 1923 as first African + Arab member. 4th World Cup (1934 — first Arab/African team ever; 1990, 2018, 2026).",
+      "xi": [
+        { "num": "1", "name": "Mohamed El Shenawy", "pos": "GK", "age": 37, "club": "Al Ahly", "mv": "€500k", "caps": "77/0", "trait": "Ice-cold penalty specialist & vocal leader", "blurb": "37, four-time African champion, 2018 WC vet famed for big knockout saves. (Shobeir, 26, is the heir if rotated.)" },
+        { "num": "3", "name": "Mohamed Hany", "pos": "RB", "age": 30, "club": "Al Ahly", "mv": "€1.5m", "caps": "~42/0", "trait": "Tireless overlapping full-back", "blurb": "One-club Al Ahly lifer — academy to serial winner." },
+        { "num": "2", "name": "Yasser Ibrahim", "pos": "CB", "age": 33, "club": "Al Ahly", "mv": "€275k", "caps": "25/1", "trait": "Calm positional defender", "blurb": "One-club loyalist; scored his maiden international goal at 33." },
+        { "num": "5", "name": "Ramy Rabia", "pos": "CB", "age": 33, "club": "Al Ain (UAE)", "mv": "€600k", "caps": "43/6", "trait": "Composed ball-playing veteran", "blurb": "Once a teen prodigy chased by Man Utd & Dortmund; senior debut at 17, two CAF Champions Leagues. (Steps in if Hamdy Fathy fails fitness.)" },
+        { "num": "13", "name": "Ahmed Fatouh", "pos": "LB", "age": 28, "club": "Zamalek", "mv": "€1.0m", "caps": "~38/1", "trait": "Marauding left-footed wing-back", "blurb": "Egypt's overlapping engine; started both June group games. (Editorial: 2024 fatal DUI accident, suspended sentence — handle with care.)" },
+        { "num": "19", "name": "Marwan Attia", "pos": "DM", "age": 27, "club": "Al Ahly", "mv": "€4.0m", "caps": "29/1", "trait": "Metronomic ball-winner", "blurb": "Al Ahly's unglamorous engine-room — breaks play up, recycles." },
+        { "num": "17", "name": "Mohanad Lasheen", "pos": "DM", "age": 30, "club": "Pyramids FC", "mv": "€3.0m", "caps": "23/0", "trait": "Title-winning shield", "blurb": "Won 2024-25 CAF Champions League with Pyramids — tournament-tested." },
+        { "num": "25", "name": "Zizo (Ahmed Sayed)", "pos": "RW/AM", "age": 30, "club": "Al Ahly", "mv": "€3.5m", "caps": "62/5", "trait": "Direct, high-volume winger", "blurb": "Cairo-derby crossover star — defected Zamalek→Al Ahly on a free, one of the league's most controversial moves. NOT the Nantes striker Mostafa Mohamed." },
+        { "num": "10", "name": "Mohamed Salah", "pos": "RW/FW", "age": 34, "club": "Liverpool", "mv": "€22m", "caps": "~117/68", "captain": true, "trait": "Left-footed inswinger — curls them far-corner", "blurb": "The main event. One goal from equalling coach Hossam Hassan's 69-goal national record. Likely his last World Cup; leaving Liverpool this summer. Already Egypt's all-time WC-finals scorer." },
+        { "num": "8", "name": "Emam Ashour", "pos": "AM", "age": 28, "club": "Al Ahly", "mv": "€4.0m", "caps": "30/1", "trait": "Box-to-box creator-finisher", "blurb": "Egypt's chief line-breaker; scored vs Belgium. Back from a 2025 of shoulder injury + hepatitis A. (Draft's 'heart issue' is unverified.)" },
+        { "num": "22", "name": "Omar Marmoush", "pos": "FW", "age": 27, "club": "Manchester City", "mv": "€50m", "caps": "~50/11", "trait": "Direct, two-footed channel-runner", "blurb": "Dream City move off a sensational Frankfurt 2024-25, but year one in Manchester has been quiet (~3 PL goals). The WC is his chance to rediscover the edge alongside Salah." }
+      ],
+      "bench": [
+        { "num": "4", "name": "Hossam Abdelmaguid", "pos": "DF", "club": "Zamalek" },
+        { "num": "6", "name": "Mohamed Abdelmonem", "pos": "DF", "club": "Nice" },
+        { "num": "7", "name": "Trézéguet", "pos": "FW", "club": "Al Ahly", "note": "Inverted winger, 2nd World Cup, arrives at the back post" },
+        { "num": "9", "name": "Hamza Abdelkarim", "pos": "FW", "club": "Barcelona B" },
+        { "num": "11", "name": "Mostafa Ziko", "pos": "MF", "club": "Pyramids" },
+        { "num": "12", "name": "Haissem Hassan", "pos": "FW", "club": "Oviedo" },
+        { "num": "14", "name": "Hamdy Fathy", "pos": "MF", "club": "Al-Wakrah" },
+        { "num": "15", "name": "Karim Hafez", "pos": "DF", "club": "Pyramids" },
+        { "num": "16", "name": "El Mahdy Soliman", "pos": "GK", "club": "Zamalek" },
+        { "num": "18", "name": "Nabil Emad", "pos": "MF", "club": "Al-Najma" },
+        { "num": "20", "name": "Ibrahim Adel", "pos": "FW", "club": "Nordsjælland", "note": "Pacey young wide threat, CAF CL winner with Pyramids" },
+        { "num": "21", "name": "Mahmoud Saber", "pos": "MF", "club": "ZED" },
+        { "num": "23", "name": "Mostafa Shobeir", "pos": "GK", "club": "Al Ahly" },
+        { "num": "24", "name": "Tarek Alaa", "pos": "DF", "club": "ZED" },
+        { "num": "26", "name": "Mohamed Alaa", "pos": "GK", "club": "El Gouna" }
+      ],
+      "doubts": "Hamdy Fathy (Al-Wakrah, doubt) & Hossam Abdelmaguid doubtful. Mostafa Mohamed (Nantes) reportedly LEFT OUT of the 26 (squad status disputed). Salah & Marmoush fit."
+    },
+
+    "iran": {
+      "nickname": "Team Melli",
+      "nicknameOrigin": "Persian 'Tim-e Melli' = literally 'the National Team'. Also 'Princes of Persia'.",
+      "fifaRank": 20,
+      "coach": { "name": "Amir Ghalenoei", "note": "Second Iran spell (first 2006-08); most successful manager in Iranian league history (5 titles). Took Iran to 2023 Asian Cup semis. Switched to a 5-4-1 low block vs Belgium (0-0)." },
+      "captain": "Ehsan Hajsafi",
+      "formation": "5-4-1 (deep block + counter)",
+      "tactical": {
+        "identity": "Compact, disciplined, physical veteran block. Forces play wide, defends with positional savvy.",
+        "inPossession": "Direct/long to Taremi as reference point; Ghoddos connects, Jahanbakhsh attacks wide space on the break.",
+        "strength": "Organization + aerial/set-piece threat.",
+        "vulnerability": "Thin creativity vs a set defense; heavy reliance on Taremi — contain him and the threat thins."
+      },
+      "honours": "3 AFC Asian Cup titles (1968, 1972, 1976 — three straight; 50-year drought since). 7th World Cup (1978, 1998, 2006, 2014, 2018, 2022, 2026) — eliminated in the group stage at all 7, closest miss 2018 (out by a point).",
+      "xi": [
+        { "num": "1", "name": "Alireza Beiranvand", "pos": "GK", "age": 33, "club": "Tractor", "mv": "€650k", "caps": "~86/0", "trait": "The Wall of Persia with a cannon arm", "blurb": "Shepherd's son who slept rough & washed cars before becoming Iran's No.1. SAVED RONALDO'S PENALTY (2018). Two Guinness throw/kick records. Just produced a 7-save MOTM shutout of Belgium." },
+        { "num": "23", "name": "Ramin Rezaeian", "pos": "RB/WB", "age": 36, "club": "Foolad (loan)", "mv": "€250k", "caps": "~76/9", "trait": "Evergreen overlapping raider", "blurb": "Scored AND assisted vs New Zealand — became the OLDEST Asian player ever to score at a World Cup. Egypt's left flank must track him." },
+        { "num": "13", "name": "Hossein Kanaani", "pos": "CB", "age": 32, "club": "Persepolis", "mv": "€1.6m", "caps": "~65/6", "trait": "Towering aerial enforcer & organizer", "blurb": "Two-WC veteran; scored in the 14-0 Cambodia rout. Backed imprisoned footballer Amir Nasr-Azadani during the 2022 protests." },
+        { "num": "4", "name": "Shoja Khalilzadeh", "pos": "CB", "age": 37, "club": "Tractor", "mv": "€100k", "caps": "60/2", "trait": "37-year-old captain who tackles like an artist", "blurb": "Late bloomer; just captained Tractor to its first-ever league title. Twice Asia's best CB. Would make his World Cup DEBUT at 37." },
+        { "num": "19", "name": "Ali Nemati", "pos": "CB/LB", "age": 30, "club": "Foolad", "mv": "€550k", "caps": "20/0", "trait": "Aggressive header-winner, CB-to-LB cover", "blurb": "Built his name on Persepolis title teams; Iran's flexible defensive cover." },
+        { "num": "3", "name": "Ehsan Hajsafi", "pos": "LB/LM", "age": 36, "club": "Sepahan", "mv": "€250k", "caps": "148/7", "captain": true, "trait": "Evergreen captain & dead-ball metronome", "blurb": "Captain across FOUR straight World Cups (2014-2026). On 148 caps — level with Ali Daei, one shy of Nekounam's all-time record. Every minute edges him toward history." },
+        { "num": "7", "name": "Alireza Jahanbakhsh", "pos": "RW", "age": 32, "club": "FCV Dender (BEL)", "mv": "€500k", "caps": "~100/17", "trait": "Cuts inside, arrives late in the box", "blurb": "Won the 2017-18 Eredivisie Golden Boot (21 goals, AZ) — first Asian EVER to top-score a major European league. Club-record Brighton move followed; titles & a Conference League final at Feyenoord. Frequent Iran captain." },
+        { "num": "14", "name": "Saman Ghoddos", "pos": "AM", "age": 32, "club": "Kalba (UAE)", "mv": "€1.2m", "caps": "70/3", "trait": "Schemer between the lines", "blurb": "Turned down Sweden for Iran. Creative engine of Östersunds' fairytale under a young Graham Potter — won 2-1 at Arsenal's Emirates in 2018. Four years at Brentford." },
+        { "num": "6", "name": "Saeid Ezatolahi", "pos": "DM", "age": 29, "club": "Shabab Al-Ahli (UAE)", "mv": "€1.8m", "caps": "~84/2", "trait": "Towering metronomic shield", "blurb": "Former prodigy — once Iran's youngest-ever scorer (19). Globe-trotter: Atlético Madrid → Rostov → Reading → Dubai. Turned scorer in 2025-26 (5 club goals)." },
+        { "num": "8", "name": "Mohammad Mohebi", "pos": "W/FW", "age": 27, "club": "FC Rostov (RUS)", "mv": "€2.5m", "caps": "39/15", "trait": "Tall inverted winger who cuts in & finishes", "blurb": "2 goals + 2 assists on debut vs Cambodia (2019). The WC is both a stage and a contract audition." },
+        { "num": "9", "name": "Mehdi Taremi", "pos": "ST", "age": 33, "club": "Olympiacos", "mv": "€2.0m", "caps": "~58 in ~103", "trait": "Ice-cold poacher with the audacity to try the spectacular", "blurb": "Iran's talisman & all-time top WC-finals scorer (brace vs England 2022). Made his name at Porto; bicycle kick at Chelsea = UEFA Goal of the Season. Reached the 2024-25 UCL final with Inter (2nd Iranian ever). Iran's penalty taker & focal point." }
+      ],
+      "bench": [
+        { "num": "2", "name": "Saleh Hardani", "pos": "DF", "club": "Esteghlal" },
+        { "num": "5", "name": "Milad Mohammadi", "pos": "DF", "club": "Persepolis" },
+        { "num": "10", "name": "Mehdi Ghayedi", "pos": "FW", "club": "Al Nasr", "note": "Highest squad MV (€4.5m); pocket-sized electric 1v1 winger" },
+        { "num": "11", "name": "Ali Alipour", "pos": "FW", "club": "Persepolis" },
+        { "num": "12", "name": "Payam Niazmand", "pos": "GK", "club": "Persepolis" },
+        { "num": "15", "name": "Rouzbeh Cheshmi", "pos": "MF", "club": "Esteghlal" },
+        { "num": "16", "name": "Mahdi Torabi", "pos": "MF", "club": "Tractor", "note": "Tireless wide man; the face of Iran's visa ordeal" },
+        { "num": "17", "name": "Arya Yousefi", "pos": "DF", "club": "Sepahan" },
+        { "num": "18", "name": "Amirhossein Hosseinzadeh", "pos": "FW", "club": "Tractor", "note": "Converted poacher; 2024-25 Iran league top scorer — fresh attacking spark" },
+        { "num": "20", "name": "Shahriyar Moghanlou", "pos": "FW", "club": "Kalba" },
+        { "num": "21", "name": "Mohammad Ghorbani", "pos": "MF", "club": "Al Wahda" },
+        { "num": "22", "name": "Hossein Hosseini", "pos": "GK", "club": "Sepahan" },
+        { "num": "24", "name": "Dennis Eckert", "pos": "FW", "club": "Standard Liège" },
+        { "num": "25", "name": "Danial Eiri", "pos": "DF", "club": "Malavan" },
+        { "num": "26", "name": "Amirmohammad Razzaghinia", "pos": "MF", "club": "Esteghlal" }
+      ],
+      "doubts": "None reported — squad intact apart from Azmoun's omission.",
+      "notableAbsence": { "name": "Sardar Azmoun", "caps": "91/57", "note": "The 'Iranian Messi', one of Iran's all-time top scorers, LEFT OUT of even the 30-man squad over a political dispute. The ghost at the feast." }
+    }
+  },
+
+  "watch": [
+    { "name": "Mohamed Salah", "team": "Egypt", "club": "Liverpool", "role": "Captain", "blurb": "The main event. One goal from his own coach's all-time Egypt record (69). Almost certainly his last World Cup." },
+    { "name": "Mehdi Taremi", "team": "Iran", "club": "Olympiacos", "role": "Talisman", "blurb": "Iran live or die by his finishing. ~58 goals, brace vs England in 2022, a UCL finalist in 2025." },
+    { "name": "Omar Marmoush", "team": "Egypt", "club": "Man City", "role": "Spearhead", "blurb": "Pace and two-footed finishing — the reason Salah can drift central. Out to rediscover his Frankfurt form." },
+    { "name": "Alireza Beiranvand", "team": "Iran", "club": "Tractor", "role": "Goalkeeper", "blurb": "Folk hero — slept rough as a teen, saved a Ronaldo penalty in 2018, 7 saves vs Belgium. Can steal a tight game alone." },
+    { "name": "Alireza Jahanbakhsh", "team": "Iran", "club": "Dender", "role": "Winger/co-captain", "blurb": "First Asian to win a European league golden boot (Eredivisie 2017-18). Iran's calm head and wide threat." },
+    { "name": "Emam Ashour", "team": "Egypt", "club": "Al Ahly", "role": "Engine", "blurb": "Egypt's box-to-box connector and Salah's most willing runner. Scored vs Belgium." }
+  ],
+
+  "keyBattles": [
+    { "title": "Salah vs Iran's left side", "blurb": "Cutting in off the right, Salah meets a double-team in the low block. Watch if he drifts central to combine with Marmoush rather than forcing the 1v1 — and if RB Hany gets overlap space when Iran narrow." },
+    { "title": "Taremi vs Egypt's centre-backs", "blurb": "The marquee duel. Iran's everything — focal point in open play AND on set pieces, but largely isolated. Watch him drop to drag a CB out; that gap is Iran's best route in." },
+    { "title": "Egypt's double pivot vs Iran's counter-runners", "blurb": "The control battle. Egypt dominate the ball; the instant they lose it, Iran spring Ghoddos & Jahanbakhsh into the space the full-backs vacate. Snuff the first counter pass and Iran starve." },
+    { "title": "Marmoush's pace vs a 30-something back line", "blurb": "Can veteran defenders handle runners in behind for 90 minutes? Late game is where this opens up." }
+  ],
+
+  "setPieces": {
+    "egypt": "Salah is the dead-ball weapon (direct FKs, corners, penalties); Marmoush/Zizo on delivery. Danger is delivery quality + Salah's boot more than a towering target.",
+    "iran": "A clear scoring route. Aerial targets Kanaani & Khalilzadeh plus Taremi attack corners/wide FKs (taken by Ghoddos, Taremi, Hosseinzadeh).",
+    "fanTip": "If it's 0-0 near the hour, treat every Iranian corner or wide free kick as a genuine chance — their most realistic path to a goal."
+  },
+
+  "predictions": {
+    "odds1x2": "Egypt ~+145 · Draw ~+165 · Iran ~+295 (consensus)",
+    "opta": "Egypt 44.1% · Draw 31.3% · Iran 24.6%",
+    "goals": "Every desk leans OVER (1.5-2.5). Iran MUST win, forcing Ghalenoei out of his low block. BTTS lean YES.",
+    "predictedScore": "Egypt 2-1 best estimate; 1-1 strong second (and the result that suits Egypt's math, so they may game-manage). Tail: 1-0 / 0-0.",
+    "rankingTwist": "Iran is actually higher-ranked (FIFA 20 vs 28), yet Egypt are favorites on group position, form and star quality."
+  },
+
+  "venue": {
+    "name": "Lumen Field (FIFA: 'Seattle Stadium')",
+    "capacity": "68,740 (NFL config); opened July 2002",
+    "tenants": "Seattle Seahawks (NFL) & Seattle Sounders (MLS)",
+    "noise": "A 200,000 sq-ft canopy covers ~70% of seats but leaves the field open — engineered as a 'natural megaphone'. FORMER loudest-stadium record holder (137.6 dB vs Saints, 2013); Arrowhead now leads at 142.2.",
+    "the12s": "Jersey #12 retired in 1984 to honor the fans; a flag is raised pre-match.",
+    "wcRole": "Hosts 6 World Cup matches incl. a Round of 32 and Round of 16."
+  },
+
+  "funFacts": [
+    "The 92-year wait: Egypt's 3-1 win over NZ (Jun 21) was their FIRST-EVER WC victory — 92 years and 25 days after their 1934 debut.",
+    "Egypt entered 2026 with a 0-win WC record (7 matches, 0W-2D-5L).",
+    "First-ever COMPETITIVE meeting between the two nations — and Egypt has never beaten Iran in regulation.",
+    "Iran has been eliminated in the group stage at all 7 of its previous World Cups.",
+    "Neither nation has EVER reached a World Cup knockout round — whoever advances tonight makes history.",
+    "Egypt scored the first-ever World Cup goal by an African (Fawzi's brace vs Hungary, 1934) — then waited generations for company.",
+    "Belgium, the group heavyweight, could be eliminated from a group Egypt and Iran survive — an upside-down Group G.",
+    "Two great goalkeeping footnotes meet: El-Hadary (oldest WC player ever, 45, in 2018) and Beiranvand (saved Ronaldo's penalty).",
+    "Salah chases his own coach: Hossam Hassan holds Egypt's 69-goal record; Salah is on 68."
+  ],
+
+  "storylines": [
+    { "title": "Salah vs his own manager's record", "blurb": "Coach Hossam Hassan IS the 69-goal record-holder Salah (68) is chasing — on Hassan's own bench. A goal tonight equals it." },
+    { "title": "Egypt's first knockout berth in 92 years", "blurb": "First Arab/African nation at a World Cup (1934); never advanced. A draw makes history." },
+    { "title": "Iran's geopolitical ordeal", "blurb": "Based in Tijuana; visas ~10 days before the opener, ~15 staff denied entry, a 'matchday-minus-one' US travel rule, and a FIFA complaint. Torabi's visa expired after game one (later reissued)." },
+    { "title": "Hajsafi chasing the cap record", "blurb": "On 148 — tonight equals Nekounam's all-time Iran record of 149, in his fourth World Cup as captain." },
+    { "title": "Beiranvand's redemption arc", "blurb": "The keeper who denied Ronaldo in 2018 was MOTM vs Belgium with 7 saves." }
+  ],
+
+  "offPitch": {
+    "iranTravel": "Based & training in Tijuana, Mexico (moved from a planned Arizona/Tucson camp amid US visa problems). May enter the US only ~24h before a match and must leave right after — declined easing even for these games. Federation filed a FIFA complaint citing discrimination.",
+    "diaspora": "Southern California hosts the largest Iranian community outside Iran ('Tehrangeles'); the June 15 LA opener drew thousands of Iranian-American fans plus several hundred protesters. Seattle-specific turnout: unverified."
+  }
+}
