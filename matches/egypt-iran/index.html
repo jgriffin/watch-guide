@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Egypt vs Iran — 2026 World Cup, Group G decider</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&family=Barlow:wght@400;500;600&display=swap');
+
+  :root{
+    --eg-red:#C8102E; --eg-deep:#8f0a20; --gold:#C39A2B;
+    --ir-grn:#1F9B4E; --ir-deep:#13682f;
+    --ink:#1a1714; --paper:#f6f3ec; --line:#d8d2c4; --muted:#6f675b;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Barlow',sans-serif;background:#26231f;color:var(--ink);padding:18px;line-height:1.32;}
+  .sheet{max-width:920px;margin:0 auto;background:var(--paper);border:1px solid var(--line);box-shadow:0 14px 44px rgba(0,0,0,.5);overflow:hidden;}
+
+  /* HEADER */
+  .top{display:flex;align-items:stretch;color:#f6f3ec;}
+  .top .side{flex:1;padding:13px 18px;}
+  .top .eg{background:linear-gradient(135deg,var(--eg-red),var(--eg-deep));}
+  .top .ir{background:linear-gradient(225deg,var(--ir-grn),var(--ir-deep));text-align:right;}
+  .top .mid{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 14px;min-width:118px;background:var(--ink);}
+  .flag{font-size:12.5px;letter-spacing:.18em;font-family:'Oswald';font-weight:600;opacity:.85;}
+  .nat{font-family:'Oswald';font-weight:700;font-size:27px;line-height:1;text-transform:uppercase;}
+  .sub{font-size:11px;opacity:.82;margin-top:3px;font-family:'Barlow Condensed';letter-spacing:.04em;}
+  .vs{font-family:'Oswald';font-weight:700;font-size:19px;color:var(--gold);}
+  .mid .comp{font-size:9px;letter-spacing:.2em;font-family:'Oswald';opacity:.7;text-align:center;}
+
+  .infobar{display:flex;background:#000;color:#f6f3ec;font-family:'Barlow Condensed';font-size:13px;}
+  .infobar div{padding:6px 14px;border-right:1px solid #2c2c2c;flex:1;text-align:center;white-space:nowrap;}
+  .infobar div:last-child{border-right:none;}
+  .infobar b{color:var(--gold);font-weight:600;letter-spacing:.07em;text-transform:uppercase;font-size:10px;display:block;}
+
+  /* STAKES + TABLE */
+  .strip{display:flex;align-items:stretch;background:var(--gold);color:#241e10;}
+  .strip .msg{flex:1;padding:9px 16px;font-family:'Barlow Condensed';font-size:14px;font-weight:500;align-self:center;}
+  .strip .msg b{font-weight:700;}
+  table.grp{border-collapse:collapse;font-family:'Barlow Condensed';font-size:12px;background:#241e10;color:#f6f3ec;}
+  table.grp th{font-size:9px;letter-spacing:.08em;padding:4px 7px;color:var(--gold);text-transform:uppercase;font-weight:600;}
+  table.grp td{padding:3px 7px;text-align:center;border-top:1px solid #3a3220;}
+  table.grp td.tm{text-align:left;font-weight:600;font-family:'Barlow';font-size:11.5px;}
+  table.grp tr.lead td{color:#ffe9a8;}
+
+  /* TEAM COLUMNS */
+  .cols{display:grid;grid-template-columns:1fr 1fr;}
+  .col{padding:13px 16px;}
+  .col.eg{border-right:2px solid var(--line);}
+  .colhead{display:flex;align-items:baseline;justify-content:space-between;border-bottom:2px solid;padding-bottom:5px;margin-bottom:8px;}
+  .col.eg .colhead{border-color:var(--eg-red);}
+  .col.ir .colhead{border-color:var(--ir-grn);}
+  .colhead h2{font-family:'Oswald';font-size:18px;text-transform:uppercase;letter-spacing:.02em;}
+  .col.eg .colhead h2{color:var(--eg-red);}
+  .col.ir .colhead h2{color:var(--ir-grn);}
+  .form{font-family:'Barlow Condensed';font-size:11.5px;color:var(--muted);letter-spacing:.05em;}
+
+  .xi{list-style:none;}
+  .xi li{display:flex;gap:9px;align-items:center;padding:2.5px 0;border-bottom:1px dotted var(--line);}
+  .xi li:last-child{border-bottom:none;}
+  .num{font-family:'Oswald';font-weight:700;font-size:14px;width:25px;height:23px;display:flex;align-items:center;justify-content:center;color:#fff;border-radius:3px;flex-shrink:0;}
+  .col.eg .num{background:var(--eg-red);}
+  .col.ir .num{background:var(--ir-grn);}
+  .num.gk{background:#444 !important;}
+  .pname{font-weight:600;font-size:12.5px;}
+  .pclub{color:var(--muted);font-size:10.5px;font-family:'Barlow Condensed';margin-left:auto;text-align:right;letter-spacing:.02em;white-space:nowrap;}
+  .cap{color:var(--gold);font-weight:700;font-size:9px;vertical-align:super;margin-left:1px;}
+
+  .note{font-size:10px;color:var(--muted);font-style:italic;margin-top:6px;line-height:1.3;}
+
+  /* ROAD HERE */
+  .road{background:var(--ink);color:#ece5d8;padding:13px 18px;}
+  .road h3{font-family:'Oswald';font-size:12px;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;margin-bottom:9px;text-align:center;}
+  .roadgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .rh{font-family:'Oswald';font-size:13px;text-transform:uppercase;letter-spacing:.03em;margin-bottom:5px;}
+  .rh.e{color:#ff8e9e;} .rh.i{color:#7fdca0;}
+  .game{display:flex;gap:8px;margin-bottom:6px;font-size:11.5px;line-height:1.32;}
+  .score{font-family:'Oswald';font-weight:700;font-size:11px;padding:2px 6px;border-radius:3px;height:fit-content;white-space:nowrap;flex-shrink:0;color:#fff;}
+  .score.w{background:#2c5e38;} .score.l{background:#6e2530;} .score.d{background:#5a5036;}
+  .game .gt{color:#cfc7b8;}
+  .game .gt b{color:#fff;font-weight:600;}
+  .game .gt small{display:block;color:#a89f8e;font-size:10px;font-style:italic;}
+  .game .gt .dt{color:#fff;font-weight:600;}
+
+  /* WATCH */
+  .watch{padding:13px 18px;}
+  .watch h3{font-family:'Oswald';font-size:12px;letter-spacing:.2em;color:var(--eg-red);text-transform:uppercase;margin-bottom:9px;}
+  .wgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 22px;}
+  .star{display:flex;gap:9px;}
+  .star .wn{font-family:'Oswald';font-weight:700;font-size:15px;width:30px;height:28px;display:flex;align-items:center;justify-content:center;border-radius:3px;color:#fff;flex-shrink:0;}
+  .wn.e{background:var(--eg-red);} .wn.i{background:var(--ir-grn);}
+  .star .nm{font-family:'Oswald';font-size:13.5px;font-weight:600;line-height:1.05;}
+  .star .meta{font-size:9.5px;color:var(--muted);font-family:'Barlow Condensed';letter-spacing:.03em;text-transform:uppercase;margin-bottom:2px;}
+  .star .blurb{font-size:11px;line-height:1.32;}
+  .star b{font-weight:600;}
+  .wgroup{margin-bottom:12px;}
+  .wgroup:last-child{margin-bottom:0;}
+  .wteam{font-family:'Oswald';font-size:11px;text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;padding-bottom:3px;border-bottom:2px solid;}
+  .wteam.e{color:var(--eg-red);border-color:var(--eg-red);}
+  .wteam.i{color:var(--ir-grn);border-color:var(--ir-grn);}
+
+  /* NEXT */
+  .next{background:#efe9dc;padding:12px 18px;border-top:1px solid var(--line);}
+  .next h3{font-family:'Oswald';font-size:12px;letter-spacing:.2em;color:var(--ir-grn);text-transform:uppercase;margin-bottom:7px;}
+  .next .ng{columns:2;column-gap:24px;}
+  .next p{font-size:11px;margin-bottom:6px;break-inside:avoid;line-height:1.36;padding-left:13px;position:relative;}
+  .next p::before{content:"\25B8";position:absolute;left:0;color:var(--gold);font-size:9px;top:2px;}
+  .next b{font-weight:600;}
+
+  /* WHAT TO WATCH FOR */
+  .wtw{padding:13px 18px;border-top:1px solid var(--line);}
+  .wtw h3{font-family:'Oswald';font-size:12px;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;margin-bottom:9px;}
+  .battles{columns:2;column-gap:24px;}
+  .battle{font-size:11px;line-height:1.36;margin-bottom:8px;break-inside:avoid;}
+  .battle .bt{font-family:'Oswald';font-weight:600;font-size:11.5px;text-transform:uppercase;letter-spacing:.02em;color:var(--ink);display:block;margin-bottom:1px;}
+  .tip{margin-top:6px;background:#efe9dc;border-left:3px solid var(--gold);padding:8px 11px;font-size:11.5px;font-family:'Barlow Condensed';line-height:1.4;}
+  .tip b{font-family:'Barlow';font-weight:600;color:#241e10;}
+  .deadball{margin-top:7px;font-size:10.5px;color:var(--muted);line-height:1.4;font-family:'Barlow Condensed';}
+  .deadball b{color:var(--ink);font-weight:600;text-transform:uppercase;letter-spacing:.03em;font-size:9.5px;}
+
+  /* LINEUPS */
+  .rtitle{font-family:'Oswald';font-size:12px;letter-spacing:.2em;color:var(--ink);text-transform:uppercase;text-align:center;padding:13px 18px 0;}
+  .rsub{font-family:'Oswald';font-size:9.5px;letter-spacing:.13em;color:var(--muted);text-transform:uppercase;margin:9px 0 3px;}
+  .rsub:first-child{margin-top:0;}
+
+  .foot{background:var(--ink);color:#9a9081;font-size:9.5px;text-align:center;padding:7px;font-family:'Barlow Condensed';letter-spacing:.05em;}
+  .foot span{color:var(--gold);}
+
+  @media (max-width:680px){
+    body{padding:7px;}
+    .wgrid,.roadgrid,.next .ng,.battles{grid-template-columns:1fr;columns:1;}
+    .nat{font-size:22px;}
+    .pclub{font-size:10px;}
+  }
+  @media print{body{background:#fff;padding:0;}.sheet{box-shadow:none;border:none;}@page{margin:7mm;}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="top">
+    <div class="side eg">
+      <div class="flag">🇪🇬 EGYPT</div>
+      <div class="nat">The Pharaohs</div>
+      <div class="sub">FIFA #29 · Coach: Hossam Hassan · 4-2-3-1</div>
+    </div>
+    <div class="mid">
+      <div class="comp">GROUP&nbsp;G · R3</div>
+      <div class="vs">V</div>
+      <div class="comp">WORLD&nbsp;CUP&nbsp;'26</div>
+    </div>
+    <div class="side ir">
+      <div class="flag">IRAN 🇮🇷</div>
+      <div class="nat">Team Melli</div>
+      <div class="sub">Back-five low block · Coach: Amir Ghalenoei · FIFA #21</div>
+    </div>
+  </div>
+
+  <div class="infobar">
+    <div><b>Venue</b>Lumen Field, Seattle</div>
+    <div><b>Kickoff</b>Fri 8:00 PM PDT</div>
+    <div><b>TV</b>FS1 / Universo</div>
+    <div><b>Referee</b>S. Marciniak (POL)</div>
+  </div>
+
+  <div class="strip">
+    <div class="msg"><b>Neither nation has EVER reached a World Cup knockout round</b> — one of them ends a 90-year wait tonight. A <b>draw sends Egypt through</b>; Iran realistically <b>need to win.</b> Opta: Egypt 44% · Draw 31% · Iran 25%.</div>
+    <table class="grp">
+      <tr><th>Group G</th><th>P</th><th>Pts</th><th>GD</th></tr>
+      <tr class="lead"><td class="tm">Egypt</td><td>2</td><td>4</td><td>+2</td></tr>
+      <tr><td class="tm">Iran</td><td>2</td><td>2</td><td>0</td></tr>
+      <tr><td class="tm">Belgium</td><td>2</td><td>2</td><td>0</td></tr>
+      <tr><td class="tm">New Zealand</td><td>2</td><td>1</td><td>&minus;2</td></tr>
+    </table>
+  </div>
+
+  <div class="road">
+    <h3>How They Got Here · Group G So Far</h3>
+    <div class="roadgrid">
+      <div>
+        <div class="rh e">Egypt</div>
+        <div class="game"><span class="score d">1&ndash;1</span><span class="gt"><span class="dt">Jun 15</span> · vs Belgium</span></div>
+        <div class="game"><span class="score w">3&ndash;1</span><span class="gt"><span class="dt">Jun 21</span> · vs New Zealand<small>Egypt's first-ever World Cup win — 92 years after their 1934 debut</small></span></div>
+      </div>
+      <div>
+        <div class="rh i">Iran</div>
+        <div class="game"><span class="score d">2&ndash;2</span><span class="gt"><span class="dt">Jun 15</span> · vs New Zealand</span></div>
+        <div class="game"><span class="score d">0&ndash;0</span><span class="gt"><span class="dt">Jun 21</span> · vs Belgium<small>Beiranvand MOTM, 7 saves — the low block holds</small></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="next">
+    <h3>What's At Stake &amp; What's Next</h3>
+    <div class="ng">
+      <p><b>Egypt:</b> Win = group winners + first knockout berth in their history. Draw = still advances (top two), barring a wild New Zealand swing — the only "unless Belgium win big" caveat decides 1st vs 2nd, not survival. Lose = scoreboard-watch Vancouver.</p>
+      <p><b>Iran:</b> Win = essentially through (~5 pts), and tops the group if Belgium don't win. Draw leaves them on 3, likely needing best-third math (8 of 12 thirds advance) plus the NZ–Belgium result. Lose = out.</p>
+      <p><b>Played in parallel:</b> New Zealand vs Belgium (Vancouver) kicks off at the same moment — both Group G games are simultaneous.</p>
+      <p><b>Fan shortcut:</b> Egypt fans only need Vancouver if Iran are winning here. Iran fans: win and you're in.</p>
+      <p><b>Salah vs the record-holder on his own bench:</b> coach Hossam Hassan holds Egypt's all-time scoring record (69); Salah is on 68. A goal tonight equals his manager.</p>
+      <p><b>To top the group (Opta):</b> Egypt 61% · Belgium 27% · Iran 11%.</p>
+    </div>
+  </div>
+
+  <div class="wtw">
+    <h3>What To Watch For</h3>
+    <div class="battles">
+      <div class="battle"><span class="bt">Salah (central No.10) vs Ezatolahi</span>Hossam Hassan has moved Salah off the wing into the centre — 1 goal + 2 assists already in the role. Iran's holding midfielder Saeid Ezatolahi screens exactly the pockets Salah now haunts. The game's most dangerous player vs the man tasked with erasing him.</div>
+      <div class="battle"><span class="bt">Taremi vs Egypt's reshuffled CBs</span>With Hamdy Fathy injured, Egypt patch their back line (Yasser Ibrahim / Ramy Rabia). Taremi lives on runs in behind and 1v1 finishing — and is a noted penalty-winner. Egypt must stay disciplined; one lapse is Iran's whole game plan.</div>
+      <div class="battle"><span class="bt">Marmoush's pace vs Iran's veteran back line</span>Iran started the oldest XI in World Cup history last time out. Marmoush running in transition at a back three RotoWire flatly calls slow is Egypt's clearest route to a goal — especially late.</div>
+      <div class="battle"><span class="bt">Egypt's pivot vs Iran's counters</span>Attia &amp; Lasheen must win second balls and snuff the first counter-pass. Lose the ball cheaply and Iran spring Jahanbakhsh &amp; Mohebi into the space the full-backs vacate — Iran's only real way through.</div>
+    </div>
+    <div class="deadball"><b>Egypt dead-ball:</b> Salah is the hub — direct free kicks, corners and penalties; Marmoush and Zizo also deliver. Threat is delivery quality and Salah's right boot more than aerial size.<br><b>Iran dead-ball:</b> their most realistic goal source. Corners from Ghoddos/Hosseinzadeh, free kicks from Taremi &amp; Ghoddos, penalties Taremi. A tall, experienced squad that backs itself in the box — and Beiranvand's long throw is a bonus attacking outlet.</div>
+    <div class="tip"><b>Set-piece tip:</b> if it's level near the hour, treat every Iranian corner or wide free kick as a genuine chance — it's the likeliest way this game's deadlock breaks.</div>
+  </div>
+
+  <div class="watch">
+    <h3>&#9733; The Names You'll Hear Most &#9733;</h3>
+    <div class="wgroup"><div class="wteam e">Egypt</div><div class="wgrid">
+      <div class="star"><span class="wn e">10</span><div><div class="nm">Mohamed Salah</div><div class="meta">Egypt · Liverpool · Captain</div><div class="blurb">The main event, now playing a central No.10. On <b>68</b> international goals — one shy of coach Hossam Hassan's all-time record (69). At 34, almost certainly his final World Cup.</div></div></div>
+      <div class="star"><span class="wn e">22</span><div><div class="nm">Omar Marmoush</div><div class="meta">Egypt · Man City · Second forward</div><div class="blurb">Egypt's pace-and-pressing foil to Salah. Broke out at Frankfurt, then a Jan-2025 City move; quieter since, but the man most likely to punish a slow back line.</div></div></div>
+      <div class="star"><span class="wn e">19</span><div><div class="nm">Marwan Attia</div><div class="meta">Egypt · Al Ahly · Holding mid</div><div class="blurb">The unsung anchor: screens the CBs and kills counters, freeing Ashour and the wide men to push on. Even more vital with Fathy injured.</div></div></div>
+    </div></div>
+    <div class="wgroup"><div class="wteam i">Iran</div><div class="wgrid">
+      <div class="star"><span class="wn i">9</span><div><div class="nm">Mehdi Taremi</div><div class="meta">Iran · Olympiacos · Captain (on pitch)</div><div class="blurb">Iran's sole reliable goal threat after Azmoun's exclusion. ~58 goals in ~103 caps, a UCL finalist in 2025; designated free-kick and penalty taker. Yet to score this tournament.</div></div></div>
+      <div class="star"><span class="wn i">1</span><div><div class="nm">Alireza Beiranvand</div><div class="meta">Iran · Tractor · Goalkeeper</div><div class="blurb">Folk hero at a third straight World Cup. Saved a Ronaldo penalty in 2018; MOTM with 7 saves vs Belgium. Can steal a tight game on his own.</div></div></div>
+      <div class="star"><span class="wn i">7</span><div><div class="nm">Alireza Jahanbakhsh</div><div class="meta">Iran · Dender (BEL) · Winger / co-captain</div><div class="blurb">First Asian player to top-score a major European league (Eredivisie 2017-18, 21 goals, AZ Alkmaar). Iran's calm head and main wide threat on the break.</div></div></div>
+    </div></div>
+  </div>
+
+  <div class="rtitle">The Lineups · By The Numbers</div>
+  <div class="cols">
+    <div class="col eg">
+      <div class="colhead"><h2>Egypt</h2><span class="form">4-2-3-1 · in form, the group's only winner</span></div>
+      <div class="rsub">Predicted Starters</div>
+      <ul class="xi">
+        <li><span class="num">2</span><span class="pname">Yasser Ibrahim</span><span class="pclub">Al Ahly</span></li>
+        <li><span class="num">3</span><span class="pname">Mohamed Hany</span><span class="pclub">Al Ahly</span></li>
+        <li><span class="num">5</span><span class="pname">Ramy Rabia</span><span class="pclub">Al Ain (UAE)</span></li>
+        <li><span class="num">8</span><span class="pname">Emam Ashour</span><span class="pclub">Al Ahly</span></li>
+        <li><span class="num">10</span><span class="pname">Mohamed Salah<span class="cap">C</span></span><span class="pclub">Liverpool</span></li>
+        <li><span class="num">13</span><span class="pname">Ahmed Fatouh</span><span class="pclub">Zamalek</span></li>
+        <li><span class="num">17</span><span class="pname">Mohanad Lasheen</span><span class="pclub">Pyramids FC</span></li>
+        <li><span class="num">19</span><span class="pname">Marwan Attia</span><span class="pclub">Al Ahly</span></li>
+        <li><span class="num">22</span><span class="pname">Omar Marmoush</span><span class="pclub">Manchester City</span></li>
+        <li><span class="num gk">23</span><span class="pname">Mostafa Shobeir</span><span class="pclub">Al Ahly</span></li>
+        <li><span class="num">25</span><span class="pname">Zizo (Ahmed Sayed)</span><span class="pclub">Al Ahly</span></li>
+      </ul>
+      <div class="rsub">Bench</div>
+      <ul class="xi">
+        <li><span class="num gk">1</span><span class="pname">Mohamed El Shenawy</span><span class="pclub">Al Ahly</span></li>
+        <li><span class="num">4</span><span class="pname">Hossam Abdelmaguid</span><span class="pclub">Zamalek</span></li>
+        <li><span class="num">6</span><span class="pname">Mohamed Abdelmonem</span><span class="pclub">Nice</span></li>
+        <li><span class="num">7</span><span class="pname">Trézéguet</span><span class="pclub">Al Ahly</span></li>
+        <li><span class="num">9</span><span class="pname">Hamza Abdelkarim</span><span class="pclub">Barcelona B</span></li>
+        <li><span class="num">11</span><span class="pname">Mostafa Ziko</span><span class="pclub">Pyramids FC</span></li>
+        <li><span class="num">12</span><span class="pname">Haissem Hassan</span><span class="pclub">Real Oviedo</span></li>
+        <li><span class="num">14</span><span class="pname">Hamdy Fathy</span><span class="pclub">Al-Wakrah (QAT)</span></li>
+        <li><span class="num">15</span><span class="pname">Karim Hafez</span><span class="pclub">Pyramids FC</span></li>
+        <li><span class="num gk">16</span><span class="pname">El Mahdy Soliman</span><span class="pclub">Zamalek</span></li>
+        <li><span class="num">18</span><span class="pname">Nabil Emad</span><span class="pclub">Al-Najma (KSA)</span></li>
+        <li><span class="num">20</span><span class="pname">Ibrahim Adel</span><span class="pclub">Nordsjælland</span></li>
+        <li><span class="num">21</span><span class="pname">Mahmoud Saber</span><span class="pclub">ZED FC</span></li>
+        <li><span class="num">24</span><span class="pname">Tarek Alaa</span><span class="pclub">ZED FC</span></li>
+        <li><span class="num gk">26</span><span class="pname">Mohamed Alaa</span><span class="pclub">El Gouna</span></li>
+      </ul>
+      <div class="note">Fathy (hamstring) out; Rabia comes in. Long-time No.1 El Shenawy may yield to Shobeir per pre-match previews — confirmed XI ~1hr before KO.</div>
+    </div>
+    <div class="col ir">
+      <div class="colhead"><h2>Iran</h2><span class="form">deep block + counter · bottom of group for shots</span></div>
+      <div class="rsub">Predicted Starters</div>
+      <ul class="xi">
+        <li><span class="num gk">1</span><span class="pname">Alireza Beiranvand</span><span class="pclub">Tractor</span></li>
+        <li><span class="num">3</span><span class="pname">Ehsan Hajsafi<span class="cap">C</span></span><span class="pclub">Sepahan</span></li>
+        <li><span class="num">4</span><span class="pname">Shojae Khalilzadeh</span><span class="pclub">Tractor</span></li>
+        <li><span class="num">6</span><span class="pname">Saeid Ezatolahi</span><span class="pclub">Shabab Al-Ahli (UAE)</span></li>
+        <li><span class="num">7</span><span class="pname">Alireza Jahanbakhsh</span><span class="pclub">Dender (BEL)</span></li>
+        <li><span class="num">8</span><span class="pname">Mohammad Mohebi</span><span class="pclub">Rostov (RUS)</span></li>
+        <li><span class="num">9</span><span class="pname">Mehdi Taremi</span><span class="pclub">Olympiacos</span></li>
+        <li><span class="num">13</span><span class="pname">Hossein Kanaanizadegan</span><span class="pclub">Persepolis</span></li>
+        <li><span class="num">14</span><span class="pname">Saman Ghoddos</span><span class="pclub">Kalba (UAE)</span></li>
+        <li><span class="num">19</span><span class="pname">Ali Nemati</span><span class="pclub">Foolad</span></li>
+        <li><span class="num">23</span><span class="pname">Ramin Rezaeian</span><span class="pclub">Foolad</span></li>
+      </ul>
+      <div class="rsub">Bench</div>
+      <ul class="xi">
+        <li><span class="num">2</span><span class="pname">Saleh Hardani</span><span class="pclub">Esteghlal</span></li>
+        <li><span class="num">5</span><span class="pname">Milad Mohammadi</span><span class="pclub">Persepolis</span></li>
+        <li><span class="num">10</span><span class="pname">Mehdi Ghayedi</span><span class="pclub">Al Nasr (UAE)</span></li>
+        <li><span class="num">11</span><span class="pname">Ali Alipour</span><span class="pclub">Persepolis</span></li>
+        <li><span class="num gk">12</span><span class="pname">Payam Niazmand</span><span class="pclub">Persepolis</span></li>
+        <li><span class="num">15</span><span class="pname">Rouzbeh Cheshmi</span><span class="pclub">Esteghlal</span></li>
+        <li><span class="num">16</span><span class="pname">Mahdi Torabi</span><span class="pclub">Tractor</span></li>
+        <li><span class="num">17</span><span class="pname">Arya Yousefi</span><span class="pclub">Sepahan</span></li>
+        <li><span class="num">18</span><span class="pname">Amirhossein Hosseinzadeh</span><span class="pclub">Tractor</span></li>
+        <li><span class="num">20</span><span class="pname">Shahriyar Moghanlou</span><span class="pclub">Kalba (UAE)</span></li>
+        <li><span class="num">21</span><span class="pname">Mohammad Ghorbani</span><span class="pclub">Al Wahda (UAE)</span></li>
+        <li><span class="num gk">22</span><span class="pname">Hossein Hosseini</span><span class="pclub">Sepahan</span></li>
+        <li><span class="num">24</span><span class="pname">Dennis Eckert</span><span class="pclub">Standard Liège</span></li>
+        <li><span class="num">25</span><span class="pname">Danial Eiri</span><span class="pclub">Malavan</span></li>
+        <li><span class="num">26</span><span class="pname">Amirmohammad Razzaghinia</span><span class="pclub">Esteghlal</span></li>
+      </ul>
+      <div class="note">Shape unresolved: previews split between a 3-4-3 and a 5-4-1 / back-five — the same setup that held Belgium 0-0. Either way it's a low block built to counter through Taremi.</div>
+    </div>
+  </div>
+
+  <div class="foot">
+    Pre-match guide · predicted XIs (confirmed lineups drop ~1hr before kickoff). <span>Squad numbers: official 2026 WC tournament numbers (Wikipedia). Previews: Al Jazeera · ESPN · Sports Illustrated · Opta/RotoWire.</span>
+  </div>
+
+</div>
+</body>
+</html>

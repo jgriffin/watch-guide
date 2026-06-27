@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spain vs Uruguay — 2026 World Cup, Group H decider</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&family=Barlow:wght@400;500;600&display=swap');
+
+  :root{
+    --sp-red:#C8102E; --sp-deep:#8f0a1e; --gold:#C39A2B;
+    --uy-blue:#5BA4CF; --uy-deep:#1A3B6E;
+    --ink:#1a1714; --paper:#f6f3ec; --line:#d8d2c4; --muted:#6f675b;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Barlow',sans-serif;background:#26231f;color:var(--ink);padding:18px;line-height:1.32;}
+  .sheet{max-width:920px;margin:0 auto;background:var(--paper);border:1px solid var(--line);box-shadow:0 14px 44px rgba(0,0,0,.5);overflow:hidden;}
+
+  /* HEADER */
+  .top{display:flex;align-items:stretch;color:#f6f3ec;}
+  .top .side{flex:1;padding:13px 18px;}
+  .top .sp{background:linear-gradient(135deg,var(--sp-red),var(--sp-deep));}
+  .top .uy{background:linear-gradient(225deg,var(--uy-blue),var(--uy-deep));text-align:right;}
+  .top .mid{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 14px;min-width:118px;background:var(--ink);}
+  .flag{font-size:12.5px;letter-spacing:.18em;font-family:'Oswald';font-weight:600;opacity:.85;}
+  .nat{font-family:'Oswald';font-weight:700;font-size:27px;line-height:1;text-transform:uppercase;}
+  .sub{font-size:11px;opacity:.82;margin-top:3px;font-family:'Barlow Condensed';letter-spacing:.04em;}
+  .vs{font-family:'Oswald';font-weight:700;font-size:19px;color:var(--gold);}
+  .mid .comp{font-size:9px;letter-spacing:.2em;font-family:'Oswald';opacity:.7;text-align:center;}
+
+  .infobar{display:flex;background:#000;color:#f6f3ec;font-family:'Barlow Condensed';font-size:13px;}
+  .infobar div{padding:6px 14px;border-right:1px solid #2c2c2c;flex:1;text-align:center;white-space:nowrap;}
+  .infobar div:last-child{border-right:none;}
+  .infobar b{color:var(--gold);font-weight:600;letter-spacing:.07em;text-transform:uppercase;font-size:10px;display:block;}
+
+  /* STAKES + TABLE */
+  .strip{display:flex;align-items:stretch;background:var(--gold);color:#241e10;}
+  .strip .msg{flex:1;padding:9px 16px;font-family:'Barlow Condensed';font-size:14px;font-weight:500;align-self:center;}
+  .strip .msg b{font-weight:700;}
+  table.grp{border-collapse:collapse;font-family:'Barlow Condensed';font-size:12px;background:#241e10;color:#f6f3ec;}
+  table.grp th{font-size:9px;letter-spacing:.08em;padding:4px 7px;color:var(--gold);text-transform:uppercase;font-weight:600;}
+  table.grp td{padding:3px 7px;text-align:center;border-top:1px solid #3a3220;}
+  table.grp td.tm{text-align:left;font-weight:600;font-family:'Barlow';font-size:11.5px;}
+  table.grp tr.lead td{color:#ffe9a8;}
+
+  /* TEAM COLUMNS */
+  .cols{display:grid;grid-template-columns:1fr 1fr;}
+  .col{padding:13px 16px;}
+  .col.sp{border-right:2px solid var(--line);}
+  .colhead{display:flex;align-items:baseline;justify-content:space-between;border-bottom:2px solid;padding-bottom:5px;margin-bottom:8px;}
+  .col.sp .colhead{border-color:var(--sp-red);}
+  .col.uy .colhead{border-color:var(--uy-blue);}
+  .colhead h2{font-family:'Oswald';font-size:18px;text-transform:uppercase;letter-spacing:.02em;}
+  .col.sp .colhead h2{color:var(--sp-red);}
+  .col.uy .colhead h2{color:var(--uy-blue);}
+  .form{font-family:'Barlow Condensed';font-size:11.5px;color:var(--muted);letter-spacing:.05em;}
+
+  .xi{list-style:none;}
+  .xi li{display:flex;gap:9px;align-items:center;padding:2.5px 0;border-bottom:1px dotted var(--line);}
+  .xi li:last-child{border-bottom:none;}
+  .num{font-family:'Oswald';font-weight:700;font-size:14px;width:25px;height:23px;display:flex;align-items:center;justify-content:center;color:#fff;border-radius:3px;flex-shrink:0;}
+  .col.sp .num{background:var(--sp-red);}
+  .col.uy .num{background:var(--uy-blue);}
+  .num.gk{background:#444 !important;}
+  .pname{font-weight:600;font-size:12.5px;}
+  .pclub{color:var(--muted);font-size:10.5px;font-family:'Barlow Condensed';margin-left:auto;text-align:right;letter-spacing:.02em;white-space:nowrap;}
+  .cap{color:var(--gold);font-weight:700;font-size:9px;vertical-align:super;margin-left:1px;}
+
+  .bench{margin-top:9px;background:#efe9dc;border-left:3px solid var(--gold);padding:7px 9px;}
+  .bench h4{font-family:'Oswald';font-size:9.5px;letter-spacing:.13em;color:var(--muted);text-transform:uppercase;margin-bottom:4px;}
+  .bench p{font-size:11px;line-height:1.45;}
+  .bench .bn{font-family:'Oswald';font-weight:600;font-size:11px;color:var(--ink);background:#ddd5c4;padding:0 4px;border-radius:2px;margin-right:1px;}
+  .note{font-size:10px;color:var(--muted);font-style:italic;margin-top:6px;line-height:1.3;}
+
+  /* ROAD HERE */
+  .road{background:var(--ink);color:#ece5d8;padding:13px 18px;}
+  .road h3{font-family:'Oswald';font-size:12px;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;margin-bottom:9px;text-align:center;}
+  .roadgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .rh{font-family:'Oswald';font-size:13px;text-transform:uppercase;letter-spacing:.03em;margin-bottom:5px;}
+  .rh.s{color:#ff8e9e;} .rh.u{color:#9dd4f7;}
+  .game{display:flex;gap:8px;margin-bottom:6px;font-size:11.5px;line-height:1.32;}
+  .score{font-family:'Oswald';font-weight:700;font-size:11px;padding:2px 6px;border-radius:3px;height:fit-content;white-space:nowrap;flex-shrink:0;color:#fff;}
+  .score.w{background:#2c5e38;} .score.l{background:#6e2530;} .score.d{background:#5a5036;}
+  .game .gt{color:#cfc7b8;}
+  .game .gt b{color:#fff;font-weight:600;}
+  .game .gt small{display:block;color:#a89f8e;font-size:10px;font-style:italic;}
+  .game .gt .dt{color:#fff;font-weight:600;}
+
+  /* WATCH */
+  .watch{padding:13px 18px;}
+  .watch h3{font-family:'Oswald';font-size:12px;letter-spacing:.2em;color:var(--sp-red);text-transform:uppercase;margin-bottom:9px;}
+
+  /* NAMES / STARS */
+  .wgroup{margin-bottom:12px;}
+  .wgroup:last-child{margin-bottom:0;}
+  .wteam{font-family:'Oswald';font-size:11px;text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;padding-bottom:3px;border-bottom:2px solid;}
+  .wteam.s{color:var(--sp-red);border-color:var(--sp-red);}
+  .wteam.u{color:var(--uy-blue);border-color:var(--uy-blue);}
+  .wgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 22px;}
+  .star{display:flex;gap:9px;}
+  .star .wn{font-family:'Oswald';font-weight:700;font-size:15px;width:30px;height:28px;display:flex;align-items:center;justify-content:center;border-radius:3px;color:#fff;flex-shrink:0;}
+  .wn.s{background:var(--sp-red);} .wn.u{background:var(--uy-blue);}
+  .star .nm{font-family:'Oswald';font-size:13.5px;font-weight:600;line-height:1.05;}
+  .star .meta{font-size:9.5px;color:var(--muted);font-family:'Barlow Condensed';letter-spacing:.03em;text-transform:uppercase;margin-bottom:2px;}
+  .star .blurb{font-size:11px;line-height:1.32;}
+  .star b{font-weight:600;}
+
+  /* NEXT */
+  .next{background:#efe9dc;padding:12px 18px;border-top:1px solid var(--line);}
+  .next h3{font-family:'Oswald';font-size:12px;letter-spacing:.2em;color:var(--uy-blue);text-transform:uppercase;margin-bottom:7px;}
+  .next .ng{columns:2;column-gap:24px;}
+  .next p{font-size:11px;margin-bottom:6px;break-inside:avoid;line-height:1.36;padding-left:13px;position:relative;}
+  .next p::before{content:"\25B8";position:absolute;left:0;color:var(--gold);font-size:9px;top:2px;}
+  .next b{font-weight:600;}
+
+  /* WHAT TO WATCH FOR */
+  .wtw{padding:13px 18px;border-top:1px solid var(--line);}
+  .wtw h3{font-family:'Oswald';font-size:12px;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;margin-bottom:9px;}
+  .battles{columns:2;column-gap:24px;}
+  .battle{font-size:11px;line-height:1.36;margin-bottom:8px;break-inside:avoid;}
+  .battle .bt{font-family:'Oswald';font-weight:600;font-size:11.5px;text-transform:uppercase;letter-spacing:.02em;color:var(--ink);display:block;margin-bottom:1px;}
+  .tip{margin-top:6px;background:#efe9dc;border-left:3px solid var(--gold);padding:8px 11px;font-size:11.5px;font-family:'Barlow Condensed';line-height:1.4;}
+  .tip b{font-family:'Barlow';font-weight:600;color:#241e10;}
+  .deadball{margin-top:7px;font-size:10.5px;color:var(--muted);line-height:1.4;font-family:'Barlow Condensed';}
+  .deadball b{color:var(--ink);font-weight:600;text-transform:uppercase;letter-spacing:.03em;font-size:9.5px;}
+
+  /* LINEUPS */
+  .rtitle{font-family:'Oswald';font-size:12px;letter-spacing:.2em;color:var(--ink);text-transform:uppercase;text-align:center;padding:13px 18px 0;}
+  .rsub{font-family:'Oswald';font-size:9.5px;letter-spacing:.13em;color:var(--muted);text-transform:uppercase;margin:9px 0 3px;}
+  .rsub:first-child{margin-top:0;}
+
+  .foot{background:var(--ink);color:#9a9081;font-size:9.5px;text-align:center;padding:7px;font-family:'Barlow Condensed';letter-spacing:.05em;}
+  .foot span{color:var(--gold);}
+
+  @media (max-width:680px){
+    body{padding:7px;}
+    .wgrid,.roadgrid,.next .ng,.battles{grid-template-columns:1fr;columns:1;}
+    .nat{font-size:22px;}
+    .pclub{font-size:10px;}
+  }
+  @media print{body{background:#fff;padding:0;}.sheet{box-shadow:none;border:none;}@page{margin:7mm;}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <!-- HEADER -->
+  <div class="top">
+    <div class="side sp">
+      <div class="flag">🇪🇸 ESP</div>
+      <div class="nat">Spain</div>
+      <div class="sub">La Roja · FIFA #2 · Coach: Luis de la Fuente</div>
+      <div class="sub" style="margin-top:5px;">4-3-3 &nbsp;·&nbsp; W1 D1 L0 (+4 GD)</div>
+    </div>
+    <div class="mid">
+      <div class="comp">2026 FIFA WORLD CUP</div>
+      <div class="vs" style="margin:6px 0 2px;">VS</div>
+      <div class="comp">GROUP H · MATCH 66</div>
+      <div class="comp" style="margin-top:5px;font-size:8px;opacity:.55;">ROUND 3 · DECIDER</div>
+    </div>
+    <div class="side uy">
+      <div class="flag" style="justify-content:flex-end;display:flex;">URY 🇺🇾</div>
+      <div class="nat">Uruguay</div>
+      <div class="sub">La Celeste · FIFA #16 · Coach: Marcelo Bielsa</div>
+      <div class="sub" style="margin-top:5px;">4-2-3-1 &nbsp;·&nbsp; W0 D2 L0 (0 GD)</div>
+    </div>
+  </div>
+
+  <!-- INFOBAR -->
+  <div class="infobar">
+    <div><b>Venue</b>Estadio Akron, Guadalajara MX</div>
+    <div><b>Kickoff</b>6 PM local · 8 PM ET · 5 PM PT</div>
+    <div><b>TV</b>Fox / FS1 · Universo / Peacock</div>
+    <div><b>Referee</b>Ismail Elfath (USA)</div>
+  </div>
+
+  <!-- STAKES STRIP + GROUP TABLE -->
+  <div class="strip">
+    <div class="msg">
+      <b>Final round — both games simultaneous.</b> Spain (4 pts) already on the brink of qualification; Uruguay (2 pts) must not slip up with Cape Verde (also 2 pts) playing Saudi Arabia at the same time. The knockout stage is one result away for La Roja — and a matter of life and death for La Celeste.
+    </div>
+    <table class="grp">
+      <thead><tr><th>Team</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GD</th><th>Pts</th></tr></thead>
+      <tbody>
+        <tr class="lead"><td class="tm">🇪🇸 Spain</td><td>2</td><td>1</td><td>1</td><td>0</td><td>+4</td><td>4</td></tr>
+        <tr><td class="tm">🇺🇾 Uruguay</td><td>2</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
+        <tr><td class="tm">🇨🇻 Cape Verde</td><td>2</td><td>0</td><td>2</td><td>0</td><td>0</td><td>2</td></tr>
+        <tr><td class="tm">🇸🇦 Saudi Arabia</td><td>2</td><td>0</td><td>1</td><td>1</td><td>−4</td><td>1</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- HOW THEY GOT HERE -->
+  <div class="road">
+    <h3>How They Got Here</h3>
+    <div class="roadgrid">
+      <div>
+        <div class="rh s">Spain</div>
+        <div class="game">
+          <span class="score d">0–0</span>
+          <div class="gt">
+            <span class="dt">Jun 15 · vs Cape Verde</span>
+            <small>Shocked by tournament debutants. Goalkeeper Vozinha MOTM. Spain dominated possession but couldn't find the net — early alarm bells.</small>
+          </div>
+        </div>
+        <div class="game">
+          <span class="score w">4–0</span>
+          <div class="gt">
+            <span class="dt">Jun 21 · vs Saudi Arabia</span>
+            <small>Yamal 10' · Oyarzabal 21', 24' · OG 49'. Statement win. Oyarzabal's quick double settled it early. Merino and Dani Olmo orchestrated brilliantly.</small>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="rh u">Uruguay</div>
+        <div class="game">
+          <span class="score d">1–1</span>
+          <div class="gt">
+            <span class="dt">Jun 15 · vs Saudi Arabia</span>
+            <small>M. Araújo 80' (Al-Amri 41'). Valverde MOTM. Came from behind with ten minutes left. Scrappy but spirited — Muslera marshalled a shaky back line.</small>
+          </div>
+        </div>
+        <div class="game">
+          <span class="score d">2–2</span>
+          <div class="gt">
+            <span class="dt">Jun 21 · vs Cape Verde</span>
+            <small>Araújo 44' · Canobbio 45+6' (K. Pina 21' · Varela 61'). Led 2-1 at half-time, then conceded from a defensive error. Two draws, still searching for a first WC win.</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHAT'S AT STAKE -->
+  <div class="next">
+    <h3>What's At Stake &amp; What's Next</h3>
+    <div class="ng">
+      <p><b>Spain win:</b> Guaranteed Group H winners — face Group J runner-up (Argentina) in round of 32. Uruguay eliminated unless Saudi Arabia also beats Cape Verde.</p>
+      <p><b>Spain draw:</b> Still likely through as group winner (5 pts), unless Cape Verde beats Saudi Arabia by 5+ goals. Uruguay advance as 2nd (3 pts) if Cape Verde don't win.</p>
+      <p><b>Uruguay win:</b> Uruguay top the group (5 pts), Spain almost certainly 2nd (4 pts) — both advance. Group H runner-up faces Argentina in the round of 32.</p>
+      <p><b>Uruguay draw:</b> Through in 2nd (3 pts) unless Cape Verde win (also 5 pts). If Cape Verde draw: Uruguay beat them on goals scored (3 vs 2). Tiebreaker is tight.</p>
+      <p><b>Uruguay loss:</b> Almost certain elimination — only saved if Saudi Arabia beats Cape Verde and Uruguay's GD holds for best-3rd-place wildcard (very unlikely).</p>
+      <p><b>Historical footnote:</b> Spain have never lost to Uruguay in 10 career meetings. A Celeste win today would be their first ever over La Roja.</p>
+    </div>
+  </div>
+
+  <!-- WHAT TO WATCH FOR -->
+  <div class="wtw">
+    <h3>What To Watch For</h3>
+    <div class="battles">
+      <div class="battle">
+        <span class="bt">Yamal vs Olivera (CB out of position)</span>
+        Mathías Olivera is a left-back at Napoli, forced into a centre-back role today with both Giménez and Araújo absent from the lineup. Lamine Yamal at 18 is arguably the world's best attacker — he'll probe this mismatch relentlessly. If Uruguay's right side of the box creaks, Spain will find it.
+      </div>
+      <div class="battle">
+        <span class="bt">Darwin Núñez vs Pau Cubarsí (19)</span>
+        The raw power of Darwin Núñez (strong, fast, increasingly lethal) against Cubarsí, 19, who has been one of the tournament's best defenders. If Núñez can bully or isolate the teenager, Uruguay have a real chance at goal. If Cubarsí holds firm, Spain's composure grows.
+      </div>
+      <div class="battle">
+        <span class="bt">Valverde vs Pedri — the midfield soul</span>
+        Federico Valverde is the bulldozer: covering every blade of grass, winning headers, launching counter-attacks. Pedri is the painter: one-touch passing, finding half-spaces, tempo control. The team that wins this duel wins the midfield — and probably the game.
+      </div>
+      <div class="battle">
+        <span class="bt">Ugarte vs Spain's build-up</span>
+        Manuel Ugarte (Man United) is one of the best ball-winners in world football. Uruguay's entire defensive structure relies on him winning first contacts and triggering the counter. Spain move the ball quickly through Rodri — if Ugarte can disrupt that first pass, expect chaos.
+      </div>
+    </div>
+    <div class="tip">
+      <b>Set-piece tip:</b> Mikel Merino scored the header that sent Spain to the Euro 2024 semi-finals — he's a real aerial threat at set pieces. Watch Marc Cucurella's deliveries from the left; Spain rehearse these relentlessly. Uruguay's own threat: Darwin Núñez and Mathías Olivera both dangerous at the back post from corners.
+    </div>
+    <div class="deadball">
+      <b>Tactical note:</b> Spain press high and dominate possession (avg 68% in this tournament). Uruguay under Bielsa also like to press — so expect an open, intense first 20 minutes before one team blinks. Bielsa's teams are famous for heavy-metal football that runs out of steam late. If it's level at 70 minutes, Spain's superior bench depth (Nico Williams, Dani Olmo, Gavi) tips the balance.
+    </div>
+  </div>
+
+  <!-- NAMES YOU'LL HEAR MOST -->
+  <div class="watch">
+    <h3>The Names You'll Hear Most</h3>
+
+    <div class="wgroup">
+      <div class="wteam s">Spain</div>
+      <div class="wgrid">
+        <div class="star">
+          <div class="wn s">19</div>
+          <div>
+            <div class="nm">Lamine Yamal</div>
+            <div class="meta">FW · Barcelona · Age 18</div>
+            <div class="blurb">Born July 13, 2007 — still 18 years old. Euro 2024 final goalscorer. Already scored in this tournament (vs Saudi Arabia) and is the first player born in 2007 to appear at a World Cup. Famed for cutting inside from the right and curling into the far corner. The moment he gets space, something happens.</div>
+          </div>
+        </div>
+        <div class="star">
+          <div class="wn s">16</div>
+          <div>
+            <div class="nm">Rodri <span class="cap">C</span></div>
+            <div class="meta">DM · Manchester City · Age 29</div>
+            <div class="blurb">Ballon d'Or 2024. Returned from ACL injury that sidelined him for most of 2024–25. Spain's defensive fulcrum — he controls tempo, reduces space, and distributes under pressure. When Rodri is clean in possession, Spain look unbeatable. The whole team runs through him.</div>
+          </div>
+        </div>
+        <div class="star">
+          <div class="wn s">21</div>
+          <div>
+            <div class="nm">Mikel Oyarzabal</div>
+            <div class="meta">FW · Real Sociedad · Age 29</div>
+            <div class="blurb">Already has 2 goals in this tournament (both vs Saudi Arabia). Spain's underrated finisher — calm, intelligent movement, excellent left foot. Scored the winner in the Euro 2024 final against England. Doesn't make headlines but consistently delivers in the moments that matter.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wgroup">
+      <div class="wteam u">Uruguay</div>
+      <div class="wgrid">
+        <div class="star">
+          <div class="wn u">9</div>
+          <div>
+            <div class="nm">Darwin Núñez</div>
+            <div class="meta">FW · Al-Hilal · Age 26</div>
+            <div class="blurb">13 international goals in 38 caps. Moved to Al-Hilal from Liverpool in summer 2025. Incredibly powerful, rapid, and increasingly clinical — he nearly won the Cape Verde game alone. Spain's centre-backs will have no rest. When Núñez is on fire, Uruguay's attack is world-class.</div>
+          </div>
+        </div>
+        <div class="star">
+          <div class="wn u">8</div>
+          <div>
+            <div class="nm">Federico Valverde <span class="cap">C</span></div>
+            <div class="meta">MF · Real Madrid · Age 27</div>
+            <div class="blurb">Man of the Match vs Saudi Arabia in Round 1. Today's captain. Box-to-box engine who covers 13+ km per game, wins physical duels and still contributes 9 international goals. The beating heart of Uruguay's system — if Valverde has a quiet game, Uruguay struggle to impose themselves on anyone.</div>
+          </div>
+        </div>
+        <div class="star">
+          <div class="wn u">23</div>
+          <div>
+            <div class="nm">Fernando Muslera</div>
+            <div class="meta">GK · Estudiantes · Age 39</div>
+            <div class="blurb">134 caps. Fifth World Cup (2010, 2014, 2018, 2022, 2026) — the tournament's oldest active goalkeeper. Legends don't fade; they become folklore. Bielsa's confidence in the veteran over Rochet is a deliberate message. Uruguay need calm authority between the sticks against a Spain attack that can cut through anyone.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LINEUPS BY THE NUMBERS -->
+  <div class="rtitle">The Lineups · By The Numbers</div>
+  <div class="cols">
+
+    <!-- SPAIN -->
+    <div class="col sp">
+      <div class="colhead">
+        <h2>Spain</h2>
+        <span class="form">4–3–3</span>
+      </div>
+
+      <div class="rsub">Starting XI</div>
+      <ul class="xi">
+        <li><span class="num gk">23</span><span class="pname">Unai Simón</span><span class="pclub">Athletic Bilbao</span></li>
+        <li><span class="num">5</span><span class="pname">Marcos Llorente</span><span class="pclub">Atlético Madrid</span></li>
+        <li><span class="num">22</span><span class="pname">Pau Cubarsí</span><span class="pclub">Barcelona</span></li>
+        <li><span class="num">14</span><span class="pname">Aymeric Laporte</span><span class="pclub">Athletic Bilbao</span></li>
+        <li><span class="num">24</span><span class="pname">Marc Cucurella</span><span class="pclub">Chelsea</span></li>
+        <li><span class="num">16</span><span class="pname">Rodri <span class="cap">C</span></span><span class="pclub">Manchester City</span></li>
+        <li><span class="num">6</span><span class="pname">Mikel Merino</span><span class="pclub">Arsenal</span></li>
+        <li><span class="num">20</span><span class="pname">Pedri</span><span class="pclub">Barcelona</span></li>
+        <li><span class="num">19</span><span class="pname">Lamine Yamal</span><span class="pclub">Barcelona</span></li>
+        <li><span class="num">21</span><span class="pname">Mikel Oyarzabal</span><span class="pclub">Real Sociedad</span></li>
+        <li><span class="num">15</span><span class="pname">Álex Baena</span><span class="pclub">Atlético Madrid</span></li>
+      </ul>
+
+      <div class="rsub">Bench</div>
+      <ul class="xi">
+        <li><span class="num gk">1</span><span class="pname">David Raya</span><span class="pclub">Arsenal</span></li>
+        <li><span class="num">2</span><span class="pname">Marc Pubill</span><span class="pclub">Atlético Madrid</span></li>
+        <li><span class="num">3</span><span class="pname">Alejandro Grimaldo</span><span class="pclub">Bayer Leverkusen</span></li>
+        <li><span class="num">4</span><span class="pname">Eric García</span><span class="pclub">Barcelona</span></li>
+        <li><span class="num">7</span><span class="pname">Ferran Torres</span><span class="pclub">Barcelona</span></li>
+        <li><span class="num">8</span><span class="pname">Fabián Ruiz</span><span class="pclub">PSG</span></li>
+        <li><span class="num">9</span><span class="pname">Gavi</span><span class="pclub">Barcelona</span></li>
+        <li><span class="num">10</span><span class="pname">Dani Olmo</span><span class="pclub">Barcelona</span></li>
+        <li><span class="num">11</span><span class="pname">Yéremy Pino</span><span class="pclub">Crystal Palace</span></li>
+        <li><span class="num">12</span><span class="pname">Pedro Porro</span><span class="pclub">Tottenham</span></li>
+        <li><span class="num gk">13</span><span class="pname">Joan García</span><span class="pclub">Barcelona</span></li>
+        <li><span class="num">17</span><span class="pname">Nico Williams</span><span class="pclub">Athletic Bilbao</span></li>
+        <li><span class="num">18</span><span class="pname">Martín Zubimendi</span><span class="pclub">Arsenal</span></li>
+        <li><span class="num">25</span><span class="pname">Víctor Muñoz</span><span class="pclub">Osasuna</span></li>
+        <li><span class="num">26</span><span class="pname">Borja Iglesias</span><span class="pclub">Celta Vigo</span></li>
+      </ul>
+      <div class="note">Nico Williams and Dani Olmo — Euro 2024 impact subs — wait on the bench; Spain's depth is the late-game edge.</div>
+    </div>
+
+    <!-- URUGUAY -->
+    <div class="col uy">
+      <div class="colhead">
+        <h2>Uruguay</h2>
+        <span class="form">4–2–3–1</span>
+      </div>
+
+      <div class="rsub">Starting XI</div>
+      <ul class="xi">
+        <li><span class="num gk">23</span><span class="pname">Fernando Muslera</span><span class="pclub">Estudiantes</span></li>
+        <li><span class="num">13</span><span class="pname">Guillermo Varela</span><span class="pclub">Flamengo</span></li>
+        <li><span class="num">3</span><span class="pname">Sebastián Cáceres</span><span class="pclub">América (MEX)</span></li>
+        <li><span class="num">16</span><span class="pname">Mathías Olivera <em style="font-size:9px;color:var(--muted);font-style:italic;font-weight:400;">(CB, usu. LB)</em></span><span class="pclub">Napoli</span></li>
+        <li><span class="num">25</span><span class="pname">J.M. Sanabria <em style="font-size:9px;color:var(--muted);font-style:italic;font-weight:400;">(LB, usu. MF)</em></span><span class="pclub">Real Salt Lake</span></li>
+        <li><span class="num">5</span><span class="pname">Manuel Ugarte</span><span class="pclub">Manchester United</span></li>
+        <li><span class="num">6</span><span class="pname">Rodrigo Bentancur</span><span class="pclub">Tottenham</span></li>
+        <li><span class="num">8</span><span class="pname">Federico Valverde <span class="cap">C</span></span><span class="pclub">Real Madrid</span></li>
+        <li><span class="num">14</span><span class="pname">Agustín Canobbio</span><span class="pclub">Fluminense</span></li>
+        <li><span class="num">9</span><span class="pname">Darwin Núñez</span><span class="pclub">Al-Hilal (KSA)</span></li>
+        <li><span class="num">20</span><span class="pname">Maximiliano Araújo</span><span class="pclub">Sporting CP</span></li>
+      </ul>
+
+      <div class="rsub">Bench</div>
+      <ul class="xi">
+        <li><span class="num gk">1</span><span class="pname">Sergio Rochet</span><span class="pclub">Internacional</span></li>
+        <li><span class="num">2</span><span class="pname">José María Giménez</span><span class="pclub">Atlético Madrid</span></li>
+        <li><span class="num">4</span><span class="pname">Ronald Araújo</span><span class="pclub">Barcelona</span></li>
+        <li><span class="num">7</span><span class="pname">Nicolás de la Cruz</span><span class="pclub">Flamengo</span></li>
+        <li><span class="num">10</span><span class="pname">Giorgian de Arrascaeta</span><span class="pclub">Flamengo</span></li>
+        <li><span class="num">11</span><span class="pname">Facundo Pellistri</span><span class="pclub">Panathinaikos</span></li>
+        <li><span class="num gk">12</span><span class="pname">Franco Mele</span><span class="pclub">Monterrey</span></li>
+        <li><span class="num">15</span><span class="pname">Emiliano Martínez</span><span class="pclub">Palmeiras</span></li>
+        <li><span class="num">17</span><span class="pname">Matías Viña</span><span class="pclub">River Plate</span></li>
+        <li><span class="num">18</span><span class="pname">Brian Rodríguez</span><span class="pclub">América (MEX)</span></li>
+        <li><span class="num">19</span><span class="pname">Rodrigo Aguirre</span><span class="pclub">Tigres (MEX)</span></li>
+        <li><span class="num">21</span><span class="pname">Facundo Viñas</span><span class="pclub">Real Oviedo</span></li>
+        <li><span class="num">22</span><span class="pname">Joaquín Piquerez</span><span class="pclub">Palmeiras</span></li>
+        <li><span class="num">24</span><span class="pname">Santiago Bueno</span><span class="pclub">Wolves</span></li>
+        <li><span class="num">26</span><span class="pname">Rodrigo Zalazar</span><span class="pclub">Braga</span></li>
+      </ul>
+      <div class="note">Squad captain José María Giménez (#2) and Ronald Araújo (#4) both start on the bench — a major call with Olivera shifted to centre-back. De Arrascaeta (#10) is Uruguay's game-changer in reserve.</div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="foot">
+    <span>Sources</span> · Wikipedia: 2026 FIFA WC Group H &amp; 2026 WC Squads (confirmed lineups from official FIFA tactical sheets) · FOX Sports · SBNation · ESPN
+    &nbsp;·&nbsp; <span>Caveat:</span> Squad numbers are official 2026 WC tournament numbers (not club numbers) · Lineup confirmed from pre-match FIFA document · Bench roles and in-game subs will evolve · AI-generated; verify live on FotMob or Sofascore
+  </div>
+
+</div>
+</body>
+</html>

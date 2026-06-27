@@ -93,7 +93,13 @@ Scope research to what the format needs (table below), from a few high-yield sou
 - [x] Lock data depth (maximal) into a structured single-source file
 - [x] Iterate phone-first presentation; settle section order (look frozen in `example.html`)
 - [x] Pivot from procedural pipeline → exemplar-driven single prompt (`watch-guide-prompt.md`)
-- [ ] **NEXT: test-drive the prompt on TWO user-provided fixtures.** Run mode = follow `watch-guide-prompt.md` LITERALLY (it's the artifact under test — note any underspecified spots). For each: fan out research per the recipe → write `matches/<home>-<away>/index.html` → open next to `example.html` to compare. Then tighten the prompt from what we learn. (User will supply the two games.)
+- [x] **Test-drove the prompt on two fixtures** (Jun 26 2026): `matches/egypt-iran/` (Group G — same fixture as `example.html`, a regression test) and `matches/spain-uruguay/` (Group H). Both follow the prompt's sections/look; real team colors; full 52-player numbered rosters (starters split from bench). Spain XI + storyline cross-checked against SI/Sky/FIFA/CBS and confirmed.
+  - **Prompt-test findings (apply before next run):**
+    1. **`.bench`/`.bn` CSS in `example.html` is a trap** — the example *body* renders bench as full `xi` rows, but leftover prose-box CSS (≈ lines 69-72) led one builder to emit condensed prose benches that fail the "number chip on every row" bar. → **Delete the unused `.bench`/`.bn` CSS from `example.html`**, and/or make §7 explicit that bench = full `xi` rows.
+    2. **"FIFA rank" header field is a sourcing-cliff item** — previews don't surface it cleanly; mark optional/approx so it isn't invented.
+    3. **Formation can be genuinely disputed pre-match** (Iran 3-4-3 vs 5-4-1) — prompt should say "label per source consensus; flag if disputed" (done inline in both sheets' lineup notes).
+    4. Worked well: `<home>-<away>` slug, section order, look/colors all came through from two independent builders.
+  - [ ] **NEXT: apply findings 1-3 to `watch-guide-prompt.md` + `example.html`**, then regenerate for the day's live fixtures.
 - [x] Refactor to lighter architecture: `template.html` (Jinja2) + thin `render.py` + `matches/`/`archive/` layout
 - [x] Efficient squad-number research (Wikipedia WC squads ⋈ predicted XI) → full numbered roster, all 52 players
 - [ ] Polish pass on the regenerated sheet (spacing, roster density on phone)
