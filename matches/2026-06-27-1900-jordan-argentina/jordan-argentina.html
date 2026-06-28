@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jordan vs Argentina — 2026 World Cup, Group J finale</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&family=Barlow:wght@400;500;600&display=swap');
+
+  :root{
+    --jo-red:#CE1126; --jo-deep:#8d0c1a; --gold:#C39A2B;
+    --ar-sky:#4795ce; --ar-deep:#245a86;
+    --ink:#1a1714; --paper:#f6f3ec; --line:#d8d2c4; --muted:#6f675b;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Barlow',sans-serif;background:#26231f;color:var(--ink);padding:18px;line-height:1.32;}
+  .sheet{max-width:920px;margin:0 auto;background:var(--paper);border:1px solid var(--line);box-shadow:0 14px 44px rgba(0,0,0,.5);overflow:hidden;}
+
+  /* HEADER */
+  .top{display:flex;align-items:stretch;color:#f6f3ec;}
+  .top .side{flex:1;padding:13px 18px;}
+  .top .jo{background:linear-gradient(135deg,var(--jo-red),var(--jo-deep));}
+  .top .ar{background:linear-gradient(225deg,var(--ar-sky),var(--ar-deep));text-align:right;}
+  .top .mid{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 14px;min-width:118px;background:var(--ink);}
+  .flag{font-size:12.5px;letter-spacing:.18em;font-family:'Oswald';font-weight:600;opacity:.85;}
+  .nat{font-family:'Oswald';font-weight:700;font-size:27px;line-height:1;text-transform:uppercase;}
+  .sub{font-size:11px;opacity:.82;margin-top:3px;font-family:'Barlow Condensed';letter-spacing:.04em;}
+  .vs{font-family:'Oswald';font-weight:700;font-size:19px;color:var(--gold);}
+  .mid .comp{font-size:9px;letter-spacing:.2em;font-family:'Oswald';opacity:.7;text-align:center;}
+
+  .infobar{display:flex;background:#000;color:#f6f3ec;font-family:'Barlow Condensed';font-size:13px;}
+  .infobar div{padding:6px 14px;border-right:1px solid #2c2c2c;flex:1;text-align:center;white-space:nowrap;}
+  .infobar div:last-child{border-right:none;}
+  .infobar b{color:var(--gold);font-weight:600;letter-spacing:.07em;text-transform:uppercase;font-size:10px;display:block;}
+
+  /* STAKES + TABLE */
+  .strip{display:flex;align-items:stretch;background:var(--gold);color:#241e10;}
+  .strip .msg{flex:1;padding:9px 16px;font-family:'Barlow Condensed';font-size:14px;font-weight:500;align-self:center;}
+  .strip .msg b{font-weight:700;}
+  table.grp{border-collapse:collapse;font-family:'Barlow Condensed';font-size:12px;background:#241e10;color:#f6f3ec;}
+  table.grp th{font-size:9px;letter-spacing:.08em;padding:4px 7px;color:var(--gold);text-transform:uppercase;font-weight:600;}
+  table.grp td{padding:3px 7px;text-align:center;border-top:1px solid #3a3220;}
+  table.grp td.tm{text-align:left;font-weight:600;font-family:'Barlow';font-size:11.5px;}
+  table.grp tr.lead td{color:#ffe9a8;}
+  table.grp tr.out td{color:#9c948a;}
+
+  /* TEAM COLUMNS */
+  .cols{display:grid;grid-template-columns:1fr 1fr;}
+  .col{padding:13px 16px;}
+  .col.jo{border-right:2px solid var(--line);}
+  .colhead{display:flex;align-items:baseline;justify-content:space-between;border-bottom:2px solid;padding-bottom:5px;margin-bottom:8px;}
+  .col.jo .colhead{border-color:var(--jo-red);}
+  .col.ar .colhead{border-color:var(--ar-sky);}
+  .colhead h2{font-family:'Oswald';font-size:18px;text-transform:uppercase;letter-spacing:.02em;}
+  .col.jo .colhead h2{color:var(--jo-red);}
+  .col.ar .colhead h2{color:var(--ar-deep);}
+  .form{font-family:'Barlow Condensed';font-size:11.5px;color:var(--muted);letter-spacing:.05em;text-align:right;max-width:55%;}
+
+  .xi{list-style:none;}
+  .xi li{display:flex;gap:9px;align-items:center;padding:2.5px 0;border-bottom:1px dotted var(--line);}
+  .xi li:last-child{border-bottom:none;}
+  .num{font-family:'Oswald';font-weight:700;font-size:14px;width:25px;height:23px;display:flex;align-items:center;justify-content:center;color:#fff;border-radius:3px;flex-shrink:0;}
+  .col.jo .num{background:var(--jo-red);}
+  .col.ar .num{background:var(--ar-sky);}
+  .num.gk{background:#444 !important;}
+  .pname{font-weight:600;font-size:12.5px;}
+  .pclub{color:var(--muted);font-size:10.5px;font-family:'Barlow Condensed';margin-left:auto;text-align:right;letter-spacing:.02em;white-space:nowrap;}
+  .cap{color:var(--gold);font-weight:700;font-size:9px;vertical-align:super;margin-left:1px;}
+
+  .note{font-size:10px;color:var(--muted);font-style:italic;margin-top:6px;line-height:1.3;}
+
+  /* ROAD HERE */
+  .road{background:var(--ink);color:#ece5d8;padding:13px 18px;}
+  .road h3{font-family:'Oswald';font-size:12px;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;margin-bottom:9px;text-align:center;}
+  .roadgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .rh{font-family:'Oswald';font-size:13px;text-transform:uppercase;letter-spacing:.03em;margin-bottom:5px;}
+  .rh.j{color:#ff8e9e;} .rh.a{color:#9fd0f2;}
+  .game{display:flex;gap:8px;margin-bottom:6px;font-size:11.5px;line-height:1.32;}
+  .score{font-family:'Oswald';font-weight:700;font-size:11px;padding:2px 6px;border-radius:3px;height:fit-content;white-space:nowrap;flex-shrink:0;color:#fff;}
+  .score.w{background:#2c5e38;} .score.l{background:#6e2530;} .score.d{background:#5a5036;}
+  .game .gt{color:#cfc7b8;}
+  .game .gt b{color:#fff;font-weight:600;}
+  .game .gt small{display:block;color:#a89f8e;font-size:10px;font-style:italic;}
+  .game .gt .dt{color:#fff;font-weight:600;}
+
+  /* WATCH */
+  .watch{padding:13px 18px;}
+  .watch h3{font-family:'Oswald';font-size:12px;letter-spacing:.2em;color:var(--jo-red);text-transform:uppercase;margin-bottom:9px;}
+  .wgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 22px;}
+  .star{display:flex;gap:9px;}
+  .star .wn{font-family:'Oswald';font-weight:700;font-size:15px;width:30px;height:28px;display:flex;align-items:center;justify-content:center;border-radius:3px;color:#fff;flex-shrink:0;}
+  .wn.j{background:var(--jo-red);} .wn.a{background:var(--ar-sky);}
+  .star .nm{font-family:'Oswald';font-size:13.5px;font-weight:600;line-height:1.05;}
+  .star .meta{font-size:9.5px;color:var(--muted);font-family:'Barlow Condensed';letter-spacing:.03em;text-transform:uppercase;margin-bottom:2px;}
+  .star .blurb{font-size:11px;line-height:1.32;}
+  .star b{font-weight:600;}
+
+  /* NEXT */
+  .next{background:#efe9dc;padding:12px 18px;border-top:1px solid var(--line);}
+  .next h3{font-family:'Oswald';font-size:12px;letter-spacing:.2em;color:var(--ar-deep);text-transform:uppercase;margin-bottom:7px;}
+  .next .ng{columns:2;column-gap:24px;}
+  .next p{font-size:11px;margin-bottom:6px;break-inside:avoid;line-height:1.36;padding-left:13px;position:relative;}
+  .next p::before{content:"\25B8";position:absolute;left:0;color:var(--gold);font-size:9px;top:2px;}
+  .next b{font-weight:600;}
+
+  /* WHAT TO WATCH FOR */
+  .wtw{padding:13px 18px;border-top:1px solid var(--line);}
+  .wtw h3{font-family:'Oswald';font-size:12px;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;margin-bottom:9px;}
+  .battles{columns:2;column-gap:24px;}
+  .battle{font-size:11px;line-height:1.36;margin-bottom:8px;break-inside:avoid;}
+  .battle .bt{font-family:'Oswald';font-weight:600;font-size:11.5px;text-transform:uppercase;letter-spacing:.02em;color:var(--ink);display:block;margin-bottom:1px;}
+  .tip{margin-top:6px;background:#efe9dc;border-left:3px solid var(--gold);padding:8px 11px;font-size:11.5px;font-family:'Barlow Condensed';line-height:1.4;}
+  .tip b{font-family:'Barlow';font-weight:600;color:#241e10;}
+  .deadball{margin-top:7px;font-size:10.5px;color:var(--muted);line-height:1.4;font-family:'Barlow Condensed';}
+  .deadball b{color:var(--ink);font-weight:600;text-transform:uppercase;letter-spacing:.03em;font-size:9.5px;}
+
+  /* WATCH split-by-team */
+  .wgroup{margin-bottom:12px;}
+  .wgroup:last-child{margin-bottom:0;}
+  .wteam{font-family:'Oswald';font-size:11px;text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;padding-bottom:3px;border-bottom:2px solid;}
+  .wteam.j{color:var(--jo-red);border-color:var(--jo-red);}
+  .wteam.a{color:var(--ar-deep);border-color:var(--ar-sky);}
+
+  /* LINEUPS */
+  .rtitle{font-family:'Oswald';font-size:12px;letter-spacing:.2em;color:var(--ink);text-transform:uppercase;text-align:center;padding:13px 18px 0;}
+  .rsub{font-family:'Oswald';font-size:9.5px;letter-spacing:.13em;color:var(--muted);text-transform:uppercase;margin:9px 0 3px;}
+  .rsub:first-child{margin-top:0;}
+
+  .foot{background:var(--ink);color:#9a9081;font-size:9.5px;text-align:center;padding:7px;font-family:'Barlow Condensed';letter-spacing:.05em;}
+  .foot span{color:var(--gold);}
+
+  @media (max-width:680px){
+    body{padding:7px;}
+    .wgrid,.roadgrid,.next .ng,.battles{grid-template-columns:1fr;columns:1;}
+    .nat{font-size:22px;}
+    .pclub{font-size:10px;}
+    .form{max-width:50%;}
+  }
+  @media print{body{background:#fff;padding:0;}.sheet{box-shadow:none;border:none;}@page{margin:7mm;}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="top">
+    <div class="side jo">
+      <div class="flag">🇯🇴 JORDAN</div>
+      <div class="nat">Al-Nashama</div>
+      <div class="sub">Coach: Jamal Sellami · 3-4-2-1</div>
+    </div>
+    <div class="mid">
+      <div class="comp">GROUP&nbsp;J · R3</div>
+      <div class="vs">V</div>
+      <div class="comp">WORLD&nbsp;CUP&nbsp;'26</div>
+    </div>
+    <div class="side ar">
+      <div class="flag">ARGENTINA 🇦🇷</div>
+      <div class="nat">La Albiceleste</div>
+      <div class="sub">4-3-3 · Coach: Lionel Scaloni · FIFA #1</div>
+    </div>
+  </div>
+
+  <div class="infobar">
+    <div><b>Venue</b>AT&amp;T Stadium, Arlington</div>
+    <div><b>Kickoff</b>Sat 7:00 PM PDT <span style="opacity:.65">(9:00 PM CDT · Arlington · 10:00 PM EDT)</span></div>
+    <div><b>TV</b>FOX / Telemundo</div>
+    <div><b>Referee</b>Kovács (ROU)</div>
+  </div>
+
+  <div class="strip">
+    <div class="msg"><b>The table's already decided — this one's for history.</b> Argentina have <b>won Group J</b> with a game to spare; Jordan are <b>eliminated</b> on their World Cup debut. Jordan chase a first-ever WC point against a heavily-rotated champion with <b>Messi on the bench.</b></div>
+    <table class="grp">
+      <tr><th>Group J</th><th>P</th><th>Pts</th><th>GD</th></tr>
+      <tr class="lead"><td class="tm">Argentina</td><td>2</td><td>6</td><td>+5</td></tr>
+      <tr><td class="tm">Austria</td><td>2</td><td>3</td><td>0</td></tr>
+      <tr><td class="tm">Algeria</td><td>2</td><td>3</td><td>&minus;2</td></tr>
+      <tr class="out"><td class="tm">Jordan</td><td>2</td><td>0</td><td>&minus;3</td></tr>
+    </table>
+  </div>
+
+  <div class="road">
+    <h3>How They Got Here · Group J So Far</h3>
+    <div class="roadgrid">
+      <div>
+        <div class="rh j">Jordan</div>
+        <div class="game"><span class="score l">1&ndash;3</span><span class="gt"><span class="dt">Jun 16</span> · vs Austria<small>Olwan nets Jordan's first-ever WC goal</small></span></div>
+        <div class="game"><span class="score l">1&ndash;2</span><span class="gt"><span class="dt">Jun 22</span> · vs Algeria</span></div>
+      </div>
+      <div>
+        <div class="rh a">Argentina</div>
+        <div class="game"><span class="score w">3&ndash;0</span><span class="gt"><span class="dt">Jun 16</span> · vs Algeria<small>Messi hat-trick</small></span></div>
+        <div class="game"><span class="score w">2&ndash;0</span><span class="gt"><span class="dt">Jun 22</span> · vs Austria<small>Messi brace — breaks all-time WC scoring record</small></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="next">
+    <h3>What's At Stake &amp; What's Next</h3>
+    <div class="ng">
+      <p><b>Argentina:</b> Already through as Group J winners. Tonight is about minutes and rotation — Scaloni rests Messi (on the bench) and shuffles the XI ahead of the Round of 32, where they meet the Group H runner-up (reported as Cape Verde — to be confirmed).</p>
+      <p><b>Jordan:</b> Mathematically out. Playing purely for pride and firsts — a maiden World Cup point (or dream first win) on debut, against the reigning champions' reserves.</p>
+      <p><b>The real drama is elsewhere:</b> Algeria vs Austria kicks off simultaneously and decides the runner-up spot. This result barely moves the qualification picture.</p>
+      <p><b>Milestone watch:</b> Ali Olwan is one goal shy of Jordan's all-time record (31, Hamza Al-Dardour) — a score tonight ties the national mark.</p>
+      <p><b>Messi's last dance:</b> His record sixth and final World Cup. He's scored all five of Argentina's goals and is the outright all-time WC scoring leader (18). Every minute could be his last.</p>
+      <p><b>History on the line:</b> Argentina chase back-to-back titles — no nation has defended the World Cup since Brazil in 1962.</p>
+    </div>
+  </div>
+
+  <div class="wtw">
+    <h3>What To Watch For</h3>
+    <div class="battles">
+      <div class="battle"><span class="bt">Al-Tamari vs Argentina's rotated flank</span>Jordan's one European-level player (Rennes, Ligue 1) is quick and direct. With Argentina shuffling the back line, the full-back in front of him won't be first-choice — this is Jordan's single most likely route to a moment. Watch if he's let run at an unfamiliar defender.</div>
+      <div class="battle"><span class="bt">Olwan vs Argentina's reserve centre-backs</span>Scorer of Jordan's first-ever WC goal, against a patched-together back line with little rhythm together. His movement and poacher's timing are Jordan's best hope of a famous second goal of the tournament.</div>
+      <div class="battle"><span class="bt">Argentina's reserve creators vs Jordan's low block</span>The tactical sub-plot: can a second-string Argentina break down the disciplined, compact defence that nearly shocked Asia in 2024? Jordan will sit deep — patience and quality vs organisation and bodies.</div>
+      <div class="battle"><span class="bt">The Messi cameo vs a tiring Jordan</span>The night's emotional pivot. A second-half Messi introduction against a debutant nation, with him chasing more World Cup history, is the most likely "moment everyone remembers." Watch the bench.</div>
+    </div>
+    <div class="deadball"><b>Argentina dead-ball:</b> With Messi benched, the on-pitch penalty taker is likely Lautaro Martínez or Julián Álvarez; direct free-kicks revert to Messi the instant he's on. Not primarily a set-piece side — their threat is open-play combination.<br><b>Jordan dead-ball:</b> A genuine weapon and central to the Asian Cup run. Al-Tamari is the chief delivery man; captain Ehsan Haddad is the aerial target in the box. (Penalty taker unconfirmed with Al-Naimat injured out.)</div>
+    <div class="tip"><b>Set-piece tip:</b> If Jordan win a wide free kick or corner in Argentina's half, watch Al-Tamari's delivery onto Haddad — it's the one phase where the quality gulf narrows against a rotated, less-drilled defensive unit.</div>
+  </div>
+
+  <div class="watch">
+    <h3>&#9733; The Names You'll Hear Most &#9733;</h3>
+    <div class="wgroup"><div class="wteam a">Argentina</div><div class="wgrid">
+      <div class="star"><span class="wn a">10</span><div><div class="nm">Lionel Messi</div><div class="meta">Argentina · Inter Miami · Captain</div><div class="blurb">The story of the tournament: all five Argentina goals so far, now the all-time WC scoring leader (18) in his record sixth and final World Cup. Starts on the bench — wait for his entrance.</div></div></div>
+      <div class="star"><span class="wn a">22</span><div><div class="nm">Lautaro Martínez</div><div class="meta">Argentina · Inter Milan · Striker</div><div class="blurb">Argentina's most reliable No. 9, on ~37 international goals and 2024 Copa América top scorer. With Messi rested, he leads the line and likely takes the penalties.</div></div></div>
+      <div class="star"><span class="wn a">23</span><div><div class="nm">Emiliano Martínez</div><div class="meta">Argentina · Aston Villa · Goalkeeper</div><div class="blurb">2022 Golden Glove winner and shootout folk hero. Reported as possibly the only first-choice retained tonight — the spine of the rotated champions.</div></div></div>
+    </div></div>
+    <div class="wgroup"><div class="wteam j">Jordan</div><div class="wgrid">
+      <div class="star"><span class="wn j">10</span><div><div class="nm">Mousa Al-Tamari</div><div class="meta">Jordan · Stade Rennais · Talisman</div><div class="blurb">Jordan's only top-European regular and emotional leader — the man who dragged them to the 2023 Asian Cup final. If Jordan produce magic, it runs through him.</div></div></div>
+      <div class="star"><span class="wn j">9</span><div><div class="nm">Ali Olwan</div><div class="meta">Jordan · Al-Sailiya · Striker</div><div class="blurb">Scored Jordan's first-ever World Cup goal and was third-top scorer across all AFC qualifying (9). One goal shy of the national record. Battled back from an Achilles injury.</div></div></div>
+      <div class="star"><span class="wn j">23</span><div><div class="nm">Ehsan Haddad</div><div class="meta">Jordan · Al-Hussein · Captain</div><div class="blurb">Captain and central defender, armband since 2021, back from nearly a year out injured. Organizer of the deep, disciplined block that stunned Asia in 2024.</div></div></div>
+    </div></div>
+  </div>
+
+  <div class="rtitle">The Lineups · By The Numbers</div>
+  <div class="cols">
+    <div class="col jo">
+      <div class="colhead"><h2>Jordan</h2><span class="form">deep block · Al-Tamari on the break</span></div>
+      <div class="rsub">Starters (predicted)</div>
+      <ul class="xi">
+        <li><span class="num gk">1</span><span class="pname">Yazeed Abulaila</span><span class="pclub">Al-Hussein</span></li>
+        <li><span class="num">3</span><span class="pname">Abdallah Nasib</span><span class="pclub">Al-Zawra'a (IRQ)</span></li>
+        <li><span class="num">5</span><span class="pname">Yazan Al-Arab</span><span class="pclub">FC Seoul (KOR)</span></li>
+        <li><span class="num">8</span><span class="pname">Noor Al-Rawabdeh</span><span class="pclub">Selangor (MAS)</span></li>
+        <li><span class="num">9</span><span class="pname">Ali Olwan</span><span class="pclub">Al-Sailiya (QAT)</span></li>
+        <li><span class="num">10</span><span class="pname">Mousa Al-Tamari</span><span class="pclub">Stade Rennais (FRA)</span></li>
+        <li><span class="num">11</span><span class="pname">Odeh Al-Fakhoury</span><span class="pclub">Pyramids FC (EGY)</span></li>
+        <li><span class="num">16</span><span class="pname">Mohammad Abu Alnadi</span><span class="pclub">Selangor (MAS)</span></li>
+        <li><span class="num">18</span><span class="pname">Mohammad Abu Ghoush</span><span class="pclub">Al-Hussein</span></li>
+        <li><span class="num">21</span><span class="pname">Nizar Al-Rashdan</span><span class="pclub">Qatar SC</span></li>
+        <li><span class="num">23</span><span class="pname">Ehsan Haddad<span class="cap">C</span></span><span class="pclub">Al-Hussein</span></li>
+      </ul>
+      <div class="rsub">Bench</div>
+      <ul class="xi">
+        <li><span class="num">2</span><span class="pname">Mohammad Abu Hasheesh</span><span class="pclub">Al-Karma (IRQ)</span></li>
+        <li><span class="num">4</span><span class="pname">Husam Abu Dahab</span><span class="pclub">Al-Faisaly</span></li>
+        <li><span class="num">6</span><span class="pname">Amer Jamous</span><span class="pclub">Al-Zawra'a (IRQ)</span></li>
+        <li><span class="num">7</span><span class="pname">Mohammad Abu Zraiq</span><span class="pclub">Raja Casablanca (MAR)</span></li>
+        <li><span class="num gk">12</span><span class="pname">Nour Bani Ateyah</span><span class="pclub">Al-Faisaly</span></li>
+        <li><span class="num">13</span><span class="pname">Mahmoud Al-Mardi</span><span class="pclub">Al-Hussein</span></li>
+        <li><span class="num">14</span><span class="pname">Raja'ei Ayed</span><span class="pclub">Al-Hussein</span></li>
+        <li><span class="num">15</span><span class="pname">Ibrahim Sa'deh</span><span class="pclub">Al-Karma (IRQ)</span></li>
+        <li><span class="num">17</span><span class="pname">Saleem Obaid</span><span class="pclub">Al-Hussein</span></li>
+        <li><span class="num">19</span><span class="pname">Saed Al-Rosan</span><span class="pclub">Al-Hussein</span></li>
+        <li><span class="num">20</span><span class="pname">Mohannad Abu Taha</span><span class="pclub">Al-Quwa Al-Jawiya (IRQ)</span></li>
+        <li><span class="num gk">22</span><span class="pname">Abdallah Al-Fakhori</span><span class="pclub">Al-Wahdat</span></li>
+        <li><span class="num">24</span><span class="pname">Ali Azaizeh</span><span class="pclub">Al-Shabab (KSA)</span></li>
+        <li><span class="num">25</span><span class="pname">Mohammad Al-Daoud</span><span class="pclub">Al-Wahdat</span></li>
+        <li><span class="num">26</span><span class="pname">Anas Badawi</span><span class="pclub">Al-Faisaly</span></li>
+      </ul>
+      <div class="note">Predicted XI per ESPN; outer CBs and the second No.10 vary by source (Sports Mole floats Abu Dahab / Al-Mardi). Formation 3-4-2-1.</div>
+    </div>
+    <div class="col ar">
+      <div class="colhead"><h2>Argentina</h2><span class="form">heavily rotated · Messi on the bench</span></div>
+      <div class="rsub">Starters (predicted)</div>
+      <ul class="xi">
+        <li><span class="num">3</span><span class="pname">Nicolás Tagliafico</span><span class="pclub">Lyon (FRA)</span></li>
+        <li><span class="num">4</span><span class="pname">Gonzalo Montiel</span><span class="pclub">River Plate</span></li>
+        <li><span class="num">5</span><span class="pname">Leandro Paredes</span><span class="pclub">Boca Juniors</span></li>
+        <li><span class="num">6</span><span class="pname">Lisandro Martínez</span><span class="pclub">Man United (ENG)</span></li>
+        <li><span class="num">7</span><span class="pname">Rodrigo De Paul</span><span class="pclub">Inter Miami (USA)</span></li>
+        <li><span class="num">9</span><span class="pname">Julián Álvarez</span><span class="pclub">Atlético Madrid (ESP)</span></li>
+        <li><span class="num">15</span><span class="pname">Nicolás González</span><span class="pclub">Atlético Madrid (ESP)</span></li>
+        <li><span class="num">16</span><span class="pname">Thiago Almada</span><span class="pclub">Atlético Madrid (ESP)</span></li>
+        <li><span class="num">19</span><span class="pname">Nicolás Otamendi</span><span class="pclub">Benfica (POR)</span></li>
+        <li><span class="num gk">23</span><span class="pname">Emiliano Martínez</span><span class="pclub">Aston Villa (ENG)</span></li>
+        <li><span class="num">24</span><span class="pname">Enzo Fernández</span><span class="pclub">Chelsea (ENG)</span></li>
+      </ul>
+      <div class="rsub">Bench</div>
+      <ul class="xi">
+        <li><span class="num gk">1</span><span class="pname">Juan Musso</span><span class="pclub">Atlético Madrid (ESP)</span></li>
+        <li><span class="num">2</span><span class="pname">Marcos Senesi</span><span class="pclub">Bournemouth (ENG)</span></li>
+        <li><span class="num">8</span><span class="pname">Valentín Barco</span><span class="pclub">Strasbourg (FRA)</span></li>
+        <li><span class="num">10</span><span class="pname">Lionel Messi<span class="cap">C</span></span><span class="pclub">Inter Miami (USA)</span></li>
+        <li><span class="num">11</span><span class="pname">Giovani Lo Celso</span><span class="pclub">Real Betis (ESP)</span></li>
+        <li><span class="num gk">12</span><span class="pname">Gerónimo Rulli</span><span class="pclub">Marseille (FRA)</span></li>
+        <li><span class="num">13</span><span class="pname">Cristian Romero</span><span class="pclub">Tottenham (ENG)</span></li>
+        <li><span class="num">14</span><span class="pname">Exequiel Palacios</span><span class="pclub">Leverkusen (GER)</span></li>
+        <li><span class="num">17</span><span class="pname">Giuliano Simeone</span><span class="pclub">Atlético Madrid (ESP)</span></li>
+        <li><span class="num">18</span><span class="pname">Nico Paz</span><span class="pclub">Como (ITA)</span></li>
+        <li><span class="num">20</span><span class="pname">Alexis Mac Allister</span><span class="pclub">Liverpool (ENG)</span></li>
+        <li><span class="num">21</span><span class="pname">José Manuel López</span><span class="pclub">Palmeiras (BRA)</span></li>
+        <li><span class="num">22</span><span class="pname">Lautaro Martínez</span><span class="pclub">Inter Milan (ITA)</span></li>
+        <li><span class="num">25</span><span class="pname">Facundo Medina</span><span class="pclub">Marseille (FRA)</span></li>
+        <li><span class="num">26</span><span class="pname">Nahuel Molina</span><span class="pclub">Atlético Madrid (ESP)</span></li>
+      </ul>
+      <div class="note">XI genuinely unsettled — Scaloni rotating. Confirmed: Messi benched, Álvarez starts, Otamendi in (Romero rested). GK (Emi Martínez vs Musso) and several outfield slots vary; confirmed XI ~1hr pre-KO.</div>
+    </div>
+  </div>
+
+  <div class="foot">
+    pre-match (predicted XIs; confirmed lineups + any number changes drop ~1hr before kickoff) <span>Sources: ESPN · SI · Sports Mole · official FIFA squad list · Wikipedia.</span>
+  </div>
+
+</div>
+</body>
+</html>

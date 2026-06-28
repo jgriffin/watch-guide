@@ -52,7 +52,9 @@ Fast-path design (from the research): ~60% of content is **easy-tier** and bundl
 
 ## Presentation architecture (decisions + direction)
 
-**Chosen architecture: exemplar-driven, one prompt.** The user rejected the procedural pipeline (rigid `content.json` schema + Jinja `template.html` + `render.py`) as "too procedural" — for a one-page guide a human eyeballs before kickoff, the determinism/cheap-re-render the pipeline bought isn't worth its weight, and the fixed schema fought per-match variety. Replaced with: **the example sheet IS the template (a visual reference), and one prompt does research + build.**
+**Chosen architecture: exemplar-driven render, with a research sidecar.** The user rejected the procedural pipeline (rigid `content.json` schema + Jinja `template.html` + `render.py`) as "too procedural" — for a one-page guide a human eyeballs before kickoff, the determinism/cheap-re-render the pipeline bought isn't worth its weight, and the fixed schema fought per-match variety. So the *render* stays exemplar-driven: the example sheet IS the template (a visual reference), and the LLM emits HTML directly.
+
+**Sidecar decision REOPENED (Jun 27 2026):** the original choice was *one prompt, no sidecar* — but iterating on the look meant re-running the whole research, and nothing about a finished match was inspectable. So research and presentation are now **two steps / two files**: `data.md` (structured-markdown research sidecar, the single source of truth) + `index.html` (rendered from it). This is NOT the parked pipeline — no rigid JSON schema, no Jinja, no `render.py`; `data.md` is readable markdown and the LLM still emits HTML directly. It just means **re-skinning reads saved data instead of re-researching.**
 
 ```
 watch-guide/
@@ -61,13 +63,16 @@ watch-guide/
   watch-guide-prompt.md    ← THE PROMPT. fixture in → researches + emits a self-contained
                               index.html styled like example.html, populated for that match.
                               Portable to ANY Claude (sub-agents if available; attach example.html if no repo).
-  matches/<home>-<away>/index.html   ← a produced guide (also a worked example)
+  matches/<date>-<time>-<home>-<away>/   ← one produced guide; folder named by kickoff
+      data.md                            ← research sidecar (source of truth)
+      index.html                         ← rendered from data.md, styled like example.html
   archive/deterministic-pipeline/    ← parked render.py + template.html + content.json (reference; not used)
   archive/egypt-iran-handbuilt/      ← the original hand-assembled draft
 ```
 
-- **How it works:** the LLM reads the *look* from `example.html` and the *facts* from its own research, then emits the finished HTML in one shot. No schema, no template engine, no render step. Each team is rendered in its own real kit/flag colors (carried as content, not hardcoded).
-- **The trade (accepted):** non-deterministic — two runs aren't byte-identical and it may occasionally fumble a detail. Fine because a human reads it before the game. No cheap re-skin (re-run to restyle, or edit `example.html` so future games inherit it). The user explicitly chose this over a data "sidecar" for re-rendering.
+- **How it works:** research writes `data.md` (the facts). The render step reads the *look* from `example.html` + the *facts* from `data.md` and emits the finished HTML — no template engine, no rigid schema. Each team is rendered in its own real kit/flag colors (carried as content in `data.md`, not hardcoded).
+- **Folder naming:** `matches/<YYYY-MM-DD>-<HHMM>-<home>-<away>/` — kickoff date + venue-local 24h time, so the list sorts chronologically and you can tell at a glance which match is which / which is latest.
+- **The trade (accepted):** render is non-deterministic — two renders aren't byte-identical and it may occasionally fumble a detail. Fine because a human reads it before the game. **Cheap re-skin now restored:** iterate the look by editing `example.html` and re-rendering from the saved `data.md` (no re-research). Re-run research only when facts go stale (confirmed XIs ~1hr pre-KO).
 - **Agreed section order (now encoded in the prompt + shown in example.html):** header (+infobar+standings) → How They Got Here (condensed chronological) → What's At Stake & What's Next → What To Watch For (key battles + set-piece tip) → The Names You'll Hear Most (split by team) → The Lineups · By The Numbers (numerical, starters then bench, every player numbered).
 
 ## Efficient research recipe (avoid the 26-min fanout — aim single-digit minutes)
