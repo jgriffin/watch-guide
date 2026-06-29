@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brazil vs Japan — 2026 World Cup, Round of 32</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&family=Barlow:wght@400;500;600&display=swap');
+
+  :root{
+    --br-grn:#009739; --br-deep:#046A38; --br-yel:#FFCB00; --br-blue:#002776;
+    --jp-blue:#0B1F66; --jp-deep:#081640; --jp-silver:#c4cad8;
+    --gold:#C39A2B;
+    --ink:#1a1714; --paper:#f6f3ec; --line:#d8d2c4; --muted:#6f675b;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Barlow',sans-serif;background:#26231f;color:var(--ink);padding:18px;line-height:1.32;}
+  .sheet{max-width:920px;margin:0 auto;background:var(--paper);border:1px solid var(--line);box-shadow:0 14px 44px rgba(0,0,0,.5);overflow:hidden;}
+
+  /* HEADER */
+  .top{display:flex;align-items:stretch;color:#f6f3ec;}
+  .top .side{flex:1;padding:13px 18px;}
+  .top .br{background:linear-gradient(135deg,var(--br-grn),var(--br-deep));}
+  .top .jp{background:linear-gradient(225deg,var(--jp-blue),var(--jp-deep));text-align:right;}
+  .top .mid{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 14px;min-width:118px;background:var(--ink);}
+  .flag{font-size:12.5px;letter-spacing:.18em;font-family:'Oswald';font-weight:600;opacity:.9;}
+  .nat{font-family:'Oswald';font-weight:700;font-size:27px;line-height:1;text-transform:uppercase;}
+  .top .br .nat{color:var(--br-yel);}
+  .sub{font-size:11px;opacity:.85;margin-top:3px;font-family:'Barlow Condensed';letter-spacing:.04em;}
+  .vs{font-family:'Oswald';font-weight:700;font-size:19px;color:var(--gold);}
+  .mid .comp{font-size:9px;letter-spacing:.2em;font-family:'Oswald';opacity:.7;text-align:center;}
+
+  .infobar{display:flex;background:#000;color:#f6f3ec;font-family:'Barlow Condensed';font-size:13px;}
+  .infobar div{padding:6px 14px;border-right:1px solid #2c2c2c;flex:1;text-align:center;white-space:nowrap;}
+  .infobar div:last-child{border-right:none;}
+  .infobar b{color:var(--gold);font-weight:600;letter-spacing:.07em;text-transform:uppercase;font-size:10px;display:block;}
+
+  /* STAKES + TIE CARD */
+  .strip{display:flex;align-items:stretch;background:var(--gold);color:#241e10;}
+  .strip .msg{flex:1;padding:9px 16px;font-family:'Barlow Condensed';font-size:14px;font-weight:500;align-self:center;}
+  .strip .msg b{font-weight:700;}
+  .tie{background:#241e10;color:#f6f3ec;font-family:'Barlow Condensed';font-size:12px;min-width:236px;}
+  .tie .th{font-size:9px;letter-spacing:.12em;padding:5px 12px 3px;color:var(--gold);text-transform:uppercase;font-weight:600;}
+  .tie .row{display:flex;justify-content:space-between;gap:10px;padding:3px 12px;border-top:1px solid #3a3220;}
+  .tie .row span:first-child{color:#cfc7b8;}
+  .tie .row b{color:#ffe9a8;font-weight:600;text-align:right;}
+
+  /* ROAD HERE */
+  .road{background:var(--ink);color:#ece5d8;padding:13px 18px;}
+  .road h3{font-family:'Oswald';font-size:12px;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;margin-bottom:9px;text-align:center;}
+  .roadgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .rh{font-family:'Oswald';font-size:13px;text-transform:uppercase;letter-spacing:.03em;margin-bottom:5px;}
+  .rh.b{color:#ffe08a;} .rh.j{color:#8fb4ff;}
+  .game{display:flex;gap:8px;margin-bottom:6px;font-size:11.5px;line-height:1.32;}
+  .score{font-family:'Oswald';font-weight:700;font-size:11px;padding:2px 6px;border-radius:3px;height:fit-content;white-space:nowrap;flex-shrink:0;color:#fff;}
+  .score.w{background:#2c5e38;} .score.l{background:#6e2530;} .score.d{background:#5a5036;}
+  .game .gt{color:#cfc7b8;}
+  .game .gt .dt{color:#fff;font-weight:600;}
+  .game .gt small{display:block;color:#a89f8e;font-size:10px;font-style:italic;}
+
+  /* NEXT */
+  .next{background:#efe9dc;padding:12px 18px;border-top:1px solid var(--line);}
+  .next h3{font-family:'Oswald';font-size:12px;letter-spacing:.2em;color:var(--jp-blue);text-transform:uppercase;margin-bottom:7px;}
+  .next .ng{columns:2;column-gap:24px;}
+  .next p{font-size:11px;margin-bottom:6px;break-inside:avoid;line-height:1.36;padding-left:13px;position:relative;}
+  .next p::before{content:"\25B8";position:absolute;left:0;color:var(--gold);font-size:9px;top:2px;}
+  .next b{font-weight:600;}
+
+  /* WHAT TO WATCH FOR */
+  .wtw{padding:13px 18px;border-top:1px solid var(--line);}
+  .wtw h3{font-family:'Oswald';font-size:12px;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;margin-bottom:9px;}
+  .battles{columns:2;column-gap:24px;}
+  .battle{font-size:11px;line-height:1.36;margin-bottom:8px;break-inside:avoid;}
+  .battle .bt{font-family:'Oswald';font-weight:600;font-size:11.5px;text-transform:uppercase;letter-spacing:.02em;color:var(--ink);display:block;margin-bottom:1px;}
+  .tip{margin-top:6px;background:#efe9dc;border-left:3px solid var(--gold);padding:8px 11px;font-size:11.5px;font-family:'Barlow Condensed';line-height:1.4;}
+  .tip b{font-family:'Barlow';font-weight:600;color:#241e10;}
+
+  /* WATCH split-by-team */
+  .watch{padding:13px 18px;border-top:1px solid var(--line);}
+  .watch h3{font-family:'Oswald';font-size:12px;letter-spacing:.2em;color:var(--br-deep);text-transform:uppercase;margin-bottom:9px;}
+  .wgroup{margin-bottom:12px;}
+  .wgroup:last-child{margin-bottom:0;}
+  .wteam{font-family:'Oswald';font-size:11px;text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;padding-bottom:3px;border-bottom:2px solid;}
+  .wteam.b{color:var(--br-deep);border-color:var(--br-grn);}
+  .wteam.j{color:var(--jp-blue);border-color:var(--jp-blue);}
+  .wgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 22px;}
+  .star{display:flex;gap:9px;}
+  .star .wn{font-family:'Oswald';font-weight:700;font-size:15px;width:30px;height:28px;display:flex;align-items:center;justify-content:center;border-radius:3px;color:#fff;flex-shrink:0;}
+  .wn.b{background:var(--br-grn);} .wn.j{background:var(--jp-blue);}
+  .star .nm{font-family:'Oswald';font-size:13.5px;font-weight:600;line-height:1.05;}
+  .star .meta{font-size:9.5px;color:var(--muted);font-family:'Barlow Condensed';letter-spacing:.03em;text-transform:uppercase;margin:2px 0;}
+  .star .blurb{font-size:11px;line-height:1.32;}
+  .star b{font-weight:600;}
+
+  /* LINEUPS — numbered roster */
+  .rtitle{font-family:'Oswald';font-size:12px;letter-spacing:.2em;color:var(--ink);text-transform:uppercase;text-align:center;padding:13px 18px 0;border-top:1px solid var(--line);}
+  .cols{display:grid;grid-template-columns:1fr 1fr;}
+  .col{padding:13px 16px;}
+  .col.br{border-right:2px solid var(--line);}
+  .colhead{display:flex;align-items:baseline;justify-content:space-between;border-bottom:3px solid;padding-bottom:5px;margin-bottom:6px;}
+  .col.br .colhead{border-color:var(--br-yel);}
+  .col.jp .colhead{border-color:var(--jp-silver);}
+  .colhead h2{font-family:'Oswald';font-size:18px;text-transform:uppercase;letter-spacing:.02em;}
+  .col.br .colhead h2{color:var(--br-deep);}
+  .col.jp .colhead h2{color:var(--jp-blue);}
+  .form{font-family:'Barlow Condensed';font-size:11.5px;color:var(--muted);letter-spacing:.04em;}
+  .kit{display:flex;align-items:center;gap:5px;font-family:'Barlow Condensed';font-size:9.5px;letter-spacing:.06em;color:var(--muted);text-transform:uppercase;margin-bottom:8px;}
+  .sw{display:inline-flex;gap:2px;}
+  .sw i{width:9px;height:11px;border:1px solid #b9b2a3;border-radius:1px;}
+
+  .rsub{font-family:'Oswald';font-size:9.5px;letter-spacing:.13em;color:var(--muted);text-transform:uppercase;margin:9px 0 3px;}
+  .rsub:first-of-type{margin-top:2px;}
+  .xi{list-style:none;}
+  .xi li{display:flex;gap:9px;align-items:center;padding:2.5px 0;border-bottom:1px dotted var(--line);}
+  .xi li:last-child{border-bottom:none;}
+  .num{font-family:'Oswald';font-weight:700;font-size:14px;width:25px;height:23px;display:flex;align-items:center;justify-content:center;color:#fff;border-radius:3px;flex-shrink:0;}
+  .col.br .num{background:var(--br-grn);}
+  .col.jp .num{background:#2b2f3a;}
+  .num.gk{background:#777 !important;}
+  .pname{font-weight:600;font-size:12.5px;}
+  .pname.out{color:var(--muted);text-decoration:line-through;text-decoration-thickness:1px;}
+  .pclub{color:var(--muted);font-size:10.5px;font-family:'Barlow Condensed';margin-left:auto;text-align:right;letter-spacing:.02em;white-space:nowrap;}
+  .cap{color:var(--gold);font-weight:700;font-size:9px;vertical-align:super;margin-left:1px;}
+  .tag{font-size:8.5px;font-family:'Barlow Condensed';color:#b04a2f;letter-spacing:.04em;margin-left:5px;text-transform:uppercase;font-style:italic;}
+  .note{font-size:10px;color:var(--muted);font-style:italic;margin-top:8px;line-height:1.35;}
+
+  .foot{background:var(--ink);color:#9a9081;font-size:9.5px;text-align:center;padding:7px;font-family:'Barlow Condensed';letter-spacing:.05em;}
+  .foot span{color:var(--gold);}
+
+  @media (max-width:680px){
+    body{padding:7px;}
+    .wgrid,.roadgrid,.next .ng,.battles,.cols{grid-template-columns:1fr;columns:1;}
+    .col.br{border-right:none;border-bottom:2px solid var(--line);}
+    .strip{flex-direction:column;}
+    .tie{min-width:0;}
+    .nat{font-size:22px;}
+    .pclub{font-size:10px;}
+  }
+  @media print{body{background:#fff;padding:0;}.sheet{box-shadow:none;border:none;}@page{margin:7mm;}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="top">
+    <div class="side br">
+      <div class="flag">🇧🇷 BRAZIL</div>
+      <div class="nat">Seleção</div>
+      <div class="sub">FIFA #6 · Coach: Carlo Ancelotti · 4-3-3</div>
+    </div>
+    <div class="mid">
+      <div class="comp">ROUND&nbsp;OF&nbsp;32</div>
+      <div class="vs">V</div>
+      <div class="comp">WORLD&nbsp;CUP&nbsp;'26</div>
+    </div>
+    <div class="side jp">
+      <div class="flag">SAMURAI BLUE 🇯🇵</div>
+      <div class="nat">Japan</div>
+      <div class="sub">3-4-2-1 · Coach: Hajime Moriyasu · FIFA #15</div>
+    </div>
+  </div>
+
+  <div class="infobar">
+    <div><b>Venue</b>NRG Stadium, Houston</div>
+    <div><b>Kickoff</b>Mon 10:00 AM PDT · 12 PM CDT</div>
+    <div><b>TV</b>FOX / Telemundo</div>
+    <div><b>Referee</b>M. Mariani (ITA)</div>
+  </div>
+
+  <div class="strip">
+    <div class="msg"><b>Win or go home.</b> First-ever World Cup meeting — and it comes months after <b>Japan beat Brazil for the first time ever (3-2, Tokyo, Oct '25)</b>, from 2-0 down. Brazil chase a 6th star; Japan chase a first-ever quarterfinal.</div>
+    <div class="tie">
+      <div class="th">The Tie · Knockout</div>
+      <div class="row"><span>Winner</span><b>→ Round of 16</b></div>
+      <div class="row"><span>R16 vs</span><b>Ivory Coast/Norway · TBC</b></div>
+      <div class="row"><span>Loser</span><b>Eliminated</b></div>
+      <div class="row"><span>Odds</span><b>BRA −150 · JPN +420</b></div>
+    </div>
+  </div>
+
+  <div class="road">
+    <h3>How They Got Here · Group Stage</h3>
+    <div class="roadgrid">
+      <div>
+        <div class="rh b">Brazil — won Group C</div>
+        <div class="game"><span class="score d">1&ndash;1</span><span class="gt"><span class="dt">MD1</span> · vs Morocco<small>score reported as a draw (unconfirmed)</small></span></div>
+        <div class="game"><span class="score w">3&ndash;0</span><span class="gt"><span class="dt">MD2</span> · vs Haiti</span></div>
+        <div class="game"><span class="score w">3&ndash;0</span><span class="gt"><span class="dt">MD3</span> · vs Scotland<small>Vinícius Jr 4 goals across the group</small></span></div>
+      </div>
+      <div>
+        <div class="rh j">Japan — 2nd in Group F</div>
+        <div class="game"><span class="score d">2&ndash;2</span><span class="gt"><span class="dt">Jun 14</span> · vs Netherlands<small>rallied twice</small></span></div>
+        <div class="game"><span class="score w">4&ndash;0</span><span class="gt"><span class="dt">Jun 20</span> · vs Tunisia</span></div>
+        <div class="game"><span class="score d">1&ndash;1</span><span class="gt"><span class="dt">Jun 25</span> · vs Sweden<small>secured runner-up spot</small></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="next">
+    <h3>What's At Stake & What's Next</h3>
+    <div class="ng">
+      <p><b>Win or go home.</b> The winner advances to the Round of 16; the loser's tournament ends here. No second chances, no group math.</p>
+      <p><b>R16 reward:</b> the winner faces the winner of <b>Ivory Coast vs Norway</b> at MetLife Stadium (NJ) — opponent to be confirmed (that tie is unplayed).</p>
+      <p><b>Brazil's redemption arc:</b> no title since 2002, and out in the 2022 quarters on penalties. Ancelotti was hired to fix exactly this — a loss to Japan in the R32 would be a national-crisis result.</p>
+      <p><b>Japan's eternal ceiling:</b> four Round-of-16 exits (2002/2010/2018/2022), never a quarterfinal. Beating five-time champions Brazil would be the greatest result in their history.</p>
+      <p><b>The Ancelotti subplot:</b> the most decorated club coach alive, the first foreigner ever to lead Brazil at a World Cup — chasing a record-extending 6th star. An Italian referee (Mariani) takes the Italian-coached Seleção.</p>
+      <p><b>Giant-killers' brand:</b> Japan topped a 2022 group with Germany AND Spain, beating both. Brazil is the ultimate test of whether that reputation is real.</p>
+    </div>
+  </div>
+
+  <div class="wtw">
+    <h3>What To Watch For</h3>
+    <div class="battles">
+      <div class="battle"><span class="bt">Vinícius Jr vs Japan's right side</span>The marquee 1v1. Japan defend in a disciplined low block and double-team wide — can they pin Vini (4 group goals) without conceding fouls in dangerous areas?</div>
+      <div class="battle"><span class="bt">Take Kubo vs Brazil's left flank</span>Brazil's full-backs push high; Kubo's job is to punish the space Vinícius leaves behind. This two-way transition duel is the game's hinge.</div>
+      <div class="battle"><span class="bt">Ueda vs Marquinhos</span>Japan won't dominate the ball, so Ueda's hold-up play and aerial duels with Brazil's captain are how rare entries become real shots.</div>
+      <div class="battle"><span class="bt">Casemiro &amp; Bruno vs the counter</span>The control battle. If Brazil's pivot smothers second balls, Japan can't spring its breaks. Win that battle and the upset is genuinely live.</div>
+    </div>
+    <div class="tip"><b>Set-piece tip:</b> Japan are organized set-piece defenders but carry a real <b>attacking</b> dead-ball threat — rehearsed corners and free kicks are their best leveller against superior open-play talent. Watch Raphinha (if fit) over Brazil's direct free kicks. In a low-block game the first set-piece goal could decide it — and a shootout favors no one (Japan lost the 2022 R16 shootout to Croatia).</div>
+  </div>
+
+  <div class="watch">
+    <h3>&#9733; The Names You'll Hear Most &#9733;</h3>
+    <div class="wgroup">
+      <div class="wteam b">Brazil</div>
+      <div class="wgrid">
+        <div class="star"><span class="wn b">7</span><div><div class="nm">Vinícius Júnior</div><div class="meta">Brazil · Real Madrid · LW</div><div class="blurb">The bracket's hottest attacker — <b>4 goals in the group stage</b>. The stage to silence the "better for Madrid than Brazil" caveat.</div></div></div>
+        <div class="star"><span class="wn b">9</span><div><div class="nm">Matheus Cunha</div><div class="meta">Brazil · Man United · Striker</div><div class="blurb">Leads the line with Raphinha a doubt. Mobile and two-footed, drops in to link play and drag centre-backs around.</div></div></div>
+        <div class="star"><span class="wn b">10</span><div><div class="nm">Neymar</div><div class="meta">Brazil · Santos · Talisman</div><div class="blurb">34, in the squad for a likely <b>fourth and final</b> World Cup. Expect a roar on every touch — more impact-sub than guaranteed starter.</div></div></div>
+      </div>
+    </div>
+    <div class="wgroup">
+      <div class="wteam j">Japan</div>
+      <div class="wgrid">
+        <div class="star"><span class="wn j">8</span><div><div class="nm">Takefusa Kubo</div><div class="meta">Japan · Real Sociedad · RW/AM</div><div class="blurb">"Take" — Japan's most exciting dribbler, ex-Barça/Real Madrid academy. The man Brazil's left must contain.</div></div></div>
+        <div class="star"><span class="wn j">18</span><div><div class="nm">Ayase Ueda</div><div class="meta">Japan · Feyenoord · Striker</div><div class="blurb"><b>Eredivisie top scorer (25)</b> and Japan's leading squad scorer — the focal point this side otherwise lacks.</div></div></div>
+        <div class="star"><span class="wn j">10</span><div><div class="nm">Ritsu Doan</div><div class="meta">Japan · Eintracht Frankfurt · Winger</div><div class="blurb">Knockout-moment specialist: scored the equalizers vs <b>both Germany and Spain in 2022</b>. Likely super-sub again.</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rtitle">The Lineups · By The Numbers</div>
+  <div class="cols">
+    <div class="col br">
+      <div class="colhead"><h2>Brazil</h2><span class="form">4-3-3 · possession + wide threat</span></div>
+      <div class="kit"><span class="sw"><i style="background:#FFCB00"></i><i style="background:#002776"></i></span> Wearing: Home — yellow shirt, blue shorts</div>
+      <div class="rsub">Starters (predicted)</div>
+      <ul class="xi">
+        <li><span class="num gk">1</span><span class="pname">Alisson</span><span class="pclub">Liverpool</span></li>
+        <li><span class="num">13</span><span class="pname">Danilo</span><span class="pclub">Flamengo</span></li>
+        <li><span class="num">4</span><span class="pname">Marquinhos<span class="cap">C</span></span><span class="pclub">Paris SG</span></li>
+        <li><span class="num">3</span><span class="pname">Gabriel Magalhães</span><span class="pclub">Arsenal</span></li>
+        <li><span class="num">16</span><span class="pname">Douglas Santos</span><span class="pclub">Zenit</span></li>
+        <li><span class="num">5</span><span class="pname">Casemiro</span><span class="pclub">Man United</span></li>
+        <li><span class="num">8</span><span class="pname">Bruno Guimarães</span><span class="pclub">Newcastle</span></li>
+        <li><span class="num">20</span><span class="pname">Lucas Paquetá</span><span class="pclub">Flamengo</span></li>
+        <li><span class="num">7</span><span class="pname">Vinícius Júnior</span><span class="pclub">Real Madrid</span></li>
+        <li><span class="num">9</span><span class="pname">Matheus Cunha</span><span class="pclub">Man United</span></li>
+        <li><span class="num">26</span><span class="pname">Rayan</span><span class="pclub">Bournemouth</span></li>
+      </ul>
+      <div class="rsub">Bench</div>
+      <ul class="xi">
+        <li><span class="num">2</span><span class="pname">Wesley França</span><span class="pclub">Roma</span></li>
+        <li><span class="num">6</span><span class="pname">Alex Sandro</span><span class="pclub">Flamengo</span></li>
+        <li><span class="num">10</span><span class="pname">Neymar</span><span class="pclub">Santos</span></li>
+        <li><span class="num">11</span><span class="pname">Raphinha<span class="tag">fit. doubt</span></span><span class="pclub">Barcelona</span></li>
+        <li><span class="num gk">12</span><span class="pname">Weverton</span><span class="pclub">Grêmio</span></li>
+        <li><span class="num">14</span><span class="pname">Bremer</span><span class="pclub">Juventus</span></li>
+        <li><span class="num">15</span><span class="pname">Léo Pereira</span><span class="pclub">Flamengo</span></li>
+        <li><span class="num">17</span><span class="pname">Fabinho</span><span class="pclub">Al-Ittihad</span></li>
+        <li><span class="num">18</span><span class="pname">Danilo Barbosa</span><span class="pclub">Botafogo</span></li>
+        <li><span class="num">19</span><span class="pname">Endrick</span><span class="pclub">Real Madrid</span></li>
+        <li><span class="num">21</span><span class="pname">Luís Henrique</span><span class="pclub">Zenit</span></li>
+        <li><span class="num">22</span><span class="pname">Gabriel Martinelli</span><span class="pclub">Arsenal</span></li>
+        <li><span class="num gk">23</span><span class="pname">Ederson</span><span class="pclub">Man City</span></li>
+        <li><span class="num">24</span><span class="pname">Roger Ibañez</span><span class="pclub">Al-Ahli</span></li>
+        <li><span class="num">25</span><span class="pname">Igor Thiago</span><span class="pclub">Brentford</span></li>
+      </ul>
+      <div class="note">Predicted XI — Raphinha a fitness doubt, Rayan projected in his place. #2 (Wesley França) flagged: one source split the number.</div>
+    </div>
+
+    <div class="col jp">
+      <div class="colhead"><h2>Japan</h2><span class="form">3-4-2-1 · low block + transition</span></div>
+      <div class="kit"><span class="sw"><i style="background:#f3f0e6"></i><i style="background:#16181d"></i></span> Wearing: Away — off-white shirt, black shorts</div>
+      <div class="rsub">Starters (predicted)</div>
+      <ul class="xi">
+        <li><span class="num gk">1</span><span class="pname">Zion Suzuki</span><span class="pclub">Parma</span></li>
+        <li><span class="num">21</span><span class="pname">Hiroki Itō</span><span class="pclub">Bayern Munich</span></li>
+        <li><span class="num">4</span><span class="pname">Ko Itakura<span class="cap">C</span></span><span class="pclub">Ajax</span></li>
+        <li><span class="num">22</span><span class="pname">Takehiro Tomiyasu</span><span class="pclub">Ajax</span></li>
+        <li><span class="num">14</span><span class="pname">Junya Itō</span><span class="pclub">Genk</span></li>
+        <li><span class="num">7</span><span class="pname">Ao Tanaka</span><span class="pclub">Leeds United</span></li>
+        <li><span class="num">24</span><span class="pname">Kaishū Sano</span><span class="pclub">Mainz</span></li>
+        <li><span class="num">13</span><span class="pname">Keito Nakamura</span><span class="pclub">Reims</span></li>
+        <li><span class="num">8</span><span class="pname">Takefusa Kubo</span><span class="pclub">Real Sociedad</span></li>
+        <li><span class="num">15</span><span class="pname">Daichi Kamada</span><span class="pclub">Crystal Palace</span></li>
+        <li><span class="num">18</span><span class="pname">Ayase Ueda</span><span class="pclub">Feyenoord</span></li>
+      </ul>
+      <div class="rsub">Bench</div>
+      <ul class="xi">
+        <li><span class="num">2</span><span class="pname">Yukinari Sugawara</span><span class="pclub">Werder Bremen</span></li>
+        <li><span class="num">3</span><span class="pname">Shogo Taniguchi</span><span class="pclub">Sint-Truiden</span></li>
+        <li><span class="num">5</span><span class="pname">Yuta Nagatomo</span><span class="pclub">FC Tokyo</span></li>
+        <li><span class="num">6</span><span class="pname out">Wataru Endō</span><span class="tag">out · inj</span><span class="pclub">Liverpool</span></li>
+        <li><span class="num">9</span><span class="pname">Keisuke Goto</span><span class="pclub">Sint-Truiden</span></li>
+        <li><span class="num">10</span><span class="pname">Ritsu Doan</span><span class="pclub">E. Frankfurt</span></li>
+        <li><span class="num">11</span><span class="pname">Daizen Maeda</span><span class="pclub">Celtic</span></li>
+        <li><span class="num gk">12</span><span class="pname">Keisuke Osako</span><span class="pclub">S. Hiroshima</span></li>
+        <li><span class="num">16</span><span class="pname">Tsuyoshi Watanabe</span><span class="pclub">Feyenoord</span></li>
+        <li><span class="num">17</span><span class="pname">Yuito Suzuki</span><span class="pclub">Freiburg</span></li>
+        <li><span class="num">19</span><span class="pname">Koki Ogawa</span><span class="pclub">NEC Nijmegen</span></li>
+        <li><span class="num">20</span><span class="pname">Ayumu Seko</span><span class="pclub">Le Havre</span></li>
+        <li><span class="num gk">23</span><span class="pname">Tomoki Hayakawa</span><span class="pclub">Kashima</span></li>
+        <li><span class="num">25</span><span class="pname">Junnosuke Suzuki</span><span class="pclub">Copenhagen</span></li>
+        <li><span class="num">26</span><span class="pname">Kento Shiogai</span><span class="pclub">Wolfsburg</span></li>
+      </ul>
+      <div class="note">Predicted XI — labelled 3-4-2-1 but morphs to a 5-4-1 low block out of possession. Endō (#6), usual captain/anchor, withdrew injured — armband to Itakura; Doan (#10) profiles as the impact sub his 2022 run made famous.</div>
+    </div>
+  </div>
+
+  <div class="foot">
+    pre-match (confirmed XIs + shirt numbers drop ~1hr before kickoff) <span>Per Wikipedia WC squads, ESPN / Al Jazeera / Rotowire / Footy Headlines previews.</span>
+  </div>
+
+</div>
+</body>
+</html>

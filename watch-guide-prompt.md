@@ -27,7 +27,8 @@ First team = **home** (left side); second = **away** (right side).
 
 Reproduce the **visual language** of the accompanying `example.html` (a phone-first one-pager), adapting the content to this match. Don't copy its text — copy its *style and structure*:
 
-- Dense sports-programme aesthetic: condensed display fonts (Oswald / Barlow Condensed via a Google Fonts `@import`), **team-colored headers**, dark accent bars, gold highlights, dotted dividers, squad-number chips, two-column blocks that collapse to one column on a phone (`@media max-width:680px`).
+- Dense sports-programme aesthetic: condensed display fonts (Oswald / Barlow Condensed via a Google Fonts `@import`), **team-colored headers**, dark accent bars, gold highlights, dotted dividers, squad-number chips, two-column blocks that collapse on a phone (`@media max-width:680px`).
+- **Mobile layout (copy from `example.html`):** infobar wraps 2×2; header nicknames shrink; prose columns go single-column; **lineups use CSS-only tabs** (`.lineup-tabs` with radio inputs + `.tab-bar` labels — one team at full width on phone, side-by-side on desktop). Never leave `.cols` as two columns on narrow screens.
 - **Self-contained:** one HTML file, inline `<style>`, no external deps beyond the font import. Opens directly in a browser; reads/prints well on a phone.
 - **Use each team's REAL colors** (kit/flag) for their side — not the example's red/green. (e.g. Spain red/gold, Portugal red/green, Argentina sky-blue/white.) Pick a primary + a darker shade per team.
 - Conceptually one page; it can scroll on a phone.

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Germany vs Paraguay — 2026 World Cup, Round of 32</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&family=Barlow:wght@400;500;600&display=swap');
+
+  :root{
+    --ge-blk:#101010; --ge-deep:#000000; --gold:#C9A227;
+    --pa-red:#D52B1E; --pa-deep:#a81d12; --pa-blue:#0b3da0;
+    --ink:#1a1714; --paper:#f6f3ec; --line:#d8d2c4; --muted:#6f675b;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Barlow',sans-serif;background:#26231f;color:var(--ink);padding:18px;line-height:1.32;}
+  .sheet{max-width:920px;margin:0 auto;background:var(--paper);border:1px solid var(--line);box-shadow:0 14px 44px rgba(0,0,0,.5);overflow:hidden;}
+
+  /* HEADER */
+  .top{display:flex;align-items:stretch;color:#f6f3ec;}
+  .top .side{flex:1;padding:13px 18px;}
+  .top .ge{background:linear-gradient(135deg,#2b2b2b,var(--ge-deep));}
+  .top .pa{background:linear-gradient(225deg,var(--pa-red),var(--pa-deep));text-align:right;}
+  .top .mid{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 14px;min-width:118px;background:var(--ink);}
+  .flag{font-size:12.5px;letter-spacing:.18em;font-family:'Oswald';font-weight:600;opacity:.85;}
+  .nat{font-family:'Oswald';font-weight:700;font-size:27px;line-height:1;text-transform:uppercase;}
+  .sub{font-size:11px;opacity:.82;margin-top:3px;font-family:'Barlow Condensed';letter-spacing:.04em;}
+  .vs{font-family:'Oswald';font-weight:700;font-size:19px;color:var(--gold);}
+  .mid .comp{font-size:9px;letter-spacing:.2em;font-family:'Oswald';opacity:.7;text-align:center;}
+
+  .infobar{display:flex;background:#000;color:#f6f3ec;font-family:'Barlow Condensed';font-size:13px;}
+  .infobar div{padding:6px 14px;border-right:1px solid #2c2c2c;flex:1;text-align:center;white-space:nowrap;}
+  .infobar div:last-child{border-right:none;}
+  .infobar b{color:var(--gold);font-weight:600;letter-spacing:.07em;text-transform:uppercase;font-size:10px;display:block;}
+
+  /* STAKES + TAPE */
+  .strip{display:flex;align-items:stretch;background:var(--gold);color:#241e10;}
+  .strip .msg{flex:1;padding:9px 16px;font-family:'Barlow Condensed';font-size:14px;font-weight:500;align-self:center;}
+  .strip .msg b{font-weight:700;}
+  table.grp{border-collapse:collapse;font-family:'Barlow Condensed';font-size:12px;background:#241e10;color:#f6f3ec;}
+  table.grp th{font-size:9px;letter-spacing:.08em;padding:4px 9px;color:var(--gold);text-transform:uppercase;font-weight:600;}
+  table.grp td{padding:3px 9px;text-align:center;border-top:1px solid #3a3220;}
+  table.grp td.st{text-align:left;font-weight:600;font-family:'Barlow';font-size:10.5px;color:#cdbf9b;text-transform:uppercase;letter-spacing:.04em;}
+
+  /* TEAM COLUMNS */
+  .cols{display:grid;grid-template-columns:1fr 1fr;}
+  .col{padding:13px 16px;}
+  .col.ge{border-right:2px solid var(--line);background:#fbfaf7;}
+  .col.pa{background:#f3f5fb;}
+  .colhead{display:flex;align-items:baseline;justify-content:space-between;border-bottom:2px solid;padding-bottom:5px;margin-bottom:8px;}
+  .col.ge .colhead{border-color:var(--ge-blk);}
+  .col.pa .colhead{border-color:var(--pa-blue);}
+  .colhead h2{font-family:'Oswald';font-size:18px;text-transform:uppercase;letter-spacing:.02em;}
+  .col.ge .colhead h2{color:var(--ge-blk);}
+  .col.pa .colhead h2{color:var(--pa-blue);}
+  .kit{font-family:'Barlow Condensed';font-size:10px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase;display:flex;align-items:center;gap:5px;}
+  .sw{display:inline-block;width:11px;height:11px;border-radius:2px;border:1px solid rgba(0,0,0,.25);}
+
+  .xi{list-style:none;}
+  .xi li{display:flex;gap:9px;align-items:center;padding:2.5px 0;border-bottom:1px dotted var(--line);}
+  .xi li:last-child{border-bottom:none;}
+  .num{font-family:'Oswald';font-weight:700;font-size:14px;width:25px;height:23px;display:flex;align-items:center;justify-content:center;color:#fff;border-radius:3px;flex-shrink:0;}
+  .col.ge .num{background:var(--ge-blk);}
+  .col.pa .num{background:var(--pa-blue);}
+  .num.gk{background:#8a8276 !important;}
+  .pname{font-weight:600;font-size:12.5px;}
+  .pclub{color:var(--muted);font-size:10.5px;font-family:'Barlow Condensed';margin-left:auto;text-align:right;letter-spacing:.02em;white-space:nowrap;}
+  .cap{color:var(--gold);font-weight:700;font-size:9px;vertical-align:super;margin-left:1px;}
+  .out{color:#a23;font-weight:700;font-size:8.5px;vertical-align:super;margin-left:3px;font-family:'Barlow Condensed';letter-spacing:.04em;}
+
+  .note{font-size:10px;color:var(--muted);font-style:italic;margin-top:6px;line-height:1.3;}
+
+  /* ROAD HERE */
+  .road{background:var(--ink);color:#ece5d8;padding:13px 18px;}
+  .road h3{font-family:'Oswald';font-size:12px;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;margin-bottom:9px;text-align:center;}
+  .roadgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .rh{font-family:'Oswald';font-size:13px;text-transform:uppercase;letter-spacing:.03em;margin-bottom:5px;}
+  .rh.e{color:#d7d7d7;} .rh.i{color:#ff9b8e;}
+  .game{display:flex;gap:8px;margin-bottom:6px;font-size:11.5px;line-height:1.32;}
+  .score{font-family:'Oswald';font-weight:700;font-size:11px;padding:2px 6px;border-radius:3px;height:fit-content;white-space:nowrap;flex-shrink:0;color:#fff;}
+  .score.w{background:#2c5e38;} .score.l{background:#6e2530;} .score.d{background:#5a5036;}
+  .game .gt{color:#cfc7b8;}
+  .game .gt b{color:#fff;font-weight:600;}
+  .game .gt small{display:block;color:#a89f8e;font-size:10px;font-style:italic;}
+  .game .gt .dt{color:#fff;font-weight:600;}
+
+  /* WATCH */
+  .watch{padding:13px 18px;}
+  .watch h3{font-family:'Oswald';font-size:12px;letter-spacing:.2em;color:var(--pa-red);text-transform:uppercase;margin-bottom:9px;}
+  .wgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 22px;}
+  .star{display:flex;gap:9px;}
+  .star .wn{font-family:'Oswald';font-weight:700;font-size:15px;width:30px;height:28px;display:flex;align-items:center;justify-content:center;border-radius:3px;color:#fff;flex-shrink:0;}
+  .wn.e{background:var(--ge-blk);} .wn.i{background:var(--pa-red);}
+  .star .nm{font-family:'Oswald';font-size:13.5px;font-weight:600;line-height:1.05;}
+  .star .meta{font-size:9.5px;color:var(--muted);font-family:'Barlow Condensed';letter-spacing:.03em;text-transform:uppercase;margin-bottom:2px;}
+  .star .blurb{font-size:11px;line-height:1.32;}
+  .star b{font-weight:600;}
+  .wgroup{margin-bottom:12px;}
+  .wgroup:last-child{margin-bottom:0;}
+  .wteam{font-family:'Oswald';font-size:11px;text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;padding-bottom:3px;border-bottom:2px solid;}
+  .wteam.e{color:var(--ge-blk);border-color:var(--ge-blk);}
+  .wteam.i{color:var(--pa-red);border-color:var(--pa-red);}
+
+  /* NEXT */
+  .next{background:#efe9dc;padding:12px 18px;border-top:1px solid var(--line);}
+  .next h3{font-family:'Oswald';font-size:12px;letter-spacing:.2em;color:var(--pa-blue);text-transform:uppercase;margin-bottom:7px;}
+  .next .ng{columns:2;column-gap:24px;}
+  .next p{font-size:11px;margin-bottom:6px;break-inside:avoid;line-height:1.36;padding-left:13px;position:relative;}
+  .next p::before{content:"\25B8";position:absolute;left:0;color:var(--gold);font-size:9px;top:2px;}
+  .next b{font-weight:600;}
+
+  /* WHAT TO WATCH FOR */
+  .wtw{padding:13px 18px;border-top:1px solid var(--line);}
+  .wtw h3{font-family:'Oswald';font-size:12px;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;margin-bottom:9px;}
+  .battles{columns:2;column-gap:24px;}
+  .battle{font-size:11px;line-height:1.36;margin-bottom:8px;break-inside:avoid;}
+  .battle .bt{font-family:'Oswald';font-weight:600;font-size:11.5px;text-transform:uppercase;letter-spacing:.02em;color:var(--ink);display:block;margin-bottom:1px;}
+  .tip{margin-top:6px;background:#efe9dc;border-left:3px solid var(--gold);padding:8px 11px;font-size:11.5px;font-family:'Barlow Condensed';line-height:1.4;}
+  .tip b{font-family:'Barlow';font-weight:600;color:#241e10;}
+
+  /* LINEUPS */
+  .rtitle{font-family:'Oswald';font-size:12px;letter-spacing:.2em;color:var(--ink);text-transform:uppercase;text-align:center;padding:13px 18px 0;}
+  .rsub{font-family:'Oswald';font-size:9.5px;letter-spacing:.13em;color:var(--muted);text-transform:uppercase;margin:9px 0 3px;}
+  .rsub:first-child{margin-top:0;}
+
+  .foot{background:var(--ink);color:#9a9081;font-size:9.5px;text-align:center;padding:7px;font-family:'Barlow Condensed';letter-spacing:.05em;}
+  .foot span{color:var(--gold);}
+
+  @media (max-width:680px){
+    body{padding:7px;}
+    .wgrid,.roadgrid,.next .ng,.battles{grid-template-columns:1fr;columns:1;}
+    .nat{font-size:22px;}
+    .pclub{font-size:10px;}
+  }
+  @media print{body{background:#fff;padding:0;}.sheet{box-shadow:none;border:none;}@page{margin:7mm;}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="top">
+    <div class="side ge">
+      <div class="flag">🇩🇪 GERMANY</div>
+      <div class="nat">Die Mannschaft</div>
+      <div class="sub">FIFA #10 · Coach: Julian Nagelsmann · 4-2-3-1</div>
+    </div>
+    <div class="mid">
+      <div class="comp">ROUND&nbsp;OF&nbsp;32</div>
+      <div class="vs">V</div>
+      <div class="comp">WORLD&nbsp;CUP&nbsp;'26</div>
+    </div>
+    <div class="side pa">
+      <div class="flag">PARAGUAY 🇵🇾</div>
+      <div class="nat">La Albirroja</div>
+      <div class="sub">5-3-2 · Coach: Gustavo Alfaro · FIFA #41</div>
+    </div>
+  </div>
+
+  <div class="infobar">
+    <div><b>Venue</b>Gillette Stadium, Boston</div>
+    <div><b>Kickoff</b>Mon 1:30 PM PDT · 4:30 PM EDT</div>
+    <div><b>TV</b>FOX / Telemundo</div>
+    <div><b>Referee</b>J. Jayed (MAR)</div>
+  </div>
+
+  <div class="strip">
+    <div class="msg"><b>Win or go home.</b> The first-ever World Cup <b>Round of 32</b> — winner advances to the last 16, loser is out. Heavy-favorite Germany's creativity vs Paraguay's clean-sheet low block.</div>
+    <table class="grp">
+      <tr><th>Tale of the Tape</th><th>GER</th><th>PAR</th></tr>
+      <tr><td class="st">Route here</td><td>Grp E 1st</td><td>Grp D 3rd*</td></tr>
+      <tr><td class="st">FIFA rank</td><td>10</td><td>~41</td></tr>
+      <tr><td class="st">Group form</td><td>W W L</td><td>L W D</td></tr>
+      <tr><td class="st">Odds</td><td>1.38</td><td>+750</td></tr>
+    </table>
+  </div>
+
+  <div class="road">
+    <h3>How They Got Here · Group Stage</h3>
+    <div class="roadgrid">
+      <div>
+        <div class="rh e">Germany — won Group E</div>
+        <div class="game"><span class="score w">7&ndash;1</span><span class="gt"><span class="dt">Jun 14</span> · vs Curaçao</span></div>
+        <div class="game"><span class="score w">2&ndash;1</span><span class="gt"><span class="dt">Jun 20</span> · vs Ivory Coast</span></div>
+        <div class="game"><span class="score l">1&ndash;2</span><span class="gt"><span class="dt">Jun 25</span> · vs Ecuador<small>Dead rubber — group already won</small></span></div>
+      </div>
+      <div>
+        <div class="rh i">Paraguay — 3rd, best-third route</div>
+        <div class="game"><span class="score l">1&ndash;4</span><span class="gt"><span class="dt">Jun 12</span> · vs USA</span></div>
+        <div class="game"><span class="score w">1&ndash;0</span><span class="gt"><span class="dt">Jun 19</span> · vs Türkiye</span></div>
+        <div class="game"><span class="score d">0&ndash;0</span><span class="gt"><span class="dt">Jun 25</span> · vs Australia<small>The point that sealed qualification</small></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="next">
+    <h3>What's At Stake &amp; What's Next</h3>
+    <div class="ng">
+      <p><b>Germany:</b> Win and the redemption arc continues — they're the only four-time champions ever to suffer back-to-back group exits (2018, 2022). Lose and it's a third straight tournament disaster under a young, already-extended Nagelsmann.</p>
+      <p><b>Paraguay:</b> Their first World Cup since 2010 — and a chance to reach the knockout business end for the first time since that quarterfinal run. House money for Alfaro's overachievers; everything from here is a bonus.</p>
+      <p><b>Winner advances to the Round of 16</b> — likely vs the winner of <b>France vs Sweden</b> (to be confirmed), at Lincoln Financial Field, Philadelphia.</p>
+      <p><b>The 2002 rematch:</b> Their only previous World Cup meeting was the 2002 Round of 16 — Germany 1-0 on an 88th-minute Oliver Neuville goal, on the way to the final. Germany have never lost to Paraguay at a World Cup.</p>
+      <p><b>Style clash:</b> Germany's possession and two No.10s (Wirtz, Musiala) vs a Paraguay side built on grit — two group clean sheets, beat both Brazil and Argentina in qualifying.</p>
+    </div>
+  </div>
+
+  <div class="wtw">
+    <h3>What To Watch For</h3>
+    <div class="battles">
+      <div class="battle"><span class="bt">Wirtz &amp; Musiala vs Cubas + the block</span>The whole game: can Germany's two No.10s unpick a packed Paraguay defense, or get frustrated into it (as they were vs Ecuador)? Andrés Cubas is the screen who steps on them before they turn.</div>
+      <div class="battle"><span class="bt">Rüdiger / Tah vs Sanabria + Enciso</span>Paraguay's goals come on the break — Sanabria holds it up, Enciso bursts in behind. Rüdiger's recovery pace against Enciso is the pivotal transition duel. (Schlotterbeck is out injured, so it's Tah–Rüdiger.)</div>
+      <div class="battle"><span class="bt">Kimmich vs Paraguay's counters</span>Germany's captain and tempo-setter supplies the right side; Paraguay will target the space he vacates when he pushes up from full-back.</div>
+      <div class="battle"><span class="bt">Gustavo Gómez vs Havertz, both boxes</span>Two-way duel: Paraguay's captain must win the physical fight against Havertz at one end — and is their biggest set-piece header threat at the other.</div>
+    </div>
+    <div class="tip"><b>Set-piece tip:</b> Germany are tall and dangerous from delivery — watch Kimmich in-swingers onto Rüdiger, Tah and Havertz (the likely penalty taker). But dead balls are also Paraguay's best route: if it's tight late, treat every Gustavo Gómez set-piece as a genuine chance.</div>
+  </div>
+
+  <div class="watch">
+    <h3>&#9733; The Names You'll Hear Most &#9733;</h3>
+    <div class="wgroup">
+      <div class="wteam e">Germany</div>
+      <div class="wgrid">
+        <div class="star"><span class="wn e">10</span><div><div class="nm">Jamal Musiala</div><div class="meta">Germany · Bayern Munich · Talisman</div><div class="blurb">Dribbles through anyone. The comeback story — back ~a year after a fractured fibula and dislocated ankle at the 2025 Club World Cup.</div></div></div>
+        <div class="star"><span class="wn e">17</span><div><div class="nm">Florian Wirtz</div><div class="meta">Germany · Liverpool · Creator</div><div class="blurb">British-record ~£100m signing answering a rocky debut season; already 2 assists here. Germany's chief playmaker.</div></div></div>
+        <div class="star"><span class="wn e">7</span><div><div class="nm">Kai Havertz</div><div class="meta">Germany · Arsenal · No.9</div><div class="blurb">Germany's striker and likely penalty taker. (Capt. Joshua Kimmich, 6, is the metronome; Rüdiger, 2, the defensive boss.)</div></div></div>
+      </div>
+    </div>
+    <div class="wgroup">
+      <div class="wteam i">Paraguay</div>
+      <div class="wgrid">
+        <div class="star"><span class="wn i">19</span><div><div class="nm">Julio Enciso</div><div class="meta">Paraguay · Strasbourg · Spark</div><div class="blurb">The 22-year-old jewel; left Brighton for Strasbourg in 2025. Explosive, shoots from distance — Paraguay's main source of magic.</div></div></div>
+        <div class="star"><span class="wn i">10</span><div><div class="nm">Miguel Almirón</div><div class="meta">Paraguay · Atlanta United · Engine</div><div class="blurb">The experienced runner and set-piece deliverer; the most recognizable name to a US crowd after his Newcastle years.</div></div></div>
+        <div class="star"><span class="wn i">15</span><div><div class="nm">Gustavo Gómez</div><div class="meta">Paraguay · Palmeiras · Captain</div><div class="blurb">Leader of the clean-sheet defense; commanding in both boxes and a set-piece goal threat. (Sanabria, 9, is the striker.)</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rtitle">The Lineups · By The Numbers</div>
+  <div class="cols">
+    <div class="col ge">
+      <div class="colhead"><h2>Germany</h2><span class="kit"><span class="sw" style="background:#ffffff"></span><span class="sw" style="background:#101010"></span>White · black</span></div>
+      <div class="rsub">Starters · 4-2-3-1</div>
+      <ul class="xi">
+        <li><span class="num gk">1</span><span class="pname">Manuel Neuer</span><span class="pclub">Bayern Munich</span></li>
+        <li><span class="num">2</span><span class="pname">Antonio Rüdiger</span><span class="pclub">Real Madrid</span></li>
+        <li><span class="num">4</span><span class="pname">Jonathan Tah</span><span class="pclub">Bayern Munich</span></li>
+        <li><span class="num">5</span><span class="pname">Aleksandar Pavlović</span><span class="pclub">Bayern Munich</span></li>
+        <li><span class="num">6</span><span class="pname">Joshua Kimmich<span class="cap">C</span></span><span class="pclub">Bayern Munich</span></li>
+        <li><span class="num">7</span><span class="pname">Kai Havertz</span><span class="pclub">Arsenal</span></li>
+        <li><span class="num">10</span><span class="pname">Jamal Musiala</span><span class="pclub">Bayern Munich</span></li>
+        <li><span class="num">17</span><span class="pname">Florian Wirtz</span><span class="pclub">Liverpool</span></li>
+        <li><span class="num">18</span><span class="pname">Nathaniel Brown</span><span class="pclub">Eintracht Frankfurt</span></li>
+        <li><span class="num">19</span><span class="pname">Leroy Sané</span><span class="pclub">Galatasaray</span></li>
+        <li><span class="num">23</span><span class="pname">Felix Nmecha</span><span class="pclub">Borussia Dortmund</span></li>
+      </ul>
+      <div class="rsub">Bench</div>
+      <ul class="xi">
+        <li><span class="num">3</span><span class="pname">Waldemar Anton</span><span class="pclub">Borussia Dortmund</span></li>
+        <li><span class="num">8</span><span class="pname">Leon Goretzka</span><span class="pclub">Bayern Munich</span></li>
+        <li><span class="num">9</span><span class="pname">Jamie Leweling</span><span class="pclub">VfB Stuttgart</span></li>
+        <li><span class="num">11</span><span class="pname">Nick Woltemade</span><span class="pclub">Newcastle United</span></li>
+        <li><span class="num gk">12</span><span class="pname">Oliver Baumann</span><span class="pclub">Hoffenheim</span></li>
+        <li><span class="num">13</span><span class="pname">Pascal Groß</span><span class="pclub">Brighton</span></li>
+        <li><span class="num">14</span><span class="pname">Maximilian Beier</span><span class="pclub">Borussia Dortmund</span></li>
+        <li><span class="num">15</span><span class="pname">Nico Schlotterbeck<span class="out">OUT</span></span><span class="pclub">Dortmund · ankle</span></li>
+        <li><span class="num">16</span><span class="pname">Angelo Stiller</span><span class="pclub">VfB Stuttgart</span></li>
+        <li><span class="num">20</span><span class="pname">Nadiem Amiri</span><span class="pclub">Mainz 05</span></li>
+        <li><span class="num gk">21</span><span class="pname">Alexander Nübel</span><span class="pclub">VfB Stuttgart</span></li>
+        <li><span class="num">22</span><span class="pname">David Raum</span><span class="pclub">RB Leipzig</span></li>
+        <li><span class="num">24</span><span class="pname">Malick Thiaw</span><span class="pclub">Newcastle United</span></li>
+        <li><span class="num">25</span><span class="pname">Lennart Karl</span><span class="pclub">Bayern Munich</span></li>
+        <li><span class="num">26</span><span class="pname">Deniz Undav</span><span class="pclub">VfB Stuttgart</span></li>
+      </ul>
+    </div>
+    <div class="col pa">
+      <div class="colhead"><h2>Paraguay</h2><span class="kit"><span class="sw" style="background:#0b3da0"></span>Blue change · unconfirmed</span></div>
+      <div class="rsub">Starters · 5-3-2 (projected)</div>
+      <ul class="xi">
+        <li><span class="num gk">12</span><span class="pname">Orlando Gill</span><span class="pclub">San Lorenzo (ARG)</span></li>
+        <li><span class="num">2</span><span class="pname">Gustavo Velázquez</span><span class="pclub">Cerro Porteño</span></li>
+        <li><span class="num">3</span><span class="pname">Omar Alderete</span><span class="pclub">Sunderland · knee?</span></li>
+        <li><span class="num">4</span><span class="pname">Juan Cáceres</span><span class="pclub">Dynamo Moscow</span></li>
+        <li><span class="num">6</span><span class="pname">Junior Alonso</span><span class="pclub">Atlético Mineiro</span></li>
+        <li><span class="num">9</span><span class="pname">Antonio Sanabria</span><span class="pclub">Cremonese</span></li>
+        <li><span class="num">10</span><span class="pname">Miguel Almirón</span><span class="pclub">Atlanta United</span></li>
+        <li><span class="num">14</span><span class="pname">Andrés Cubas</span><span class="pclub">Vancouver Whitecaps</span></li>
+        <li><span class="num">15</span><span class="pname">Gustavo Gómez<span class="cap">C</span></span><span class="pclub">Palmeiras</span></li>
+        <li><span class="num">19</span><span class="pname">Julio Enciso</span><span class="pclub">Strasbourg</span></li>
+        <li><span class="num">23</span><span class="pname">Matías Galarza</span><span class="pclub">Atlanta United</span></li>
+      </ul>
+      <div class="rsub">Bench</div>
+      <ul class="xi">
+        <li><span class="num gk">1</span><span class="pname">Gatito Fernández</span><span class="pclub">Cerro Porteño</span></li>
+        <li><span class="num">5</span><span class="pname">Fabián Balbuena</span><span class="pclub">Grêmio</span></li>
+        <li><span class="num">7</span><span class="pname">Ramón Sosa</span><span class="pclub">Palmeiras · muscle?</span></li>
+        <li><span class="num">8</span><span class="pname">Diego Gómez<span class="out">SUSP</span></span><span class="pclub">Brighton</span></li>
+        <li><span class="num">11</span><span class="pname">Mauricio</span><span class="pclub">Palmeiras</span></li>
+        <li><span class="num">13</span><span class="pname">José Canale</span><span class="pclub">Lanús</span></li>
+        <li><span class="num">16</span><span class="pname">Damián Bobadilla</span><span class="pclub">São Paulo</span></li>
+        <li><span class="num">17</span><span class="pname">Kaku (Óscar Romero)</span><span class="pclub">Al-Ain (UAE)</span></li>
+        <li><span class="num">18</span><span class="pname">Alex Arce</span><span class="pclub">Indep. Rivadavia</span></li>
+        <li><span class="num">20</span><span class="pname">Braian Ojeda</span><span class="pclub">Orlando City</span></li>
+        <li><span class="num">21</span><span class="pname">Gabriel Ávalos</span><span class="pclub">Independiente</span></li>
+        <li><span class="num gk">22</span><span class="pname">Gastón Olveira</span><span class="pclub">Olimpia</span></li>
+        <li><span class="num">24</span><span class="pname">Gustavo Caballero</span><span class="pclub">Portsmouth</span></li>
+        <li><span class="num">25</span><span class="pname">Isidro Pittá</span><span class="pclub">RB Bragantino</span></li>
+        <li><span class="num">26</span><span class="pname">Alexandro Maidana</span><span class="pclub">Talleres</span></li>
+      </ul>
+      <div class="note">Paraguay's XI is genuinely unsettled: formation disputed (5-3-2 vs a back four), and the keeper (Gill vs Gatito), back line and Alderete's fitness (knee) firm up ~1hr before kickoff. Diego Gómez is suspended.</div>
+    </div>
+  </div>
+
+  <div class="foot">
+    Pre-match — predicted XIs (confirmed lineups + shirt numbers drop ~1hr before kickoff). <span>Per ESPN / Sports Mole / FIFA squad lists; kit assignment unconfirmed.</span>
+  </div>
+
+</div>
+</body>
+</html>

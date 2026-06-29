@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Netherlands vs Morocco — 2026 World Cup, Round of 32</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&family=Barlow:wght@400;500;600&display=swap');
+
+  :root{
+    --ned-org:#F36C21; --ned-deep:#C0571A; --ned-navy:#1c2a4a;
+    --mar-red:#C1272D; --mar-deep:#8f1d22; --mar-grn:#006233;
+    --gold:#C39A2B;
+    --ink:#1a1714; --paper:#f6f3ec; --line:#d8d2c4; --muted:#6f675b;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Barlow',sans-serif;background:#26231f;color:var(--ink);padding:18px;line-height:1.32;}
+  .sheet{max-width:920px;margin:0 auto;background:var(--paper);border:1px solid var(--line);box-shadow:0 14px 44px rgba(0,0,0,.5);overflow:hidden;}
+
+  /* HEADER */
+  .top{display:flex;align-items:stretch;color:#f6f3ec;}
+  .top .side{flex:1;padding:13px 18px;}
+  .top .ned{background:linear-gradient(135deg,var(--ned-org),var(--ned-deep));}
+  .top .mar{background:linear-gradient(225deg,var(--mar-red),var(--mar-deep));text-align:right;}
+  .top .mid{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 14px;min-width:118px;background:var(--ink);}
+  .flag{font-size:12.5px;letter-spacing:.18em;font-family:'Oswald';font-weight:600;opacity:.85;}
+  .nat{font-family:'Oswald';font-weight:700;font-size:27px;line-height:1;text-transform:uppercase;}
+  .sub{font-size:11px;opacity:.82;margin-top:3px;font-family:'Barlow Condensed';letter-spacing:.04em;}
+  .vs{font-family:'Oswald';font-weight:700;font-size:19px;color:var(--gold);}
+  .mid .comp{font-size:9px;letter-spacing:.2em;font-family:'Oswald';opacity:.7;text-align:center;}
+
+  .infobar{display:flex;background:#000;color:#f6f3ec;font-family:'Barlow Condensed';font-size:13px;}
+  .infobar div{padding:6px 14px;border-right:1px solid #2c2c2c;flex:1;text-align:center;white-space:nowrap;}
+  .infobar div:last-child{border-right:none;}
+  .infobar b{color:var(--gold);font-weight:600;letter-spacing:.07em;text-transform:uppercase;font-size:10px;display:block;}
+
+  /* STAKES + KNOCKOUT PANEL */
+  .strip{display:flex;align-items:stretch;background:var(--gold);color:#241e10;}
+  .strip .msg{flex:1;padding:9px 16px;font-family:'Barlow Condensed';font-size:14px;font-weight:500;align-self:center;}
+  .strip .msg b{font-weight:700;}
+  table.grp{border-collapse:collapse;font-family:'Barlow Condensed';font-size:12px;background:#241e10;color:#f6f3ec;min-width:226px;}
+  table.grp th{font-size:9px;letter-spacing:.08em;padding:4px 9px;color:var(--gold);text-transform:uppercase;font-weight:600;text-align:left;}
+  table.grp td{padding:3px 9px;border-top:1px solid #3a3220;}
+  table.grp td.k{color:var(--gold);text-transform:uppercase;font-size:9px;letter-spacing:.06em;font-weight:600;white-space:nowrap;}
+  table.grp td.v{text-align:left;font-family:'Barlow';font-size:11.5px;font-weight:600;}
+
+  /* TEAM COLUMNS */
+  .cols{display:grid;grid-template-columns:1fr 1fr;}
+  .col{padding:13px 16px;}
+  .col.ned{border-right:2px solid var(--line);background:linear-gradient(180deg,rgba(243,108,33,.07),transparent 120px);}
+  .col.mar{background:linear-gradient(180deg,rgba(0,98,51,.06),transparent 120px);}
+  .colhead{display:flex;align-items:baseline;justify-content:space-between;border-bottom:2px solid;padding-bottom:5px;margin-bottom:8px;}
+  .col.ned .colhead{border-color:var(--ned-org);}
+  .col.mar .colhead{border-color:var(--mar-red);}
+  .colhead h2{font-family:'Oswald';font-size:18px;text-transform:uppercase;letter-spacing:.02em;}
+  .col.ned .colhead h2{color:var(--ned-deep);}
+  .col.mar .colhead h2{color:var(--mar-red);}
+  .form{font-family:'Barlow Condensed';font-size:11.5px;color:var(--muted);letter-spacing:.05em;}
+
+  /* kit swatch */
+  .kit{display:flex;align-items:center;gap:6px;font-family:'Barlow Condensed';font-size:10px;color:var(--muted);letter-spacing:.03em;text-transform:uppercase;margin-bottom:8px;}
+  .sw{width:14px;height:14px;border-radius:3px;border:1px solid rgba(0,0,0,.25);flex-shrink:0;}
+  .sw.ned{background:var(--ned-org);}
+  .sw.mar{background:linear-gradient(135deg,#fff 0 60%,var(--mar-red) 60% 80%,var(--mar-grn) 80%);}
+
+  .xi{list-style:none;}
+  .xi li{display:flex;gap:9px;align-items:center;padding:2.5px 0;border-bottom:1px dotted var(--line);}
+  .xi li:last-child{border-bottom:none;}
+  .num{font-family:'Oswald';font-weight:700;font-size:14px;width:25px;height:23px;display:flex;align-items:center;justify-content:center;color:#fff;border-radius:3px;flex-shrink:0;}
+  .col.ned .num{background:var(--ned-org);}
+  .col.mar .num{background:var(--mar-red);}
+  .num.gk{background:#444 !important;}
+  .pname{font-weight:600;font-size:12.5px;}
+  .pclub{color:var(--muted);font-size:10.5px;font-family:'Barlow Condensed';margin-left:auto;text-align:right;letter-spacing:.02em;white-space:nowrap;}
+  .cap{color:var(--gold);font-weight:700;font-size:9px;vertical-align:super;margin-left:1px;}
+
+  .note{font-size:10px;color:var(--muted);font-style:italic;margin-top:6px;line-height:1.3;}
+
+  /* ROAD HERE */
+  .road{background:var(--ink);color:#ece5d8;padding:13px 18px;}
+  .road h3{font-family:'Oswald';font-size:12px;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;margin-bottom:9px;text-align:center;}
+  .roadgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .rh{font-family:'Oswald';font-size:13px;text-transform:uppercase;letter-spacing:.03em;margin-bottom:5px;}
+  .rh.n{color:#ffb27f;} .rh.m{color:#7fdca0;}
+  .game{display:flex;gap:8px;margin-bottom:6px;font-size:11.5px;line-height:1.32;}
+  .score{font-family:'Oswald';font-weight:700;font-size:11px;padding:2px 6px;border-radius:3px;height:fit-content;white-space:nowrap;flex-shrink:0;color:#fff;}
+  .score.w{background:#2c5e38;} .score.l{background:#6e2530;} .score.d{background:#5a5036;}
+  .game .gt{color:#cfc7b8;}
+  .game .gt b{color:#fff;font-weight:600;}
+  .game .gt .dt{color:#fff;font-weight:600;}
+  .game .gt small{display:block;color:#a89f8e;font-size:10px;font-style:italic;}
+
+  /* WATCH */
+  .watch{padding:13px 18px;}
+  .watch h3{font-family:'Oswald';font-size:12px;letter-spacing:.2em;color:var(--ned-deep);text-transform:uppercase;margin-bottom:9px;}
+  .wgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 22px;}
+  .star{display:flex;gap:9px;}
+  .star .wn{font-family:'Oswald';font-weight:700;font-size:15px;width:30px;height:28px;display:flex;align-items:center;justify-content:center;border-radius:3px;color:#fff;flex-shrink:0;}
+  .wn.n{background:var(--ned-org);} .wn.m{background:var(--mar-red);}
+  .star .nm{font-family:'Oswald';font-size:13.5px;font-weight:600;line-height:1.05;}
+  .star .meta{font-size:9.5px;color:var(--muted);font-family:'Barlow Condensed';letter-spacing:.03em;text-transform:uppercase;margin-bottom:2px;}
+  .star .blurb{font-size:11px;line-height:1.32;}
+  .star b{font-weight:600;}
+  .wgroup{margin-bottom:12px;}
+  .wgroup:last-child{margin-bottom:0;}
+  .wteam{font-family:'Oswald';font-size:11px;text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;padding-bottom:3px;border-bottom:2px solid;}
+  .wteam.n{color:var(--ned-deep);border-color:var(--ned-org);}
+  .wteam.m{color:var(--mar-red);border-color:var(--mar-red);}
+
+  /* NEXT */
+  .next{background:#efe9dc;padding:12px 18px;border-top:1px solid var(--line);}
+  .next h3{font-family:'Oswald';font-size:12px;letter-spacing:.2em;color:var(--mar-grn);text-transform:uppercase;margin-bottom:7px;}
+  .next .ng{columns:2;column-gap:24px;}
+  .next p{font-size:11px;margin-bottom:6px;break-inside:avoid;line-height:1.36;padding-left:13px;position:relative;}
+  .next p::before{content:"\25B8";position:absolute;left:0;color:var(--gold);font-size:9px;top:2px;}
+  .next b{font-weight:600;}
+
+  /* WHAT TO WATCH FOR */
+  .wtw{padding:13px 18px;border-top:1px solid var(--line);}
+  .wtw h3{font-family:'Oswald';font-size:12px;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;margin-bottom:9px;}
+  .battles{columns:2;column-gap:24px;}
+  .battle{font-size:11px;line-height:1.36;margin-bottom:8px;break-inside:avoid;}
+  .battle .bt{font-family:'Oswald';font-weight:600;font-size:11.5px;text-transform:uppercase;letter-spacing:.02em;color:var(--ink);display:block;margin-bottom:1px;}
+  .tip{margin-top:6px;background:#efe9dc;border-left:3px solid var(--gold);padding:8px 11px;font-size:11.5px;font-family:'Barlow Condensed';line-height:1.4;}
+  .tip b{font-family:'Barlow';font-weight:600;color:#241e10;}
+  .deadball{margin-top:7px;font-size:10.5px;color:var(--muted);line-height:1.4;font-family:'Barlow Condensed';}
+  .deadball b{color:var(--ink);font-weight:600;text-transform:uppercase;letter-spacing:.03em;font-size:9.5px;}
+
+  /* LINEUPS */
+  .rtitle{font-family:'Oswald';font-size:12px;letter-spacing:.2em;color:var(--ink);text-transform:uppercase;text-align:center;padding:13px 18px 0;}
+  .rsub{font-family:'Oswald';font-size:9.5px;letter-spacing:.13em;color:var(--muted);text-transform:uppercase;margin:9px 0 3px;}
+  .rsub:first-child{margin-top:0;}
+
+  .foot{background:var(--ink);color:#9a9081;font-size:9.5px;text-align:center;padding:7px;font-family:'Barlow Condensed';letter-spacing:.05em;}
+  .foot span{color:var(--gold);}
+
+  @media (max-width:680px){
+    body{padding:7px;}
+    .wgrid,.roadgrid,.next .ng,.battles{grid-template-columns:1fr;columns:1;}
+    .nat{font-size:22px;}
+    .pclub{font-size:10px;}
+    .strip{flex-direction:column;}
+    table.grp{min-width:0;width:100%;}
+  }
+  @media print{body{background:#fff;padding:0;}.sheet{box-shadow:none;border:none;}@page{margin:7mm;}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="top">
+    <div class="side ned">
+      <div class="flag">🇳🇱 NETHERLANDS</div>
+      <div class="nat">Oranje</div>
+      <div class="sub">FIFA #8 · Coach: Ronald Koeman · 4-3-3</div>
+    </div>
+    <div class="mid">
+      <div class="comp">ROUND&nbsp;OF&nbsp;32</div>
+      <div class="vs">V</div>
+      <div class="comp">WORLD&nbsp;CUP&nbsp;'26</div>
+    </div>
+    <div class="side mar">
+      <div class="flag">MOROCCO 🇲🇦</div>
+      <div class="nat">Atlas Lions</div>
+      <div class="sub">4-3-3 · Coach: Mohamed Ouahbi · FIFA #7</div>
+    </div>
+  </div>
+
+  <div class="infobar">
+    <div><b>Venue</b>Estadio BBVA, Monterrey</div>
+    <div><b>Kickoff</b>Mon 6:00 PM PDT · 7 PM Monterrey</div>
+    <div><b>TV</b>Fox · Telemundo</div>
+    <div><b>Last met</b>1994 WC (NED 2&ndash;1)</div>
+  </div>
+
+  <div class="strip">
+    <div class="msg"><b>Win or go home.</b> No second leg, no group safety net — the winner reaches the <b>Round of 16</b> in Houston; the loser is <b>out of the World Cup</b>. Morocco, 2022's history-making semi-finalists, vs a Dutch side that topped its group.</div>
+    <table class="grp">
+      <tr><th colspan="2">Knockout · R32</th></tr>
+      <tr><td class="k">All-time</td><td class="v">NED 2&ndash;1 MAR (3 mtgs)</td></tr>
+      <tr><td class="k">Winner</td><td class="v">&rarr; R16 · Houston · Sat Jul 4</td></tr>
+      <tr><td class="k">vs</td><td class="v">S.&nbsp;Africa / Canada (TBC)</td></tr>
+      <tr><td class="k">Odds</td><td class="v">NED +110 · Dr +230 · MAR +260</td></tr>
+    </table>
+  </div>
+
+  <div class="road">
+    <h3>How They Got Here · Group Stage</h3>
+    <div class="roadgrid">
+      <div>
+        <div class="rh n">Netherlands · Group F (1st, 7 pts)</div>
+        <div class="game"><span class="score d">2&ndash;2</span><span class="gt"><span class="dt">Jun 14</span> · vs Japan</span></div>
+        <div class="game"><span class="score w">5&ndash;1</span><span class="gt"><span class="dt">Jun 20</span> · vs Sweden</span></div>
+        <div class="game"><span class="score w">3&ndash;1</span><span class="gt"><span class="dt">Jun 25</span> · vs Tunisia<small>Won the group; 10 goals scored</small></span></div>
+      </div>
+      <div>
+        <div class="rh m">Morocco · Group C (2nd, 7 pts)</div>
+        <div class="game"><span class="score d">1&ndash;1</span><span class="gt"><span class="dt">Jun 13</span> · vs Brazil</span></div>
+        <div class="game"><span class="score w">1&ndash;0</span><span class="gt"><span class="dt">Jun 19</span> · vs Scotland</span></div>
+        <div class="game"><span class="score w">4&ndash;2</span><span class="gt"><span class="dt">Jun 24</span> · vs Haiti<small>Unbeaten; 2nd behind Brazil on GD</small></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="next">
+    <h3>What's At Stake & What's Next</h3>
+    <div class="ng">
+      <p><b>Win = Round of 16</b> in Houston on Sat Jul 4, most likely vs the <b>South Africa / Canada</b> winner (to be confirmed); a projected quarter-final path toward France or Germany.</p>
+      <p><b>Lose = elimination.</b> A bracket quirk pitted two strong sides together this early — one of them takes a shock exit in the round of 32.</p>
+      <p><b>Morocco's new era:</b> 2022 semi-final architect Walid Regragui left in March; <b>Mohamed Ouahbi</b> — fresh off winning the 2025 U-20 World Cup — now leads a strikingly young side (En-Nesyri and Ziyech left out).</p>
+      <p><b>The heritage subplot:</b> many of Morocco's stars were born and raised in the Netherlands and chose the Atlas Lions — Dutch-born <b>Noussair Mazraoui</b> lines up against the country he could have represented.</p>
+      <p><b>Hakimi's moment:</b> fresh off a Champions League title and Ballon d'Or buzz, he captains Morocco in a knockout on North American soil — the form star of the tie on either side.</p>
+      <p><b>32 years to the day:</b> these teams' only World Cup meeting was a 2-1 Dutch win on <b>June 29, 1994</b> — replayed on the same calendar date tonight.</p>
+    </div>
+  </div>
+
+  <div class="wtw">
+    <h3>What To Watch For</h3>
+    <div class="battles">
+      <div class="battle"><span class="bt">Hakimi vs Gakpo</span>The marquee flank duel — both want the same touchline. Hakimi bombs forward like a winger; Gakpo is the Dutch left-side danger. Push high, Achraf, and Gakpo gets the space in behind you.</div>
+      <div class="battle"><span class="bt">Frenkie de Jong vs Morocco's press</span>The control battle. Morocco's young double pivot (Bouaddi &amp; El Aynaoui) swarms the buildup; De Jong's carry under pressure is the Dutch escape valve. Smother him and the Netherlands stall.</div>
+      <div class="battle"><span class="bt">Mazraoui vs Dumfries &amp; Malen</span>The heritage flank: Dutch-born Mazraoui defending the right against the country he could have played for, with Dumfries the Dutch attacking outlet behind Malen.</div>
+      <div class="battle"><span class="bt">Van Dijk vs a strikerless Morocco</span>A movement battle, not an aerial one. With no classic No.9, Morocco run Saibari as a false-9 and Brahim Díaz between the lines — Van Dijk must track runners, not win headers.</div>
+    </div>
+    <div class="deadball"><b>Netherlands dead-ball:</b> the clear aerial power — Van Dijk, Van de Ven, Van Hecke, Brobbey &amp; Dumfries make a tall, dangerous box. Penalties likely Depay (if on) or Gakpo/Reijnders.<br><b>Morocco dead-ball:</b> Hakimi is the iconic spot-kick man (panenka that knocked out Spain in 2022) and a delivery threat from the right.</div>
+    <div class="tip"><b>Set-piece tip:</b> In a tight, low-scoring tie, Dutch attacking corners and free kicks are their biggest structural edge — and Hakimi's deliveries are Morocco's cheapest route back into it. Watch every dead ball near the box.</div>
+  </div>
+
+  <div class="watch">
+    <h3>&#9733; The Names You'll Hear Most &#9733;</h3>
+    <div class="wgroup"><div class="wteam n">Netherlands</div><div class="wgrid">
+      <div class="star"><span class="wn n">4</span><div><div class="nm">Virgil van Dijk</div><div class="meta">Netherlands · Liverpool · Captain</div><div class="blurb">The defensive talisman and on-field leader — the whole Dutch structure is built around him, and the reference point at both ends on set pieces.</div></div></div>
+      <div class="star"><span class="wn n">11</span><div><div class="nm">Cody Gakpo</div><div class="meta">Netherlands · Liverpool · Left wing</div><div class="blurb">The Dutch attacking key, with a habit of catching fire at big tournaments — he broke out at the 2022 World Cup and carries the left-side threat.</div></div></div>
+      <div class="star"><span class="wn n">21</span><div><div class="nm">Frenkie de Jong</div><div class="meta">Netherlands · Barcelona · Midfield</div><div class="blurb">The metronome who must beat Morocco's press and set the tempo. If he plays well, the Netherlands control the game.</div></div></div>
+    </div></div>
+    <div class="wgroup"><div class="wteam m">Morocco</div><div class="wgrid">
+      <div class="star"><span class="wn m">2</span><div><div class="nm">Achraf Hakimi</div><div class="meta">Morocco · PSG · Captain</div><div class="blurb">The superstar. Won the 2025 Champions League (scored in the final) in PSG's treble and a Ballon d'Or contender; attacks like a winger from full-back.</div></div></div>
+      <div class="star"><span class="wn m">10</span><div><div class="nm">Brahim Díaz</div><div class="meta">Morocco · Real Madrid · Attacking mid</div><div class="blurb">The creative spark and a main goal threat — a standout at AFCON 2025. The flair player who unlocks tight, deep defenses.</div></div></div>
+      <div class="star"><span class="wn m">23</span><div><div class="nm">Bilal El Khannouss</div><div class="meta">Morocco · VfB Stuttgart · Attacking mid</div><div class="blurb">The rising young creator at the heart of Morocco's refreshed, very young midfield — the face of the post-2022 generation.</div></div></div>
+    </div></div>
+  </div>
+
+  <div class="rtitle">The Lineups · By The Numbers</div>
+  <div class="cols">
+    <div class="col ned">
+      <div class="colhead"><h2>Netherlands</h2><span class="form">4-3-3 · high press, set-piece power</span></div>
+      <div class="kit"><span class="sw ned"></span>Wearing: orange home (shirt) / black shorts</div>
+      <div class="rsub">Starters</div>
+      <ul class="xi">
+        <li><span class="num gk">1</span><span class="pname">Bart Verbruggen</span><span class="pclub">Brighton</span></li>
+        <li><span class="num">4</span><span class="pname">Virgil van Dijk<span class="cap">C</span></span><span class="pclub">Liverpool</span></li>
+        <li><span class="num">6</span><span class="pname">Jan Paul van Hecke</span><span class="pclub">Brighton</span></li>
+        <li><span class="num">8</span><span class="pname">Ryan Gravenberch</span><span class="pclub">Liverpool</span></li>
+        <li><span class="num">11</span><span class="pname">Cody Gakpo</span><span class="pclub">Liverpool</span></li>
+        <li><span class="num">14</span><span class="pname">Tijjani Reijnders</span><span class="pclub">Manchester City</span></li>
+        <li><span class="num">15</span><span class="pname">Micky van de Ven</span><span class="pclub">Tottenham</span></li>
+        <li><span class="num">18</span><span class="pname">Donyell Malen</span><span class="pclub">Roma</span></li>
+        <li><span class="num">19</span><span class="pname">Brian Brobbey</span><span class="pclub">Sunderland</span></li>
+        <li><span class="num">21</span><span class="pname">Frenkie de Jong</span><span class="pclub">Barcelona</span></li>
+        <li><span class="num">22</span><span class="pname">Denzel Dumfries</span><span class="pclub">Inter Milan</span></li>
+      </ul>
+      <div class="rsub">Bench</div>
+      <ul class="xi">
+        <li><span class="num">2</span><span class="pname">Lutsharel Geertruida</span><span class="pclub">Sunderland</span></li>
+        <li><span class="num">3</span><span class="pname">Marten de Roon</span><span class="pclub">Atalanta</span></li>
+        <li><span class="num">5</span><span class="pname">Nathan Aké</span><span class="pclub">Manchester City</span></li>
+        <li><span class="num">7</span><span class="pname">Justin Kluivert</span><span class="pclub">Bournemouth</span></li>
+        <li><span class="num">9</span><span class="pname">Wout Weghorst</span><span class="pclub">Ajax</span></li>
+        <li><span class="num">10</span><span class="pname">Memphis Depay</span><span class="pclub">Corinthians</span></li>
+        <li><span class="num">12</span><span class="pname">Mats Wieffer</span><span class="pclub">Brighton</span></li>
+        <li><span class="num gk">13</span><span class="pname">Robin Roefs</span><span class="pclub">Sunderland</span></li>
+        <li><span class="num">16</span><span class="pname">Guus Til</span><span class="pclub">PSV</span></li>
+        <li><span class="num">17</span><span class="pname">Noa Lang</span><span class="pclub">Galatasaray</span></li>
+        <li><span class="num">20</span><span class="pname">Teun Koopmeiners</span><span class="pclub">Juventus</span></li>
+        <li><span class="num gk">23</span><span class="pname">Mark Flekken</span><span class="pclub">Bayer Leverkusen</span></li>
+        <li><span class="num">24</span><span class="pname">Crysencio Summerville</span><span class="pclub">West Ham</span></li>
+        <li><span class="num">25</span><span class="pname">Jorrel Hato</span><span class="pclub">Chelsea</span></li>
+        <li><span class="num">26</span><span class="pname">Quinten Timber</span><span class="pclub">Marseille</span></li>
+      </ul>
+      <div class="note">Predicted XI: Van de Ven at left-back, Van Dijk &amp; Van Hecke the centre-back pair — Aké drops to the bench. Confirmed ~1hr pre-kick.</div>
+    </div>
+    <div class="col mar">
+      <div class="colhead"><h2>Morocco</h2><span class="form">4-3-3 / 4-2-3-1 · press &amp; counter</span></div>
+      <div class="kit"><span class="sw mar"></span>Wearing: white away kit (kit-clash — unconfirmed)</div>
+      <div class="rsub">Starters</div>
+      <ul class="xi">
+        <li><span class="num gk">1</span><span class="pname">Yassine "Bono" Bounou</span><span class="pclub">Al-Hilal</span></li>
+        <li><span class="num">2</span><span class="pname">Achraf Hakimi<span class="cap">C</span></span><span class="pclub">PSG</span></li>
+        <li><span class="num">3</span><span class="pname">Noussair Mazraoui</span><span class="pclub">Manchester Utd</span></li>
+        <li><span class="num">6</span><span class="pname">Ayyoub Bouaddi</span><span class="pclub">Lille</span></li>
+        <li><span class="num">8</span><span class="pname">Azzedine Ounahi</span><span class="pclub">Girona</span></li>
+        <li><span class="num">10</span><span class="pname">Brahim Díaz</span><span class="pclub">Real Madrid</span></li>
+        <li><span class="num">11</span><span class="pname">Ismael Saibari</span><span class="pclub">PSV</span></li>
+        <li><span class="num">14</span><span class="pname">Issa Diop</span><span class="pclub">Fulham</span></li>
+        <li><span class="num">18</span><span class="pname">Chadi Riad</span><span class="pclub">Crystal Palace</span></li>
+        <li><span class="num">23</span><span class="pname">Bilal El Khannouss</span><span class="pclub">VfB Stuttgart</span></li>
+        <li><span class="num">24</span><span class="pname">Neil El Aynaoui</span><span class="pclub">Roma</span></li>
+      </ul>
+      <div class="rsub">Bench</div>
+      <ul class="xi">
+        <li><span class="num">4</span><span class="pname">Sofyan Amrabat</span><span class="pclub">Real Betis</span></li>
+        <li><span class="num">5</span><span class="pname">Nayef Aguerd</span><span class="pclub">Marseille</span></li>
+        <li><span class="num">7</span><span class="pname">Chemsdine Talbi</span><span class="pclub">Sunderland</span></li>
+        <li><span class="num">9</span><span class="pname">Soufiane Rahimi</span><span class="pclub">Al-Ain</span></li>
+        <li><span class="num gk">12</span><span class="pname">Munir El Kajoui</span><span class="pclub">RS Berkane</span></li>
+        <li><span class="num">13</span><span class="pname">Zakaria El Ouahdi</span><span class="pclub">KRC Genk</span></li>
+        <li><span class="num">15</span><span class="pname">Samir El Mourabet</span><span class="pclub">&mdash;</span></li>
+        <li><span class="num">16</span><span class="pname">Yassine Gessime</span><span class="pclub">&mdash;</span></li>
+        <li><span class="num">17</span><span class="pname">Abde Ezzalzouli</span><span class="pclub">Real Betis</span></li>
+        <li><span class="num">19</span><span class="pname">Youssef Belammari</span><span class="pclub">Al-Ahly</span></li>
+        <li><span class="num">20</span><span class="pname">Ayoub El Kaabi</span><span class="pclub">Olympiacos</span></li>
+        <li><span class="num">21</span><span class="pname">Ayoube Amaimouni</span><span class="pclub">&mdash;</span></li>
+        <li><span class="num gk">22</span><span class="pname">Ahmed Reda Tagnaouti</span><span class="pclub">AS FAR</span></li>
+        <li><span class="num">25</span><span class="pname">Redouane Halhal</span><span class="pclub">KV Mechelen</span></li>
+        <li><span class="num">26</span><span class="pname">Anass Salah-Eddine</span><span class="pclub">PSV</span></li>
+      </ul>
+      <div class="note">XI is fluid (~4 possible changes) — Amrabat may drop to the bench; the lone striker could be El Kaabi or Rahimi instead of Saibari. Shape reads 4-3-3 or 4-2-3-1. Confirmed ~1hr pre-kick.</div>
+    </div>
+  </div>
+
+  <div class="foot">
+    pre-match (predicted XIs + kit assignment confirm ~1hr before kickoff) <span>Per ESPN / Sports Mole / FIFA / Wikipedia 2026 WC squads.</span>
+  </div>
+
+</div>
+</body>
+</html>
