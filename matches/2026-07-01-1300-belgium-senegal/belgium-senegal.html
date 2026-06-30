@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Belgium vs Senegal — 2026 World Cup, Round of 32</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&family=Barlow:wght@400;500;600&display=swap');
+
+  :root{
+    --bel-red:#E11B2D; --bel-deep:#a3101e; --bel-yel:#F3C300;
+    --sen-grn:#00853F; --sen-deep:#00632f; --sen-yel:#FDEF42; --sen-red:#E31B23;
+    --gold:#C39A2B;
+
+    --text-micro:0.75rem; --text-sm:0.8125rem; --text-base:1rem; --text-md:1.0625rem;
+    --text-lg:1.125rem; --text-xl:1.25rem; --text-2xl:1.375rem; --text-3xl:1.75rem;
+    --leading:1.45;
+    --ink:#1a1714; --paper:#f6f3ec; --line:#d8d2c4; --muted:#6f675b;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Barlow',sans-serif;font-size:var(--text-base);background:#26231f;color:var(--ink);padding:18px;line-height:var(--leading);}
+  .sheet{max-width:920px;margin:0 auto;background:var(--paper);border:1px solid var(--line);box-shadow:0 14px 44px rgba(0,0,0,.5);overflow:hidden;}
+
+  /* HEADER */
+  .top{display:flex;align-items:stretch;color:#f6f3ec;}
+  .top .side{flex:1;padding:13px 18px;}
+  .top .bel{background:linear-gradient(135deg,var(--bel-red),var(--bel-deep));}
+  .top .sen{background:linear-gradient(225deg,var(--sen-grn),var(--sen-deep));text-align:right;}
+  .top .mid{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 14px;min-width:118px;background:var(--ink);}
+  .flag{font-size:var(--text-sm);letter-spacing:.18em;font-family:'Oswald';font-weight:600;opacity:.85;}
+  .nat{font-family:'Oswald';font-weight:700;font-size:var(--text-3xl);line-height:1;text-transform:uppercase;}
+  .sub{font-size:0.875rem;opacity:.82;margin-top:3px;font-family:'Barlow Condensed';letter-spacing:.04em;}
+  .vs{font-family:'Oswald';font-weight:700;font-size:var(--text-xl);color:var(--gold);}
+  .mid .comp{font-size:var(--text-micro);letter-spacing:.12em;font-family:'Oswald';opacity:.7;text-align:center;}
+
+  .infobar{display:flex;background:#000;color:#f6f3ec;font-family:'Barlow Condensed';font-size:0.9375rem;}
+  .infobar div{padding:6px 14px;border-right:1px solid #2c2c2c;flex:1;text-align:center;white-space:nowrap;}
+  .infobar div:last-child{border-right:none;}
+  .infobar b{color:var(--gold);font-weight:600;letter-spacing:.07em;text-transform:uppercase;font-size:var(--text-micro);display:block;}
+
+  /* STAKES + TIE BAR */
+  .strip{display:flex;flex-direction:column;align-items:stretch;background:var(--gold);color:#241e10;}
+  .strip .msg{padding:11px 16px;font-family:'Barlow',sans-serif;font-size:var(--text-md);font-weight:500;}
+  .strip .msg b{font-weight:700;}
+  .tie{background:#241e10;color:#f6f3ec;font-family:'Barlow Condensed';padding:8px 16px;width:100%;}
+  .tie-main{font-size:var(--text-base);color:#ffe9a8;line-height:1.38;}
+  .tie-main b{font-family:'Barlow';font-weight:600;color:#fff;}
+  .tie-sub{font-size:0.875rem;color:#a89f8e;margin-top:5px;line-height:1.35;}
+  .tie-sub b{color:var(--gold);font-weight:600;}
+
+  /* TEAM COLUMNS */
+  .cols{display:grid;grid-template-columns:1fr 1fr;}
+  .col{padding:13px 16px;}
+  .col.bel{border-right:2px solid var(--line);background:linear-gradient(180deg,rgba(225,27,45,.07),transparent 120px);}
+  .col.sen{background:linear-gradient(180deg,rgba(0,133,63,.07),transparent 120px);}
+  .colhead{display:flex;align-items:baseline;justify-content:space-between;border-bottom:2px solid;padding-bottom:5px;margin-bottom:8px;}
+  .col.bel .colhead{border-color:var(--bel-red);}
+  .col.sen .colhead{border-color:var(--sen-grn);}
+  .colhead h2{font-family:'Oswald';font-size:var(--text-xl);text-transform:uppercase;letter-spacing:.02em;}
+  .col.bel .colhead h2{color:var(--bel-deep);}
+  .col.sen .colhead h2{color:var(--sen-grn);}
+  .form{font-family:'Barlow Condensed';font-size:0.875rem;color:var(--muted);letter-spacing:.05em;}
+
+  /* kit swatch */
+  .kit{display:flex;align-items:center;gap:6px;font-family:'Barlow Condensed';font-size:var(--text-sm);color:var(--muted);letter-spacing:.03em;text-transform:uppercase;margin-bottom:8px;}
+  .sw{width:14px;height:14px;border-radius:3px;border:1px solid rgba(0,0,0,.25);flex-shrink:0;}
+  .sw.bel{background:var(--bel-red);}
+  .sw.sen{background:linear-gradient(135deg,#fff 0 55%,var(--sen-grn) 55% 73%,var(--sen-yel) 73% 87%,var(--sen-red) 87%);}
+
+  .xi{list-style:none;}
+  .xi li{display:flex;gap:9px;align-items:center;padding:2.5px 0;border-bottom:1px dotted var(--line);}
+  .xi li:last-child{border-bottom:none;}
+  .num{font-family:'Oswald';font-weight:700;font-size:var(--text-lg);width:28px;height:26px;display:flex;align-items:center;justify-content:center;color:#fff;border-radius:3px;flex-shrink:0;}
+  .col.bel .num{background:var(--bel-red);}
+  .col.sen .num{background:var(--sen-grn);}
+  .num.gk{background:#444 !important;}
+  .pname{font-weight:600;font-size:var(--text-lg);}
+  .pclub{color:var(--muted);font-size:var(--text-sm);font-family:'Barlow Condensed';margin-left:auto;text-align:right;letter-spacing:.02em;white-space:nowrap;}
+  .cap{color:var(--gold);font-weight:700;font-size:var(--text-micro);vertical-align:super;margin-left:1px;}
+
+  .note{font-size:var(--text-sm);color:var(--muted);font-style:italic;margin-top:6px;line-height:1.3;}
+
+  /* ROAD HERE */
+  .road{background:var(--ink);color:#ece5d8;padding:13px 18px;}
+  .road h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--gold);text-transform:uppercase;margin-bottom:9px;text-align:center;}
+  .roadgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .rh{font-family:'Oswald';font-size:var(--text-base);text-transform:uppercase;letter-spacing:.03em;margin-bottom:5px;}
+  .rh.b{color:#ff9aa6;} .rh.s{color:#7fdca0;}
+  .game{display:flex;gap:8px;margin-bottom:6px;font-size:0.9375rem;line-height:var(--leading);}
+  .score{font-family:'Oswald';font-weight:700;font-size:var(--text-sm);padding:2px 6px;border-radius:3px;height:fit-content;white-space:nowrap;flex-shrink:0;color:#fff;}
+  .score.w{background:#2c5e38;} .score.l{background:#6e2530;} .score.d{background:#5a5036;}
+  .game .gt{color:#cfc7b8;}
+  .game .gt b{color:#fff;font-weight:600;}
+  .game .gt .dt{color:#fff;font-weight:600;}
+  .game .gt small{display:block;color:#a89f8e;font-size:var(--text-sm);font-style:italic;}
+
+  /* WATCH */
+  .watch{padding:13px 18px;}
+  .watch h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--bel-red);text-transform:uppercase;margin-bottom:9px;}
+  .wgrid{display:grid;grid-template-columns:1fr;gap:10px;}
+  .star{display:flex;gap:9px;}
+  .star .wn{font-family:'Oswald';font-weight:700;font-size:var(--text-lg);width:34px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:3px;color:#fff;flex-shrink:0;}
+  .wn.b{background:var(--bel-red);} .wn.s{background:var(--sen-grn);}
+  .star .nm{font-family:'Oswald';font-size:var(--text-xl);font-weight:600;line-height:1.05;}
+  .star .meta{font-size:var(--text-sm);color:var(--muted);font-family:'Barlow Condensed';letter-spacing:.03em;text-transform:uppercase;margin-bottom:2px;}
+  .star .blurb{font-family:'Barlow',sans-serif;font-size:var(--text-base);line-height:var(--leading);}
+  .star b{font-weight:600;}
+  .wgroup{margin-bottom:12px;}
+  .wgroup:last-child{margin-bottom:0;}
+  .wteam{font-family:'Oswald';font-size:var(--text-md);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;padding-bottom:3px;border-bottom:2px solid;}
+  .wteam.b{color:var(--bel-deep);border-color:var(--bel-red);}
+  .wteam.s{color:var(--sen-grn);border-color:var(--sen-grn);}
+
+  /* NEXT */
+  .next{background:#efe9dc;padding:12px 18px;border-top:1px solid var(--line);}
+  .next h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--sen-grn);text-transform:uppercase;margin-bottom:7px;}
+  .next .ng{columns:1;}
+  .next p{font-family:'Barlow',sans-serif;font-size:var(--text-base);margin-bottom:8px;break-inside:avoid;line-height:var(--leading);padding-left:13px;position:relative;}
+  .next p::before{content:"\25B8";position:absolute;left:0;color:var(--gold);font-size:var(--text-micro);top:2px;}
+  .next b{font-weight:600;}
+
+  /* WHAT TO WATCH FOR */
+  .wtw{padding:13px 18px;border-top:1px solid var(--line);}
+  .wtw h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--gold);text-transform:uppercase;margin-bottom:9px;}
+  .battles{columns:1;}
+  .battle{font-family:'Barlow',sans-serif;font-size:var(--text-base);line-height:var(--leading);margin-bottom:8px;break-inside:avoid;}
+  .battle .bt{font-family:'Oswald';font-weight:600;font-size:var(--text-md);text-transform:uppercase;letter-spacing:.02em;color:var(--ink);display:block;margin-bottom:1px;}
+  .tip{margin-top:8px;background:#efe9dc;border-left:3px solid var(--gold);padding:10px 12px;font-family:'Barlow',sans-serif;font-size:var(--text-md);line-height:var(--leading);}
+  .tip b{font-family:'Barlow';font-weight:600;color:#241e10;}
+  .deadball{margin-top:8px;font-family:'Barlow',sans-serif;font-size:var(--text-sm);color:var(--muted);line-height:var(--leading);}
+  .deadball b{color:var(--ink);font-weight:600;text-transform:uppercase;letter-spacing:.03em;font-size:var(--text-micro);}
+
+  /* LINEUPS */
+  .rtitle{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--ink);text-transform:uppercase;text-align:center;padding:13px 18px 0;}
+  .rsub{font-family:'Oswald';font-size:var(--text-micro);letter-spacing:.13em;color:var(--muted);text-transform:uppercase;margin:9px 0 3px;}
+  .rsub:first-child{margin-top:0;}
+
+  .foot{background:var(--ink);color:#9a9081;font-size:var(--text-micro);text-align:center;padding:7px;font-family:'Barlow Condensed';letter-spacing:.05em;}
+  .foot span{color:var(--gold);}
+
+  /* LINEUP TABS — mobile team switcher (CSS-only) */
+  .lineup-tabs .tab-input{position:absolute;opacity:0;width:0;height:0;pointer-events:none;}
+  .lineup-tabs .tab-bar{display:none;}
+
+  @media (max-width:680px){
+    body{padding:7px;overflow-x:hidden;}
+    .sheet{overflow-x:clip;}
+    .roadgrid{grid-template-columns:1fr;}
+    .cols{grid-template-columns:1fr;}
+
+    /* Header — layout only; type scale unchanged */
+    .top .side{padding:10px 12px;min-width:0;}
+    .top .mid{min-width:64px;padding:8px 10px;}
+
+    /* Infobar — 2×2 grid instead of one overflowing row */
+    .infobar{flex-wrap:wrap;}
+    .infobar div{flex:1 1 46%;white-space:normal;min-width:0;padding:6px 10px;font-size:0.9375rem;}
+    .infobar div:nth-child(2){border-right:none;}
+    .infobar div:nth-child(3),
+    .infobar div:nth-child(4){border-top:1px solid #2c2c2c;}
+
+    /* Lineup tabs */
+    .lineup-tabs .tab-bar{
+      display:flex;margin:0 16px;padding-top:10px;
+      border-bottom:2px solid var(--line);
+    }
+    .lineup-tabs .tab-bar label{
+      flex:1;text-align:center;padding:10px 6px;
+      font-family:'Oswald';font-size:var(--text-md);font-weight:600;
+      text-transform:uppercase;letter-spacing:.06em;
+      cursor:pointer;color:var(--muted);
+      border-bottom:3px solid transparent;margin-bottom:-2px;
+    }
+    .lineup-tabs #lineup-home:checked ~ .tab-bar .tab-home{border-bottom-color:var(--bel-red);color:var(--bel-deep);}
+    .lineup-tabs #lineup-away:checked ~ .tab-bar .tab-away{border-bottom-color:var(--sen-grn);color:var(--sen-grn);}
+    .lineup-tabs #lineup-home:checked ~ .cols .col:last-child{display:none;}
+    .lineup-tabs #lineup-away:checked ~ .cols .col:first-child{display:none;}
+    .col.bel,.col.sen{border-right:none;}
+    .colhead{flex-wrap:wrap;align-items:flex-start;gap:4px;}
+
+    /* Player rows — full width (type scale unchanged on mobile) */
+    .pname{min-width:0;flex:1;}
+    .pclub{white-space:normal;flex-shrink:1;max-width:46%;}
+    .star,.star > div{min-width:0;}
+    .nat{line-height:1.08;overflow-wrap:break-word;text-wrap:balance;}
+    /* Prose blocks */
+    .next p,.battle,.blurb{overflow-wrap:break-word;}
+  }
+  @media print{body{background:#fff;padding:0;}.sheet{box-shadow:none;border:none;}@page{margin:7mm;}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="top">
+    <div class="side bel">
+      <div class="flag">🇧🇪 BELGIUM</div>
+      <div class="nat">Red Devils</div>
+      <div class="sub">FIFA #9 · Coach: Rudi Garcia · 4-2-3-1</div>
+    </div>
+    <div class="mid">
+      <div class="comp">ROUND&nbsp;OF&nbsp;32</div>
+      <div class="vs">V</div>
+      <div class="comp">WORLD&nbsp;CUP&nbsp;'26</div>
+    </div>
+    <div class="side sen">
+      <div class="flag">SENEGAL 🇸🇳</div>
+      <div class="nat">Lions of Teranga</div>
+      <div class="sub">4-3-3 · Coach: Pape Thiaw · FIFA #15</div>
+    </div>
+  </div>
+
+  <div class="infobar">
+    <div><b>Venue</b>Lumen Field, Seattle</div>
+    <div><b>Kickoff</b>Wed 1:00 PM PDT · 4 PM ET</div>
+    <div><b>TV</b>FS1 · Telemundo</div>
+    <div><b>Last met</b>First WC meeting</div>
+  </div>
+
+  <div class="strip">
+    <div class="msg"><b>Win or go home.</b> No second leg, no group safety net — the winner reaches the <b>Round of 16</b> (Mon Jul 6); the loser is <b>out of the World Cup</b>. Widely tipped the <b>most even tie of the round</b>: misfiring Belgium favorites vs a fast, fragile Senegal that came the hard way.</div>
+    <div class="tie">
+      <div class="tie-main"><b>Winner → Round of 16</b> · Loser eliminated · Mon Jul 6</div>
+      <div class="tie-sub"><b>Next:</b> vs USA / Bosnia &amp; Herzegovina winner (TBC) · <b>Odds:</b> BEL +115 · Draw +225 · SEN +260 · <b>H2H:</b> first-ever World Cup meeting</div>
+    </div>
+  </div>
+
+  <div class="road">
+    <h3>How They Got Here · Group Stage</h3>
+    <div class="roadgrid">
+      <div>
+        <div class="rh b">Belgium · Group G (1st, 5 pts)</div>
+        <div class="game"><span class="score d">1&ndash;1</span><span class="gt"><span class="dt">Jun 15</span> · vs Egypt</span></div>
+        <div class="game"><span class="score d">0&ndash;0</span><span class="gt"><span class="dt">Jun 21</span> · vs Iran</span></div>
+        <div class="game"><span class="score w">5&ndash;1</span><span class="gt"><span class="dt">Jun 26</span> · vs New Zealand<small>Two draws, then exploded; won group on GD (+4)</small></span></div>
+      </div>
+      <div>
+        <div class="rh s">Senegal · Group I (3rd — best third)</div>
+        <div class="game"><span class="score l">1&ndash;3</span><span class="gt"><span class="dt">Jun 16</span> · vs France</span></div>
+        <div class="game"><span class="score l">2&ndash;3</span><span class="gt"><span class="dt">Jun 22</span> · vs Norway</span></div>
+        <div class="game"><span class="score w">5&ndash;0</span><span class="gt"><span class="dt">Jun 26</span> · vs Iraq<small>5-0 romp salvaged a best-third slot</small></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="next">
+    <h3>What's At Stake &amp; What's Next</h3>
+    <div class="ng">
+      <p><b>Win = Round of 16</b> on Mon Jul 6, most likely vs the <b>USA / Bosnia &amp; Herzegovina</b> winner (to be confirmed) — and a real run on North American soil.</p>
+      <p><b>Lose = elimination.</b> A bracket quirk threw two dangerous sides together this early; one of them takes a shock R32 exit.</p>
+      <p><b>Belgium's last dance:</b> almost certainly the final World Cup for the golden-generation core — De Bruyne (34), Lukaku (~33), Courtois (34), the aging remnant of the side that finished <b>third in 2018</b>. Coach Rudi Garcia has openly leaned on his "oldies."</p>
+      <p><b>Mané's farewell:</b> Senegal's greatest-ever player has said he'll <b>retire from internationals</b> after this tournament — chasing the ghost of <b>Senegal 2002</b>, the only African side besides Cameroon to reach a World Cup quarter-final.</p>
+      <p><b>Goalkeeper crisis:</b> Senegal's No.1 <b>Édouard Mendy is out (knee)</b>, pushing deputy Mory Diaw into a knockout against De Bruyne's delivery — a genuine swing factor.</p>
+      <p><b>French coach, 2002 hero:</b> Rudi Garcia (French) faces Pape Thiaw, a member of Senegal's 2002 squad who assisted the golden goal that beat Sweden in that fairytale run.</p>
+    </div>
+  </div>
+
+  <div class="wtw">
+    <h3>What To Watch For</h3>
+    <div class="battles">
+      <div class="battle"><span class="bt">De Bruyne vs Senegal's midfield screen</span>The single most decisive duel. Garcia plays De Bruyne as a free No.10 and Belgium's whole attack runs through him; Senegal answer with a physical ball-winning trio (I. Gueye, Camara, Diarra). Get a body on him and Belgium go blunt — give him a half-yard and Doku &amp; Trossard run in behind.</div>
+      <div class="battle"><span class="bt">Doku vs Senegal's right side</span>Doku is Belgium's most reliable spark — pure 1v1 acceleration. Senegal's projected right-back, Krépin Diatta, is a converted winger, not a natural defender. If Senegal can't double Doku, this is Belgium's likeliest source of a goal.</div>
+      <div class="battle"><span class="bt">Mané &amp; Ismaïla Sarr vs a slow Belgian back line</span>Belgium are aging and nervous at the back; Senegal's plan is transition — win it in midfield and spring their pace at a back four that can be turned. Courtois is the equalizer, but the moment Belgium over-commit, this is where Senegal hurt them.</div>
+      <div class="battle"><span class="bt">Belgian control vs Senegalese chaos</span>The macro-battle: the more talented passing side that has misfired all tournament, against the quicker, more direct, error-prone one. The game tilts on whether it becomes a controlled Belgian grind or an open, broken-field track meet.</div>
+    </div>
+    <div class="deadball"><b>Belgium dead-ball:</b> the edge, and it's De Bruyne-shaped — he takes penalties, free kicks and corners (Lukaku the backup pen), one of the world's best deliverers; with Mendy out, Senegal are softer in the air.<br><b>Senegal dead-ball:</b> their best route is their own height — CBs Niakhaté &amp; Seck (and Koulibaly off the bench) are real corner targets. Penalties go to <b>Ismaïla Sarr, not Mané</b> (who stepped down after successive misses).</div>
+    <div class="tip"><b>Set-piece tip:</b> In a tight tie, watch every Belgian dead ball — De Bruyne's boot is their structural advantage — and every Senegal attacking corner, their cheapest route past a slow defense and a stand-in keeper.</div>
+  </div>
+
+  <div class="watch">
+    <h3>&#9733; The Names You'll Hear Most &#9733;</h3>
+    <div class="wgroup"><div class="wteam b">Belgium</div><div class="wgrid">
+      <div class="star"><span class="wn b">7</span><div><div class="nm">Kevin De Bruyne</div><div class="meta">Belgium · Napoli · Captain</div><div class="blurb">Belgium's metronome and chief creator, and their primary penalty &amp; set-piece taker. Left Man City for Napoli in 2025 (reuniting with Lukaku). Almost certainly his last World Cup — the golden generation runs through his right boot.</div></div></div>
+      <div class="star"><span class="wn b">9</span><div><div class="nm">Romelu Lukaku</div><div class="meta">Belgium · Napoli · Striker</div><div class="blurb">Belgium's all-time record goalscorer — a hold-up focal point now rather than his peak self, but still the box threat Senegal's centre-backs must physically handle. Projected to start on the bench behind De Ketelaere.</div></div></div>
+      <div class="star"><span class="wn b">11</span><div><div class="nm">Jérémy Doku</div><div class="meta">Belgium · Manchester City · Left wing</div><div class="blurb">The young exception to Belgium's veteran core — explosive 1v1 dribbler and the team's most consistent spark this tournament. Scored in the 5-1 win over New Zealand.</div></div></div>
+    </div></div>
+    <div class="wgroup"><div class="wteam s">Senegal</div><div class="wgrid">
+      <div class="star"><span class="wn s">10</span><div><div class="nm">Sadio Mané</div><div class="meta">Senegal · Al-Nassr · Forward</div><div class="blurb">The talisman and emotional leader, set to retire from internationals after the tournament — his last World Cup. No longer the penalty taker, but still the man Senegal look to in transition.</div></div></div>
+      <div class="star"><span class="wn s">3</span><div><div class="nm">Kalidou Koulibaly</div><div class="meta">Senegal · Al-Hilal · CB / Captain</div><div class="blurb">The vastly experienced spine of the defense (ex-Napoli, Chelsea) who led Senegal to the 2021 AFCON title. Projected to start on the bench given Seck's form — likely on if Senegal must protect a lead.</div></div></div>
+      <div class="star"><span class="wn s">17</span><div><div class="nm">Pape Matar Sarr</div><div class="meta">Senegal · Tottenham · Midfield</div><div class="blurb">The engine of Senegal's new generation — box-to-box energy and Premier League pedigree, tasked with smothering De Bruyne and igniting transitions. (Not to be confused with Ismaïla Sarr, the winger &amp; pen taker.)</div></div></div>
+    </div></div>
+  </div>
+
+  <div class="rtitle">The Lineups · By The Numbers</div>
+  <div class="lineup-tabs">
+    <input type="radio" name="lineup-tab" id="lineup-home" class="tab-input" checked>
+    <input type="radio" name="lineup-tab" id="lineup-away" class="tab-input">
+    <div class="tab-bar">
+      <label for="lineup-home" class="tab-home">Belgium</label>
+      <label for="lineup-away" class="tab-away">Senegal</label>
+    </div>
+  <div class="cols">
+    <div class="col bel">
+      <div class="colhead"><h2>Belgium</h2><span class="form">4-2-3-1 · quality &amp; control, De Bruyne dead-balls</span></div>
+      <div class="kit"><span class="sw bel"></span>Wearing: red home (shirt) / red shorts</div>
+      <div class="rsub">Starters</div>
+      <ul class="xi">
+        <li><span class="num gk">1</span><span class="pname">Thibaut Courtois</span><span class="pclub">Real Madrid</span></li>
+        <li><span class="num">3</span><span class="pname">Arthur Theate</span><span class="pclub">E. Frankfurt</span></li>
+        <li><span class="num">4</span><span class="pname">Brandon Mechele</span><span class="pclub">Club Brugge</span></li>
+        <li><span class="num">5</span><span class="pname">Maxim De Cuyper</span><span class="pclub">Brighton</span></li>
+        <li><span class="num">7</span><span class="pname">Kevin De Bruyne<span class="cap">C</span></span><span class="pclub">Napoli</span></li>
+        <li><span class="num">8</span><span class="pname">Youri Tielemans</span><span class="pclub">Aston Villa</span></li>
+        <li><span class="num">10</span><span class="pname">Leandro Trossard</span><span class="pclub">Arsenal</span></li>
+        <li><span class="num">11</span><span class="pname">Jérémy Doku</span><span class="pclub">Manchester City</span></li>
+        <li><span class="num">17</span><span class="pname">Charles De Ketelaere</span><span class="pclub">Atalanta</span></li>
+        <li><span class="num">20</span><span class="pname">Hans Vanaken</span><span class="pclub">Club Brugge</span></li>
+        <li><span class="num">21</span><span class="pname">Timothy Castagne</span><span class="pclub">Fulham</span></li>
+      </ul>
+      <div class="rsub">Bench</div>
+      <ul class="xi">
+        <li><span class="num">2</span><span class="pname">Zeno Debast</span><span class="pclub">Sporting CP</span></li>
+        <li><span class="num">6</span><span class="pname">Axel Witsel</span><span class="pclub">Girona</span></li>
+        <li><span class="num">9</span><span class="pname">Romelu Lukaku</span><span class="pclub">Napoli</span></li>
+        <li><span class="num gk">12</span><span class="pname">Senne Lammens</span><span class="pclub">Manchester Utd</span></li>
+        <li><span class="num gk">13</span><span class="pname">Mike Penders</span><span class="pclub">Strasbourg</span></li>
+        <li><span class="num">14</span><span class="pname">Dodi Lukébakio</span><span class="pclub">Benfica</span></li>
+        <li><span class="num">15</span><span class="pname">Thomas Meunier</span><span class="pclub">Lille</span></li>
+        <li><span class="num">16</span><span class="pname">Koni De Winter</span><span class="pclub">AC Milan</span></li>
+        <li><span class="num">18</span><span class="pname">Joaquín Seys</span><span class="pclub">Club Brugge</span></li>
+        <li><span class="num">19</span><span class="pname">Diego Moreira</span><span class="pclub">Strasbourg</span></li>
+        <li><span class="num">22</span><span class="pname">Alexis Saelemaekers</span><span class="pclub">AC Milan</span></li>
+        <li><span class="num">23</span><span class="pname">Nicolas Raskin</span><span class="pclub">Rangers</span></li>
+        <li><span class="num">24</span><span class="pname">Amadou Onana</span><span class="pclub">Aston Villa</span></li>
+        <li><span class="num">25</span><span class="pname">Nathan Ngoy</span><span class="pclub">Lille</span></li>
+        <li><span class="num">26</span><span class="pname">Matias Fernández-Pardo</span><span class="pclub">Lille</span></li>
+      </ul>
+      <div class="note">Predicted XI (Sports Mole): Lukaku benched, De Ketelaere as false-9; Mechele partners Theate (Debast doubtful). Contested slots: full-backs &amp; the pivot (Vanaken vs Onana). Shape read 4-2-3-1 / 4-3-3 — same personnel. Confirmed ~1hr pre-kick.</div>
+    </div>
+    <div class="col sen">
+      <div class="colhead"><h2>Senegal</h2><span class="form">4-3-3 · pace &amp; transition, aerial set-pieces</span></div>
+      <div class="kit"><span class="sw sen"></span>Wearing: white home (shirt) / white shorts (kit-clash projection — unconfirmed)</div>
+      <div class="rsub">Starters</div>
+      <ul class="xi">
+        <li><span class="num">4</span><span class="pname">Abdoulaye Seck</span><span class="pclub">Maccabi Haifa</span></li>
+        <li><span class="num">5</span><span class="pname">Idrissa Gueye</span><span class="pclub">Everton</span></li>
+        <li><span class="num">8</span><span class="pname">Lamine Camara</span><span class="pclub">AS Monaco</span></li>
+        <li><span class="num">10</span><span class="pname">Sadio Mané</span><span class="pclub">Al-Nassr</span></li>
+        <li><span class="num">11</span><span class="pname">Nicolas Jackson</span><span class="pclub">Bayern (loan)</span></li>
+        <li><span class="num">14</span><span class="pname">Ismail Jakobs</span><span class="pclub">Galatasaray</span></li>
+        <li><span class="num">15</span><span class="pname">Krépin Diatta</span><span class="pclub">AS Monaco</span></li>
+        <li><span class="num">18</span><span class="pname">Ismaïla Sarr</span><span class="pclub">Crystal Palace</span></li>
+        <li><span class="num">19</span><span class="pname">Moussa Niakhaté</span><span class="pclub">Lyon</span></li>
+        <li><span class="num">21</span><span class="pname">Habib Diarra</span><span class="pclub">Sunderland</span></li>
+        <li><span class="num gk">23</span><span class="pname">Mory Diaw</span><span class="pclub">Le Havre</span></li>
+      </ul>
+      <div class="rsub">Bench</div>
+      <ul class="xi">
+        <li><span class="num gk">1</span><span class="pname">Yehvann Diouf</span><span class="pclub">OGC Nice</span></li>
+        <li><span class="num">2</span><span class="pname">Mamadou Sarr</span><span class="pclub">Chelsea</span></li>
+        <li><span class="num">3</span><span class="pname">Kalidou Koulibaly<span class="cap">C</span></span><span class="pclub">Al-Hilal</span></li>
+        <li><span class="num">6</span><span class="pname">Pathé Ciss</span><span class="pclub">Rayo Vallecano</span></li>
+        <li><span class="num">7</span><span class="pname">Assane Diao</span><span class="pclub">Como</span></li>
+        <li><span class="num">9</span><span class="pname">Bamba Dieng</span><span class="pclub">Lorient</span></li>
+        <li><span class="num">12</span><span class="pname">Chérif Ndiaye</span><span class="pclub">Samsunspor</span></li>
+        <li><span class="num">13</span><span class="pname">Iliman Ndiaye</span><span class="pclub">Everton</span></li>
+        <li><span class="num gk">16</span><span class="pname">Édouard Mendy</span><span class="pclub">Al-Ahli · injured</span></li>
+        <li><span class="num">17</span><span class="pname">Pape Matar Sarr</span><span class="pclub">Tottenham</span></li>
+        <li><span class="num">20</span><span class="pname">Ibrahim Mbaye</span><span class="pclub">Paris SG</span></li>
+        <li><span class="num">22</span><span class="pname">Bara Sapoko Ndiaye</span><span class="pclub">Bayern Munich</span></li>
+        <li><span class="num">24</span><span class="pname">Antoine Mendy</span><span class="pclub">OGC Nice</span></li>
+        <li><span class="num">25</span><span class="pname">El Hadji Malick Diouf</span><span class="pclub">West Ham</span></li>
+        <li><span class="num">26</span><span class="pname">Pape Gueye</span><span class="pclub">Villarreal</span></li>
+      </ul>
+      <div class="note">Predicted XI (Sports Mole): Diaw in goal (Édouard Mendy out, knee); captain Koulibaly projected on the bench (Seck's form) — on-field armband likely to Mané or P. Gueye. Disputed: the No.9 (Jackson / Mbaye / I. Ndiaye) &amp; left-back (Jakobs / M. Diouf). Confirmed ~1hr pre-kick.</div>
+    </div>
+  </div>
+  </div>
+
+  <div class="foot">
+    pre-match (confirmed XIs + Mendy's fitness drop ~1hr before kickoff) <span>Per ESPN / Sports Mole / Rotowire previews · Footy Headlines numbers · FIFA rankings (Jun 11 '26).</span>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>USA vs Bosnia & Herzegovina — 2026 World Cup, Round of 32</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&family=Barlow:wght@400;500;600&display=swap');
+
+  :root{
+    --us-blue:#13316b; --us-deep:#0a1f47; --us-red:#bf1b2c; --gold:#C39A2B;
+    --bos-blue:#1f4fd0; --bos-deep:#15347f; --bos-gold:#f2c200;
+
+    --text-micro:0.75rem; --text-sm:0.8125rem; --text-base:1rem; --text-md:1.0625rem;
+    --text-lg:1.125rem; --text-xl:1.25rem; --text-2xl:1.375rem; --text-3xl:1.75rem;
+    --leading:1.45;
+    --ink:#1a1714; --paper:#f6f3ec; --line:#d8d2c4; --muted:#6f675b;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Barlow',sans-serif;font-size:var(--text-base);background:#26231f;color:var(--ink);padding:18px;line-height:var(--leading);}
+  .sheet{max-width:920px;margin:0 auto;background:var(--paper);border:1px solid var(--line);box-shadow:0 14px 44px rgba(0,0,0,.5);overflow:hidden;}
+
+  /* HEADER */
+  .top{display:flex;align-items:stretch;color:#f6f3ec;}
+  .top .side{flex:1;padding:13px 18px;}
+  .top .us{background:linear-gradient(135deg,var(--us-blue),var(--us-deep));}
+  .top .bos{background:linear-gradient(225deg,var(--bos-blue),var(--bos-deep));text-align:right;}
+  .top .mid{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 14px;min-width:118px;background:var(--ink);}
+  .flag{font-size:var(--text-sm);letter-spacing:.18em;font-family:'Oswald';font-weight:600;opacity:.85;}
+  .nat{font-family:'Oswald';font-weight:700;font-size:var(--text-3xl);line-height:1;text-transform:uppercase;}
+  .sub{font-size:0.875rem;opacity:.82;margin-top:3px;font-family:'Barlow Condensed';letter-spacing:.04em;}
+  .vs{font-family:'Oswald';font-weight:700;font-size:var(--text-xl);color:var(--gold);}
+  .mid .comp{font-size:var(--text-micro);letter-spacing:.12em;font-family:'Oswald';opacity:.7;text-align:center;}
+
+  .infobar{display:flex;background:#000;color:#f6f3ec;font-family:'Barlow Condensed';font-size:0.9375rem;}
+  .infobar div{padding:6px 14px;border-right:1px solid #2c2c2c;flex:1;text-align:center;white-space:nowrap;}
+  .infobar div:last-child{border-right:none;}
+  .infobar b{color:var(--gold);font-weight:600;letter-spacing:.07em;text-transform:uppercase;font-size:var(--text-micro);display:block;}
+
+  /* STAKES + TABLE */
+  .strip{display:flex;flex-direction:column;align-items:stretch;background:var(--gold);color:#241e10;}
+  .strip .msg{padding:11px 16px;font-family:'Barlow',sans-serif;font-size:var(--text-md);font-weight:500;}
+  .strip .msg b{font-weight:700;}
+
+  /* Knockout footer bar — full width under stakes message */
+  .tie{background:#241e10;color:#f6f3ec;font-family:'Barlow Condensed';padding:8px 16px;width:100%;}
+  .tie-main{font-size:var(--text-base);color:#ffe9a8;line-height:1.38;}
+  .tie-main b{font-family:'Barlow';font-weight:600;color:#fff;}
+  .tie-sub{font-size:0.875rem;color:#a89f8e;margin-top:5px;line-height:1.35;}
+  .tie-sub b{color:var(--gold);font-weight:600;}
+
+  /* TEAM COLUMNS */
+  .cols{display:grid;grid-template-columns:1fr 1fr;}
+  .col{padding:13px 16px;}
+  .col.us{border-right:2px solid var(--line);}
+  .colhead{display:flex;align-items:baseline;justify-content:space-between;border-bottom:2px solid;padding-bottom:5px;margin-bottom:8px;}
+  .col.us .colhead{border-color:var(--us-red);}
+  .col.bos .colhead{border-color:var(--bos-blue);}
+  .colhead h2{font-family:'Oswald';font-size:var(--text-xl);text-transform:uppercase;letter-spacing:.02em;}
+  .col.us .colhead h2{color:var(--us-blue);}
+  .col.bos .colhead h2{color:var(--bos-blue);}
+  .form{font-family:'Barlow Condensed';font-size:0.875rem;color:var(--muted);letter-spacing:.05em;}
+  .kit{font-family:'Barlow Condensed';font-size:var(--text-micro);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);}
+  .kit i{display:inline-block;width:10px;height:10px;border-radius:2px;vertical-align:-1px;margin-right:3px;border:1px solid rgba(0,0,0,.2);}
+
+  .xi{list-style:none;}
+  .xi li{display:flex;gap:9px;align-items:center;padding:2.5px 0;border-bottom:1px dotted var(--line);}
+  .xi li:last-child{border-bottom:none;}
+  .num{font-family:'Oswald';font-weight:700;font-size:var(--text-lg);width:28px;height:26px;display:flex;align-items:center;justify-content:center;color:#fff;border-radius:3px;flex-shrink:0;}
+  .col.us .num{background:var(--us-blue);}
+  .col.bos .num{background:var(--bos-blue);}
+  .num.gk{background:#444 !important;}
+  .pname{font-weight:600;font-size:var(--text-lg);}
+  .pclub{color:var(--muted);font-size:var(--text-sm);font-family:'Barlow Condensed';margin-left:auto;text-align:right;letter-spacing:.02em;white-space:nowrap;}
+  .cap{color:var(--gold);font-weight:700;font-size:var(--text-micro);vertical-align:super;margin-left:1px;}
+
+  .note{font-size:var(--text-sm);color:var(--muted);font-style:italic;margin-top:6px;line-height:1.3;}
+
+  /* ROAD HERE */
+  .road{background:var(--ink);color:#ece5d8;padding:13px 18px;}
+  .road h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--gold);text-transform:uppercase;margin-bottom:9px;text-align:center;}
+  .roadgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .rh{font-family:'Oswald';font-size:var(--text-base);text-transform:uppercase;letter-spacing:.03em;margin-bottom:5px;}
+  .rh.u{color:#9db4ee;} .rh.b{color:#ffd86b;}
+  .game{display:flex;gap:8px;margin-bottom:6px;font-size:0.9375rem;line-height:var(--leading);}
+  .score{font-family:'Oswald';font-weight:700;font-size:var(--text-sm);padding:2px 6px;border-radius:3px;height:fit-content;white-space:nowrap;flex-shrink:0;color:#fff;}
+  .score.w{background:#2c5e38;} .score.l{background:#6e2530;} .score.d{background:#5a5036;}
+  .game .gt{color:#cfc7b8;}
+  .game .gt b{color:#fff;font-weight:600;}
+  .game .gt small{display:block;color:#a89f8e;font-size:var(--text-sm);font-style:italic;}
+  .game .gt .dt{color:#fff;font-weight:600;}
+
+  /* WATCH */
+  .watch{padding:13px 18px;}
+  .watch h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--us-red);text-transform:uppercase;margin-bottom:9px;}
+  .wgrid{display:grid;grid-template-columns:1fr;gap:10px;}
+  .star{display:flex;gap:9px;}
+  .star .wn{font-family:'Oswald';font-weight:700;font-size:var(--text-lg);width:34px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:3px;color:#fff;flex-shrink:0;}
+  .wn.u{background:var(--us-blue);} .wn.b{background:var(--bos-blue);}
+  .star .nm{font-family:'Oswald';font-size:var(--text-xl);font-weight:600;line-height:1.05;}
+  .star .meta{font-size:var(--text-sm);color:var(--muted);font-family:'Barlow Condensed';letter-spacing:.03em;text-transform:uppercase;margin-bottom:2px;}
+  .star .blurb{font-family:'Barlow',sans-serif;font-size:var(--text-base);line-height:var(--leading);}
+  .star b{font-weight:600;}
+  .wgroup{margin-bottom:12px;}
+  .wgroup:last-child{margin-bottom:0;}
+  .wteam{font-family:'Oswald';font-size:var(--text-md);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;padding-bottom:3px;border-bottom:2px solid;}
+  .wteam.u{color:var(--us-blue);border-color:var(--us-red);}
+  .wteam.b{color:var(--bos-blue);border-color:var(--bos-gold);}
+
+  /* NEXT */
+  .next{background:#efe9dc;padding:12px 18px;border-top:1px solid var(--line);}
+  .next h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--us-blue);text-transform:uppercase;margin-bottom:7px;}
+  .next .ng{columns:1;}
+  .next p{font-family:'Barlow',sans-serif;font-size:var(--text-base);margin-bottom:8px;break-inside:avoid;line-height:var(--leading);padding-left:13px;position:relative;}
+  .next p::before{content:"\25B8";position:absolute;left:0;color:var(--gold);font-size:var(--text-micro);top:2px;}
+  .next b{font-weight:600;}
+
+  /* WHAT TO WATCH FOR */
+  .wtw{padding:13px 18px;border-top:1px solid var(--line);}
+  .wtw h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--gold);text-transform:uppercase;margin-bottom:9px;}
+  .battles{columns:1;}
+  .battle{font-family:'Barlow',sans-serif;font-size:var(--text-base);line-height:var(--leading);margin-bottom:8px;break-inside:avoid;}
+  .battle .bt{font-family:'Oswald';font-weight:600;font-size:var(--text-md);text-transform:uppercase;letter-spacing:.02em;color:var(--ink);display:block;margin-bottom:1px;}
+  .tip{margin-top:8px;background:#efe9dc;border-left:3px solid var(--gold);padding:10px 12px;font-family:'Barlow',sans-serif;font-size:var(--text-md);line-height:var(--leading);}
+  .tip b{font-family:'Barlow';font-weight:600;color:#241e10;}
+  .deadball{margin-top:8px;font-family:'Barlow',sans-serif;font-size:var(--text-sm);color:var(--muted);line-height:var(--leading);}
+  .deadball b{color:var(--ink);font-weight:600;text-transform:uppercase;letter-spacing:.03em;font-size:var(--text-micro);}
+
+  /* LINEUPS — numbered roster */
+  .rtitle{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--ink);text-transform:uppercase;text-align:center;padding:13px 18px 0;}
+  .rsub{font-family:'Oswald';font-size:var(--text-micro);letter-spacing:.13em;color:var(--muted);text-transform:uppercase;margin:9px 0 3px;}
+  .rsub:first-child{margin-top:0;}
+
+  .foot{background:var(--ink);color:#9a9081;font-size:var(--text-micro);text-align:center;padding:7px;font-family:'Barlow Condensed';letter-spacing:.05em;}
+  .foot span{color:var(--gold);}
+
+  /* LINEUP TABS — mobile team switcher (CSS-only) */
+  .lineup-tabs .tab-input{position:absolute;opacity:0;width:0;height:0;pointer-events:none;}
+  .lineup-tabs .tab-bar{display:none;}
+
+  @media (max-width:680px){
+    body{padding:7px;overflow-x:hidden;}
+    .sheet{overflow-x:clip;}
+    .wgrid,.roadgrid{grid-template-columns:1fr;}
+    .cols{grid-template-columns:1fr;}
+
+    .top .side{padding:10px 12px;min-width:0;}
+    .top .mid{min-width:64px;padding:8px 10px;}
+
+    .infobar{flex-wrap:wrap;}
+    .infobar div{flex:1 1 46%;white-space:normal;min-width:0;padding:6px 10px;font-size:0.9375rem;}
+    .infobar div:nth-child(2){border-right:none;}
+    .infobar div:nth-child(3),
+    .infobar div:nth-child(4){border-top:1px solid #2c2c2c;}
+
+    .lineup-tabs .tab-bar{
+      display:flex;margin:0 16px;padding-top:10px;
+      border-bottom:2px solid var(--line);
+    }
+    .lineup-tabs .tab-bar label{
+      flex:1;text-align:center;padding:10px 6px;
+      font-family:'Oswald';font-size:var(--text-md);font-weight:600;
+      text-transform:uppercase;letter-spacing:.06em;
+      cursor:pointer;color:var(--muted);
+      border-bottom:3px solid transparent;margin-bottom:-2px;
+    }
+    .lineup-tabs #lineup-home:checked ~ .tab-bar .tab-home{border-bottom-color:var(--us-red);color:var(--us-blue);}
+    .lineup-tabs #lineup-away:checked ~ .tab-bar .tab-away{border-bottom-color:var(--bos-blue);color:var(--bos-blue);}
+    .lineup-tabs #lineup-home:checked ~ .cols .col:last-child{display:none;}
+    .lineup-tabs #lineup-away:checked ~ .cols .col:first-child{display:none;}
+    .col.us,.col.bos{border-right:none;}
+    .colhead{flex-wrap:wrap;align-items:flex-start;gap:4px;}
+
+    .pname{min-width:0;flex:1;}
+    .pclub{white-space:normal;flex-shrink:1;max-width:46%;}
+    .star,.star > div{min-width:0;}
+    .nat{line-height:1.08;overflow-wrap:break-word;text-wrap:balance;}
+    .next p,.battle,.blurb{overflow-wrap:break-word;}
+  }
+  @media print{body{background:#fff;padding:0;}.sheet{box-shadow:none;border:none;}@page{margin:7mm;}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="top">
+    <div class="side us">
+      <div class="flag">🇺🇸 UNITED STATES</div>
+      <div class="nat">Stars & Stripes</div>
+      <div class="sub">FIFA #15 · Coach: Mauricio Pochettino · 4-3-3</div>
+    </div>
+    <div class="mid">
+      <div class="comp">ROUND&nbsp;OF&nbsp;32</div>
+      <div class="vs">V</div>
+      <div class="comp">WORLD&nbsp;CUP&nbsp;'26</div>
+    </div>
+    <div class="side bos">
+      <div class="flag">BOSNIA & HERZEGOVINA 🇧🇦</div>
+      <div class="nat">Zmajevi · The Dragons</div>
+      <div class="sub">4-4-2 · Coach: Sergej Barbarez · FIFA #61</div>
+    </div>
+  </div>
+
+  <div class="infobar">
+    <div><b>Venue</b>Levi's Stadium, Santa Clara</div>
+    <div><b>Kickoff</b>Wed 5:00 PM PDT</div>
+    <div><b>TV</b>Fox / Telemundo</div>
+    <div><b>Last met</b>2013 (USA 4-3)</div>
+  </div>
+
+  <div class="strip">
+    <div class="msg"><b>Win and you're in; lose and you fly home.</b> The hosts chase a deep run on home soil — while Bosnia play the <b>first knockout match in their history.</b> A 46-place ranking gap says USA; a knockout says anything can happen.</div>
+    <div class="tie">
+      <div class="tie-main"><b>Winner → Round of 16</b> (Seattle, ~Jul 5) · Loser eliminated</div>
+      <div class="tie-sub"><b>Next:</b> winner of Belgium vs Senegal, at Lumen Field, Seattle · <b>Odds:</b> USA &minus;280 · Draw +380 · Bosnia +800 (USA ~74%) · <b>Lean:</b> Over 2.5</div>
+    </div>
+  </div>
+
+  <div class="road">
+    <h3>How They Got Here · The Group Stage</h3>
+    <div class="roadgrid">
+      <div>
+        <div class="rh u">United States — Group D winners</div>
+        <div class="game"><span class="score w">4&ndash;1</span><span class="gt"><span class="dt">Jun 12</span> · vs Paraguay</span></div>
+        <div class="game"><span class="score w">2&ndash;0</span><span class="gt"><span class="dt">Jun 19</span> · vs Australia</span></div>
+        <div class="game"><span class="score l">2&ndash;3</span><span class="gt"><span class="dt">Jun 25</span> · vs Türkiye<small>dead rubber — 9 changes, top spot already sealed</small></span></div>
+      </div>
+      <div>
+        <div class="rh b">Bosnia & Herzegovina — 3rd, best-third</div>
+        <div class="game"><span class="score d">1&ndash;1</span><span class="gt"><span class="dt">Jun 12</span> · vs Canada</span></div>
+        <div class="game"><span class="score l">1&ndash;4</span><span class="gt"><span class="dt">Jun 18</span> · vs Switzerland</span></div>
+        <div class="game"><span class="score w">3&ndash;1</span><span class="gt"><span class="dt">Jun 24</span> · vs Qatar<small>squeezed through as a best third-placed team</small></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="next">
+    <h3>What's At Stake & What's Next</h3>
+    <div class="ng">
+      <p><b>United States:</b> Win = a Round of 16 trip back to Seattle and the deep home-soil run the Pochettino era was built for. Lose = the host nation out in the first knockout round, a program-defining failure.</p>
+      <p><b>Bosnia & Herzegovina:</b> Win = the first World Cup knockout-round victory in their history and a fairytale last chapter for Džeko at 40. Lose = still their best-ever WC run, having already beaten Italy to get here.</p>
+      <p><b>Winner's reward:</b> a Round of 16 tie in Seattle (~Jul 5) vs the winner of <b>Belgium vs Senegal</b>, played the same day at Lumen Field.</p>
+      <p><b>The carrot for the hosts:</b> first World Cup as host since 1994; Pochettino rotated nine players vs Türkiye specifically to arrive here fresh and off yellows.</p>
+      <p><b>Bosnia's history:</b> only their 2nd World Cup ever (debut 2014), and the first time they've ever played past the group stage — historic regardless of result.</p>
+    </div>
+  </div>
+
+  <div class="wtw">
+    <h3>What To Watch For</h3>
+    <div class="battles">
+      <div class="battle"><span class="bt">USA's wing pace vs Bosnia's veteran full-backs</span>Pulisic, Weah and the US width against an aging back line — 32-year-old Sead Kolašinac at left-back can be exposed for pace. Transition and the wide channels are the likeliest source of US goals.</div>
+      <div class="battle"><span class="bt">Edin Džeko (40) vs Richards & Ream</span>The spine of the match. Bosnia's whole plan runs through their 1.93m captain as a hold-up reference and aerial target. Richards' aggression and Ream's reading vs Džeko's clever back-to-goal movement.</div>
+      <div class="battle"><span class="bt">McKennie & Adams vs Tahirović and Šunjić</span>The control battle. Whoever owns central tempo decides whether this is a US stroll or a Bosnia rope-a-dope — Adams' ball-winning against every Bosnian attempt to feed Džeko.</div>
+      <div class="battle"><span class="bt">USA's front line vs a leaky Bosnia defense</span>Bosnia have conceded in all six World Cup games they've ever played, and in 11 of their last 12 overall. The US group attack (8 goals) meets a defense that historically can't keep clean sheets.</div>
+    </div>
+    <div class="deadball"><b>USA dead-ball:</b> Pulisic on direct free kicks and the likely penalty taker; corners feed Richards. The bigger US threat is open play and transition.<br><b>Bosnia dead-ball:</b> their clearest route to a goal — almost all of it Džeko's head on corners and wide free kicks. Bajraktarević scored the qualification-clinching penalty vs Italy (taker hierarchy unconfirmed).</div>
+    <div class="tip"><b>Set-piece tip:</b> If Bosnia are hanging in late, watch every corner or wide free kick — a delivery onto Džeko's head is the most realistic way they steal this. For the US, the danger lives in the channels, not the box.</div>
+  </div>
+
+  <div class="watch">
+    <h3>&#9733; The Names You'll Hear Most &#9733;</h3>
+    <div class="wgroup"><div class="wteam u">United States</div><div class="wgrid">
+      <div class="star"><span class="wn u">10</span><div><div class="nm">Christian Pulisic</div><div class="meta">USA · AC Milan · Talisman / No.10</div><div class="blurb">"Captain America" — the man everything runs through. Rested for the Türkiye dead rubber to be fresh for the knockouts. The face of the host nation's run.</div></div></div>
+      <div class="star"><span class="wn u">8</span><div><div class="nm">Weston McKennie</div><div class="meta">USA · Juventus · Engine</div><div class="blurb">The box-to-box bulldog — the physical and emotional motor of the US midfield. Sets the tone when he wins it back.</div></div></div>
+      <div class="star"><span class="wn u">20</span><div><div class="nm">Folarin Balogun</div><div class="meta">USA · AS Monaco · Striker</div><div class="blurb">Born in New York, raised in England, eligible for England and Nigeria — chose the USA in 2023. Around 19 goals this club season.</div></div></div>
+      <div class="star"><span class="wn u">21</span><div><div class="nm">Timothy Weah</div><div class="meta">USA · Marseille · Winger</div><div class="blurb">Son of George Weah — the only African Ballon d'Or winner (1995) and later President of Liberia. Pure pace and directness off the flank.</div></div></div>
+    </div></div>
+    <div class="wgroup"><div class="wteam b">Bosnia & Herzegovina</div><div class="wgrid">
+      <div class="star"><span class="wn b">11</span><div><div class="nm">Edin Džeko</div><div class="meta">Bosnia · Schalke 04 · Captain</div><div class="blurb">Turned 40 in March. The nation's all-time top scorer (73) and most-capped player (148); the oldest goalscorer in 2. Bundesliga history this season. The last man of the 2014 golden generation — and the reason to watch Bosnia.</div></div></div>
+      <div class="star"><span class="wn b">10</span><div><div class="nm">Ermedin Demirović</div><div class="meta">Bosnia · VfB Stuttgart · Striker</div><div class="blurb">The in-form one: 12 goals in 2025-26, Champions League football and a second straight Pokal final with Stuttgart. Plays off and alongside Džeko.</div></div></div>
+      <div class="star"><span class="wn b">20</span><div><div class="nm">Esmir Bajraktarević</div><div class="meta">Bosnia · PSV Eindhoven · Wide spark</div><div class="blurb">One of the few young sparks in an aging side — scored the penalty that clinched qualification by knocking out Italy.</div></div></div>
+    </div></div>
+  </div>
+
+  <div class="rtitle">The Lineups · By The Numbers</div>
+  <div class="lineup-tabs">
+    <input type="radio" name="lineup-tab" id="lineup-home" class="tab-input" checked>
+    <input type="radio" name="lineup-tab" id="lineup-away" class="tab-input">
+    <div class="tab-bar">
+      <label for="lineup-home" class="tab-home">United States</label>
+      <label for="lineup-away" class="tab-away">Bosnia</label>
+    </div>
+  <div class="cols">
+    <div class="col us">
+      <div class="colhead"><h2>United States</h2><span class="kit"><i style="background:#fff"></i>white home kit</span></div>
+      <div class="rsub">Starters · projected (4-3-3 / 4-2-3-1)</div>
+      <ul class="xi">
+        <li><span class="num gk">24</span><span class="pname">Matt Freese</span><span class="pclub">NYCFC</span></li>
+        <li><span class="num">2</span><span class="pname">Sergiño Dest</span><span class="pclub">PSV Eindhoven</span></li>
+        <li><span class="num">3</span><span class="pname">Chris Richards</span><span class="pclub">Crystal Palace</span></li>
+        <li><span class="num">4</span><span class="pname">Tyler Adams</span><span class="pclub">Bournemouth</span></li>
+        <li><span class="num">5</span><span class="pname">Antonee Robinson</span><span class="pclub">Fulham</span></li>
+        <li><span class="num">8</span><span class="pname">Weston McKennie</span><span class="pclub">Juventus</span></li>
+        <li><span class="num">10</span><span class="pname">Christian Pulisic</span><span class="pclub">AC Milan</span></li>
+        <li><span class="num">13</span><span class="pname">Tim Ream<span class="cap">C</span></span><span class="pclub">Charlotte FC</span></li>
+        <li><span class="num">16</span><span class="pname">Alex Freeman</span><span class="pclub">Villarreal</span></li>
+        <li><span class="num">17</span><span class="pname">Malik Tillman</span><span class="pclub">Bayer Leverkusen</span></li>
+        <li><span class="num">20</span><span class="pname">Folarin Balogun</span><span class="pclub">AS Monaco</span></li>
+      </ul>
+      <div class="rsub">Bench</div>
+      <ul class="xi">
+        <li><span class="num gk">1</span><span class="pname">Matt Turner</span><span class="pclub">New England</span></li>
+        <li><span class="num">6</span><span class="pname">Auston Trusty</span><span class="pclub">Celtic</span></li>
+        <li><span class="num">7</span><span class="pname">Giovanni Reyna</span><span class="pclub">M'gladbach</span></li>
+        <li><span class="num">9</span><span class="pname">Ricardo Pepi</span><span class="pclub">PSV Eindhoven</span></li>
+        <li><span class="num">11</span><span class="pname">Brenden Aaronson</span><span class="pclub">Leeds United</span></li>
+        <li><span class="num">12</span><span class="pname">Miles Robinson</span><span class="pclub">FC Cincinnati</span></li>
+        <li><span class="num">14</span><span class="pname">Sebastian Berhalter</span><span class="pclub">Vancouver</span></li>
+        <li><span class="num">15</span><span class="pname">Cristian Roldan</span><span class="pclub">Seattle Sounders</span></li>
+        <li><span class="num">18</span><span class="pname">Max Arfsten</span><span class="pclub">Columbus Crew</span></li>
+        <li><span class="num">19</span><span class="pname">Haji Wright</span><span class="pclub">Coventry City</span></li>
+        <li><span class="num">21</span><span class="pname">Timothy Weah</span><span class="pclub">Marseille</span></li>
+        <li><span class="num">22</span><span class="pname">Mark McKenzie</span><span class="pclub">Toulouse</span></li>
+        <li><span class="num">23</span><span class="pname">Joe Scally</span><span class="pclub">M'gladbach</span></li>
+        <li><span class="num gk">25</span><span class="pname">Chris Brady</span><span class="pclub">Chicago Fire</span></li>
+        <li><span class="num">26</span><span class="pname">Alex Zendejas</span><span class="pclub">Club América</span></li>
+      </ul>
+      <div class="note">Freese (#24) projected over Turner in goal. Right-side attack the open question — Dest, Weah (#21) and Reyna (#7) all contend; in a front three expect Weah's pace wide. Shape reads 4-3-3 or 4-2-3-1 by source. Richards a fitness watch. Confirmed XI ~1hr before kickoff.</div>
+    </div>
+    <div class="col bos">
+      <div class="colhead"><h2>Bosnia</h2><span class="kit"><i style="background:#1f4fd0"></i>blue home kit</span></div>
+      <div class="rsub">Starters · projected (4-4-2)</div>
+      <ul class="xi">
+        <li><span class="num gk">1</span><span class="pname">Nikola Vasilj</span><span class="pclub">FC St. Pauli</span></li>
+        <li><span class="num">3</span><span class="pname">Dennis Hadžikadunić</span><span class="pclub">Sampdoria</span></li>
+        <li><span class="num">5</span><span class="pname">Sead Kolašinac</span><span class="pclub">Atalanta</span></li>
+        <li><span class="num">6</span><span class="pname">Benjamin Tahirović</span><span class="pclub">Brøndby</span></li>
+        <li><span class="num">7</span><span class="pname">Amar Dedić</span><span class="pclub">Benfica</span></li>
+        <li><span class="num">10</span><span class="pname">Ermedin Demirović</span><span class="pclub">VfB Stuttgart</span></li>
+        <li><span class="num">11</span><span class="pname">Edin Džeko<span class="cap">C</span></span><span class="pclub">Schalke 04</span></li>
+        <li><span class="num">14</span><span class="pname">Ivan Šunjić</span><span class="pclub">Pafos FC</span></li>
+        <li><span class="num">18</span><span class="pname">Nikola Katić</span><span class="pclub">Schalke 04</span></li>
+        <li><span class="num">19</span><span class="pname">Kerim Alajbegović</span><span class="pclub">RB Salzburg</span></li>
+        <li><span class="num">20</span><span class="pname">Esmir Bajraktarević</span><span class="pclub">PSV Eindhoven</span></li>
+      </ul>
+      <div class="rsub">Bench</div>
+      <ul class="xi">
+        <li><span class="num">2</span><span class="pname">Nihad Mujakić</span><span class="pclub">Gaziantep FK</span></li>
+        <li><span class="num">4</span><span class="pname">Tarik Muharemović</span><span class="pclub">Sassuolo</span></li>
+        <li><span class="num">8</span><span class="pname">Armin Gigović</span><span class="pclub">Young Boys</span></li>
+        <li><span class="num">9</span><span class="pname">Samed Baždar</span><span class="pclub">Jagiellonia</span></li>
+        <li><span class="num gk">12</span><span class="pname">Mladen Jurkas</span><span class="pclub">Borac B. Luka</span></li>
+        <li><span class="num">13</span><span class="pname">Ivan Bašić</span><span class="pclub">FC Astana</span></li>
+        <li><span class="num">15</span><span class="pname">Amar Memić</span><span class="pclub">Viktoria Plzeň</span></li>
+        <li><span class="num">16</span><span class="pname">Amir Hadžiahmetović</span><span class="pclub">Hull City</span></li>
+        <li><span class="num">17</span><span class="pname">Dženis Burnić</span><span class="pclub">Karlsruher SC</span></li>
+        <li><span class="num">21</span><span class="pname">Stjepan Radeljić</span><span class="pclub">Rijeka</span></li>
+        <li><span class="num gk">22</span><span class="pname">Martin Zlomislić</span><span class="pclub">Rijeka</span></li>
+        <li><span class="num">23</span><span class="pname">Haris Tabaković</span><span class="pclub">M'gladbach</span></li>
+        <li><span class="num">24</span><span class="pname">Arjan Malić</span><span class="pclub">Sturm Graz</span></li>
+        <li><span class="num">25</span><span class="pname">Jovo Lukić</span><span class="pclub">U. Cluj</span></li>
+        <li><span class="num">26</span><span class="pname">Ermin Mahmić</span><span class="pclub">Slovan Liberec</span></li>
+      </ul>
+      <div class="note">CB pairing fluid (Katić + Hadžikadunić projected; Muharemović in contention); RB the softest slot — Dedić projected, Memić/Malić floated. Pjanić retired (Dec 2025) — not in the squad. Tabaković (#23) doubtful with a metatarsal fracture. Confirmed XI ~1hr before kickoff.</div>
+    </div>
+  </div>
+  </div>
+
+  <div class="foot">
+    pre-match (confirmed XIs + kit assignment drop ~1hr before kickoff) <span>Per SI / ESPN / FIFA / Wikipedia 2026 WC squads previews. Referee TBC; kits inferred; ranks approx.</span>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Australia vs Egypt — 2026 World Cup, Round of 32</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&family=Barlow:wght@400;500;600&display=swap');
+
+  :root{
+    --au-grn:#00843D; --au-deep:#00622e; --au-gold:#FFC72C;
+    --eg-red:#C8102E; --eg-deep:#8f0a20; --gold:#C39A2B;
+
+    --text-micro:0.75rem; --text-sm:0.8125rem; --text-base:1rem; --text-md:1.0625rem;
+    --text-lg:1.125rem; --text-xl:1.25rem; --text-2xl:1.375rem; --text-3xl:1.75rem;
+    --leading:1.45;
+    --ink:#1a1714; --paper:#f6f3ec; --line:#d8d2c4; --muted:#6f675b;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Barlow',sans-serif;font-size:var(--text-base);background:#26231f;color:var(--ink);padding:18px;line-height:var(--leading);}
+  .sheet{max-width:920px;margin:0 auto;background:var(--paper);border:1px solid var(--line);box-shadow:0 14px 44px rgba(0,0,0,.5);overflow:hidden;}
+
+  /* HEADER */
+  .top{display:flex;align-items:stretch;color:#f6f3ec;}
+  .top .side{flex:1;padding:13px 18px;}
+  .top .aus{background:linear-gradient(135deg,var(--au-grn),var(--au-deep));}
+  .top .egy{background:linear-gradient(225deg,var(--eg-red),var(--eg-deep));text-align:right;}
+  .top .mid{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 14px;min-width:118px;background:var(--ink);}
+  .flag{font-size:var(--text-sm);letter-spacing:.18em;font-family:'Oswald';font-weight:600;opacity:.85;}
+  .top .aus .flag{color:var(--au-gold);opacity:1;}
+  .nat{font-family:'Oswald';font-weight:700;font-size:var(--text-3xl);line-height:1;text-transform:uppercase;}
+  .sub{font-size:0.875rem;opacity:.82;margin-top:3px;font-family:'Barlow Condensed';letter-spacing:.04em;}
+  .vs{font-family:'Oswald';font-weight:700;font-size:var(--text-xl);color:var(--gold);}
+  .mid .comp{font-size:var(--text-micro);letter-spacing:.12em;font-family:'Oswald';opacity:.7;text-align:center;}
+
+  .infobar{display:flex;background:#000;color:#f6f3ec;font-family:'Barlow Condensed';font-size:0.9375rem;}
+  .infobar div{padding:6px 14px;border-right:1px solid #2c2c2c;flex:1;text-align:center;white-space:nowrap;}
+  .infobar div:last-child{border-right:none;}
+  .infobar b{color:var(--gold);font-weight:600;letter-spacing:.07em;text-transform:uppercase;font-size:var(--text-micro);display:block;}
+
+  /* STAKES */
+  .strip{display:flex;flex-direction:column;align-items:stretch;background:var(--gold);color:#241e10;}
+  .strip .msg{padding:11px 16px;font-family:'Barlow',sans-serif;font-size:var(--text-md);font-weight:500;}
+  .strip .msg b{font-weight:700;}
+
+  .tie{background:#241e10;color:#f6f3ec;font-family:'Barlow Condensed';padding:8px 16px;width:100%;}
+  .tie-main{font-size:var(--text-base);color:#ffe9a8;line-height:1.38;}
+  .tie-main b{font-family:'Barlow';font-weight:600;color:#fff;}
+  .tie-sub{font-size:0.875rem;color:#a89f8e;margin-top:5px;line-height:1.35;}
+  .tie-sub b{color:var(--gold);font-weight:600;}
+
+  /* TEAM COLUMNS */
+  .cols{display:grid;grid-template-columns:1fr 1fr;}
+  .col{padding:13px 16px;}
+  .col.aus{border-right:2px solid var(--line);}
+  .colhead{display:flex;align-items:baseline;justify-content:space-between;border-bottom:2px solid;padding-bottom:5px;margin-bottom:8px;}
+  .col.aus .colhead{border-color:var(--au-grn);}
+  .col.egy .colhead{border-color:var(--eg-red);}
+  .colhead h2{font-family:'Oswald';font-size:var(--text-xl);text-transform:uppercase;letter-spacing:.02em;}
+  .col.aus .colhead h2{color:var(--au-grn);}
+  .col.egy .colhead h2{color:var(--eg-red);}
+  .form{font-family:'Barlow Condensed';font-size:0.875rem;color:var(--muted);letter-spacing:.05em;text-align:right;}
+
+  .kit{display:flex;align-items:center;gap:6px;font-family:'Barlow Condensed';font-size:var(--text-sm);color:var(--muted);letter-spacing:.03em;text-transform:uppercase;margin-bottom:8px;}
+  .sw{width:14px;height:14px;border-radius:3px;border:1px solid rgba(0,0,0,.25);flex-shrink:0;}
+  .sw.aus{background:linear-gradient(135deg,var(--au-gold) 0 70%,var(--au-grn) 70%);}
+  .sw.egy{background:linear-gradient(135deg,var(--eg-red) 0 70%,#fff 70%);}
+
+  .xi{list-style:none;}
+  .xi li{display:flex;gap:9px;align-items:center;padding:2.5px 0;border-bottom:1px dotted var(--line);}
+  .xi li:last-child{border-bottom:none;}
+  .num{font-family:'Oswald';font-weight:700;font-size:var(--text-lg);width:28px;height:26px;display:flex;align-items:center;justify-content:center;color:#fff;border-radius:3px;flex-shrink:0;}
+  .col.aus .num{background:var(--au-gold);color:#1a1714;}
+  .col.egy .num{background:var(--eg-red);}
+  .num.gk{background:#444 !important;color:#fff !important;}
+  .pname{font-weight:600;font-size:var(--text-lg);}
+  .pclub{color:var(--muted);font-size:var(--text-sm);font-family:'Barlow Condensed';margin-left:auto;text-align:right;letter-spacing:.02em;white-space:nowrap;}
+  .cap{color:var(--gold);font-weight:700;font-size:var(--text-micro);vertical-align:super;margin-left:1px;}
+
+  .note{font-size:var(--text-sm);color:var(--muted);font-style:italic;margin-top:6px;line-height:1.3;}
+
+  /* ROAD HERE */
+  .road{background:var(--ink);color:#ece5d8;padding:13px 18px;}
+  .road h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--gold);text-transform:uppercase;margin-bottom:9px;text-align:center;}
+  .roadgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .rh{font-family:'Oswald';font-size:var(--text-base);text-transform:uppercase;letter-spacing:.03em;margin-bottom:5px;}
+  .rh.a{color:#ffe08a;} .rh.e{color:#ff8e9e;}
+  .game{display:flex;gap:8px;margin-bottom:6px;font-size:0.9375rem;line-height:var(--leading);}
+  .score{font-family:'Oswald';font-weight:700;font-size:var(--text-sm);padding:2px 6px;border-radius:3px;height:fit-content;white-space:nowrap;flex-shrink:0;color:#fff;}
+  .score.w{background:#2c5e38;} .score.l{background:#6e2530;} .score.d{background:#5a5036;}
+  .game .gt{color:#cfc7b8;}
+  .game .gt b{color:#fff;font-weight:600;}
+  .game .gt small{display:block;color:#a89f8e;font-size:var(--text-sm);font-style:italic;}
+  .game .gt .dt{color:#fff;font-weight:600;}
+
+  /* NEXT */
+  .next{background:#efe9dc;padding:12px 18px;border-top:1px solid var(--line);}
+  .next h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--eg-red);text-transform:uppercase;margin-bottom:7px;}
+  .next .ng{columns:1;}
+  .next p{font-family:'Barlow',sans-serif;font-size:var(--text-base);margin-bottom:8px;break-inside:avoid;line-height:var(--leading);padding-left:13px;position:relative;}
+  .next p::before{content:"\25B8";position:absolute;left:0;color:var(--gold);font-size:var(--text-micro);top:2px;}
+  .next b{font-weight:600;}
+
+  /* WHAT TO WATCH FOR */
+  .wtw{padding:13px 18px;border-top:1px solid var(--line);}
+  .wtw h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--gold);text-transform:uppercase;margin-bottom:9px;}
+  .battles{columns:1;}
+  .battle{font-family:'Barlow',sans-serif;font-size:var(--text-base);line-height:var(--leading);margin-bottom:8px;break-inside:avoid;}
+  .battle .bt{font-family:'Oswald';font-weight:600;font-size:var(--text-md);text-transform:uppercase;letter-spacing:.02em;color:var(--ink);display:block;margin-bottom:1px;}
+  .tip{margin-top:8px;background:#efe9dc;border-left:3px solid var(--gold);padding:10px 12px;font-family:'Barlow',sans-serif;font-size:var(--text-md);line-height:var(--leading);}
+  .tip b{font-family:'Barlow';font-weight:600;color:#241e10;}
+  .deadball{margin-top:8px;font-family:'Barlow',sans-serif;font-size:var(--text-sm);color:var(--muted);line-height:var(--leading);}
+  .deadball b{color:var(--ink);font-weight:600;text-transform:uppercase;letter-spacing:.03em;font-size:var(--text-micro);}
+
+  /* WATCH split-by-team */
+  .watch{padding:13px 18px;}
+  .watch h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--au-grn);text-transform:uppercase;margin-bottom:9px;}
+  .wgrid{display:grid;grid-template-columns:1fr;gap:10px;}
+  .star{display:flex;gap:9px;}
+  .star .wn{font-family:'Oswald';font-weight:700;font-size:var(--text-lg);width:34px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:3px;color:#fff;flex-shrink:0;}
+  .wn.a{background:var(--au-gold);color:#1a1714;} .wn.e{background:var(--eg-red);}
+  .star .nm{font-family:'Oswald';font-size:var(--text-xl);font-weight:600;line-height:1.05;}
+  .star .meta{font-size:var(--text-sm);color:var(--muted);font-family:'Barlow Condensed';letter-spacing:.03em;text-transform:uppercase;margin-bottom:2px;}
+  .star .blurb{font-family:'Barlow',sans-serif;font-size:var(--text-base);line-height:var(--leading);}
+  .star b{font-weight:600;}
+  .wgroup{margin-bottom:12px;}
+  .wgroup:last-child{margin-bottom:0;}
+  .wteam{font-family:'Oswald';font-size:var(--text-md);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;padding-bottom:3px;border-bottom:2px solid;}
+  .wteam.a{color:var(--au-grn);border-color:var(--au-grn);}
+  .wteam.e{color:var(--eg-red);border-color:var(--eg-red);}
+
+  /* LINEUPS */
+  .rtitle{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--ink);text-transform:uppercase;text-align:center;padding:13px 18px 0;}
+  .rsub{font-family:'Oswald';font-size:var(--text-micro);letter-spacing:.13em;color:var(--muted);text-transform:uppercase;margin:9px 0 3px;}
+  .rsub:first-child{margin-top:0;}
+
+  .foot{background:var(--ink);color:#9a9081;font-size:var(--text-micro);text-align:center;padding:7px;font-family:'Barlow Condensed';letter-spacing:.05em;}
+  .foot span{color:var(--gold);}
+
+  /* LINEUP TABS — mobile team switcher (CSS-only) */
+  .lineup-tabs .tab-input{position:absolute;opacity:0;width:0;height:0;pointer-events:none;}
+  .lineup-tabs .tab-bar{display:none;}
+
+  @media (max-width:680px){
+    body{padding:7px;overflow-x:hidden;}
+    .sheet{overflow-x:clip;}
+    .wgrid,.roadgrid{grid-template-columns:1fr;}
+    .cols{grid-template-columns:1fr;}
+
+    .top .side{padding:10px 12px;min-width:0;}
+    .top .mid{min-width:64px;padding:8px 10px;}
+
+    .infobar{flex-wrap:wrap;}
+    .infobar div{flex:1 1 46%;white-space:normal;min-width:0;padding:6px 10px;font-size:0.9375rem;}
+    .infobar div:nth-child(2){border-right:none;}
+    .infobar div:nth-child(3),
+    .infobar div:nth-child(4){border-top:1px solid #2c2c2c;}
+
+    .lineup-tabs .tab-bar{
+      display:flex;margin:0 16px;padding-top:10px;
+      border-bottom:2px solid var(--line);
+    }
+    .lineup-tabs .tab-bar label{
+      flex:1;text-align:center;padding:10px 6px;
+      font-family:'Oswald';font-size:var(--text-md);font-weight:600;
+      text-transform:uppercase;letter-spacing:.06em;
+      cursor:pointer;color:var(--muted);
+      border-bottom:3px solid transparent;margin-bottom:-2px;
+    }
+    .lineup-tabs #lineup-home:checked ~ .tab-bar .tab-home{border-bottom-color:var(--au-grn);color:var(--au-grn);}
+    .lineup-tabs #lineup-away:checked ~ .tab-bar .tab-away{border-bottom-color:var(--eg-red);color:var(--eg-red);}
+    .lineup-tabs #lineup-home:checked ~ .cols .col:last-child{display:none;}
+    .lineup-tabs #lineup-away:checked ~ .cols .col:first-child{display:none;}
+    .col.aus,.col.egy{border-right:none;}
+    .colhead{flex-wrap:wrap;align-items:flex-start;gap:4px;}
+
+    .pname{min-width:0;flex:1;}
+    .pclub{white-space:normal;flex-shrink:1;max-width:46%;}
+    .star,.star > div{min-width:0;}
+    .nat{line-height:1.08;overflow-wrap:break-word;text-wrap:balance;}
+    .next p,.battle,.blurb{overflow-wrap:break-word;}
+  }
+  @media print{body{background:#fff;padding:0;}.sheet{box-shadow:none;border:none;}@page{margin:7mm;}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="top">
+    <div class="side aus">
+      <div class="flag">🇦🇺 AUSTRALIA</div>
+      <div class="nat">Socceroos</div>
+      <div class="sub">Coach: Tony Popovic · 4-3-3</div>
+    </div>
+    <div class="mid">
+      <div class="comp">ROUND&nbsp;OF&nbsp;32</div>
+      <div class="vs">V</div>
+      <div class="comp">WORLD&nbsp;CUP&nbsp;'26</div>
+    </div>
+    <div class="side egy">
+      <div class="flag">EGYPT 🇪🇬</div>
+      <div class="nat">The Pharaohs</div>
+      <div class="sub">4-2-3-1 · Coach: Hossam Hassan</div>
+    </div>
+  </div>
+
+  <div class="infobar">
+    <div><b>Venue</b>AT&amp;T Stadium, Arlington</div>
+    <div><b>Kickoff</b>Fri 11:00 AM PDT · 1 PM Dallas</div>
+    <div><b>TV</b>FOX · Telemundo</div>
+    <div><b>Roof</b>Closed · climate-controlled</div>
+  </div>
+
+  <div class="strip">
+    <div class="msg"><b>Win or go home.</b> No replay, no group safety net — the winner reaches the <b>Round of 16</b> in Kansas City; the loser is <b>out</b>. And the prize is loaded: <b>neither nation has ever won a World Cup knockout match.</b></div>
+    <div class="tie">
+      <div class="tie-main"><b>Winner → Round of 16</b> · Loser eliminated · Kansas City, Tue Jul 7</div>
+      <div class="tie-sub"><b>Next:</b> vs Argentina/Cape Verde winner (likely Argentina) · <b>Odds:</b> EGY +150 · Draw +187 · AUS +225 · Lean: low-scoring (Under 2.5)</div>
+    </div>
+  </div>
+
+  <div class="road">
+    <h3>How They Got Here · Group Stage</h3>
+    <div class="roadgrid">
+      <div>
+        <div class="rh a">Australia · Group D (2nd, 4 pts)</div>
+        <div class="game"><span class="score w">2&ndash;0</span><span class="gt"><span class="dt">Jun 13</span> · vs Türkiye<small>Irankunda 27', Metcalfe 75'</small></span></div>
+        <div class="game"><span class="score l">0&ndash;2</span><span class="gt"><span class="dt">Jun 19</span> · vs USA</span></div>
+        <div class="game"><span class="score d">0&ndash;0</span><span class="gt"><span class="dt">Jun 25</span> · vs Paraguay<small>Ground out 2nd; 2 clean sheets</small></span></div>
+      </div>
+      <div>
+        <div class="rh e">Egypt · Group G (2nd, 5 pts)</div>
+        <div class="game"><span class="score d">1&ndash;1</span><span class="gt"><span class="dt">Jun 15</span> · vs Belgium</span></div>
+        <div class="game"><span class="score w">3&ndash;1</span><span class="gt"><span class="dt">Jun 21</span> · vs New Zealand<small>Egypt's first-ever World Cup win</small></span></div>
+        <div class="game"><span class="score d">1&ndash;1</span><span class="gt"><span class="dt">Jun 26</span> · vs Iran<small>Saber 5'; Salah came off injured 57'</small></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="next">
+    <h3>What's At Stake &amp; What's Next</h3>
+    <div class="ng">
+      <p><b>Win = Round of 16</b> in Kansas City on Tue Jul 7 — most likely vs the <b>Argentina / Cape Verde</b> winner (probably Messi's Argentina). A first knockout victory either way would be uncharted territory.</p>
+      <p><b>Lose = elimination.</b> Two group runners-up, both defense-first, both chasing the same first: one is going home in the round of 32.</p>
+      <p><b>Egypt's history run:</b> 92 years after their 1934 debut, the Pharaohs are in the knockouts for the <b>first time ever</b> — and Salah, at 34, is almost certainly playing his last World Cup.</p>
+      <p><b>Salah vs his own coach's record:</b> he sits on 68 international goals, one shy of the all-time Egypt record (69) held by his manager, <b>Hossam Hassan</b>. A goal here equals it — <b>if he's fit</b> (he limped off vs Iran).</p>
+      <p><b>Australia's young core has arrived:</b> a 20-year-old (Irankunda, with a Bayern buyback) and 23-year-old Jordan Bos (Feyenoord) headline Tony Popovic's generational rebuild — but the Socceroos got here on grit, two clean sheets in three games.</p>
+    </div>
+  </div>
+
+  <div class="wtw">
+    <h3>What To Watch For</h3>
+    <div class="battles">
+      <div class="battle"><span class="bt">Salah vs Australia's right side</span>If he's fit, this is the game. Egypt's whole attack runs through Salah drifting in off the right; Australia's low block funnels him into Souttar and the right-back. The defining duel — and the biggest unknown after he limped off vs Iran.</div>
+      <div class="battle"><span class="bt">Australia's aerial set-pieces vs Egypt's box</span>The Socceroos are thin in open play (2 goals in 3 games) but carry a tall, dangerous dead-ball threat — Souttar (6'6"), Burgess, Degenek. In a tight game, set pieces are their cheapest route to a goal.</div>
+      <div class="battle"><span class="bt">Irvine &amp; Metcalfe vs Egypt's pivot</span>The control battle. Australia's St. Pauli engine room hunts second balls and sets the press; Egypt's Ashour–Fathy pivot want to edge it centrally and feed Salah. Whoever owns the middle owns the tempo.</div>
+      <div class="battle"><span class="bt">Irankunda's pace vs Egypt's pushed-up full-backs</span>Egypt commit Fatouh and Hany forward; the 20-year-old Irankunda — plus Leckie wide — is Australia's transition weapon into the space they vacate. Their clearest path on the break.</div>
+    </div>
+    <div class="deadball"><b>Egypt dead-ball:</b> Salah is the hub — direct free kicks, corners, penalties; his right boot is the delivery threat more than aerial size.<br><b>Australia dead-ball:</b> usual taker Craig Goodwin is OUT of the squad — likeliest now Mabil or Irvine (unconfirmed). Souttar is the towering target on every corner.</div>
+    <div class="tip"><b>Set-piece tip:</b> Two cagey, defense-first sides and an Under-2.5 lean — a dead ball may well decide it. Watch Souttar arrive on every Australian corner, and Salah's boot on any Egyptian free kick near the box.</div>
+  </div>
+
+  <div class="watch">
+    <h3>&#9733; The Names You'll Hear Most &#9733;</h3>
+    <div class="wgroup"><div class="wteam a">Australia</div><div class="wgrid">
+      <div class="star"><span class="wn a">17</span><div><div class="nm">Nestory Irankunda</div><div class="meta">Australia · Watford · Forward</div><div class="blurb">The 20-year-old breakout — scored Australia's first goal of the tournament. Explosive dribbler with a fierce shot; <b>Bayern Munich hold a buyback clause</b> on him. The face of the young core.</div></div></div>
+      <div class="star"><span class="wn a">22</span><div><div class="nm">Jackson Irvine</div><div class="meta">Australia · FC St. Pauli · Midfield</div><div class="blurb">The engine and emotional leader (St. Pauli's club captain). Box-to-box runner on his 3rd World Cup and a cult hero in Hamburg — sets the tone in the middle.</div></div></div>
+      <div class="star"><span class="wn a">1</span><div><div class="nm">Mathew Ryan</div><div class="meta">Australia · Levante · Captain (GK)</div><div class="blurb">The skipper, 104 caps, on his 4th World Cup (an Australian record he shares with Leckie). Both group clean sheets rode on him.</div></div></div>
+    </div></div>
+    <div class="wgroup"><div class="wteam e">Egypt</div><div class="wgrid">
+      <div class="star"><span class="wn e">10</span><div><div class="nm">Mohamed Salah</div><div class="meta">Egypt · Liverpool · Captain</div><div class="blurb">The main event. One goal from his own coach's all-time Egypt record (69). Almost certainly his last World Cup — but a <b>fitness doubt</b> after limping off vs Iran.</div></div></div>
+      <div class="star"><span class="wn e">22</span><div><div class="nm">Omar Marmoush</div><div class="meta">Egypt · Man City · Striker</div><div class="blurb">Egypt's clear No.2 threat and pace foil to Salah. A quiet 2025-26 at City, but scored twice at the 2025 AFCON — the man most likely to punish a slow back line.</div></div></div>
+      <div class="star"><span class="wn e">25</span><div><div class="nm">Zizo (Ahmed Sayed)</div><div class="meta">Egypt · Al Ahly · Winger</div><div class="blurb">Egyptian Premier League star bringing width and creativity off the flank — an impact option who can change a tight game from the bench.</div></div></div>
+    </div></div>
+  </div>
+
+  <div class="rtitle">The Lineups · By The Numbers</div>
+  <div class="lineup-tabs">
+    <input type="radio" name="lineup-tab" id="lineup-home" class="tab-input" checked>
+    <input type="radio" name="lineup-tab" id="lineup-away" class="tab-input">
+    <div class="tab-bar">
+      <label for="lineup-home" class="tab-home">Australia</label>
+      <label for="lineup-away" class="tab-away">Egypt</label>
+    </div>
+  <div class="cols">
+    <div class="col aus">
+      <div class="colhead"><h2>Australia</h2><span class="form">4-3-3 · low block &amp; counter</span></div>
+      <div class="kit"><span class="sw aus"></span>Wearing: gold home shirt / green trim</div>
+      <div class="rsub">Starters</div>
+      <ul class="xi">
+        <li><span class="num gk">1</span><span class="pname">Mathew Ryan<span class="cap">C</span></span><span class="pclub">Levante</span></li>
+        <li><span class="num">5</span><span class="pname">Jordan Bos</span><span class="pclub">Feyenoord</span></li>
+        <li><span class="num">6</span><span class="pname">Jason Geria</span><span class="pclub">Albirex Niigata</span></li>
+        <li><span class="num">7</span><span class="pname">Mathew Leckie</span><span class="pclub">Melbourne City</span></li>
+        <li><span class="num">8</span><span class="pname">Connor Metcalfe</span><span class="pclub">FC St. Pauli</span></li>
+        <li><span class="num">11</span><span class="pname">Awer Mabil</span><span class="pclub">CD Castellón</span></li>
+        <li><span class="num">13</span><span class="pname">Aiden O'Neill</span><span class="pclub">New York City FC</span></li>
+        <li><span class="num">17</span><span class="pname">Nestory Irankunda</span><span class="pclub">Watford</span></li>
+        <li><span class="num">19</span><span class="pname">Harry Souttar</span><span class="pclub">Leicester City</span></li>
+        <li><span class="num">21</span><span class="pname">Cameron Burgess</span><span class="pclub">Swansea City</span></li>
+        <li><span class="num">22</span><span class="pname">Jackson Irvine</span><span class="pclub">FC St. Pauli</span></li>
+      </ul>
+      <div class="rsub">Bench</div>
+      <ul class="xi">
+        <li><span class="num">2</span><span class="pname">Milos Degenek</span><span class="pclub">APOEL</span></li>
+        <li><span class="num">3</span><span class="pname">Alessandro Circati</span><span class="pclub">Parma</span></li>
+        <li><span class="num">4</span><span class="pname">Jacob Italiano</span><span class="pclub">Grazer AK</span></li>
+        <li><span class="num">9</span><span class="pname">Mohamed Touré</span><span class="pclub">Norwich City</span></li>
+        <li><span class="num">10</span><span class="pname">Ajdin Hrustić</span><span class="pclub">Heracles Almelo</span></li>
+        <li><span class="num gk">12</span><span class="pname">Paul Izzo</span><span class="pclub">Randers FC</span></li>
+        <li><span class="num">14</span><span class="pname">Cameron Devlin</span><span class="pclub">Hearts</span></li>
+        <li><span class="num">15</span><span class="pname">Kai Trewin</span><span class="pclub">New York City FC</span></li>
+        <li><span class="num">16</span><span class="pname">Aziz Behich</span><span class="pclub">Melbourne City</span></li>
+        <li><span class="num gk">18</span><span class="pname">Patrick Beach</span><span class="pclub">Melbourne City</span></li>
+        <li><span class="num">20</span><span class="pname">Cristian Volpato</span><span class="pclub">Sassuolo</span></li>
+        <li><span class="num">23</span><span class="pname">Nishan Velupillay</span><span class="pclub">Melbourne Victory</span></li>
+        <li><span class="num">24</span><span class="pname">Paul Okon-Engstler</span><span class="pclub">Sydney FC</span></li>
+        <li><span class="num">25</span><span class="pname">Lucas Herrington</span><span class="pclub">Colorado Rapids</span></li>
+        <li><span class="num">26</span><span class="pname">Tete Yengi</span><span class="pclub">Machida Zelvia</span></li>
+      </ul>
+      <div class="note">Predicted XI: 2nd CB beside Souttar is a toss-up — Burgess (shown) or Degenek; Behich the veteran LB cover if Bos rotates. Duke &amp; Goodwin missed the squad. Confirmed ~1hr pre-kick.</div>
+    </div>
+    <div class="col egy">
+      <div class="colhead"><h2>Egypt</h2><span class="form">4-2-3-1 · Salah-led, disciplined</span></div>
+      <div class="kit"><span class="sw egy"></span>Wearing: red home shirt / white shorts</div>
+      <div class="rsub">Starters</div>
+      <ul class="xi">
+        <li><span class="num gk">1</span><span class="pname">Mohamed El Shenawy</span><span class="pclub">Al Ahly</span></li>
+        <li><span class="num">3</span><span class="pname">Mohamed Hany</span><span class="pclub">Al Ahly</span></li>
+        <li><span class="num">5</span><span class="pname">Ramy Rabia</span><span class="pclub">Al Ain (UAE)</span></li>
+        <li><span class="num">6</span><span class="pname">Mohamed Abdelmonem</span><span class="pclub">Nice</span></li>
+        <li><span class="num">7</span><span class="pname">Trézéguet</span><span class="pclub">Al Ahly</span></li>
+        <li><span class="num">8</span><span class="pname">Emam Ashour</span><span class="pclub">Al Ahly</span></li>
+        <li><span class="num">10</span><span class="pname">Mohamed Salah<span class="cap">C</span></span><span class="pclub">Liverpool</span></li>
+        <li><span class="num">13</span><span class="pname">Ahmed Fatouh</span><span class="pclub">Zamalek</span></li>
+        <li><span class="num">14</span><span class="pname">Hamdy Fathy</span><span class="pclub">Al-Wakrah</span></li>
+        <li><span class="num">20</span><span class="pname">Ibrahim Adel</span><span class="pclub">Nordsjælland</span></li>
+        <li><span class="num">22</span><span class="pname">Omar Marmoush</span><span class="pclub">Manchester City</span></li>
+      </ul>
+      <div class="rsub">Bench</div>
+      <ul class="xi">
+        <li><span class="num">2</span><span class="pname">Yasser Ibrahim</span><span class="pclub">Al Ahly</span></li>
+        <li><span class="num">4</span><span class="pname">Hossam Abdelmaguid</span><span class="pclub">Zamalek</span></li>
+        <li><span class="num">9</span><span class="pname">Hamza Abdelkarim</span><span class="pclub">Barcelona B</span></li>
+        <li><span class="num">11</span><span class="pname">Mostafa Ziko</span><span class="pclub">Pyramids FC</span></li>
+        <li><span class="num">12</span><span class="pname">Haissem Hassan</span><span class="pclub">Real Oviedo</span></li>
+        <li><span class="num">15</span><span class="pname">Karim Hafez</span><span class="pclub">Pyramids FC</span></li>
+        <li><span class="num gk">16</span><span class="pname">El Mahdy Soliman</span><span class="pclub">Zamalek</span></li>
+        <li><span class="num">17</span><span class="pname">Mohanad Lasheen</span><span class="pclub">Pyramids FC</span></li>
+        <li><span class="num">18</span><span class="pname">Nabil Emad</span><span class="pclub">Al-Najma</span></li>
+        <li><span class="num">19</span><span class="pname">Marwan Attia</span><span class="pclub">Al Ahly</span></li>
+        <li><span class="num">21</span><span class="pname">Mahmoud Saber</span><span class="pclub">ZED FC</span></li>
+        <li><span class="num gk">23</span><span class="pname">Mostafa Shobeir</span><span class="pclub">Al Ahly</span></li>
+        <li><span class="num">24</span><span class="pname">Tarek Alaa</span><span class="pclub">ZED FC</span></li>
+        <li><span class="num">25</span><span class="pname">Zizo (Ahmed Sayed)</span><span class="pclub">Al Ahly</span></li>
+        <li><span class="num gk">26</span><span class="pname">Mohamed Alaa</span><span class="pclub">El Gouna</span></li>
+      </ul>
+      <div class="note">⚠️ Salah fitness doubt — limped off 57' vs Iran; his start is likely but unconfirmed. R32 XI shifts from the group stage (El Shenawy in goal; Trézéguet &amp; Ibrahim Adel wide; Marmoush leads the line). Confirmed ~1hr pre-kick.</div>
+    </div>
+  </div>
+  </div>
+
+  <div class="foot">
+    pre-match (confirmed XIs + shirt numbers drop ~1hr before kickoff) <span>Per Squawka / Yahoo·TFA / ESPN / official squad lists. Referee TBD; Salah fitness unconfirmed.</span>
+  </div>
+
+</div>
+</body>
+</html>

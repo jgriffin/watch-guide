@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Switzerland vs Algeria — 2026 World Cup, Round of 32</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&family=Barlow:wght@400;500;600&display=swap');
+
+  :root{
+    --sui-red:#D52B1E; --sui-deep:#b41f17;
+    --alg-grn:#007A3D; --alg-deep:#015c2e; --alg-red:#C8102E;
+    --gold:#C39A2B;
+
+    --text-micro:0.75rem; --text-sm:0.8125rem; --text-base:1rem; --text-md:1.0625rem;
+    --text-lg:1.125rem; --text-xl:1.25rem; --text-2xl:1.375rem; --text-3xl:1.75rem;
+    --leading:1.45;
+    --ink:#1a1714; --paper:#f6f3ec; --line:#d8d2c4; --muted:#6f675b;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Barlow',sans-serif;font-size:var(--text-base);background:#26231f;color:var(--ink);padding:18px;line-height:var(--leading);}
+  .sheet{max-width:920px;margin:0 auto;background:var(--paper);border:1px solid var(--line);box-shadow:0 14px 44px rgba(0,0,0,.5);overflow:hidden;}
+
+  /* HEADER */
+  .top{display:flex;align-items:stretch;color:#f6f3ec;}
+  .top .side{flex:1;padding:13px 18px;}
+  .top .sui{background:linear-gradient(135deg,var(--sui-red),var(--sui-deep));}
+  .top .alg{background:linear-gradient(225deg,var(--alg-grn),var(--alg-deep));text-align:right;}
+  .top .mid{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 14px;min-width:118px;background:var(--ink);}
+  .flag{font-size:var(--text-sm);letter-spacing:.18em;font-family:'Oswald';font-weight:600;opacity:.85;}
+  .nat{font-family:'Oswald';font-weight:700;font-size:var(--text-3xl);line-height:1;text-transform:uppercase;}
+  .sub{font-size:0.875rem;opacity:.82;margin-top:3px;font-family:'Barlow Condensed';letter-spacing:.04em;}
+  .vs{font-family:'Oswald';font-weight:700;font-size:var(--text-xl);color:var(--gold);}
+  .mid .comp{font-size:var(--text-micro);letter-spacing:.12em;font-family:'Oswald';opacity:.7;text-align:center;}
+
+  .infobar{display:flex;background:#000;color:#f6f3ec;font-family:'Barlow Condensed';font-size:0.9375rem;}
+  .infobar div{padding:6px 14px;border-right:1px solid #2c2c2c;flex:1;text-align:center;white-space:nowrap;}
+  .infobar div:last-child{border-right:none;}
+  .infobar b{color:var(--gold);font-weight:600;letter-spacing:.07em;text-transform:uppercase;font-size:var(--text-micro);display:block;}
+
+  /* STAKES + TIE BAR */
+  .strip{display:flex;flex-direction:column;align-items:stretch;background:var(--gold);color:#241e10;}
+  .strip .msg{padding:11px 16px;font-family:'Barlow',sans-serif;font-size:var(--text-md);font-weight:500;}
+  .strip .msg b{font-weight:700;}
+  .tie{background:#241e10;color:#f6f3ec;font-family:'Barlow Condensed';padding:8px 16px;width:100%;}
+  .tie-main{font-size:var(--text-base);color:#ffe9a8;line-height:1.38;}
+  .tie-main b{font-family:'Barlow';font-weight:600;color:#fff;}
+  .tie-sub{font-size:0.875rem;color:#a89f8e;margin-top:5px;line-height:1.35;}
+  .tie-sub b{color:var(--gold);font-weight:600;}
+
+  /* TEAM COLUMNS */
+  .cols{display:grid;grid-template-columns:1fr 1fr;}
+  .col{padding:13px 16px;}
+  .col.sui{border-right:2px solid var(--line);background:linear-gradient(180deg,rgba(213,43,30,.07),transparent 120px);}
+  .col.alg{background:linear-gradient(180deg,rgba(0,122,61,.07),transparent 120px);}
+  .colhead{display:flex;align-items:baseline;justify-content:space-between;border-bottom:2px solid;padding-bottom:5px;margin-bottom:8px;}
+  .col.sui .colhead{border-color:var(--sui-red);}
+  .col.alg .colhead{border-color:var(--alg-grn);}
+  .colhead h2{font-family:'Oswald';font-size:var(--text-xl);text-transform:uppercase;letter-spacing:.02em;}
+  .col.sui .colhead h2{color:var(--sui-red);}
+  .col.alg .colhead h2{color:var(--alg-grn);}
+  .form{font-family:'Barlow Condensed';font-size:0.875rem;color:var(--muted);letter-spacing:.05em;}
+
+  /* kit swatch */
+  .kit{display:flex;align-items:center;gap:6px;font-family:'Barlow Condensed';font-size:var(--text-sm);color:var(--muted);letter-spacing:.03em;text-transform:uppercase;margin-bottom:8px;}
+  .sw{width:14px;height:14px;border-radius:3px;border:1px solid rgba(0,0,0,.25);flex-shrink:0;}
+  .sw.sui{background:var(--sui-red);}
+  .sw.alg{background:linear-gradient(135deg,#fff 0 60%,var(--alg-grn) 60% 80%,var(--alg-red) 80%);}
+
+  .xi{list-style:none;}
+  .xi li{display:flex;gap:9px;align-items:center;padding:2.5px 0;border-bottom:1px dotted var(--line);}
+  .xi li:last-child{border-bottom:none;}
+  .num{font-family:'Oswald';font-weight:700;font-size:var(--text-lg);width:28px;height:26px;display:flex;align-items:center;justify-content:center;color:#fff;border-radius:3px;flex-shrink:0;}
+  .col.sui .num{background:var(--sui-red);}
+  .col.alg .num{background:var(--alg-grn);}
+  .num.gk{background:#444 !important;}
+  .pname{font-weight:600;font-size:var(--text-lg);}
+  .pclub{color:var(--muted);font-size:var(--text-sm);font-family:'Barlow Condensed';margin-left:auto;text-align:right;letter-spacing:.02em;white-space:nowrap;}
+  .cap{color:var(--gold);font-weight:700;font-size:var(--text-micro);vertical-align:super;margin-left:1px;}
+
+  .note{font-size:var(--text-sm);color:var(--muted);font-style:italic;margin-top:6px;line-height:1.3;}
+
+  /* ROAD HERE */
+  .road{background:var(--ink);color:#ece5d8;padding:13px 18px;}
+  .road h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--gold);text-transform:uppercase;margin-bottom:9px;text-align:center;}
+  .roadgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .rh{font-family:'Oswald';font-size:var(--text-base);text-transform:uppercase;letter-spacing:.03em;margin-bottom:5px;}
+  .rh.s{color:#ff9a90;} .rh.a{color:#7fdca0;}
+  .game{display:flex;gap:8px;margin-bottom:6px;font-size:0.9375rem;line-height:var(--leading);}
+  .score{font-family:'Oswald';font-weight:700;font-size:var(--text-sm);padding:2px 6px;border-radius:3px;height:fit-content;white-space:nowrap;flex-shrink:0;color:#fff;}
+  .score.w{background:#2c5e38;} .score.l{background:#6e2530;} .score.d{background:#5a5036;}
+  .game .gt{color:#cfc7b8;}
+  .game .gt b{color:#fff;font-weight:600;}
+  .game .gt .dt{color:#fff;font-weight:600;}
+  .game .gt small{display:block;color:#a89f8e;font-size:var(--text-sm);font-style:italic;}
+
+  /* WATCH */
+  .watch{padding:13px 18px;}
+  .watch h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--sui-red);text-transform:uppercase;margin-bottom:9px;}
+  .wgrid{display:grid;grid-template-columns:1fr;gap:10px;}
+  .star{display:flex;gap:9px;}
+  .star .wn{font-family:'Oswald';font-weight:700;font-size:var(--text-lg);width:34px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:3px;color:#fff;flex-shrink:0;}
+  .wn.s{background:var(--sui-red);} .wn.a{background:var(--alg-grn);}
+  .star .nm{font-family:'Oswald';font-size:var(--text-xl);font-weight:600;line-height:1.05;}
+  .star .meta{font-size:var(--text-sm);color:var(--muted);font-family:'Barlow Condensed';letter-spacing:.03em;text-transform:uppercase;margin-bottom:2px;}
+  .star .blurb{font-family:'Barlow',sans-serif;font-size:var(--text-base);line-height:var(--leading);}
+  .star b{font-weight:600;}
+  .wgroup{margin-bottom:12px;}
+  .wgroup:last-child{margin-bottom:0;}
+  .wteam{font-family:'Oswald';font-size:var(--text-md);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;padding-bottom:3px;border-bottom:2px solid;}
+  .wteam.s{color:var(--sui-red);border-color:var(--sui-red);}
+  .wteam.a{color:var(--alg-grn);border-color:var(--alg-grn);}
+
+  /* NEXT */
+  .next{background:#efe9dc;padding:12px 18px;border-top:1px solid var(--line);}
+  .next h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--alg-grn);text-transform:uppercase;margin-bottom:7px;}
+  .next .ng{columns:1;}
+  .next p{font-family:'Barlow',sans-serif;font-size:var(--text-base);margin-bottom:8px;break-inside:avoid;line-height:var(--leading);padding-left:13px;position:relative;}
+  .next p::before{content:"\25B8";position:absolute;left:0;color:var(--gold);font-size:var(--text-micro);top:2px;}
+  .next b{font-weight:600;}
+
+  /* WHAT TO WATCH FOR */
+  .wtw{padding:13px 18px;border-top:1px solid var(--line);}
+  .wtw h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--gold);text-transform:uppercase;margin-bottom:9px;}
+  .battles{columns:1;}
+  .battle{font-family:'Barlow',sans-serif;font-size:var(--text-base);line-height:var(--leading);margin-bottom:8px;break-inside:avoid;}
+  .battle .bt{font-family:'Oswald';font-weight:600;font-size:var(--text-md);text-transform:uppercase;letter-spacing:.02em;color:var(--ink);display:block;margin-bottom:1px;}
+  .tip{margin-top:8px;background:#efe9dc;border-left:3px solid var(--gold);padding:10px 12px;font-family:'Barlow',sans-serif;font-size:var(--text-md);line-height:var(--leading);}
+  .tip b{font-family:'Barlow';font-weight:600;color:#241e10;}
+  .deadball{margin-top:8px;font-family:'Barlow',sans-serif;font-size:var(--text-sm);color:var(--muted);line-height:var(--leading);}
+  .deadball b{color:var(--ink);font-weight:600;text-transform:uppercase;letter-spacing:.03em;font-size:var(--text-micro);}
+
+  /* LINEUPS */
+  .rtitle{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--ink);text-transform:uppercase;text-align:center;padding:13px 18px 0;}
+  .rsub{font-family:'Oswald';font-size:var(--text-micro);letter-spacing:.13em;color:var(--muted);text-transform:uppercase;margin:9px 0 3px;}
+  .rsub:first-child{margin-top:0;}
+
+  .foot{background:var(--ink);color:#9a9081;font-size:var(--text-micro);text-align:center;padding:7px;font-family:'Barlow Condensed';letter-spacing:.05em;}
+  .foot span{color:var(--gold);}
+
+  /* LINEUP TABS — mobile team switcher (CSS-only) */
+  .lineup-tabs .tab-input{position:absolute;opacity:0;width:0;height:0;pointer-events:none;}
+  .lineup-tabs .tab-bar{display:none;}
+
+  @media (max-width:680px){
+    body{padding:7px;overflow-x:hidden;}
+    .sheet{overflow-x:clip;}
+    .roadgrid{grid-template-columns:1fr;}
+    .cols{grid-template-columns:1fr;}
+
+    /* Header — layout only; type scale unchanged */
+    .top .side{padding:10px 12px;min-width:0;}
+    .top .mid{min-width:64px;padding:8px 10px;}
+
+    /* Infobar — 2×2 grid instead of one overflowing row */
+    .infobar{flex-wrap:wrap;}
+    .infobar div{flex:1 1 46%;white-space:normal;min-width:0;padding:6px 10px;font-size:0.9375rem;}
+    .infobar div:nth-child(2){border-right:none;}
+    .infobar div:nth-child(3),
+    .infobar div:nth-child(4){border-top:1px solid #2c2c2c;}
+
+    /* Lineup tabs */
+    .lineup-tabs .tab-bar{
+      display:flex;margin:0 16px;padding-top:10px;
+      border-bottom:2px solid var(--line);
+    }
+    .lineup-tabs .tab-bar label{
+      flex:1;text-align:center;padding:10px 6px;
+      font-family:'Oswald';font-size:var(--text-md);font-weight:600;
+      text-transform:uppercase;letter-spacing:.06em;
+      cursor:pointer;color:var(--muted);
+      border-bottom:3px solid transparent;margin-bottom:-2px;
+    }
+    .lineup-tabs #lineup-home:checked ~ .tab-bar .tab-home{border-bottom-color:var(--sui-red);color:var(--sui-red);}
+    .lineup-tabs #lineup-away:checked ~ .tab-bar .tab-away{border-bottom-color:var(--alg-grn);color:var(--alg-grn);}
+    .lineup-tabs #lineup-home:checked ~ .cols .col:last-child{display:none;}
+    .lineup-tabs #lineup-away:checked ~ .cols .col:first-child{display:none;}
+    .col.sui,.col.alg{border-right:none;}
+    .colhead{flex-wrap:wrap;align-items:flex-start;gap:4px;}
+
+    /* Player rows — full width (type scale unchanged on mobile) */
+    .pname{min-width:0;flex:1;}
+    .pclub{white-space:normal;flex-shrink:1;max-width:46%;}
+    .star,.star > div{min-width:0;}
+    .nat{line-height:1.08;overflow-wrap:break-word;text-wrap:balance;}
+    /* Prose blocks */
+    .next p,.battle,.blurb{overflow-wrap:break-word;}
+  }
+  @media print{body{background:#fff;padding:0;}.sheet{box-shadow:none;border:none;}@page{margin:7mm;}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="top">
+    <div class="side sui">
+      <div class="flag">🇨🇭 SWITZERLAND</div>
+      <div class="nat">La Nati</div>
+      <div class="sub">Coach: Murat Yakin · 4-3-3</div>
+    </div>
+    <div class="mid">
+      <div class="comp">ROUND&nbsp;OF&nbsp;32</div>
+      <div class="vs">V</div>
+      <div class="comp">WORLD&nbsp;CUP&nbsp;'26</div>
+    </div>
+    <div class="side alg">
+      <div class="flag">ALGERIA 🇩🇿</div>
+      <div class="nat">Les Fennecs</div>
+      <div class="sub">4-2-3-1 · Coach: Vladimir Petković</div>
+    </div>
+  </div>
+
+  <div class="infobar">
+    <div><b>Venue</b>BC Place, Vancouver</div>
+    <div><b>Kickoff</b>Thu 8:00 PM PDT · 11 PM ET</div>
+    <div><b>TV</b>Fox · Telemundo</div>
+    <div><b>Last met</b>1986 (friendly)</div>
+  </div>
+
+  <div class="strip">
+    <div class="msg"><b>Win or go home.</b> No second leg, no group safety net — the winner reaches the <b>Round of 16</b>; the loser is <b>out of the World Cup</b>. Group B winners Switzerland, a knockout specialist, against an Algeria side back at a World Cup for the first time in 12 years — managed by Switzerland's own former coach.</div>
+    <div class="tie">
+      <div class="tie-main"><b>Winner → Round of 16</b> · Loser eliminated · BC Place, Tue Jul 7</div>
+      <div class="tie-sub"><b>Next:</b> vs Colombia/Ghana winner (Fri Jul 3 R32) · <b>Odds:</b> SUI −118 · Draw +240 · ALG +350 · All-time: SUI won both prior meetings (1980s friendlies); first competitive clash</div>
+    </div>
+  </div>
+
+  <div class="road">
+    <h3>How They Got Here · Group Stage</h3>
+    <div class="roadgrid">
+      <div>
+        <div class="rh s">Switzerland · Group B (1st, 7 pts)</div>
+        <div class="game"><span class="score d">1&ndash;1</span><span class="gt"><span class="dt">Jun 13</span> · vs Qatar</span></div>
+        <div class="game"><span class="score w">4&ndash;1</span><span class="gt"><span class="dt">Jun 18</span> · vs Bosnia &amp; Herzegovina</span></div>
+        <div class="game"><span class="score w">2&ndash;1</span><span class="gt"><span class="dt">Jun 24</span> · vs Canada<small>Clinched top spot</small></span></div>
+      </div>
+      <div>
+        <div class="rh a">Algeria · Group J (3rd, 4 pts · best third)</div>
+        <div class="game"><span class="score l">0&ndash;3</span><span class="gt"><span class="dt">Jun 16</span> · vs Argentina</span></div>
+        <div class="game"><span class="score w">2&ndash;1</span><span class="gt"><span class="dt">Jun 22</span> · vs Jordan</span></div>
+        <div class="game"><span class="score d">3&ndash;3</span><span class="gt"><span class="dt">Jun 27</span> · vs Austria<small>Mahrez brace dragged them through</small></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="next">
+    <h3>What's At Stake & What's Next</h3>
+    <div class="ng">
+      <p><b>Win = Round of 16</b> at BC Place on Tue Jul 7, vs the <b>Colombia / Ghana</b> winner (that R32 tie is Fri Jul 3).</p>
+      <p><b>Lose = elimination.</b> One single leg decides it — no aggregate, no replay.</p>
+      <p><b>Petković faces the team he built:</b> Algeria's coach <b>Vladimir Petković managed Switzerland from 2014–2021</b> — a 2018 World Cup last-16 and the famous Euro 2020 penalty win over France. Now he's in the opposite dugout against his old nation.</p>
+      <p><b>72 years for Switzerland:</b> a win would put them in the quarter-finals for the <b>first time since 1954</b> — when their run ended in a 7-5 loss to Austria, still the highest-scoring game in World Cup history.</p>
+      <p><b>Algeria are back:</b> their <b>first World Cup since 2014</b>, dragged here by Riyad Mahrez in what is almost certainly his tournament farewell at 35.</p>
+      <p><b>Switzerland the knockout team:</b> beat France (Euro 2020) and reigning champions Italy (Euro 2024) in recent shootouts/knockouts — but have exited in the round of 16 at four of the last five World Cups.</p>
+    </div>
+  </div>
+
+  <div class="wtw">
+    <h3>What To Watch For</h3>
+    <div class="battles">
+      <div class="battle"><span class="bt">Ndoye vs Aït-Nouri</span>Switzerland's most direct dribbler against the side Algeria must protect. If Dan Ndoye isolates his man 1v1 he's a chance-creation engine — but Man City's Aït-Nouri wants to bomb forward too, so the space behind him is the duel.</div>
+      <div class="battle"><span class="bt">Amoura's pace vs Akanji &amp; the Swiss line</span>Algeria's whole plan is springing Mohamed Amoura in behind; Switzerland's compact block exists to deny exactly that, with Akanji's recovery pace the key. <i>Hinges on Amoura's fitness — see the note.</i></div>
+      <div class="battle"><span class="bt">Xhaka vs Mahrez</span>The two captains and creative hubs. Whoever owns the central tempo owns the game — Xhaka dictating from deep against Mahrez finding pockets between the Swiss lines.</div>
+      <div class="battle"><span class="bt">Midfield control</span>Xhaka, Freuler &amp; Manzambi want possession and to starve Algeria of the ball; Zerrouki, Boudaoui &amp; Bentaleb want turnovers and transition. The middle third decides whether this is a Swiss grind or an open counter-game.</div>
+    </div>
+    <div class="deadball"><b>Switzerland dead-ball:</b> penalties Xhaka (then Embolo, Amdouni); free kicks Vargas / Xhaka / Rieder; corners Vargas, Rieder &amp; Rodríguez (Vargas's delivery is primary but fitness-questionable).<br><b>Algeria dead-ball:</b> Mahrez takes the penalties, free kicks and most corners (with Chaïbi) — his delivery is Algeria's most reliable set-piece weapon.</div>
+    <div class="tip"><b>Set-piece tip:</b> In a likely Swiss-controlled grind, treat any Algeria set piece or quick transition as their cheapest route to a goal — and watch the first ball over the top to Amoura or Gouiri.</div>
+  </div>
+
+  <div class="watch">
+    <h3>&#9733; The Names You'll Hear Most &#9733;</h3>
+    <div class="wgroup"><div class="wteam s">Switzerland</div><div class="wgrid">
+      <div class="star"><span class="wn s">10</span><div><div class="nm">Granit Xhaka</div><div class="meta">Switzerland · Sunderland · DM / captain</div><div class="blurb">The metronome who sets tempo and takes the penalties. Captained Sunderland to the Europa League in 2025-26; vs Qatar he made his <b>13th World Cup appearance</b> — Switzerland's joint-record.</div></div></div>
+      <div class="star"><span class="wn s">7</span><div><div class="nm">Breel Embolo</div><div class="meta">Switzerland · Rennes · Striker</div><div class="blurb">The powerful focal point up top — scored <b>Switzerland's first goal of the tournament</b> (a penalty vs Qatar) and is the second-choice spot-kick man.</div></div></div>
+      <div class="star"><span class="wn s">11</span><div><div class="nm">Dan Ndoye</div><div class="meta">Switzerland · Nottingham Forest · Right wing</div><div class="blurb">The direct, quick wide threat — a £34m move from Bologna in 2025 and Switzerland's most dangerous 1v1 runner.</div></div></div>
+    </div></div>
+    <div class="wgroup"><div class="wteam a">Algeria</div><div class="wgrid">
+      <div class="star"><span class="wn a">7</span><div><div class="nm">Riyad Mahrez</div><div class="meta">Algeria · Al-Ahli · RW / captain</div><div class="blurb">The talisman and on-field leader (ex-Man City; 2016 PL title with Leicester). <b>Scored twice in the 3-3 vs Austria</b> to drag Algeria into the knockouts. At 35, almost certainly his World Cup farewell.</div></div></div>
+      <div class="star"><span class="wn a">18</span><div><div class="nm">Mohamed Amoura</div><div class="meta">Algeria · Wolfsburg · Striker</div><div class="blurb">The breakout face of Algeria's return — <b>top scorer in African qualifying (10 goals)</b>, with elite pace in behind. <i>Fitness flag: a thigh issue may keep him among the subs; confirm pre-kick.</i></div></div></div>
+      <div class="star"><span class="wn a">9</span><div><div class="nm">Amine Gouiri</div><div class="meta">Algeria · Marseille · Forward</div><div class="blurb">The other front-line goal threat and predicted lone striker — bringing Ligue 1 pedigree to Petković's attack.</div></div></div>
+    </div></div>
+  </div>
+
+  <div class="rtitle">The Lineups · By The Numbers</div>
+  <div class="lineup-tabs">
+    <input type="radio" name="lineup-tab" id="lineup-home" class="tab-input" checked>
+    <input type="radio" name="lineup-tab" id="lineup-away" class="tab-input">
+    <div class="tab-bar">
+      <label for="lineup-home" class="tab-home">Switzerland</label>
+      <label for="lineup-away" class="tab-away">Algeria</label>
+    </div>
+  <div class="cols">
+    <div class="col sui">
+      <div class="colhead"><h2>Switzerland</h2><span class="form">4-3-3 · organized, possession, compact</span></div>
+      <div class="kit"><span class="sw sui"></span>Wearing: red home (shirt) / white shorts</div>
+      <div class="rsub">Starters</div>
+      <ul class="xi">
+        <li><span class="num gk">1</span><span class="pname">Gregor Kobel</span><span class="pclub">Dortmund</span></li>
+        <li><span class="num">3</span><span class="pname">Silvan Widmer</span><span class="pclub">Mainz 05</span></li>
+        <li><span class="num">4</span><span class="pname">Nico Elvedi</span><span class="pclub">M&apos;gladbach</span></li>
+        <li><span class="num">5</span><span class="pname">Manuel Akanji</span><span class="pclub">Inter Milan</span></li>
+        <li><span class="num">7</span><span class="pname">Breel Embolo</span><span class="pclub">Rennes</span></li>
+        <li><span class="num">8</span><span class="pname">Remo Freuler</span><span class="pclub">Bologna</span></li>
+        <li><span class="num">9</span><span class="pname">Johan Manzambi</span><span class="pclub">SC Freiburg</span></li>
+        <li><span class="num">10</span><span class="pname">Granit Xhaka<span class="cap">C</span></span><span class="pclub">Sunderland</span></li>
+        <li><span class="num">11</span><span class="pname">Dan Ndoye</span><span class="pclub">Nott&apos;m Forest</span></li>
+        <li><span class="num">13</span><span class="pname">Ricardo Rodriguez</span><span class="pclub">Real Betis</span></li>
+        <li><span class="num">17</span><span class="pname">Rubén Vargas</span><span class="pclub">Sevilla</span></li>
+      </ul>
+      <div class="rsub">Bench</div>
+      <ul class="xi">
+        <li><span class="num">2</span><span class="pname">Miro Muheim</span><span class="pclub">Hamburger SV</span></li>
+        <li><span class="num">6</span><span class="pname">Denis Zakaria</span><span class="pclub">Monaco</span></li>
+        <li><span class="num gk">12</span><span class="pname">Yvon Mvogo</span><span class="pclub">Lorient</span></li>
+        <li><span class="num">14</span><span class="pname">Ardon Jashari</span><span class="pclub">AC Milan</span></li>
+        <li><span class="num">15</span><span class="pname">Djibril Sow</span><span class="pclub">Sevilla</span></li>
+        <li><span class="num">16</span><span class="pname">Christian Fassnacht</span><span class="pclub">Young Boys</span></li>
+        <li><span class="num">18</span><span class="pname">Eray Cömert</span><span class="pclub">Valencia</span></li>
+        <li><span class="num">19</span><span class="pname">Noah Okafor</span><span class="pclub">Leeds United</span></li>
+        <li><span class="num">20</span><span class="pname">Michel Aebischer</span><span class="pclub">Pisa</span></li>
+        <li><span class="num gk">21</span><span class="pname">Marvin Keller</span><span class="pclub">Young Boys</span></li>
+        <li><span class="num">22</span><span class="pname">Fabian Rieder</span><span class="pclub">FC Augsburg</span></li>
+        <li><span class="num">23</span><span class="pname">Zeki Amdouni</span><span class="pclub">Burnley</span></li>
+        <li><span class="num">24</span><span class="pname">Aurèle Amenda</span><span class="pclub">E. Frankfurt</span></li>
+        <li><span class="num">25</span><span class="pname">Luca Jaquez</span><span class="pclub">VfB Stuttgart</span></li>
+        <li><span class="num">26</span><span class="pname">Cedric Itten</span><span class="pclub">F. Düsseldorf</span></li>
+      </ul>
+      <div class="note">Predicted XI per ESPN (4-3-3). A second preview reads 4-4-2 with Jaquez at right-back (not Widmer), Aebischer in midfield, Manzambi &amp; Embolo the front two and no Ndoye — RB and the shape/front line are disputed. Confirmed ~1hr pre-kick.</div>
+    </div>
+    <div class="col alg">
+      <div class="colhead"><h2>Algeria</h2><span class="form">4-2-3-1 · counter &amp; Mahrez flair</span></div>
+      <div class="kit"><span class="sw alg"></span>Wearing: white home kit (kit-clash — unconfirmed)</div>
+      <div class="rsub">Starters</div>
+      <ul class="xi">
+        <li><span class="num">2</span><span class="pname">Aïssa Mandi</span><span class="pclub">Lille</span></li>
+        <li><span class="num">6</span><span class="pname">Ramiz Zerrouki</span><span class="pclub">Twente (NED)</span></li>
+        <li><span class="num">7</span><span class="pname">Riyad Mahrez<span class="cap">C</span></span><span class="pclub">Al-Ahli (KSA)</span></li>
+        <li><span class="num">9</span><span class="pname">Amine Gouiri</span><span class="pclub">Marseille</span></li>
+        <li><span class="num">10</span><span class="pname">Farès Chaïbi</span><span class="pclub">E. Frankfurt</span></li>
+        <li><span class="num">14</span><span class="pname">Hicham Boudaoui</span><span class="pclub">Nice</span></li>
+        <li><span class="num">15</span><span class="pname">Rayan Aït-Nouri</span><span class="pclub">Man City</span></li>
+        <li><span class="num">17</span><span class="pname">Rafik Belghali</span><span class="pclub">Hellas Verona</span></li>
+        <li><span class="num">21</span><span class="pname">Ramy Bensebaini</span><span class="pclub">Dortmund</span></li>
+        <li><span class="num">22</span><span class="pname">Ibrahim Maza</span><span class="pclub">B. Leverkusen</span></li>
+        <li><span class="num gk">23</span><span class="pname">Luca Zidane</span><span class="pclub">Granada</span></li>
+      </ul>
+      <div class="rsub">Bench</div>
+      <ul class="xi">
+        <li><span class="num gk">1</span><span class="pname">Melvin Mastil</span><span class="pclub">Stade Nyonnais</span></li>
+        <li><span class="num">3</span><span class="pname">Achref Abada</span><span class="pclub">USM Alger</span></li>
+        <li><span class="num">4</span><span class="pname">M. A. Tougai</span><span class="pclub">Espérance (TUN)</span></li>
+        <li><span class="num">5</span><span class="pname">Zineddine Belaïd</span><span class="pclub">JS Kabylie</span></li>
+        <li><span class="num">8</span><span class="pname">Houssem Aouar</span><span class="pclub">Al-Ittihad (KSA)</span></li>
+        <li><span class="num">11</span><span class="pname">Anis Hadj Moussa</span><span class="pclub">Feyenoord (NED)</span></li>
+        <li><span class="num">12</span><span class="pname">Nadhir Benbouali</span><span class="pclub">Győri ETO (HUN)</span></li>
+        <li><span class="num">13</span><span class="pname">Jaouen Hadjam</span><span class="pclub">Young Boys</span></li>
+        <li><span class="num gk">16</span><span class="pname">Oussama Benbot</span><span class="pclub">USM Alger</span></li>
+        <li><span class="num">18</span><span class="pname">Mohamed Amoura</span><span class="pclub">Wolfsburg</span></li>
+        <li><span class="num">19</span><span class="pname">Nabil Bentaleb</span><span class="pclub">Lille</span></li>
+        <li><span class="num">20</span><span class="pname">Adil Boulbina</span><span class="pclub">Al-Duhail (QAT)</span></li>
+        <li><span class="num">24</span><span class="pname">Yacine Titraoui</span><span class="pclub">Charleroi (BEL)</span></li>
+        <li><span class="num">25</span><span class="pname">Farès Ghedjemis</span><span class="pclub">Frosinone</span></li>
+        <li><span class="num">26</span><span class="pname">Samir Chergui</span><span class="pclub">Paris FC</span></li>
+      </ul>
+      <div class="note">Predicted XI per ESPN (4-2-3-1); a second preview swaps Tougai for Bensebaini at CB and starts Hadj Moussa &amp; Amoura in attack (Amoura up top). <b>Amoura's fitness (thigh)</b> is the biggest team-news question. Bennacer was left out of the 26. Confirmed ~1hr pre-kick.</div>
+    </div>
+  </div>
+  </div>
+
+  <div class="foot">
+    pre-match (predicted XIs + kit assignment confirm ~1hr before kickoff) <span>Per ESPN / Squawka / FIFA / Wikipedia 2026 WC squads.</span>
+  </div>
+
+</div>
+</body>
+</html>

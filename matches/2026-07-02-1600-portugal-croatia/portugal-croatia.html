@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portugal vs Croatia — 2026 World Cup, Round of 32</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&family=Barlow:wght@400;500;600&display=swap');
+
+  :root{
+    --pt-red:#DA291C; --pt-deep:#9e1610; --pt-grn:#046A38;
+    --cr-navy:#1a1a6c; --cr-deep:#0f0f4a; --cr-red:#D0103A;
+    --gold:#C39A2B;
+
+    --text-micro:0.75rem; --text-sm:0.8125rem; --text-base:1rem; --text-md:1.0625rem;
+    --text-lg:1.125rem; --text-xl:1.25rem; --text-2xl:1.375rem; --text-3xl:1.75rem;
+    --leading:1.45;
+    --ink:#1a1714; --paper:#f6f3ec; --line:#d8d2c4; --muted:#6f675b;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Barlow',sans-serif;font-size:var(--text-base);background:#26231f;color:var(--ink);padding:18px;line-height:var(--leading);}
+  .sheet{max-width:920px;margin:0 auto;background:var(--paper);border:1px solid var(--line);box-shadow:0 14px 44px rgba(0,0,0,.5);overflow:hidden;}
+
+  /* HEADER */
+  .top{display:flex;align-items:stretch;color:#f6f3ec;}
+  .top .side{flex:1;padding:13px 18px;}
+  .top .pt{background:linear-gradient(135deg,var(--pt-red),var(--pt-deep));}
+  .top .cr{background:linear-gradient(225deg,var(--cr-navy),var(--cr-deep));text-align:right;}
+  .top .mid{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 14px;min-width:118px;background:var(--ink);}
+  .flag{font-size:var(--text-sm);letter-spacing:.18em;font-family:'Oswald';font-weight:600;opacity:.85;}
+  .nat{font-family:'Oswald';font-weight:700;font-size:var(--text-3xl);line-height:1;text-transform:uppercase;}
+  .sub{font-size:0.875rem;opacity:.82;margin-top:3px;font-family:'Barlow Condensed';letter-spacing:.04em;}
+  .vs{font-family:'Oswald';font-weight:700;font-size:var(--text-xl);color:var(--gold);}
+  .mid .comp{font-size:var(--text-micro);letter-spacing:.12em;font-family:'Oswald';opacity:.7;text-align:center;}
+
+  .infobar{display:flex;background:#000;color:#f6f3ec;font-family:'Barlow Condensed';font-size:0.9375rem;}
+  .infobar div{padding:6px 14px;border-right:1px solid #2c2c2c;flex:1;text-align:center;white-space:nowrap;}
+  .infobar div:last-child{border-right:none;}
+  .infobar b{color:var(--gold);font-weight:600;letter-spacing:.07em;text-transform:uppercase;font-size:var(--text-micro);display:block;}
+
+  /* STAKES + TIE BAR */
+  .strip{display:flex;flex-direction:column;align-items:stretch;background:var(--gold);color:#241e10;}
+  .strip .msg{padding:11px 16px;font-family:'Barlow',sans-serif;font-size:var(--text-md);font-weight:500;}
+  .strip .msg b{font-weight:700;}
+  .tie{background:#241e10;color:#f6f3ec;font-family:'Barlow Condensed';padding:8px 16px;width:100%;}
+  .tie-main{font-size:var(--text-base);color:#ffe9a8;line-height:1.38;}
+  .tie-main b{font-family:'Barlow';font-weight:600;color:#fff;}
+  .tie-sub{font-size:0.875rem;color:#a89f8e;margin-top:5px;line-height:1.35;}
+  .tie-sub b{color:var(--gold);font-weight:600;}
+
+  /* TEAM COLUMNS */
+  .cols{display:grid;grid-template-columns:1fr 1fr;}
+  .col{padding:13px 16px;}
+  .col.pt{border-right:2px solid var(--line);background:linear-gradient(180deg,rgba(218,41,28,.06),transparent 120px);}
+  .col.cr{background:linear-gradient(180deg,rgba(26,26,108,.08),transparent 120px);}
+  .colhead{display:flex;align-items:baseline;justify-content:space-between;border-bottom:2px solid;padding-bottom:5px;margin-bottom:8px;}
+  .col.pt .colhead{border-color:var(--pt-red);}
+  .col.cr .colhead{border-color:var(--cr-navy);}
+  .colhead h2{font-family:'Oswald';font-size:var(--text-xl);text-transform:uppercase;letter-spacing:.02em;}
+  .col.pt .colhead h2{color:var(--pt-red);}
+  .col.cr .colhead h2{color:var(--cr-navy);}
+  .form{font-family:'Barlow Condensed';font-size:0.875rem;color:var(--muted);letter-spacing:.05em;}
+
+  .xi{list-style:none;}
+  .xi li{display:flex;gap:9px;align-items:center;padding:2.5px 0;border-bottom:1px dotted var(--line);}
+  .xi li:last-child{border-bottom:none;}
+  .num{font-family:'Oswald';font-weight:700;font-size:var(--text-lg);width:28px;height:26px;display:flex;align-items:center;justify-content:center;color:#fff;border-radius:3px;flex-shrink:0;}
+  .col.pt .num{background:var(--pt-red);}
+  .col.cr .num{background:var(--cr-navy);}
+  .num.gk{background:#444 !important;}
+  .pname{font-weight:600;font-size:var(--text-lg);}
+  .pclub{color:var(--muted);font-size:var(--text-sm);font-family:'Barlow Condensed';margin-left:auto;text-align:right;letter-spacing:.02em;white-space:nowrap;}
+  .cap{color:var(--gold);font-weight:700;font-size:var(--text-micro);vertical-align:super;margin-left:1px;}
+
+  .note{font-size:var(--text-sm);color:var(--muted);font-style:italic;margin-top:6px;line-height:1.3;}
+
+  /* ROAD HERE */
+  .road{background:var(--ink);color:#ece5d8;padding:13px 18px;}
+  .road h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--gold);text-transform:uppercase;margin-bottom:9px;text-align:center;}
+  .roadgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .rh{font-family:'Oswald';font-size:var(--text-base);text-transform:uppercase;letter-spacing:.03em;margin-bottom:5px;}
+  .rh.p{color:#ff9d93;} .rh.c{color:#9aa0e8;}
+  .game{display:flex;gap:8px;margin-bottom:6px;font-size:0.9375rem;line-height:var(--leading);}
+  .score{font-family:'Oswald';font-weight:700;font-size:var(--text-sm);padding:2px 6px;border-radius:3px;height:fit-content;white-space:nowrap;flex-shrink:0;color:#fff;}
+  .score.w{background:#2c5e38;} .score.l{background:#6e2530;} .score.d{background:#5a5036;}
+  .game .gt{color:#cfc7b8;}
+  .game .gt b{color:#fff;font-weight:600;}
+  .game .gt small{display:block;color:#a89f8e;font-size:var(--text-sm);font-style:italic;}
+  .game .gt .dt{color:#fff;font-weight:600;}
+
+  /* WATCH (stars) */
+  .watch{padding:13px 18px;}
+  .watch h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--pt-red);text-transform:uppercase;margin-bottom:9px;}
+  .wgrid{display:grid;grid-template-columns:1fr;gap:10px;}
+  .star{display:flex;gap:9px;}
+  .star .wn{font-family:'Oswald';font-weight:700;font-size:var(--text-lg);width:34px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:3px;color:#fff;flex-shrink:0;}
+  .wn.p{background:var(--pt-red);} .wn.c{background:var(--cr-navy);}
+  .star .nm{font-family:'Oswald';font-size:var(--text-xl);font-weight:600;line-height:1.05;}
+  .star .meta{font-size:var(--text-sm);color:var(--muted);font-family:'Barlow Condensed';letter-spacing:.03em;text-transform:uppercase;margin-bottom:2px;}
+  .star .blurb{font-family:'Barlow',sans-serif;font-size:var(--text-base);line-height:var(--leading);}
+  .star b{font-weight:600;}
+  .wgroup{margin-bottom:12px;}
+  .wgroup:last-child{margin-bottom:0;}
+  .wteam{font-family:'Oswald';font-size:var(--text-md);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;padding-bottom:3px;border-bottom:2px solid;}
+  .wteam.p{color:var(--pt-red);border-color:var(--pt-red);}
+  .wteam.c{color:var(--cr-navy);border-color:var(--cr-navy);}
+
+  /* NEXT */
+  .next{background:#efe9dc;padding:12px 18px;border-top:1px solid var(--line);}
+  .next h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--cr-navy);text-transform:uppercase;margin-bottom:7px;}
+  .next .ng{columns:1;}
+  .next p{font-family:'Barlow',sans-serif;font-size:var(--text-base);margin-bottom:8px;break-inside:avoid;line-height:var(--leading);padding-left:13px;position:relative;}
+  .next p::before{content:"\25B8";position:absolute;left:0;color:var(--gold);font-size:var(--text-micro);top:2px;}
+  .next b{font-weight:600;}
+
+  /* WHAT TO WATCH FOR */
+  .wtw{padding:13px 18px;border-top:1px solid var(--line);}
+  .wtw h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--gold);text-transform:uppercase;margin-bottom:9px;}
+  .battles{columns:1;}
+  .battle{font-family:'Barlow',sans-serif;font-size:var(--text-base);line-height:var(--leading);margin-bottom:8px;break-inside:avoid;}
+  .battle .bt{font-family:'Oswald';font-weight:600;font-size:var(--text-md);text-transform:uppercase;letter-spacing:.02em;color:var(--ink);display:block;margin-bottom:1px;}
+  .tip{margin-top:8px;background:#efe9dc;border-left:3px solid var(--gold);padding:10px 12px;font-family:'Barlow',sans-serif;font-size:var(--text-md);line-height:var(--leading);}
+  .tip b{font-family:'Barlow';font-weight:600;color:#241e10;}
+  .deadball{margin-top:8px;font-family:'Barlow',sans-serif;font-size:var(--text-sm);color:var(--muted);line-height:var(--leading);}
+  .deadball b{color:var(--ink);font-weight:600;text-transform:uppercase;letter-spacing:.03em;font-size:var(--text-micro);}
+
+  /* LINEUPS */
+  .rtitle{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--ink);text-transform:uppercase;text-align:center;padding:13px 18px 0;}
+  .rsub{font-family:'Oswald';font-size:var(--text-micro);letter-spacing:.13em;color:var(--muted);text-transform:uppercase;margin:9px 0 3px;}
+  .rsub:first-child{margin-top:0;}
+  .kit{font-family:'Barlow Condensed';font-size:var(--text-micro);letter-spacing:.04em;color:var(--muted);text-transform:uppercase;display:flex;align-items:center;gap:5px;}
+  .kit i{width:11px;height:11px;border-radius:2px;display:inline-block;border:1px solid rgba(0,0,0,.2);}
+
+  .foot{background:var(--ink);color:#9a9081;font-size:var(--text-micro);text-align:center;padding:7px;font-family:'Barlow Condensed';letter-spacing:.05em;}
+  .foot span{color:var(--gold);}
+
+  /* LINEUP TABS — mobile team switcher (CSS-only) */
+  .lineup-tabs .tab-input{position:absolute;opacity:0;width:0;height:0;pointer-events:none;}
+  .lineup-tabs .tab-bar{display:none;}
+
+  @media (max-width:680px){
+    body{padding:7px;overflow-x:hidden;}
+    .sheet{overflow-x:clip;}
+    .wgrid,.roadgrid{grid-template-columns:1fr;}
+    .cols{grid-template-columns:1fr;}
+
+    .top .side{padding:10px 12px;min-width:0;}
+    .top .mid{min-width:64px;padding:8px 10px;}
+
+    .infobar{flex-wrap:wrap;}
+    .infobar div{flex:1 1 46%;white-space:normal;min-width:0;padding:6px 10px;font-size:0.9375rem;}
+    .infobar div:nth-child(2){border-right:none;}
+    .infobar div:nth-child(3),
+    .infobar div:nth-child(4){border-top:1px solid #2c2c2c;}
+
+    .lineup-tabs .tab-bar{
+      display:flex;margin:0 16px;padding-top:10px;
+      border-bottom:2px solid var(--line);
+    }
+    .lineup-tabs .tab-bar label{
+      flex:1;text-align:center;padding:10px 6px;
+      font-family:'Oswald';font-size:var(--text-md);font-weight:600;
+      text-transform:uppercase;letter-spacing:.06em;
+      cursor:pointer;color:var(--muted);
+      border-bottom:3px solid transparent;margin-bottom:-2px;
+    }
+    .lineup-tabs #lineup-home:checked ~ .tab-bar .tab-home{border-bottom-color:var(--pt-red);color:var(--pt-red);}
+    .lineup-tabs #lineup-away:checked ~ .tab-bar .tab-away{border-bottom-color:var(--cr-navy);color:var(--cr-navy);}
+    .lineup-tabs #lineup-home:checked ~ .cols .col:last-child{display:none;}
+    .lineup-tabs #lineup-away:checked ~ .cols .col:first-child{display:none;}
+    .col.pt,.col.cr{border-right:none;}
+    .colhead{flex-wrap:wrap;align-items:flex-start;gap:4px;}
+
+    .pname{min-width:0;flex:1;}
+    .pclub{white-space:normal;flex-shrink:1;max-width:46%;}
+    .star,.star > div{min-width:0;}
+    .nat{line-height:1.08;overflow-wrap:break-word;text-wrap:balance;}
+    .next p,.battle,.blurb{overflow-wrap:break-word;}
+  }
+  @media print{body{background:#fff;padding:0;}.sheet{box-shadow:none;border:none;}@page{margin:7mm;}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="top">
+    <div class="side pt">
+      <div class="flag">🇵🇹 PORTUGAL</div>
+      <div class="nat">A Seleção</div>
+      <div class="sub">Coach: Roberto Martínez · 4-3-3</div>
+    </div>
+    <div class="mid">
+      <div class="comp">ROUND&nbsp;OF&nbsp;32</div>
+      <div class="vs">V</div>
+      <div class="comp">WORLD&nbsp;CUP&nbsp;'26</div>
+    </div>
+    <div class="side cr">
+      <div class="flag">CROATIA 🇭🇷</div>
+      <div class="nat">Vatreni</div>
+      <div class="sub">4-2-3-1 · Coach: Zlatko Dalić</div>
+    </div>
+  </div>
+
+  <div class="infobar">
+    <div><b>Venue</b>BMO Field, Toronto</div>
+    <div><b>Kickoff</b>Thu 4:00 PM PDT</div>
+    <div><b>TV</b>FOX / Telemundo</div>
+    <div><b>Ref</b>E. Eskas (NOR)</div>
+  </div>
+
+  <div class="strip">
+    <div class="msg"><b>Win or go home.</b> Two all-time greats — <b>Ronaldo (41)</b> and <b>Modrić (40)</b> — at almost certainly their last World Cup, maybe their last-ever meeting. Portugal are favorites; Croatia's veteran midfield is built to spring the upset.</div>
+    <div class="tie">
+      <div class="tie-main"><b>Winner → Round of 16</b> (Sun Jul 6) · Loser eliminated — tournament over.</div>
+      <div class="tie-sub"><b>Next:</b> winner faces the winner of Spain vs Austria · <b>Odds:</b> Portugal −130 · Draw +260 · Croatia +400 (POR ~57% / Draw ~28% / CRO ~20%) · <b>First-ever World Cup meeting</b> (Portugal lead the all-time H2H 5-3-1).</div>
+    </div>
+  </div>
+
+  <div class="road">
+    <h3>How They Got Here · The Group Stage</h3>
+    <div class="roadgrid">
+      <div>
+        <div class="rh p">Portugal — Group K, 2nd (5 pts)</div>
+        <div class="game"><span class="score d">1&ndash;1</span><span class="gt"><span class="dt">Jun 17</span> · vs DR Congo</span></div>
+        <div class="game"><span class="score w">5&ndash;0</span><span class="gt"><span class="dt">Jun 23</span> · vs Uzbekistan<small>Ronaldo brace — 1st man to score at six different World Cups</small></span></div>
+        <div class="game"><span class="score d">0&ndash;0</span><span class="gt"><span class="dt">Jun 27</span> · vs Colombia<small>Flat decider in Miami; Colombia won the group, Portugal slipped to 2nd</small></span></div>
+      </div>
+      <div>
+        <div class="rh c">Croatia — Group L, 2nd (6 pts)</div>
+        <div class="game"><span class="score l">2&ndash;4</span><span class="gt"><span class="dt">Jun 17</span> · vs England<small>Battered by the group winners on opening day</small></span></div>
+        <div class="game"><span class="score w">1&ndash;0</span><span class="gt"><span class="dt">Jun 23</span> · vs Panama</span></div>
+        <div class="game"><span class="score w">2&ndash;1</span><span class="gt"><span class="dt">Jun 27</span> · vs Ghana<small>Vlašić heads a late winner off a Modrić free-kick</small></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="next">
+    <h3>What's At Stake & What's Next</h3>
+    <div class="ng">
+      <p><b>Single-leg knockout, no aggregate.</b> 90 minutes (then extra time and penalties if level). Winner advances to the Round of 16 on Sunday Jul 6; the loser's tournament ends tonight.</p>
+      <p><b>The R16 prize:</b> the winner faces the winner of <b>Spain vs Austria</b> (the parallel R32 tie, also Jul 2) — a likely date with Spain looms for whoever comes through.</p>
+      <p><b>The farewell subplot:</b> Ronaldo (41) and Modrić (40) are both almost certainly playing their final World Cup. This is plausibly the last time the two share a pitch — a marquee "old masters" billing on every preview.</p>
+      <p><b>Portugal's awkward favorite tag:</b> −130 favorites who limped to a 0-0 group-stage finish and only runners-up — exactly the attacking sharpness question Croatia's experience is built to exploit.</p>
+    </div>
+  </div>
+
+  <div class="wtw">
+    <h3>What To Watch For</h3>
+    <div class="battles">
+      <div class="battle"><span class="bt">Leão &amp; Conceição vs a patched-up Croatia back line</span>Portugal's pace on the flanks against defenders managing minutes — Gvardiol back from a broken leg, the 37-year-old Perišić filling in at left-back. If Croatia sit deep, the Portuguese wingers get isolation 1v1s; that's the cleanest route to a goal.</div>
+      <div class="battle"><span class="bt">Vitinha &amp; João Neves vs Modrić–Kovačić</span>The midfield chess match, and the whole tie. Portugal's young PSG/City-tier pivot press and carry; Croatia's two old masters slow the game to a walk and pick the killer pass. Whoever sets the tempo wins the night.</div>
+      <div class="battle"><span class="bt">Bruno Fernandes vs Croatia's deep block</span>With Croatia happy to absorb, Bruno's set-piece delivery and through-balls are Portugal's pick-lock. Snuff his service and Ronaldo starves.</div>
+      <div class="battle"><span class="bt">Ronaldo (41) vs Modrić (40)</span>Not a direct duel, but the headline. Two of the defining players of their generation, both around 40, in what may be their last act on this stage.</div>
+    </div>
+    <div class="deadball"><b>Portugal dead-ball:</b> Bruno Fernandes on corners &amp; free kicks; penalties Bruno / Ronaldo. Aerial threat through Ronaldo &amp; Rúben Dias.<br><b>Croatia dead-ball:</b> Modrić is the primary deliverer (his free kick set up the Ghana winner); Perišić the left-foot alternate. Penalties shared historically among Modrić / Kramarić / Perišić (not firmly confirmed). Aerial targets: Budimir, Gvardiol, Pongračić, Perišić.</div>
+    <div class="tip"><b>Set-piece tip:</b> Croatia's most realistic path to a goal is a dead ball. If it's tight near the hour, treat every Croatian corner or wide free kick as a genuine chance — that's how they beat Ghana.</div>
+  </div>
+
+  <div class="watch">
+    <h3>&#9733; The Names You'll Hear Most &#9733;</h3>
+    <div class="wgroup"><div class="wteam p">Portugal</div><div class="wgrid">
+      <div class="star"><span class="wn p">7</span><div><div class="nm">Cristiano Ronaldo</div><div class="meta">Portugal · Al-Nassr · Captain · Age 41</div><div class="blurb">The main event. First man ever to score at <b>six different World Cups</b>; Portugal's all-time WC top scorer. Chasing the one trophy that got away — almost certainly his last.</div></div></div>
+      <div class="star"><span class="wn p">8</span><div><div class="nm">Bruno Fernandes</div><div class="meta">Portugal · Man United · Playmaker</div><div class="blurb">Dictates tempo and takes every set piece — Ronaldo's chief supplier and Portugal's creative hub. The pick-lock against a deep block.</div></div></div>
+      <div class="star"><span class="wn p">17</span><div><div class="nm">Rafael Leão</div><div class="meta">Portugal · AC Milan · Left wing</div><div class="blurb">The change of pace and 1v1 menace, expected to start wide in the knockout. Direct and unpredictable — the man to beat a tiring full-back.</div></div></div>
+    </div></div>
+    <div class="wgroup"><div class="wteam c">Croatia</div><div class="wgrid">
+      <div class="star"><span class="wn c">10</span><div><div class="nm">Luka Modrić</div><div class="meta">Croatia · AC Milan · Captain · Age 40</div><div class="blurb">Croatia's most-capped player ever (198 caps), <b>2018 Ballon d'Or &amp; World Cup Golden Ball</b>, at his 5th and surely final World Cup. Still the metronome — set up the Ghana winner.</div></div></div>
+      <div class="star"><span class="wn c">4</span><div><div class="nm">Joško Gvardiol</div><div class="meta">Croatia · Man City · Centre-back · Age 24</div><div class="blurb">One of the world's best young defenders — but working back from a <b>broken leg</b> and rested vs Ghana. Watch whether he's deemed fit to handle Leão &amp; Conceição.</div></div></div>
+      <div class="star"><span class="wn c">17</span><div><div class="nm">Petar Sučić</div><div class="meta">Croatia · Inter Milan · Midfield · Age 22</div><div class="blurb">The emerging midfielder (moved to Inter in 2025); scored the opener vs Ghana from range. The handover from Modrić made visible. (Not Luka Sučić, #21.)</div></div></div>
+    </div></div>
+  </div>
+
+  <div class="rtitle">The Lineups · By The Numbers</div>
+  <div class="lineup-tabs">
+    <input type="radio" name="lineup-tab" id="lineup-home" class="tab-input" checked>
+    <input type="radio" name="lineup-tab" id="lineup-away" class="tab-input">
+    <div class="tab-bar">
+      <label for="lineup-home" class="tab-home">Portugal</label>
+      <label for="lineup-away" class="tab-away">Croatia</label>
+    </div>
+  <div class="cols">
+    <div class="col pt">
+      <div class="colhead"><h2>Portugal</h2><span class="kit"><i style="background:#f6f3ec"></i> white away kit</span></div>
+      <div class="rsub">Starters (4-3-3 — predicted)</div>
+      <ul class="xi">
+        <li><span class="num gk">1</span><span class="pname">Diogo Costa</span><span class="pclub">Porto</span></li>
+        <li><span class="num">3</span><span class="pname">Rúben Dias</span><span class="pclub">Man City</span></li>
+        <li><span class="num">5</span><span class="pname">Diogo Dalot</span><span class="pclub">Man United</span></li>
+        <li><span class="num">7</span><span class="pname">Cristiano Ronaldo</span><span class="pclub">Al-Nassr</span></li>
+        <li><span class="num">8</span><span class="pname">Bruno Fernandes<span class="cap">C</span></span><span class="pclub">Man United</span></li>
+        <li><span class="num">14</span><span class="pname">Gonçalo Inácio</span><span class="pclub">Sporting CP</span></li>
+        <li><span class="num">15</span><span class="pname">João Neves</span><span class="pclub">PSG</span></li>
+        <li><span class="num">17</span><span class="pname">Rafael Leão</span><span class="pclub">AC Milan</span></li>
+        <li><span class="num">23</span><span class="pname">Vitinha</span><span class="pclub">PSG</span></li>
+        <li><span class="num">25</span><span class="pname">Nuno Mendes</span><span class="pclub">PSG</span></li>
+        <li><span class="num">26</span><span class="pname">Francisco Conceição</span><span class="pclub">Juventus</span></li>
+      </ul>
+      <div class="rsub">Bench</div>
+      <ul class="xi">
+        <li><span class="num">2</span><span class="pname">Nélson Semedo</span><span class="pclub">Fenerbahçe</span></li>
+        <li><span class="num">4</span><span class="pname">Tomás Araújo</span><span class="pclub">Benfica</span></li>
+        <li><span class="num">6</span><span class="pname">Matheus Nunes</span><span class="pclub">Man City</span></li>
+        <li><span class="num">9</span><span class="pname">Gonçalo Ramos</span><span class="pclub">PSG</span></li>
+        <li><span class="num">10</span><span class="pname">Bernardo Silva</span><span class="pclub">Man City</span></li>
+        <li><span class="num">11</span><span class="pname">João Félix</span><span class="pclub">Al-Nassr</span></li>
+        <li><span class="num gk">12</span><span class="pname">José Sá</span><span class="pclub">Wolves</span></li>
+        <li><span class="num">13</span><span class="pname">Renato Veiga</span><span class="pclub">Villarreal</span></li>
+        <li><span class="num">16</span><span class="pname">Francisco Trincão</span><span class="pclub">Sporting CP</span></li>
+        <li><span class="num">18</span><span class="pname">Pedro Neto</span><span class="pclub">Chelsea</span></li>
+        <li><span class="num">19</span><span class="pname">Gonçalo Guedes</span><span class="pclub">Real Sociedad</span></li>
+        <li><span class="num">20</span><span class="pname">João Cancelo</span><span class="pclub">Barcelona</span></li>
+        <li><span class="num">21</span><span class="pname">Rúben Neves</span><span class="pclub">Al-Hilal</span></li>
+        <li><span class="num gk">22</span><span class="pname">Rui Silva</span><span class="pclub">Sporting CP</span></li>
+        <li><span class="num">24</span><span class="pname">Samu Costa</span><span class="pclub">Mallorca</span></li>
+      </ul>
+      <div class="note">Predicted XI (R32 preview consensus, 4-3-3); Martínez rotates freely — could shift to 4-2-3-1 with Bruno at 10. Conceição/Leão wide spots most rotation-prone. No. 21 Rúben Neves wears that number in tribute to Diogo Jota. Confirmed XI + numbers ~1hr before kickoff.</div>
+    </div>
+    <div class="col cr">
+      <div class="colhead"><h2>Croatia</h2><span class="kit"><i style="background:#1a1a6c"></i> navy away kit</span></div>
+      <div class="rsub">Starters (4-2-3-1 — predicted)</div>
+      <ul class="xi">
+        <li><span class="num gk">1</span><span class="pname">Dominik Livaković</span><span class="pclub">Dinamo Zagreb</span></li>
+        <li><span class="num">2</span><span class="pname">Josip Stanišić</span><span class="pclub">Bayern Munich</span></li>
+        <li><span class="num">3</span><span class="pname">Marin Pongračić</span><span class="pclub">Fiorentina</span></li>
+        <li><span class="num">6</span><span class="pname">Josip Šutalo</span><span class="pclub">Ajax</span></li>
+        <li><span class="num">8</span><span class="pname">Mateo Kovačić</span><span class="pclub">Man City</span></li>
+        <li><span class="num">10</span><span class="pname">Luka Modrić<span class="cap">C</span></span><span class="pclub">AC Milan</span></li>
+        <li><span class="num">11</span><span class="pname">Ante Budimir</span><span class="pclub">Osasuna</span></li>
+        <li><span class="num">13</span><span class="pname">Nikola Vlašić</span><span class="pclub">Torino</span></li>
+        <li><span class="num">14</span><span class="pname">Ivan Perišić</span><span class="pclub">PSV (at LB)</span></li>
+        <li><span class="num">16</span><span class="pname">Martin Baturina</span><span class="pclub">Como</span></li>
+        <li><span class="num">17</span><span class="pname">Petar Sučić</span><span class="pclub">Inter Milan</span></li>
+      </ul>
+      <div class="rsub">Bench</div>
+      <ul class="xi">
+        <li><span class="num">4</span><span class="pname">Joško Gvardiol</span><span class="pclub">Man City</span></li>
+        <li><span class="num">5</span><span class="pname">Duje Ćaleta-Car</span><span class="pclub">Real Sociedad</span></li>
+        <li><span class="num">7</span><span class="pname">Nikola Moro</span><span class="pclub">Bologna</span></li>
+        <li><span class="num">9</span><span class="pname">Andrej Kramarić</span><span class="pclub">Hoffenheim</span></li>
+        <li><span class="num gk">12</span><span class="pname">Ivor Pandur</span><span class="pclub">Hull City</span></li>
+        <li><span class="num">15</span><span class="pname">Mario Pašalić</span><span class="pclub">Atalanta</span></li>
+        <li><span class="num">18</span><span class="pname">Kristijan Jakić</span><span class="pclub">Augsburg</span></li>
+        <li><span class="num">19</span><span class="pname">Toni Fruk</span><span class="pclub">Rijeka</span></li>
+        <li><span class="num">20</span><span class="pname">Igor Matanović</span><span class="pclub">Freiburg</span></li>
+        <li><span class="num">21</span><span class="pname">Luka Sučić</span><span class="pclub">Real Sociedad</span></li>
+        <li><span class="num">22</span><span class="pname">Luka Vušković</span><span class="pclub">Hamburger SV</span></li>
+        <li><span class="num gk">23</span><span class="pname">Dominik Kotarski</span><span class="pclub">Copenhagen</span></li>
+        <li><span class="num">24</span><span class="pname">Marco Pašalić</span><span class="pclub">Orlando City</span></li>
+        <li><span class="num">25</span><span class="pname">Martin Erlić</span><span class="pclub">Midtjylland</span></li>
+        <li><span class="num">26</span><span class="pname">Petar Musa</span><span class="pclub">FC Dallas</span></li>
+      </ul>
+      <div class="note">Starters shown = the XI Croatia fielded vs Ghana. Shape is genuinely disputed (4-2-3-1 vs a back-three 3-4-2-1 vs 4-3-3). The big selection question: <b>Gvardiol (#4)</b>, rested vs Ghana while recovering from a broken leg — likely returns for a knockout if fit, which would reshape the back line. Two Sučićs (#17/#21) and two Pašalićs (#15/#24) — don't conflate. Confirmed XI + numbers ~1hr before kickoff.</div>
+    </div>
+  </div>
+  </div>
+
+  <div class="foot">
+    pre-match (predicted XIs; confirmed lineups + shirt numbers drop ~1hr before kickoff) <span>Per Wikipedia 2026 WC squads / ESPN / Squawka / OneFootball / Footy Headlines previews. Referee &amp; kit assignment reported — verify matchday.</span>
+  </div>
+
+</div>
+</body>
+</html>

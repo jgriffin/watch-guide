@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spain vs Austria — 2026 World Cup, Round of 32</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&family=Barlow:wght@400;500;600&display=swap');
+
+  :root{
+    --esp-red:#C8102E; --esp-deep:#8f0a1e;
+    --aut-teal:#2FA98C; --aut-deep:#1c6e5a;
+    --gold:#C39A2B;
+
+    --text-micro:0.75rem; --text-sm:0.8125rem; --text-base:1rem; --text-md:1.0625rem;
+    --text-lg:1.125rem; --text-xl:1.25rem; --text-2xl:1.375rem; --text-3xl:1.75rem;
+    --leading:1.45;
+    --ink:#1a1714; --paper:#f6f3ec; --line:#d8d2c4; --muted:#6f675b;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Barlow',sans-serif;font-size:var(--text-base);background:#26231f;color:var(--ink);padding:18px;line-height:var(--leading);}
+  .sheet{max-width:920px;margin:0 auto;background:var(--paper);border:1px solid var(--line);box-shadow:0 14px 44px rgba(0,0,0,.5);overflow:hidden;}
+
+  /* HEADER */
+  .top{display:flex;align-items:stretch;color:#f6f3ec;}
+  .top .side{flex:1;padding:13px 18px;}
+  .top .esp{background:linear-gradient(135deg,var(--esp-red),var(--esp-deep));}
+  .top .aut{background:linear-gradient(225deg,var(--aut-teal),var(--aut-deep));text-align:right;}
+  .top .mid{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 14px;min-width:118px;background:var(--ink);}
+  .flag{font-size:var(--text-sm);letter-spacing:.18em;font-family:'Oswald';font-weight:600;opacity:.85;}
+  .nat{font-family:'Oswald';font-weight:700;font-size:var(--text-3xl);line-height:1;text-transform:uppercase;}
+  .sub{font-size:0.875rem;opacity:.82;margin-top:3px;font-family:'Barlow Condensed';letter-spacing:.04em;}
+  .vs{font-family:'Oswald';font-weight:700;font-size:var(--text-xl);color:var(--gold);}
+  .mid .comp{font-size:var(--text-micro);letter-spacing:.12em;font-family:'Oswald';opacity:.7;text-align:center;}
+
+  .infobar{display:flex;background:#000;color:#f6f3ec;font-family:'Barlow Condensed';font-size:0.9375rem;}
+  .infobar div{padding:6px 14px;border-right:1px solid #2c2c2c;flex:1;text-align:center;white-space:nowrap;}
+  .infobar div:last-child{border-right:none;}
+  .infobar b{color:var(--gold);font-weight:600;letter-spacing:.07em;text-transform:uppercase;font-size:var(--text-micro);display:block;}
+
+  /* STAKES + TIE BAR */
+  .strip{display:flex;flex-direction:column;align-items:stretch;background:var(--gold);color:#241e10;}
+  .strip .msg{padding:11px 16px;font-family:'Barlow',sans-serif;font-size:var(--text-md);font-weight:500;}
+  .strip .msg b{font-weight:700;}
+  .tie{background:#241e10;color:#f6f3ec;font-family:'Barlow Condensed';padding:8px 16px;width:100%;}
+  .tie-main{font-size:var(--text-base);color:#ffe9a8;line-height:1.38;}
+  .tie-main b{font-family:'Barlow';font-weight:600;color:#fff;}
+  .tie-sub{font-size:0.875rem;color:#a89f8e;margin-top:5px;line-height:1.35;}
+  .tie-sub b{color:var(--gold);font-weight:600;}
+
+  /* TEAM COLUMNS */
+  .cols{display:grid;grid-template-columns:1fr 1fr;}
+  .col{padding:13px 16px;}
+  .col.esp{border-right:2px solid var(--line);background:linear-gradient(180deg,rgba(200,16,46,.07),transparent 120px);}
+  .col.aut{background:linear-gradient(180deg,rgba(47,169,140,.09),transparent 120px);}
+  .colhead{display:flex;align-items:baseline;justify-content:space-between;border-bottom:2px solid;padding-bottom:5px;margin-bottom:8px;}
+  .col.esp .colhead{border-color:var(--esp-red);}
+  .col.aut .colhead{border-color:var(--aut-teal);}
+  .colhead h2{font-family:'Oswald';font-size:var(--text-xl);text-transform:uppercase;letter-spacing:.02em;}
+  .col.esp .colhead h2{color:var(--esp-deep);}
+  .col.aut .colhead h2{color:var(--aut-deep);}
+  .form{font-family:'Barlow Condensed';font-size:0.875rem;color:var(--muted);letter-spacing:.05em;}
+
+  .kit{display:flex;align-items:center;gap:6px;font-family:'Barlow Condensed';font-size:var(--text-sm);color:var(--muted);letter-spacing:.03em;text-transform:uppercase;margin-bottom:8px;}
+  .sw{width:14px;height:14px;border-radius:3px;border:1px solid rgba(0,0,0,.25);flex-shrink:0;}
+  .sw.esp{background:linear-gradient(135deg,var(--esp-red) 0 70%,#1c2a4a 70%);}
+  .sw.aut{background:linear-gradient(135deg,#bfe9dc 0 55%,var(--aut-teal) 55%);}
+
+  .xi{list-style:none;}
+  .xi li{display:flex;gap:9px;align-items:center;padding:2.5px 0;border-bottom:1px dotted var(--line);}
+  .xi li:last-child{border-bottom:none;}
+  .num{font-family:'Oswald';font-weight:700;font-size:var(--text-lg);width:28px;height:26px;display:flex;align-items:center;justify-content:center;color:#fff;border-radius:3px;flex-shrink:0;}
+  .col.esp .num{background:var(--esp-red);}
+  .col.aut .num{background:var(--aut-teal);}
+  .num.gk{background:#444 !important;}
+  .pname{font-weight:600;font-size:var(--text-lg);}
+  .pclub{color:var(--muted);font-size:var(--text-sm);font-family:'Barlow Condensed';margin-left:auto;text-align:right;letter-spacing:.02em;white-space:nowrap;}
+  .cap{color:var(--gold);font-weight:700;font-size:var(--text-micro);vertical-align:super;margin-left:1px;}
+
+  .note{font-size:var(--text-sm);color:var(--muted);font-style:italic;margin-top:6px;line-height:1.3;}
+
+  /* ROAD HERE */
+  .road{background:var(--ink);color:#ece5d8;padding:13px 18px;}
+  .road h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--gold);text-transform:uppercase;margin-bottom:9px;text-align:center;}
+  .roadgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .rh{font-family:'Oswald';font-size:var(--text-base);text-transform:uppercase;letter-spacing:.03em;margin-bottom:5px;}
+  .rh.e{color:#ff8e9e;} .rh.a{color:#6fd9bf;}
+  .game{display:flex;gap:8px;margin-bottom:6px;font-size:0.9375rem;line-height:var(--leading);}
+  .score{font-family:'Oswald';font-weight:700;font-size:var(--text-sm);padding:2px 6px;border-radius:3px;height:fit-content;white-space:nowrap;flex-shrink:0;color:#fff;}
+  .score.w{background:#2c5e38;} .score.l{background:#6e2530;} .score.d{background:#5a5036;}
+  .game .gt{color:#cfc7b8;}
+  .game .gt b{color:#fff;font-weight:600;}
+  .game .gt small{display:block;color:#a89f8e;font-size:var(--text-sm);font-style:italic;}
+  .game .gt .dt{color:#fff;font-weight:600;}
+
+  /* NEXT */
+  .next{background:#efe9dc;padding:12px 18px;border-top:1px solid var(--line);}
+  .next h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--aut-deep);text-transform:uppercase;margin-bottom:7px;}
+  .next .ng{columns:1;}
+  .next p{font-family:'Barlow',sans-serif;font-size:var(--text-base);margin-bottom:8px;break-inside:avoid;line-height:var(--leading);padding-left:13px;position:relative;}
+  .next p::before{content:"\25B8";position:absolute;left:0;color:var(--gold);font-size:var(--text-micro);top:2px;}
+  .next b{font-weight:600;}
+
+  /* WHAT TO WATCH FOR */
+  .wtw{padding:13px 18px;border-top:1px solid var(--line);}
+  .wtw h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--gold);text-transform:uppercase;margin-bottom:9px;}
+  .battles{columns:1;}
+  .battle{font-family:'Barlow',sans-serif;font-size:var(--text-base);line-height:var(--leading);margin-bottom:8px;break-inside:avoid;}
+  .battle .bt{font-family:'Oswald';font-weight:600;font-size:var(--text-md);text-transform:uppercase;letter-spacing:.02em;color:var(--ink);display:block;margin-bottom:1px;}
+  .tip{margin-top:8px;background:#efe9dc;border-left:3px solid var(--gold);padding:10px 12px;font-family:'Barlow',sans-serif;font-size:var(--text-md);line-height:var(--leading);}
+  .tip b{font-family:'Barlow';font-weight:600;color:#241e10;}
+  .deadball{margin-top:8px;font-family:'Barlow',sans-serif;font-size:var(--text-sm);color:var(--muted);line-height:var(--leading);}
+  .deadball b{color:var(--ink);font-weight:600;text-transform:uppercase;letter-spacing:.03em;font-size:var(--text-micro);}
+
+  /* WATCH — names */
+  .watch{padding:13px 18px;}
+  .watch h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--esp-red);text-transform:uppercase;margin-bottom:9px;}
+  .wgrid{display:grid;grid-template-columns:1fr;gap:10px;}
+  .star{display:flex;gap:9px;}
+  .star .wn{font-family:'Oswald';font-weight:700;font-size:var(--text-lg);width:34px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:3px;color:#fff;flex-shrink:0;}
+  .wn.e{background:var(--esp-red);} .wn.a{background:var(--aut-teal);}
+  .star .nm{font-family:'Oswald';font-size:var(--text-xl);font-weight:600;line-height:1.05;}
+  .star .meta{font-size:var(--text-sm);color:var(--muted);font-family:'Barlow Condensed';letter-spacing:.03em;text-transform:uppercase;margin-bottom:2px;}
+  .star .blurb{font-family:'Barlow',sans-serif;font-size:var(--text-base);line-height:var(--leading);}
+  .star b{font-weight:600;}
+  .wgroup{margin-bottom:12px;}
+  .wgroup:last-child{margin-bottom:0;}
+  .wteam{font-family:'Oswald';font-size:var(--text-md);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;padding-bottom:3px;border-bottom:2px solid;}
+  .wteam.e{color:var(--esp-red);border-color:var(--esp-red);}
+  .wteam.a{color:var(--aut-deep);border-color:var(--aut-teal);}
+
+  /* LINEUPS */
+  .rtitle{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--ink);text-transform:uppercase;text-align:center;padding:13px 18px 0;}
+  .rsub{font-family:'Oswald';font-size:var(--text-micro);letter-spacing:.13em;color:var(--muted);text-transform:uppercase;margin:9px 0 3px;}
+  .rsub:first-child{margin-top:0;}
+
+  .foot{background:var(--ink);color:#9a9081;font-size:var(--text-micro);text-align:center;padding:7px;font-family:'Barlow Condensed';letter-spacing:.05em;}
+  .foot span{color:var(--gold);}
+
+  /* LINEUP TABS — mobile team switcher (CSS-only) */
+  .lineup-tabs .tab-input{position:absolute;opacity:0;width:0;height:0;pointer-events:none;}
+  .lineup-tabs .tab-bar{display:none;}
+
+  @media (max-width:680px){
+    body{padding:7px;overflow-x:hidden;}
+    .sheet{overflow-x:clip;}
+    .wgrid,.roadgrid{grid-template-columns:1fr;}
+    .cols{grid-template-columns:1fr;}
+
+    .top .side{padding:10px 12px;min-width:0;}
+    .top .mid{min-width:64px;padding:8px 10px;}
+
+    .infobar{flex-wrap:wrap;}
+    .infobar div{flex:1 1 46%;white-space:normal;min-width:0;padding:6px 10px;font-size:0.9375rem;}
+    .infobar div:nth-child(2){border-right:none;}
+    .infobar div:nth-child(3),
+    .infobar div:nth-child(4){border-top:1px solid #2c2c2c;}
+
+    .lineup-tabs .tab-bar{
+      display:flex;margin:0 16px;padding-top:10px;
+      border-bottom:2px solid var(--line);
+    }
+    .lineup-tabs .tab-bar label{
+      flex:1;text-align:center;padding:10px 6px;
+      font-family:'Oswald';font-size:var(--text-md);font-weight:600;
+      text-transform:uppercase;letter-spacing:.06em;
+      cursor:pointer;color:var(--muted);
+      border-bottom:3px solid transparent;margin-bottom:-2px;
+    }
+    .lineup-tabs #lineup-home:checked ~ .tab-bar .tab-home{border-bottom-color:var(--esp-red);color:var(--esp-deep);}
+    .lineup-tabs #lineup-away:checked ~ .tab-bar .tab-away{border-bottom-color:var(--aut-teal);color:var(--aut-deep);}
+    .lineup-tabs #lineup-home:checked ~ .cols .col:last-child{display:none;}
+    .lineup-tabs #lineup-away:checked ~ .cols .col:first-child{display:none;}
+    .col.esp,.col.aut{border-right:none;}
+    .colhead{flex-wrap:wrap;align-items:flex-start;gap:4px;}
+
+    .pname{min-width:0;flex:1;}
+    .pclub{white-space:normal;flex-shrink:1;max-width:46%;}
+    .star,.star > div{min-width:0;}
+    .nat{line-height:1.08;overflow-wrap:break-word;text-wrap:balance;}
+    .next p,.battle,.blurb{overflow-wrap:break-word;}
+  }
+  @media print{body{background:#fff;padding:0;}.sheet{box-shadow:none;border:none;}@page{margin:7mm;}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="top">
+    <div class="side esp">
+      <div class="flag">🇪🇸 SPAIN</div>
+      <div class="nat">La Roja</div>
+      <div class="sub">Coach: Luis de la Fuente · 4-3-3</div>
+    </div>
+    <div class="mid">
+      <div class="comp">ROUND&nbsp;OF&nbsp;32</div>
+      <div class="vs">V</div>
+      <div class="comp">WORLD&nbsp;CUP&nbsp;'26</div>
+    </div>
+    <div class="side aut">
+      <div class="flag">AUSTRIA 🇦🇹</div>
+      <div class="nat">Das Team</div>
+      <div class="sub">4-2-3-1 · Coach: Ralf Rangnick</div>
+    </div>
+  </div>
+
+  <div class="infobar">
+    <div><b>Venue</b>SoFi Stadium, LA (roofed)</div>
+    <div><b>Kickoff</b>Thu 12:00 PM PDT</div>
+    <div><b>TV</b>Fox · Telemundo</div>
+    <div><b>Last met (WC)</b>1978 (AUT 2&ndash;1)</div>
+  </div>
+
+  <div class="strip">
+    <div class="msg"><b>Win or go home.</b> No second leg, no group safety net — the winner reaches the <b>Round of 16</b> in Arlington; the loser is <b>out of the World Cup</b>. Group H winners and European champions <b>Spain</b> vs an <b>Austria</b> side in its first World Cup knockout round since <b>1954</b>.</div>
+    <div class="tie">
+      <div class="tie-main"><b>Winner → Round of 16</b> · Loser eliminated · AT&amp;T Stadium, Arlington TX, Mon Jul 6</div>
+      <div class="tie-sub"><b>Next:</b> vs Portugal/Croatia winner (a possible Spain–Portugal blockbuster) · <b>Odds:</b> ESP -334 · Draw +375 · AUT +1400 · <b>All-time:</b> SPA dominant (~9–4–3); AUT winless vs ESP since 1990</div>
+    </div>
+  </div>
+
+  <div class="road">
+    <h3>How They Got Here · Group Stage</h3>
+    <div class="roadgrid">
+      <div>
+        <div class="rh e">Spain · Group H (1st, 7 pts · 0 conceded)</div>
+        <div class="game"><span class="score d">0&ndash;0</span><span class="gt"><span class="dt">Jun 15</span> · vs Cape Verde<small>Stunned by debutants; couldn't break the block</small></span></div>
+        <div class="game"><span class="score w">4&ndash;0</span><span class="gt"><span class="dt">Jun 21</span> · vs Saudi Arabia<small>Oyarzabal 2 + assist; statement win</small></span></div>
+        <div class="game"><span class="score w">1&ndash;0</span><span class="gt"><span class="dt">Jun 26</span> · vs Uruguay<small>Baena 42'; won the group, sent Uruguay out</small></span></div>
+      </div>
+      <div>
+        <div class="rh a">Austria · Group J (2nd, 4 pts)</div>
+        <div class="game"><span class="score w">3&ndash;1</span><span class="gt"><span class="dt">Jun 16</span> · vs Jordan</span></div>
+        <div class="game"><span class="score l">0&ndash;2</span><span class="gt"><span class="dt">Jun 22</span> · vs Argentina<small>Outclassed by the group winners</small></span></div>
+        <div class="game"><span class="score d">3&ndash;3</span><span class="gt"><span class="dt">Jun 27</span> · vs Algeria<small>Kalajdžić heads a 96' equaliser to go through</small></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="next">
+    <h3>What's At Stake & What's Next</h3>
+    <div class="ng">
+      <p><b>Win = Round of 16</b> at AT&amp;T Stadium, Arlington TX on Mon Jul 6 — most likely vs the <b>Portugal / Croatia</b> winner, with a possible Spain–Portugal heavyweight tie on the other side of it.</p>
+      <p><b>Lose = elimination.</b> Spain are ~73% favourites (-334); a Spain 2-0 is the bookies' base case. Austria's job is to make it ugly and survive to a set piece or a moment.</p>
+      <p><b>Austria's 72-year wait:</b> their first World Cup knockout appearance since <b>1954</b> (when they finished 3rd) — and only their second WC since 1998. Ralf Rangnick has dragged them back to the big stage in his first World Cup as a head coach.</p>
+      <p><b>Spain's depth tax:</b> de la Fuente named <b>zero Real Madrid players</b> — no Morata at all. The European champions still won Group H without conceding, with Oyarzabal as a makeshift No.9 and teenager Yamal the spearhead.</p>
+      <p><b>Fitness watch:</b> Spain lost <b>Nico Williams</b> (injury) — Baena starts on the left; Yamal carries a minor knock. For Austria, captain <b>David Alaba</b> and talisman <b>Arnautović</b> are both racing to be fit after knocks vs Algeria.</p>
+    </div>
+  </div>
+
+  <div class="wtw">
+    <h3>What To Watch For</h3>
+    <div class="battles">
+      <div class="battle"><span class="bt">Yamal vs Austria's left side</span>The 18-year-old cuts in from the right onto his left foot. Austria's makeshift left (Mwene at full-back, Sabitzer asked to track) is the mismatch Spain will hammer — though Yamal is nursing a knock, so watch his minutes.</div>
+      <div class="battle"><span class="bt">Spain's possession vs Austria's leaky box</span>Spain kept ~68% of the ball through the group; Austria have <b>not</b> kept a clean sheet in 12 straight World Cup matches. The question isn't whether Spain create — it's whether Austria can hold out at all.</div>
+      <div class="battle"><span class="bt">Rodri &amp; Pedri vs the RB Leipzig press</span>Rangnick's identity is an aggressive press run by his Leipzig spine (Seiwald, X. Schlager, Laimer). Disrupt Rodri's first pass and Austria find chaos; let Rodri and Pedri play through it and Spain control everything.</div>
+      <div class="battle"><span class="bt">Arnautović vs Cubarsí &amp; Laporte</span>Austria's veteran focal point (if fit) is largely isolated against one of the tournament's best young centre-backs (Cubarsí, 19). Austria need him to drag a CB out and bring runners on — their only real open-play route.</div>
+    </div>
+    <div class="deadball"><b>Spain dead-ball:</b> Merino is the aerial target; Pedri / Baena take the deliveries. Spain's danger is delivery quality more than a towering box.<br><b>Austria dead-ball:</b> their clearest scoring route. Real aerial threat — Kalajdžić (6'7"), Gregoritsch, Lienhart, Danso, Alaba — with Sabitzer / Alaba delivery; their group equaliser was a set-piece header.</div>
+    <div class="tip"><b>Set-piece tip:</b> If it's tight near the hour, treat every Austrian corner or wide free kick as a genuine chance — against a Spain side that didn't concede all group stage, a dead ball is realistically Austria's best path to a goal.</div>
+  </div>
+
+  <div class="watch">
+    <h3>&#9733; The Names You'll Hear Most &#9733;</h3>
+    <div class="wgroup"><div class="wteam e">Spain</div><div class="wgrid">
+      <div class="star"><span class="wn e">19</span><div><div class="nm">Lamine Yamal</div><div class="meta">Spain · Barcelona · Right wing</div><div class="blurb">The main event at 18. Cuts in from the right and curls into the far corner; scored vs Saudi Arabia. Carrying a minor knock — watch his minutes.</div></div></div>
+      <div class="star"><span class="wn e">21</span><div><div class="nm">Mikel Oyarzabal</div><div class="meta">Spain · Real Sociedad · Striker</div><div class="blurb">Spain's player of the group stage and makeshift No.9 — 2 goals + an assist vs Saudi Arabia. Scored the Euro 2024 final winner.</div></div></div>
+      <div class="star"><span class="wn e">15</span><div><div class="nm">Álex Baena</div><div class="meta">Spain · Atlético Madrid · Left wing</div><div class="blurb">The man in form: his goal beat Uruguay to win the group. Starts on the left with Nico Williams injured.</div></div></div>
+    </div></div>
+    <div class="wgroup"><div class="wteam a">Austria</div><div class="wgrid">
+      <div class="star"><span class="wn a">7</span><div><div class="nm">Marko Arnautović</div><div class="meta">Austria · Red Star Belgrade · Striker</div><div class="blurb">The swaggering veteran talisman (37, 134 caps) and emotional leader — the hold-up reference point. Racing to be fit after a knock vs Algeria.</div></div></div>
+      <div class="star"><span class="wn a">9</span><div><div class="nm">Marcel Sabitzer</div><div class="meta">Austria · Borussia Dortmund · Midfield</div><div class="blurb">Midfield engine and on-pitch leader; hit his 100th cap this tournament. Box-to-box drive, long shots, set-piece delivery — likely captain if Alaba sits.</div></div></div>
+      <div class="star"><span class="wn a">19</span><div><div class="nm">Christoph Baumgartner</div><div class="meta">Austria · RB Leipzig · Attacking mid</div><div class="blurb">High-energy runner from deep, versatile across the front line; part of Austria's Leipzig spine. May start or arrive as a key impact sub.</div></div></div>
+    </div></div>
+  </div>
+
+  <div class="rtitle">The Lineups · By The Numbers</div>
+  <div class="lineup-tabs">
+    <input type="radio" name="lineup-tab" id="lineup-home" class="tab-input" checked>
+    <input type="radio" name="lineup-tab" id="lineup-away" class="tab-input">
+    <div class="tab-bar">
+      <label for="lineup-home" class="tab-home">Spain</label>
+      <label for="lineup-away" class="tab-away">Austria</label>
+    </div>
+  <div class="cols">
+    <div class="col esp">
+      <div class="colhead"><h2>Spain</h2><span class="form">4-3-3 · high press, total possession</span></div>
+      <div class="kit"><span class="sw esp"></span>Wearing: red home shirt / navy shorts</div>
+      <div class="rsub">Starters</div>
+      <ul class="xi">
+        <li><span class="num">5</span><span class="pname">Marcos Llorente</span><span class="pclub">Atlético Madrid</span></li>
+        <li><span class="num">6</span><span class="pname">Mikel Merino</span><span class="pclub">Arsenal</span></li>
+        <li><span class="num">14</span><span class="pname">Aymeric Laporte</span><span class="pclub">Athletic Bilbao</span></li>
+        <li><span class="num">15</span><span class="pname">Álex Baena</span><span class="pclub">Atlético Madrid</span></li>
+        <li><span class="num">16</span><span class="pname">Rodri<span class="cap">C</span></span><span class="pclub">Manchester City</span></li>
+        <li><span class="num">19</span><span class="pname">Lamine Yamal</span><span class="pclub">Barcelona</span></li>
+        <li><span class="num">20</span><span class="pname">Pedri</span><span class="pclub">Barcelona</span></li>
+        <li><span class="num">21</span><span class="pname">Mikel Oyarzabal</span><span class="pclub">Real Sociedad</span></li>
+        <li><span class="num">22</span><span class="pname">Pau Cubarsí</span><span class="pclub">Barcelona</span></li>
+        <li><span class="num gk">23</span><span class="pname">Unai Simón</span><span class="pclub">Athletic Bilbao</span></li>
+        <li><span class="num">24</span><span class="pname">Marc Cucurella</span><span class="pclub">Chelsea</span></li>
+      </ul>
+      <div class="rsub">Bench</div>
+      <ul class="xi">
+        <li><span class="num gk">1</span><span class="pname">David Raya</span><span class="pclub">Arsenal</span></li>
+        <li><span class="num">2</span><span class="pname">Marc Pubill</span><span class="pclub">Atlético Madrid</span></li>
+        <li><span class="num">3</span><span class="pname">Alejandro Grimaldo</span><span class="pclub">Bayer Leverkusen</span></li>
+        <li><span class="num">4</span><span class="pname">Eric García</span><span class="pclub">Barcelona</span></li>
+        <li><span class="num">7</span><span class="pname">Ferran Torres</span><span class="pclub">Barcelona</span></li>
+        <li><span class="num">8</span><span class="pname">Fabián Ruiz</span><span class="pclub">PSG</span></li>
+        <li><span class="num">9</span><span class="pname">Gavi</span><span class="pclub">Barcelona</span></li>
+        <li><span class="num">10</span><span class="pname">Dani Olmo</span><span class="pclub">Barcelona</span></li>
+        <li><span class="num">11</span><span class="pname">Yéremy Pino</span><span class="pclub">Crystal Palace</span></li>
+        <li><span class="num">12</span><span class="pname">Pedro Porro</span><span class="pclub">Tottenham</span></li>
+        <li><span class="num gk">13</span><span class="pname">Joan García</span><span class="pclub">Barcelona</span></li>
+        <li><span class="num">17</span><span class="pname">Nico Williams</span><span class="pclub">Athletic Bilbao</span></li>
+        <li><span class="num">18</span><span class="pname">Martín Zubimendi</span><span class="pclub">Arsenal</span></li>
+        <li><span class="num">25</span><span class="pname">Víctor Muñoz</span><span class="pclub">Osasuna</span></li>
+        <li><span class="num">26</span><span class="pname">Borja Iglesias</span><span class="pclub">Celta Vigo</span></li>
+      </ul>
+      <div class="note">Predicted XI: Baena starts left for the injured Nico Williams (Yéremy Pino also doubtful); Oyarzabal the No.9. Confirmed ~1hr pre-kick.</div>
+    </div>
+    <div class="col aut">
+      <div class="colhead"><h2>Austria</h2><span class="form">4-2-3-1 · RB-Leipzig press</span></div>
+      <div class="kit"><span class="sw aut"></span>Wearing: alpine change kit (kit-clash — unconfirmed)</div>
+      <div class="rsub">Starters</div>
+      <ul class="xi">
+        <li><span class="num gk">1</span><span class="pname">Alexander Schlager</span><span class="pclub">RB Salzburg</span></li>
+        <li><span class="num">4</span><span class="pname">Xaver Schlager</span><span class="pclub">RB Leipzig</span></li>
+        <li><span class="num">5</span><span class="pname">Stefan Posch</span><span class="pclub">Mainz 05</span></li>
+        <li><span class="num">6</span><span class="pname">Nicolas Seiwald</span><span class="pclub">RB Leipzig</span></li>
+        <li><span class="num">7</span><span class="pname">Marko Arnautović</span><span class="pclub">Red Star Belgrade</span></li>
+        <li><span class="num">8</span><span class="pname">David Alaba<span class="cap">C</span></span><span class="pclub">Real Madrid</span></li>
+        <li><span class="num">9</span><span class="pname">Marcel Sabitzer</span><span class="pclub">Borussia Dortmund</span></li>
+        <li><span class="num">15</span><span class="pname">Philipp Lienhart</span><span class="pclub">SC Freiburg</span></li>
+        <li><span class="num">16</span><span class="pname">Philipp Mwene</span><span class="pclub">Mainz 05</span></li>
+        <li><span class="num">18</span><span class="pname">Romano Schmid</span><span class="pclub">Werder Bremen</span></li>
+        <li><span class="num">20</span><span class="pname">Konrad Laimer</span><span class="pclub">Bayern München</span></li>
+      </ul>
+      <div class="rsub">Bench</div>
+      <ul class="xi">
+        <li><span class="num">2</span><span class="pname">David Affengruber</span><span class="pclub">Elche</span></li>
+        <li><span class="num">3</span><span class="pname">Kevin Danso</span><span class="pclub">Tottenham</span></li>
+        <li><span class="num">10</span><span class="pname">Florian Grillitsch</span><span class="pclub">SC Braga</span></li>
+        <li><span class="num">11</span><span class="pname">Michael Gregoritsch</span><span class="pclub">Augsburg</span></li>
+        <li><span class="num gk">12</span><span class="pname">Florian Wiegele</span><span class="pclub">Viktoria Plzeň</span></li>
+        <li><span class="num gk">13</span><span class="pname">Patrick Pentz</span><span class="pclub">Brøndby</span></li>
+        <li><span class="num">14</span><span class="pname">Saša Kalajdžić</span><span class="pclub">LASK</span></li>
+        <li><span class="num">17</span><span class="pname">Carney Chukwuemeka</span><span class="pclub">Borussia Dortmund</span></li>
+        <li><span class="num">19</span><span class="pname">Christoph Baumgartner</span><span class="pclub">RB Leipzig</span></li>
+        <li><span class="num">21</span><span class="pname">Patrick Wimmer</span><span class="pclub">Wolfsburg</span></li>
+        <li><span class="num">22</span><span class="pname">Alexander Prass</span><span class="pclub">Hoffenheim</span></li>
+        <li><span class="num">23</span><span class="pname">Marco Friedl</span><span class="pclub">Werder Bremen</span></li>
+        <li><span class="num">24</span><span class="pname">Paul Wanner</span><span class="pclub">PSV Eindhoven</span></li>
+        <li><span class="num">25</span><span class="pname">Michael Svoboda</span><span class="pclub">Venezia</span></li>
+        <li><span class="num">26</span><span class="pname">Alessandro Schöpf</span><span class="pclub">Wolfsberger AC</span></li>
+      </ul>
+      <div class="note">Predicted XI hinges on fitness: captain Alaba (8) and Arnautović (7) both raced to be fit — an ESPN variant starts Danso for Alaba, pushes Laimer to LB and starts Wanner + Kalajdžić up front. Confirmed ~1hr pre-kick.</div>
+    </div>
+  </div>
+  </div>
+
+  <div class="foot">
+    pre-match (predicted XIs — confirmed lineups + shirt numbers drop ~1hr before kickoff) <span>Sources: Wikipedia 2026 WC squads · ESPN / Sports Mole / Squawka previews · DraftKings odds · Yahoo/SI bracket. Official tournament numbers (not club numbers). Austria kit-clash & fitness flagged in data.md.</span>
+  </div>
+
+</div>
+</body>
+</html>

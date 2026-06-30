@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ivory Coast vs Norway — 2026 World Cup, Round of 32</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&family=Barlow:wght@400;500;600&display=swap');
+
+  :root{
+    --ci-org:#FF7A00; --ci-deep:#cc5f00; --ci-grn:#009E60; --gold:#C39A2B;
+    --no-red:#BA0C2F; --no-deep:#00205B;
+
+    --text-micro:0.75rem; --text-sm:0.8125rem; --text-base:1rem; --text-md:1.0625rem;
+    --text-lg:1.125rem; --text-xl:1.25rem; --text-2xl:1.375rem; --text-3xl:1.75rem;
+    --leading:1.45;
+    --ink:#1a1714; --paper:#f6f3ec; --line:#d8d2c4; --muted:#6f675b;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Barlow',sans-serif;font-size:var(--text-base);background:#26231f;color:var(--ink);padding:18px;line-height:var(--leading);}
+  .sheet{max-width:920px;margin:0 auto;background:var(--paper);border:1px solid var(--line);box-shadow:0 14px 44px rgba(0,0,0,.5);overflow:hidden;}
+
+  /* HEADER */
+  .top{display:flex;align-items:stretch;color:#f6f3ec;}
+  .top .side{flex:1;padding:13px 18px;}
+  .top .ci{background:linear-gradient(135deg,var(--ci-org),var(--ci-deep));}
+  .top .no{background:linear-gradient(225deg,var(--no-red),var(--no-deep));text-align:right;}
+  .top .mid{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 14px;min-width:118px;background:var(--ink);}
+  .flag{font-size:var(--text-sm);letter-spacing:.18em;font-family:'Oswald';font-weight:600;opacity:.9;}
+  .nat{font-family:'Oswald';font-weight:700;font-size:var(--text-3xl);line-height:1;text-transform:uppercase;}
+  .sub{font-size:0.875rem;opacity:.85;margin-top:3px;font-family:'Barlow Condensed';letter-spacing:.04em;}
+  .vs{font-family:'Oswald';font-weight:700;font-size:var(--text-xl);color:var(--gold);}
+  .mid .comp{font-size:var(--text-micro);letter-spacing:.12em;font-family:'Oswald';opacity:.7;text-align:center;}
+
+  .infobar{display:flex;background:#000;color:#f6f3ec;font-family:'Barlow Condensed';font-size:0.9375rem;}
+  .infobar div{padding:6px 14px;border-right:1px solid #2c2c2c;flex:1;text-align:center;white-space:nowrap;}
+  .infobar div:last-child{border-right:none;}
+  .infobar b{color:var(--gold);font-weight:600;letter-spacing:.07em;text-transform:uppercase;font-size:var(--text-micro);display:block;}
+
+  /* STAKES + KNOCKOUT TIE */
+  .strip{display:flex;flex-direction:column;align-items:stretch;background:var(--gold);color:#241e10;}
+  .strip .msg{padding:11px 16px;font-family:'Barlow',sans-serif;font-size:var(--text-md);font-weight:500;}
+  .strip .msg b{font-weight:700;}
+  .tie{background:#241e10;color:#f6f3ec;font-family:'Barlow Condensed';padding:8px 16px;width:100%;}
+  .tie-main{font-size:var(--text-base);color:#ffe9a8;line-height:1.38;}
+  .tie-main b{font-family:'Barlow';font-weight:600;color:#fff;}
+  .tie-sub{font-size:0.875rem;color:#a89f8e;margin-top:5px;line-height:1.35;}
+  .tie-sub b{color:var(--gold);font-weight:600;}
+
+  /* TEAM COLUMNS */
+  .cols{display:grid;grid-template-columns:1fr 1fr;}
+  .col{padding:13px 16px;}
+  .col.ci{border-right:2px solid var(--line);}
+  .colhead{display:flex;align-items:baseline;justify-content:space-between;border-bottom:2px solid;padding-bottom:5px;margin-bottom:8px;}
+  .col.ci .colhead{border-color:var(--ci-org);}
+  .col.no .colhead{border-color:var(--no-red);}
+  .colhead h2{font-family:'Oswald';font-size:var(--text-xl);text-transform:uppercase;letter-spacing:.02em;}
+  .col.ci .colhead h2{color:var(--ci-deep);}
+  .col.no .colhead h2{color:var(--no-red);}
+  .form{font-family:'Barlow Condensed';font-size:0.875rem;color:var(--muted);letter-spacing:.05em;}
+  .kit{font-family:'Barlow Condensed';font-size:var(--text-micro);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:-4px 0 8px;display:flex;align-items:center;gap:6px;}
+  .kit i{width:13px;height:13px;border-radius:3px;display:inline-block;border:1px solid rgba(0,0,0,.2);}
+
+  .xi{list-style:none;}
+  .xi li{display:flex;gap:9px;align-items:center;padding:2.5px 0;border-bottom:1px dotted var(--line);}
+  .xi li:last-child{border-bottom:none;}
+  .num{font-family:'Oswald';font-weight:700;font-size:var(--text-lg);width:28px;height:26px;display:flex;align-items:center;justify-content:center;color:#fff;border-radius:3px;flex-shrink:0;}
+  .col.ci .num{background:var(--ci-org);}
+  .col.no .num{background:var(--no-red);}
+  .num.gk{background:#444 !important;}
+  .pname{font-weight:600;font-size:var(--text-lg);}
+  .pclub{color:var(--muted);font-size:var(--text-sm);font-family:'Barlow Condensed';margin-left:auto;text-align:right;letter-spacing:.02em;white-space:nowrap;}
+  .cap{color:var(--gold);font-weight:700;font-size:var(--text-micro);vertical-align:super;margin-left:1px;}
+  .dbt{color:var(--no-red);font-weight:700;font-size:var(--text-micro);vertical-align:super;margin-left:2px;}
+
+  .note{font-size:var(--text-sm);color:var(--muted);font-style:italic;margin-top:6px;line-height:1.3;}
+
+  /* ROAD HERE */
+  .road{background:var(--ink);color:#ece5d8;padding:13px 18px;}
+  .road h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--gold);text-transform:uppercase;margin-bottom:9px;text-align:center;}
+  .roadgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .rh{font-family:'Oswald';font-size:var(--text-base);text-transform:uppercase;letter-spacing:.03em;margin-bottom:5px;}
+  .rh.c{color:#ffb877;} .rh.n{color:#ff8e9e;}
+  .game{display:flex;gap:8px;margin-bottom:6px;font-size:0.9375rem;line-height:var(--leading);}
+  .score{font-family:'Oswald';font-weight:700;font-size:var(--text-sm);padding:2px 6px;border-radius:3px;height:fit-content;white-space:nowrap;flex-shrink:0;color:#fff;}
+  .score.w{background:#2c5e38;} .score.l{background:#6e2530;} .score.d{background:#5a5036;}
+  .game .gt{color:#cfc7b8;}
+  .game .gt b{color:#fff;font-weight:600;}
+  .game .gt small{display:block;color:#a89f8e;font-size:var(--text-sm);font-style:italic;}
+  .game .gt .dt{color:#fff;font-weight:600;}
+
+  /* NEXT */
+  .next{background:#efe9dc;padding:12px 18px;border-top:1px solid var(--line);}
+  .next h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--no-red);text-transform:uppercase;margin-bottom:7px;}
+  .next .ng{columns:1;}
+  .next p{font-family:'Barlow',sans-serif;font-size:var(--text-base);margin-bottom:8px;break-inside:avoid;line-height:var(--leading);padding-left:13px;position:relative;}
+  .next p::before{content:"\25B8";position:absolute;left:0;color:var(--gold);font-size:var(--text-micro);top:2px;}
+  .next b{font-weight:600;}
+
+  /* WHAT TO WATCH FOR */
+  .wtw{padding:13px 18px;border-top:1px solid var(--line);}
+  .wtw h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--gold);text-transform:uppercase;margin-bottom:9px;}
+  .battles{columns:1;}
+  .battle{font-family:'Barlow',sans-serif;font-size:var(--text-base);line-height:var(--leading);margin-bottom:8px;break-inside:avoid;}
+  .battle .bt{font-family:'Oswald';font-weight:600;font-size:var(--text-md);text-transform:uppercase;letter-spacing:.02em;color:var(--ink);display:block;margin-bottom:1px;}
+  .tip{margin-top:8px;background:#efe9dc;border-left:3px solid var(--gold);padding:10px 12px;font-family:'Barlow',sans-serif;font-size:var(--text-md);line-height:var(--leading);}
+  .tip b{font-family:'Barlow';font-weight:600;color:#241e10;}
+  .deadball{margin-top:8px;font-family:'Barlow',sans-serif;font-size:var(--text-sm);color:var(--muted);line-height:var(--leading);}
+  .deadball b{color:var(--ink);font-weight:600;text-transform:uppercase;letter-spacing:.03em;font-size:var(--text-micro);}
+
+  /* WATCH — names you'll hear */
+  .watch{padding:13px 18px;}
+  .watch h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--ci-deep);text-transform:uppercase;margin-bottom:9px;}
+  .wgrid{display:grid;grid-template-columns:1fr;gap:10px;}
+  .star{display:flex;gap:9px;}
+  .star .wn{font-family:'Oswald';font-weight:700;font-size:var(--text-lg);width:34px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:3px;color:#fff;flex-shrink:0;}
+  .wn.c{background:var(--ci-org);} .wn.n{background:var(--no-red);}
+  .star .nm{font-family:'Oswald';font-size:var(--text-xl);font-weight:600;line-height:1.05;}
+  .star .meta{font-size:var(--text-sm);color:var(--muted);font-family:'Barlow Condensed';letter-spacing:.03em;text-transform:uppercase;margin-bottom:2px;}
+  .star .blurb{font-family:'Barlow',sans-serif;font-size:var(--text-base);line-height:var(--leading);}
+  .star b{font-weight:600;}
+  .wgroup{margin-bottom:12px;}
+  .wgroup:last-child{margin-bottom:0;}
+  .wteam{font-family:'Oswald';font-size:var(--text-md);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;padding-bottom:3px;border-bottom:2px solid;}
+  .wteam.c{color:var(--ci-deep);border-color:var(--ci-org);}
+  .wteam.n{color:var(--no-red);border-color:var(--no-red);}
+
+  /* LINEUPS */
+  .rtitle{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--ink);text-transform:uppercase;text-align:center;padding:13px 18px 0;}
+  .rsub{font-family:'Oswald';font-size:var(--text-micro);letter-spacing:.13em;color:var(--muted);text-transform:uppercase;margin:9px 0 3px;}
+  .rsub:first-child{margin-top:0;}
+
+  .foot{background:var(--ink);color:#9a9081;font-size:var(--text-micro);text-align:center;padding:7px;font-family:'Barlow Condensed';letter-spacing:.05em;}
+  .foot span{color:var(--gold);}
+
+  /* LINEUP TABS — mobile team switcher (CSS-only) */
+  .lineup-tabs .tab-input{position:absolute;opacity:0;width:0;height:0;pointer-events:none;}
+  .lineup-tabs .tab-bar{display:none;}
+
+  @media (max-width:680px){
+    body{padding:7px;overflow-x:hidden;}
+    .sheet{overflow-x:clip;}
+    .wgrid,.roadgrid{grid-template-columns:1fr;}
+    .cols{grid-template-columns:1fr;}
+
+    .top .side{padding:10px 12px;min-width:0;}
+    .top .mid{min-width:64px;padding:8px 10px;}
+
+    .infobar{flex-wrap:wrap;}
+    .infobar div{flex:1 1 46%;white-space:normal;min-width:0;padding:6px 10px;font-size:0.9375rem;}
+    .infobar div:nth-child(2){border-right:none;}
+    .infobar div:nth-child(3),
+    .infobar div:nth-child(4){border-top:1px solid #2c2c2c;}
+
+    .lineup-tabs .tab-bar{
+      display:flex;margin:0 16px;padding-top:10px;
+      border-bottom:2px solid var(--line);
+    }
+    .lineup-tabs .tab-bar label{
+      flex:1;text-align:center;padding:10px 6px;
+      font-family:'Oswald';font-size:var(--text-md);font-weight:600;
+      text-transform:uppercase;letter-spacing:.06em;
+      cursor:pointer;color:var(--muted);
+      border-bottom:3px solid transparent;margin-bottom:-2px;
+    }
+    .lineup-tabs #lineup-home:checked ~ .tab-bar .tab-home{border-bottom-color:var(--ci-org);color:var(--ci-deep);}
+    .lineup-tabs #lineup-away:checked ~ .tab-bar .tab-away{border-bottom-color:var(--no-red);color:var(--no-red);}
+    .lineup-tabs #lineup-home:checked ~ .cols .col:last-child{display:none;}
+    .lineup-tabs #lineup-away:checked ~ .cols .col:first-child{display:none;}
+    .col.ci,.col.no{border-right:none;}
+    .colhead{flex-wrap:wrap;align-items:flex-start;gap:4px;}
+
+    .pname{min-width:0;flex:1;}
+    .pclub{white-space:normal;flex-shrink:1;max-width:46%;}
+    .star,.star > div{min-width:0;}
+    .nat{line-height:1.08;overflow-wrap:break-word;text-wrap:balance;}
+    .next p,.battle,.blurb{overflow-wrap:break-word;}
+  }
+  @media print{body{background:#fff;padding:0;}.sheet{box-shadow:none;border:none;}@page{margin:7mm;}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="top">
+    <div class="side ci">
+      <div class="flag">🇨🇮 IVORY COAST</div>
+      <div class="nat">The Elephants</div>
+      <div class="sub">Coach: Emerse Faé · 4-3-3 · AFCON '23 champions</div>
+    </div>
+    <div class="mid">
+      <div class="comp">ROUND&nbsp;OF&nbsp;32</div>
+      <div class="vs">V</div>
+      <div class="comp">WORLD&nbsp;CUP&nbsp;'26</div>
+    </div>
+    <div class="side no">
+      <div class="flag">NORWAY 🇳🇴</div>
+      <div class="nat">The Lions</div>
+      <div class="sub">4-3-3 · Coach: Ståle Solbakken · First WC since '98</div>
+    </div>
+  </div>
+
+  <div class="infobar">
+    <div><b>Venue</b>AT&amp;T Stadium, Arlington</div>
+    <div><b>Kickoff</b>Tue 10:00 AM PDT</div>
+    <div><b>TV</b>FOX / Telemundo</div>
+    <div><b>Met before</b>Never</div>
+  </div>
+
+  <div class="strip">
+    <div class="msg">Two group <b>runners-up</b>, one knockout debut apiece. <b>Norway's first World Cup since 1998</b> — Haaland and Ødegaard finally on the stage — meet <b>the reigning African champions</b>. Win and reach the Round of 16; lose and go home.</div>
+    <div class="tie">
+      <div class="tie-main"><b>Winner → Round of 16</b> (vs Brazil, Sun Jul 5) · Loser eliminated</div>
+      <div class="tie-sub"><b>Reward:</b> a date with Brazil (beat Japan 2-1 on a Martinelli stoppage-time winner) · <b>Odds:</b> Norway favored — Opta 56%, ML +110 / Draw +240 / IC +250 · "the hardest R32 tie to call" · <b>First-ever meeting</b> between the nations</div>
+    </div>
+  </div>
+
+  <div class="road">
+    <h3>How They Got Here · Group Stage</h3>
+    <div class="roadgrid">
+      <div>
+        <div class="rh c">Ivory Coast — Group E, 2nd (6 pts)</div>
+        <div class="game"><span class="score w">1&ndash;0</span><span class="gt"><span class="dt">Jun 14</span> · vs Ecuador<small>Amad Diallo 90th-min winner</small></span></div>
+        <div class="game"><span class="score l">1&ndash;2</span><span class="gt"><span class="dt">Jun 20</span> · vs Germany<small>late Undav winner for Germany</small></span></div>
+        <div class="game"><span class="score w">2&ndash;0</span><span class="gt"><span class="dt">Jun 25</span> · vs Curaçao<small>Pépé brace — clinched first-ever knockout berth</small></span></div>
+      </div>
+      <div>
+        <div class="rh n">Norway — Group I, 2nd (6 pts)</div>
+        <div class="game"><span class="score w">4&ndash;1</span><span class="gt">vs Iraq</span></div>
+        <div class="game"><span class="score w">3&ndash;2</span><span class="gt">vs Senegal<small>Haaland brace</small></span></div>
+        <div class="game"><span class="score l">1&ndash;4</span><span class="gt">vs France<small>~10 changes; stars rested, progression already safe</small></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="next">
+    <h3>What's At Stake &amp; What's Next</h3>
+    <div class="ng">
+      <p><b>Ivory Coast:</b> Win = a first-ever World Cup knockout-round <i>victory</i> and the Round of 16 — uncharted territory for the Elephants. Reaching R32 is already their best-ever WC run; this is pure house money.</p>
+      <p><b>Norway:</b> Win = the Round of 16, matching the spirit of their only previous knockout appearance (France '98). Lose = a long-awaited golden generation's World Cup ends at the first knockout hurdle.</p>
+      <p><b>The reward:</b> the winner runs straight into <b>Brazil</b> in the Round of 16 (Sun Jul 5) — Brazil edged Japan 2-1 on a Gabriel Martinelli stoppage-time winner.</p>
+      <p><b>Haaland watch:</b> 4 goals in 2 games at his first-ever World Cup; already the first Norwegian to score in consecutive WC matches. This is his first WC do-or-die.</p>
+      <p><b>Kessié's encore:</b> Ivory Coast's captain scored the equalizer in the 2023 AFCON final <i>and</i> again vs Germany here — and he's on penalties if it goes the distance.</p>
+    </div>
+  </div>
+
+  <div class="wtw">
+    <h3>What To Watch For</h3>
+    <div class="battles">
+      <div class="battle"><span class="bt">Haaland vs Ivory Coast's block</span>The match in one duel. Haaland thrives on minimal service (4 goals in 2); Ivory Coast's whole identity is being hard to break down. Watch their centre-backs (Ousmane Diomande &amp; Agbadou) and GK Fofana track his movement on the shoulder — one lapse is all he needs.</div>
+      <div class="battle"><span class="bt">Ødegaard vs IC's midfield screen</span>Norway's creativity runs almost entirely through their captain. If Kessié, Sangaré &amp; Oulaï smother Ødegaard, the supply to Haaland dries up and Norway become one-dimensional — set pieces and long balls only.</div>
+      <div class="battle"><span class="bt">Width &amp; the counter</span>Antonio Nusa and Norway's pace test IC's full-backs; the other way, Ivory Coast are dangerous on the break through Amad Diallo and Yan Diomande. Sub-plot: <b>Yan Diomande vs Nusa are RB Leipzig teammates</b> facing off. IC's Singo is doubtful (hamstring), thinning their athletic full-back cover.</div>
+      <div class="battle"><span class="bt">Whose flaw breaks first</span>Norway leaked 7 goals in the group (France put four past them); Ivory Coast's finishing has been wasteful all tournament despite scoring first in every game. The side that fixes its weakness likely advances.</div>
+    </div>
+    <div class="deadball"><b>Norway dead-ball:</b> built to punish them — Ødegaard delivery to Haaland is a primary route; Haaland takes pens, Ødegaard &amp; Ryerson on free kicks/corners (Ryerson's thigh is a watch).<br><b>Ivory Coast dead-ball:</b> Kessié penalties (Sangaré backup), Amad Diallo &amp; Kessié free kicks, Pépé / Yan Diomande / Adingra corners.</div>
+    <div class="tip"><b>Set-piece tip:</b> Norway are the more dangerous dead-ball side — in a tight game, treat every Norwegian corner or wide free kick as a genuine chance, with Haaland the target. It may be how they unlock a packed Ivorian box.</div>
+  </div>
+
+  <div class="watch">
+    <h3>&#9733; The Names You'll Hear Most &#9733;</h3>
+    <div class="wgroup"><div class="wteam c">Ivory Coast</div><div class="wgrid">
+      <div class="star"><span class="wn c">8</span><div><div class="nm">Franck Kessié</div><div class="meta">Ivory Coast · Al-Ahli · Captain</div><div class="blurb">The heartbeat (100+ caps). Scored the equalizer in the <b>2023 AFCON final</b> win over Nigeria, and again vs Germany here. Box-to-box engine and the penalty taker.</div></div></div>
+      <div class="star"><span class="wn c">15</span><div><div class="nm">Amad Diallo</div><div class="meta">Ivory Coast · Man United · Winger</div><div class="blurb">Off his best United season. Opened IC's tournament with a <b>90th-minute winner vs Ecuador</b>. Pace and sharp finishing in tight spaces — their top transition weapon.</div></div></div>
+      <div class="star"><span class="wn c">19</span><div><div class="nm">Nicolas Pépé</div><div class="meta">Ivory Coast · Villarreal · Forward</div><div class="blurb">Squad's <b>leading scorer (16)</b>. Rebuilt his career in La Liga; his <b>brace vs Curaçao</b> clinched the first-ever knockout berth. May start central — the disputed No.9.</div></div></div>
+    </div></div>
+    <div class="wgroup"><div class="wteam n">Norway</div><div class="wgrid">
+      <div class="star"><span class="wn n">9</span><div><div class="nm">Erling Haaland</div><div class="meta">Norway · Man City · Striker</div><div class="blurb">The headline, at his <b>first-ever World Cup</b>. 4 goals in 2 games; first Norwegian to score in consecutive WC matches. Doesn't need many looks — exactly the man for a knockout.</div></div></div>
+      <div class="star"><span class="wn n">10</span><div><div class="nm">Martin Ødegaard</div><div class="meta">Norway · Arsenal · Captain</div><div class="blurb">The creative hub and skipper, fresh off a Premier League title. Has <b>assisted Haaland 9 times</b> for Norway — their main attacking artery. Runs the set pieces too.</div></div></div>
+      <div class="star"><span class="wn n">7</span><div><div class="nm">Alexander Sørloth</div><div class="meta">Norway · Atlético Madrid · Forward</div><div class="blurb">The powerful foil to Haaland — 20 goals in his debut Atléti season, real aerial muscle. Game-changer off the bench: <b>Antonio Nusa</b> (Leipzig, 21).</div></div></div>
+    </div></div>
+  </div>
+
+  <div class="rtitle">The Lineups · By The Numbers</div>
+  <div class="lineup-tabs">
+    <input type="radio" name="lineup-tab" id="lineup-home" class="tab-input" checked>
+    <input type="radio" name="lineup-tab" id="lineup-away" class="tab-input">
+    <div class="tab-bar">
+      <label for="lineup-home" class="tab-home">Ivory Coast</label>
+      <label for="lineup-away" class="tab-away">Norway</label>
+    </div>
+  <div class="cols">
+    <div class="col ci">
+      <div class="colhead"><h2>Ivory Coast</h2><span class="form">4-3-3 · organized, transition-dangerous</span></div>
+      <div class="kit"><i style="background:#FF7A00"></i> Matchday kit: orange home (orange shirt · white/green trim)</div>
+      <div class="rsub">Starters (predicted)</div>
+      <ul class="xi">
+        <li><span class="num gk">1</span><span class="pname">Yahia Fofana</span><span class="pclub">Rizespor</span></li>
+        <li><span class="num">2</span><span class="pname">Ousmane Diomande</span><span class="pclub">Sporting CP</span></li>
+        <li><span class="num">3</span><span class="pname">Ghislain Konan</span><span class="pclub">Gil Vicente</span></li>
+        <li><span class="num">8</span><span class="pname">Franck Kessié<span class="cap">C</span></span><span class="pclub">Al-Ahli</span></li>
+        <li><span class="num">9</span><span class="pname">Ange-Yoan Bonny</span><span class="pclub">Inter Milan</span></li>
+        <li><span class="num">11</span><span class="pname">Yan Diomande</span><span class="pclub">RB Leipzig</span></li>
+        <li><span class="num">15</span><span class="pname">Amad Diallo</span><span class="pclub">Man United</span></li>
+        <li><span class="num">17</span><span class="pname">Guéla Doué</span><span class="pclub">Strasbourg</span></li>
+        <li><span class="num">18</span><span class="pname">Ibrahim Sangaré</span><span class="pclub">Nott'm Forest</span></li>
+        <li><span class="num">20</span><span class="pname">Emmanuel Agbadou</span><span class="pclub">Beşiktaş</span></li>
+        <li><span class="num">26</span><span class="pname">Christ Inao Oulaï</span><span class="pclub">Trabzonspor</span></li>
+      </ul>
+      <div class="rsub">Bench</div>
+      <ul class="xi">
+        <li><span class="num">4</span><span class="pname">Jean Michaël Seri</span><span class="pclub">Maribor</span></li>
+        <li><span class="num">5</span><span class="pname">Wilfried Singo<span class="dbt">?</span></span><span class="pclub">Galatasaray</span></li>
+        <li><span class="num">6</span><span class="pname">Seko Fofana</span><span class="pclub">Porto</span></li>
+        <li><span class="num">7</span><span class="pname">Odilon Kossounou</span><span class="pclub">Atalanta</span></li>
+        <li><span class="num">10</span><span class="pname">Simon Adingra</span><span class="pclub">Brighton</span></li>
+        <li><span class="num">12</span><span class="pname">Elye Wahi</span><span class="pclub">Nice</span></li>
+        <li><span class="num">13</span><span class="pname">Christopher Opéri</span><span class="pclub">Başakşehir</span></li>
+        <li><span class="num">14</span><span class="pname">Oumar Diakité</span><span class="pclub">Cercle Brugge</span></li>
+        <li><span class="num gk">16</span><span class="pname">Mohamed Koné</span><span class="pclub">Charleroi</span></li>
+        <li><span class="num">19</span><span class="pname">Nicolas Pépé</span><span class="pclub">Villarreal</span></li>
+        <li><span class="num">21</span><span class="pname">Evan Ndicka</span><span class="pclub">Roma</span></li>
+        <li><span class="num">22</span><span class="pname">Evann Guessand</span><span class="pclub">Crystal Palace</span></li>
+        <li><span class="num gk">23</span><span class="pname">Alban Lafont</span><span class="pclub">Panathinaikos</span></li>
+        <li><span class="num">24</span><span class="pname">Bazoumana Touré</span><span class="pclub">Hoffenheim</span></li>
+        <li><span class="num">25</span><span class="pname">Parfait Guiagon</span><span class="pclub">Charleroi</span></li>
+      </ul>
+      <div class="note">Striker disputed: ESPN predicts Bonny (#9) central, Goal.com predicts Pépé (#19). Back four fluid — Ndicka (#21) is a regular starter but sat in the projected XI. Singo (#5) doubtful (hamstring).</div>
+    </div>
+    <div class="col no">
+      <div class="colhead"><h2>Norway</h2><span class="form">4-3-3 · vertical, set-piece threat</span></div>
+      <div class="kit"><i style="background:#f4f4f4"></i> Matchday kit: white away (white shirt · red/navy accents) — <i style="background:#BA0C2F;width:10px;height:10px"></i>red chips for legibility · <em>kit unconfirmed</em></div>
+      <div class="rsub">Starters (predicted)</div>
+      <ul class="xi">
+        <li><span class="num gk">1</span><span class="pname">Ørjan Nyland</span><span class="pclub">Sevilla</span></li>
+        <li><span class="num">3</span><span class="pname">Kristoffer Ajer</span><span class="pclub">Brentford</span></li>
+        <li><span class="num">5</span><span class="pname">David Møller Wolfe</span><span class="pclub">AZ Alkmaar</span></li>
+        <li><span class="num">7</span><span class="pname">Alexander Sørloth</span><span class="pclub">Atlético Madrid</span></li>
+        <li><span class="num">8</span><span class="pname">Sander Berge</span><span class="pclub">Fulham</span></li>
+        <li><span class="num">9</span><span class="pname">Erling Haaland</span><span class="pclub">Man City</span></li>
+        <li><span class="num">10</span><span class="pname">Martin Ødegaard<span class="cap">C</span></span><span class="pclub">Arsenal</span></li>
+        <li><span class="num">14</span><span class="pname">Fredrik Aursnes</span><span class="pclub">Benfica</span></li>
+        <li><span class="num">17</span><span class="pname">Torbjørn Heggem</span><span class="pclub">Bologna</span></li>
+        <li><span class="num">20</span><span class="pname">Antonio Nusa</span><span class="pclub">RB Leipzig</span></li>
+        <li><span class="num">26</span><span class="pname">Julian Ryerson<span class="dbt">?</span></span><span class="pclub">Dortmund</span></li>
+      </ul>
+      <div class="rsub">Bench</div>
+      <ul class="xi">
+        <li><span class="num">2</span><span class="pname">Morten Thorsby</span><span class="pclub">Cremonese</span></li>
+        <li><span class="num">4</span><span class="pname">Leo Østigård</span><span class="pclub">Genoa</span></li>
+        <li><span class="num">6</span><span class="pname">Patrick Berg</span><span class="pclub">Bodø/Glimt</span></li>
+        <li><span class="num">11</span><span class="pname">Jørgen Strand Larsen</span><span class="pclub">Wolves</span></li>
+        <li><span class="num gk">12</span><span class="pname">Sander Tangvik</span><span class="pclub">Hamburger SV</span></li>
+        <li><span class="num gk">13</span><span class="pname">Egil Selvik</span><span class="pclub">Watford</span></li>
+        <li><span class="num">15</span><span class="pname">Fredrik André Bjørkan</span><span class="pclub">Bodø/Glimt</span></li>
+        <li><span class="num">16</span><span class="pname">Marcus Holmgren Pedersen</span><span class="pclub">Torino</span></li>
+        <li><span class="num">18</span><span class="pname">Kristian Thorstvedt</span><span class="pclub">Sassuolo</span></li>
+        <li><span class="num">19</span><span class="pname">Thelo Aasgaard</span><span class="pclub">Rangers</span></li>
+        <li><span class="num">21</span><span class="pname">Andreas Schjelderup</span><span class="pclub">Benfica</span></li>
+        <li><span class="num">22</span><span class="pname">Oscar Bobb</span><span class="pclub">Man City</span></li>
+        <li><span class="num">23</span><span class="pname">Jens Petter Hauge</span><span class="pclub">Bodø/Glimt</span></li>
+        <li><span class="num">24</span><span class="pname">Sondre Langås</span><span class="pclub">Derby County</span></li>
+        <li><span class="num">25</span><span class="pname">Henrik Falchener</span><span class="pclub">Viking</span></li>
+      </ul>
+      <div class="note">Stars (Haaland, Ødegaard, Nusa, Sørloth) return after being rested in the dead-rubber loss to France. Ryerson (#26) carrying a thigh issue — monitor. Formation a firm 4-3-3 across sources.</div>
+    </div>
+  </div>
+  </div>
+
+  <div class="foot">
+    pre-match (predicted XIs; confirmed lineups + shirt numbers drop ~1hr before kickoff) <span>Rosters per Wikipedia 2026 WC squads; XIs/odds/ref per ESPN, Goal, Opta, FanDuel previews.</span>
+  </div>
+
+</div>
+</body>
+</html>

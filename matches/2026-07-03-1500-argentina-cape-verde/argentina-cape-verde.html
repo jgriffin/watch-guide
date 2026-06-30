@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Argentina vs Cape Verde — 2026 World Cup, Round of 32</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&family=Barlow:wght@400;500;600&display=swap');
+
+  :root{
+    --ar-blu:#6CACE4; --ar-deep:#357ab5; --gold:#C39A2B;
+    --cv-blu:#003893; --cv-deep:#002a6e; --cv-red:#CF2027;
+
+    --text-micro:0.75rem; --text-sm:0.8125rem; --text-base:1rem; --text-md:1.0625rem;
+    --text-lg:1.125rem; --text-xl:1.25rem; --text-2xl:1.375rem; --text-3xl:1.75rem;
+    --leading:1.45;
+    --ink:#1a1714; --paper:#f6f3ec; --line:#d8d2c4; --muted:#6f675b;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Barlow',sans-serif;font-size:var(--text-base);background:#26231f;color:var(--ink);padding:18px;line-height:var(--leading);}
+  .sheet{max-width:920px;margin:0 auto;background:var(--paper);border:1px solid var(--line);box-shadow:0 14px 44px rgba(0,0,0,.5);overflow:hidden;}
+
+  /* HEADER */
+  .top{display:flex;align-items:stretch;color:#f6f3ec;}
+  .top .side{flex:1;padding:13px 18px;}
+  .top .ar{background:linear-gradient(135deg,var(--ar-blu),var(--ar-deep));}
+  .top .cv{background:linear-gradient(225deg,var(--cv-blu),var(--cv-deep));text-align:right;}
+  .top .mid{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 14px;min-width:118px;background:var(--ink);}
+  .flag{font-size:var(--text-sm);letter-spacing:.18em;font-family:'Oswald';font-weight:600;opacity:.85;}
+  .nat{font-family:'Oswald';font-weight:700;font-size:var(--text-3xl);line-height:1;text-transform:uppercase;}
+  .sub{font-size:0.875rem;opacity:.82;margin-top:3px;font-family:'Barlow Condensed';letter-spacing:.04em;}
+  .vs{font-family:'Oswald';font-weight:700;font-size:var(--text-xl);color:var(--gold);}
+  .mid .comp{font-size:var(--text-micro);letter-spacing:.12em;font-family:'Oswald';opacity:.7;text-align:center;}
+
+  .infobar{display:flex;background:#000;color:#f6f3ec;font-family:'Barlow Condensed';font-size:0.9375rem;}
+  .infobar div{padding:6px 14px;border-right:1px solid #2c2c2c;flex:1;text-align:center;white-space:nowrap;}
+  .infobar div:last-child{border-right:none;}
+  .infobar b{color:var(--gold);font-weight:600;letter-spacing:.07em;text-transform:uppercase;font-size:var(--text-micro);display:block;}
+
+  /* STAKES */
+  .strip{display:flex;flex-direction:column;align-items:stretch;background:var(--gold);color:#241e10;}
+  .strip .msg{padding:11px 16px;font-family:'Barlow',sans-serif;font-size:var(--text-md);font-weight:500;}
+  .strip .msg b{font-weight:700;}
+
+  .tie{background:#241e10;color:#f6f3ec;font-family:'Barlow Condensed';padding:8px 16px;width:100%;}
+  .tie-main{font-size:var(--text-base);color:#ffe9a8;line-height:1.38;}
+  .tie-main b{font-family:'Barlow';font-weight:600;color:#fff;}
+  .tie-sub{font-size:0.875rem;color:#a89f8e;margin-top:5px;line-height:1.35;}
+  .tie-sub b{color:var(--gold);font-weight:600;}
+
+  /* TEAM COLUMNS */
+  .cols{display:grid;grid-template-columns:1fr 1fr;}
+  .col{padding:13px 16px;}
+  .col.ar{border-right:2px solid var(--line);}
+  .colhead{display:flex;align-items:baseline;justify-content:space-between;border-bottom:2px solid;padding-bottom:5px;margin-bottom:8px;gap:8px;}
+  .col.ar .colhead{border-color:var(--ar-deep);}
+  .col.cv .colhead{border-color:var(--cv-blu);}
+  .colhead h2{font-family:'Oswald';font-size:var(--text-xl);text-transform:uppercase;letter-spacing:.02em;}
+  .col.ar .colhead h2{color:var(--ar-deep);}
+  .col.cv .colhead h2{color:var(--cv-blu);}
+  .form{font-family:'Barlow Condensed';font-size:0.875rem;color:var(--muted);letter-spacing:.05em;text-align:right;}
+  .kit{display:inline-block;font-family:'Barlow Condensed';font-size:var(--text-micro);text-transform:uppercase;letter-spacing:.06em;padding:1px 7px;border-radius:10px;border:1px solid var(--line);color:var(--muted);}
+
+  .xi{list-style:none;}
+  .xi li{display:flex;gap:9px;align-items:center;padding:2.5px 0;border-bottom:1px dotted var(--line);}
+  .xi li:last-child{border-bottom:none;}
+  .num{font-family:'Oswald';font-weight:700;font-size:var(--text-lg);width:28px;height:26px;display:flex;align-items:center;justify-content:center;color:#fff;border-radius:3px;flex-shrink:0;}
+  .col.ar .num{background:var(--ar-deep);}
+  .col.cv .num{background:var(--cv-blu);}
+  .num.gk{background:#444 !important;}
+  .pname{font-weight:600;font-size:var(--text-lg);}
+  .pclub{color:var(--muted);font-size:var(--text-sm);font-family:'Barlow Condensed';margin-left:auto;text-align:right;letter-spacing:.02em;white-space:nowrap;}
+  .cap{color:var(--gold);font-weight:700;font-size:var(--text-micro);vertical-align:super;margin-left:1px;}
+
+  .note{font-size:var(--text-sm);color:var(--muted);font-style:italic;margin-top:6px;line-height:1.3;}
+
+  /* ROAD HERE */
+  .road{background:var(--ink);color:#ece5d8;padding:13px 18px;}
+  .road h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--gold);text-transform:uppercase;margin-bottom:9px;text-align:center;}
+  .roadgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .rh{font-family:'Oswald';font-size:var(--text-base);text-transform:uppercase;letter-spacing:.03em;margin-bottom:5px;}
+  .rh.a{color:#bfe0f7;} .rh.c{color:#9fb6e6;}
+  .game{display:flex;gap:8px;margin-bottom:6px;font-size:0.9375rem;line-height:var(--leading);}
+  .score{font-family:'Oswald';font-weight:700;font-size:var(--text-sm);padding:2px 6px;border-radius:3px;height:fit-content;white-space:nowrap;flex-shrink:0;color:#fff;}
+  .score.w{background:#2c5e38;} .score.l{background:#6e2530;} .score.d{background:#5a5036;}
+  .game .gt{color:#cfc7b8;}
+  .game .gt b{color:#fff;font-weight:600;}
+  .game .gt small{display:block;color:#a89f8e;font-size:var(--text-sm);font-style:italic;}
+  .game .gt .dt{color:#fff;font-weight:600;}
+
+  /* NEXT */
+  .next{background:#efe9dc;padding:12px 18px;border-top:1px solid var(--line);}
+  .next h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--cv-blu);text-transform:uppercase;margin-bottom:7px;}
+  .next .ng{columns:1;}
+  .next p{font-family:'Barlow',sans-serif;font-size:var(--text-base);margin-bottom:8px;break-inside:avoid;line-height:var(--leading);padding-left:13px;position:relative;}
+  .next p::before{content:"\25B8";position:absolute;left:0;color:var(--gold);font-size:var(--text-micro);top:2px;}
+  .next b{font-weight:600;}
+
+  /* WHAT TO WATCH FOR */
+  .wtw{padding:13px 18px;border-top:1px solid var(--line);}
+  .wtw h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--gold);text-transform:uppercase;margin-bottom:9px;}
+  .battles{columns:1;}
+  .battle{font-family:'Barlow',sans-serif;font-size:var(--text-base);line-height:var(--leading);margin-bottom:8px;break-inside:avoid;}
+  .battle .bt{font-family:'Oswald';font-weight:600;font-size:var(--text-md);text-transform:uppercase;letter-spacing:.02em;color:var(--ink);display:block;margin-bottom:1px;}
+  .tip{margin-top:8px;background:#efe9dc;border-left:3px solid var(--gold);padding:10px 12px;font-family:'Barlow',sans-serif;font-size:var(--text-md);line-height:var(--leading);}
+  .tip b{font-family:'Barlow';font-weight:600;color:#241e10;}
+  .deadball{margin-top:8px;font-family:'Barlow',sans-serif;font-size:var(--text-sm);color:var(--muted);line-height:var(--leading);}
+  .deadball b{color:var(--ink);font-weight:600;text-transform:uppercase;letter-spacing:.03em;font-size:var(--text-micro);}
+
+  /* WATCH */
+  .watch{padding:13px 18px;}
+  .watch h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--ar-deep);text-transform:uppercase;margin-bottom:9px;}
+  .wgrid{display:grid;grid-template-columns:1fr;gap:10px;}
+  .star{display:flex;gap:9px;}
+  .star .wn{font-family:'Oswald';font-weight:700;font-size:var(--text-lg);width:34px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:3px;color:#fff;flex-shrink:0;}
+  .wn.a{background:var(--ar-deep);} .wn.c{background:var(--cv-blu);}
+  .star .nm{font-family:'Oswald';font-size:var(--text-xl);font-weight:600;line-height:1.05;}
+  .star .meta{font-size:var(--text-sm);color:var(--muted);font-family:'Barlow Condensed';letter-spacing:.03em;text-transform:uppercase;margin-bottom:2px;}
+  .star .blurb{font-family:'Barlow',sans-serif;font-size:var(--text-base);line-height:var(--leading);}
+  .star b{font-weight:600;}
+  .wgroup{margin-bottom:12px;}
+  .wgroup:last-child{margin-bottom:0;}
+  .wteam{font-family:'Oswald';font-size:var(--text-md);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;padding-bottom:3px;border-bottom:2px solid;}
+  .wteam.a{color:var(--ar-deep);border-color:var(--ar-deep);}
+  .wteam.c{color:var(--cv-blu);border-color:var(--cv-blu);}
+
+  /* LINEUPS */
+  .rtitle{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--ink);text-transform:uppercase;text-align:center;padding:13px 18px 0;}
+  .rsub{font-family:'Oswald';font-size:var(--text-micro);letter-spacing:.13em;color:var(--muted);text-transform:uppercase;margin:9px 0 3px;}
+  .rsub:first-child{margin-top:0;}
+
+  .foot{background:var(--ink);color:#9a9081;font-size:var(--text-micro);text-align:center;padding:7px;font-family:'Barlow Condensed';letter-spacing:.05em;}
+  .foot span{color:var(--gold);}
+
+  /* LINEUP TABS — mobile team switcher (CSS-only) */
+  .lineup-tabs .tab-input{position:absolute;opacity:0;width:0;height:0;pointer-events:none;}
+  .lineup-tabs .tab-bar{display:none;}
+
+  @media (max-width:680px){
+    body{padding:7px;overflow-x:hidden;}
+    .sheet{overflow-x:clip;}
+    .wgrid,.roadgrid{grid-template-columns:1fr;}
+    .cols{grid-template-columns:1fr;}
+
+    .top .side{padding:10px 12px;min-width:0;}
+    .top .mid{min-width:64px;padding:8px 10px;}
+
+    .infobar{flex-wrap:wrap;}
+    .infobar div{flex:1 1 46%;white-space:normal;min-width:0;padding:6px 10px;font-size:0.9375rem;}
+    .infobar div:nth-child(2){border-right:none;}
+    .infobar div:nth-child(3),
+    .infobar div:nth-child(4){border-top:1px solid #2c2c2c;}
+
+    .lineup-tabs .tab-bar{
+      display:flex;margin:0 16px;padding-top:10px;
+      border-bottom:2px solid var(--line);
+    }
+    .lineup-tabs .tab-bar label{
+      flex:1;text-align:center;padding:10px 6px;
+      font-family:'Oswald';font-size:var(--text-md);font-weight:600;
+      text-transform:uppercase;letter-spacing:.06em;
+      cursor:pointer;color:var(--muted);
+      border-bottom:3px solid transparent;margin-bottom:-2px;
+    }
+    .lineup-tabs #lineup-home:checked ~ .tab-bar .tab-home{border-bottom-color:var(--ar-deep);color:var(--ar-deep);}
+    .lineup-tabs #lineup-away:checked ~ .tab-bar .tab-away{border-bottom-color:var(--cv-blu);color:var(--cv-blu);}
+    .lineup-tabs #lineup-home:checked ~ .cols .col:last-child{display:none;}
+    .lineup-tabs #lineup-away:checked ~ .cols .col:first-child{display:none;}
+    .col.ar,.col.cv{border-right:none;}
+    .colhead{flex-wrap:wrap;align-items:flex-start;gap:4px;}
+
+    .pname{min-width:0;flex:1;}
+    .pclub{white-space:normal;flex-shrink:1;max-width:46%;}
+    .star,.star > div{min-width:0;}
+    .nat{line-height:1.08;overflow-wrap:break-word;text-wrap:balance;}
+    .next p,.battle,.blurb{overflow-wrap:break-word;}
+  }
+  @media print{body{background:#fff;padding:0;}.sheet{box-shadow:none;border:none;}@page{margin:7mm;}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="top">
+    <div class="side ar">
+      <div class="flag">🇦🇷 ARGENTINA</div>
+      <div class="nat">La Albiceleste</div>
+      <div class="sub">FIFA #1 · Coach: Lionel Scaloni · 4-3-3</div>
+    </div>
+    <div class="mid">
+      <div class="comp">ROUND&nbsp;OF&nbsp;32</div>
+      <div class="vs">V</div>
+      <div class="comp">WORLD&nbsp;CUP&nbsp;'26</div>
+    </div>
+    <div class="side cv">
+      <div class="flag">CAPE VERDE 🇨🇻</div>
+      <div class="nat">Tubarões Azuis</div>
+      <div class="sub">4-3-3 · Coach: Bubista · FIFA #67</div>
+    </div>
+  </div>
+
+  <div class="infobar">
+    <div><b>Venue</b>Hard Rock Stadium, Miami</div>
+    <div><b>Kickoff</b>Fri 3:00 PM PDT</div>
+    <div><b>TV</b>FOX / Telemundo</div>
+    <div><b>Last met</b>Never (1st ever)</div>
+  </div>
+
+  <div class="strip">
+    <div class="msg"><b>The defending champions meet the fairytale.</b> Argentina, perfect in Group J with Messi rewriting the record books, face <b>Cape Verde</b> — World Cup debutants and the <b>smallest nation ever to reach the knockouts</b> (pop. ~525,000). A first-ever meeting; the heaviest mismatch on paper of the round.</div>
+    <div class="tie">
+      <div class="tie-main"><b>Winner → Round of 16</b> (Atlanta · Mon Jul 7) · Loser eliminated</div>
+      <div class="tie-sub"><b>Next:</b> vs winner of Australia–Egypt (also today) · <b>Odds:</b> Argentina ~ -650 · Cape Verde ~ +1900</div>
+    </div>
+  </div>
+
+  <div class="road">
+    <h3>How They Got Here</h3>
+    <div class="roadgrid">
+      <div>
+        <div class="rh a">Argentina · Group J winners (perfect, 9 pts)</div>
+        <div class="game"><span class="score w">3&ndash;0</span><span class="gt"><span class="dt">Jun 16</span> · vs Algeria<small>Messi hat-trick (equalled Klose's WC record)</small></span></div>
+        <div class="game"><span class="score w">2&ndash;0</span><span class="gt"><span class="dt">Jun 22</span> · vs Austria<small>Messi brace, breaks all-time WC scoring record</small></span></div>
+        <div class="game"><span class="score w">3&ndash;1</span><span class="gt"><span class="dt">Jun 27</span> · vs Jordan<small>Messi's 7th straight WC scoring game</small></span></div>
+      </div>
+      <div>
+        <div class="rh c">Cape Verde · Group H runners-up (3 draws)</div>
+        <div class="game"><span class="score d">0&ndash;0</span><span class="gt"><span class="dt">Jun 15</span> · vs Spain<small>held the pre-tournament favorites</small></span></div>
+        <div class="game"><span class="score d">2&ndash;2</span><span class="gt"><span class="dt">Jun 21</span> · vs Uruguay<small>their first-ever World Cup goals</small></span></div>
+        <div class="game"><span class="score d">0&ndash;0</span><span class="gt"><span class="dt">Jun 26</span> · vs Saudi Arabia<small>Deroy Duarte MOTM; sealed the knockouts</small></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="next">
+    <h3>What's At Stake &amp; What's Next</h3>
+    <div class="ng">
+      <p><b>Argentina:</b> Win and march on as overwhelming favorites; a Round of 16 date in Atlanta (Jul 7) awaits the winner of Australia–Egypt. They chase back-to-back titles — <b>no nation has defended the World Cup since Brazil in 1962</b>. Anything but a comfortable win would count as a scare.</p>
+      <p><b>Cape Verde:</b> Pure house money. They've already made history as the smallest nation ever in a World Cup knockout — every minute from here is unprecedented. Win and it becomes the greatest story of the tournament; lose and they go home as the team that held Spain and reached the last 32 on debut.</p>
+      <p><b>Messi's last dance:</b> 19 career World Cup goals (all-time leader) and the first player ever to score in seven straight WC matches. In what is almost certainly his final World Cup, every appearance could be the last.</p>
+      <p><b>The blueprint for an upset:</b> sit deep, frustrate, ride Vozinha's gloves, and steal one on a counter or set-piece. It's a long shot — but Cape Verde have drawn with Spain and Uruguay doing exactly that.</p>
+    </div>
+  </div>
+
+  <div class="wtw">
+    <h3>What To Watch For</h3>
+    <div class="battles">
+      <div class="battle"><span class="bt">Messi vs Cape Verde's low block</span>The whole match in one duel. Cape Verde will pack the middle and defend deep; Messi's job is to find the pockets between the lines. Watch where he drifts — dropping to face the ball, or holding high to attack the last gap.</div>
+      <div class="battle"><span class="bt">Cape Verde's front three vs Argentina's high line</span>The Blue Sharks' one real route. Mendes, Rodrigues and Benchimol springing in behind the instant Argentina over-commit, attacking the space Romero and Otamendi leave. If Cape Verde score, it probably looks like this.</div>
+      <div class="battle"><span class="bt">Vozinha vs the Argentine barrage</span>Plan B that's really Plan A. The 40-year-old keeper shut out Spain <i>and</i> Saudi Arabia in the group. Another inspired shift is Cape Verde's most realistic path to extra time.</div>
+      <div class="battle"><span class="bt">Argentina's midfield vs Cape Verde's compact middle</span>De Paul–Enzo–Mac Allister against Kevin Pina, Jamiro Monteiro and Laros Duarte. Can a settled diaspora midfield stay disciplined and unbroken for 90 minutes against the world champions' engine room?</div>
+    </div>
+    <div class="deadball"><b>Argentina dead-ball:</b> a clear aerial edge (Otamendi, Romero, Lautaro) against a smaller side — a likely way to crack a stubborn block. Penalties lean Messi / Lautaro. <b>If it ever reaches a shootout, Emi Martínez is the trump card.</b><br><b>Cape Verde dead-ball:</b> their own corners and wide free-kicks (Rodrigues delivery) are a rare chance to trouble a tall back line.</div>
+    <div class="tip"><b>Set-piece tip:</b> If it's still 0-0 past the hour, watch two things — Argentina turning to attacking set-pieces to break the block, and any Cape Verde counter or wide free-kick, their cheapest way to steal a goal.</div>
+  </div>
+
+  <div class="watch">
+    <h3>&#9733; The Names You'll Hear Most &#9733;</h3>
+    <div class="wgroup">
+      <div class="wteam a">Argentina</div>
+      <div class="wgrid">
+        <div class="star"><span class="wn a">10</span><div><div class="nm">Lionel Messi</div><div class="meta">Argentina · Inter Miami · Captain</div><div class="blurb">The main event. All-time World Cup top scorer (<b>19 goals</b>) and the first player to score in seven straight WC games. Almost certainly his last World Cup; rested for Jordan, back to start the knockout.</div></div></div>
+        <div class="star"><span class="wn a">22</span><div><div class="nm">Lautaro Martínez</div><div class="meta">Argentina · Inter Milan · Striker</div><div class="blurb">The clinical No.9 in the box seat to lead the line — Argentina's go-to finisher and a reliable penalty option.</div></div></div>
+        <div class="star"><span class="wn a">9</span><div><div class="nm">Julián Álvarez</div><div class="meta">Argentina · Atlético Madrid · Forward</div><div class="blurb">The 2022 hero, nursing a left-ankle niggle and fighting to keep the striker spot — or partner Lautaro alongside Messi.</div></div></div>
+        <div class="star"><span class="wn a">20</span><div><div class="nm">Alexis Mac Allister</div><div class="meta">Argentina · Liverpool · Midfield</div><div class="blurb">The undroppable metronome of the De Paul–Enzo–Mac Allister engine room; links the defense to Messi.</div></div></div>
+      </div>
+    </div>
+    <div class="wgroup">
+      <div class="wteam c">Cape Verde</div>
+      <div class="wgrid">
+        <div class="star"><span class="wn c">20</span><div><div class="nm">Ryan Mendes</div><div class="meta">Cape Verde · Iğdır FK · Captain</div><div class="blurb">The face of Cape Verdean football and national-record holder for caps and goals. Leading the line at a debut World Cup at 36 — the emotional heart of the run.</div></div></div>
+        <div class="star"><span class="wn c">1</span><div><div class="nm">Vozinha</div><div class="meta">Cape Verde · GD Chaves · Goalkeeper</div><div class="blurb">The breakout folk hero. The 40-year-old keeper who shut out Spain and Saudi Arabia. If Cape Verde survive, it runs through his gloves.</div></div></div>
+        <div class="star"><span class="wn c">11</span><div><div class="nm">Garry Rodrigues</div><div class="meta">Cape Verde · Apollon Limassol · Winger</div><div class="blurb">The most pedigreed attacker (ex-Galatasaray, PAOK). Technical quality and big-stage composure — their main creative threat on the wing.</div></div></div>
+        <div class="star"><span class="wn c">19</span><div><div class="nm">Dailon Livramento</div><div class="meta">Cape Verde · Casa Pia · Forward</div><div class="blurb">The young change-of-pace option off the bench; fresh legs to run at tiring defenders late in a game Cape Verde need to keep alive.</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rtitle">The Lineups · By The Numbers</div>
+  <div class="lineup-tabs">
+    <input type="radio" name="lineup-tab" id="lineup-home" class="tab-input" checked>
+    <input type="radio" name="lineup-tab" id="lineup-away" class="tab-input">
+    <div class="tab-bar">
+      <label for="lineup-home" class="tab-home">Argentina</label>
+      <label for="lineup-away" class="tab-away">Cape Verde</label>
+    </div>
+  <div class="cols">
+    <div class="col ar">
+      <div class="colhead"><h2>Argentina</h2><span class="form"><span class="kit">sky-blue/white home kit</span></span></div>
+      <div class="rsub">Starters · 4-3-3</div>
+      <ul class="xi">
+        <li><span class="num">3</span><span class="pname">Nicolás Tagliafico</span><span class="pclub">Lyon</span></li>
+        <li><span class="num">7</span><span class="pname">Rodrigo De Paul</span><span class="pclub">Inter Miami</span></li>
+        <li><span class="num">9</span><span class="pname">Julián Álvarez</span><span class="pclub">Atlético Madrid</span></li>
+        <li><span class="num">10</span><span class="pname">Lionel Messi<span class="cap">C</span></span><span class="pclub">Inter Miami</span></li>
+        <li><span class="num">13</span><span class="pname">Cristian Romero</span><span class="pclub">Tottenham</span></li>
+        <li><span class="num">19</span><span class="pname">Nicolás Otamendi</span><span class="pclub">Benfica</span></li>
+        <li><span class="num">20</span><span class="pname">Alexis Mac Allister</span><span class="pclub">Liverpool</span></li>
+        <li><span class="num">22</span><span class="pname">Lautaro Martínez</span><span class="pclub">Inter Milan</span></li>
+        <li><span class="num gk">23</span><span class="pname">Emiliano Martínez</span><span class="pclub">Aston Villa</span></li>
+        <li><span class="num">24</span><span class="pname">Enzo Fernández</span><span class="pclub">Chelsea</span></li>
+        <li><span class="num">26</span><span class="pname">Nahuel Molina</span><span class="pclub">Atlético Madrid</span></li>
+      </ul>
+      <div class="rsub">Bench</div>
+      <ul class="xi">
+        <li><span class="num gk">1</span><span class="pname">Juan Musso</span><span class="pclub">Atlético Madrid</span></li>
+        <li><span class="num">2</span><span class="pname">Marcos Senesi</span><span class="pclub">Bournemouth</span></li>
+        <li><span class="num">4</span><span class="pname">Gonzalo Montiel</span><span class="pclub">River Plate</span></li>
+        <li><span class="num">5</span><span class="pname">Leandro Paredes</span><span class="pclub">Boca Juniors</span></li>
+        <li><span class="num">6</span><span class="pname">Lisandro Martínez</span><span class="pclub">Man United</span></li>
+        <li><span class="num">8</span><span class="pname">Valentín Barco</span><span class="pclub">Strasbourg</span></li>
+        <li><span class="num">11</span><span class="pname">Giovani Lo Celso</span><span class="pclub">Real Betis</span></li>
+        <li><span class="num gk">12</span><span class="pname">Gerónimo Rulli</span><span class="pclub">Marseille</span></li>
+        <li><span class="num">14</span><span class="pname">Exequiel Palacios</span><span class="pclub">Bayer Leverkusen</span></li>
+        <li><span class="num">15</span><span class="pname">Nicolás González</span><span class="pclub">Atlético Madrid</span></li>
+        <li><span class="num">16</span><span class="pname">Thiago Almada</span><span class="pclub">Atlético Madrid</span></li>
+        <li><span class="num">17</span><span class="pname">Giuliano Simeone</span><span class="pclub">Atlético Madrid</span></li>
+        <li><span class="num">18</span><span class="pname">Nico Paz</span><span class="pclub">Como</span></li>
+        <li><span class="num">21</span><span class="pname">José Manuel López</span><span class="pclub">Palmeiras</span></li>
+        <li><span class="num">25</span><span class="pname">Facundo Medina</span><span class="pclub">Marseille</span></li>
+      </ul>
+      <div class="note">Predicted strongest XI for the knockout (Scaloni rotated and rested Messi in the dead-rubber Jordan game). Live doubts: CB Romero (knee knock vs Austria) / Lisandro; LB Tagliafico / Medina; striker Lautaro / Álvarez, or both with Messi. Confirmed XI ~1hr pre-KO.</div>
+    </div>
+    <div class="col cv">
+      <div class="colhead"><h2>Cape Verde</h2><span class="form"><span class="kit">white change kit</span></span></div>
+      <div class="rsub">Starters · 4-3-3</div>
+      <ul class="xi">
+        <li><span class="num gk">1</span><span class="pname">Vozinha</span><span class="pclub">GD Chaves (POR)</span></li>
+        <li><span class="num">3</span><span class="pname">Diney (Borges)</span><span class="pclub">Al Bataeh (UAE)</span></li>
+        <li><span class="num">4</span><span class="pname">Pico (R. Lopes)</span><span class="pclub">Shamrock Rovers (IRL)</span></li>
+        <li><span class="num">6</span><span class="pname">Kevin Pina</span><span class="pclub">Krasnodar (RUS)</span></li>
+        <li><span class="num">8</span><span class="pname">João Paulo</span><span class="pclub">FCSB (ROU)</span></li>
+        <li><span class="num">9</span><span class="pname">Gilson Benchimol</span><span class="pclub">Akron Tolyatti (RUS)</span></li>
+        <li><span class="num">10</span><span class="pname">Jamiro Monteiro</span><span class="pclub">PEC Zwolle (NED)</span></li>
+        <li><span class="num">11</span><span class="pname">Garry Rodrigues</span><span class="pclub">Apollon Limassol (CYP)</span></li>
+        <li><span class="num">15</span><span class="pname">Laros Duarte</span><span class="pclub">Puskás Akadémia (HUN)</span></li>
+        <li><span class="num">20</span><span class="pname">Ryan Mendes<span class="cap">C</span></span><span class="pclub">Iğdır FK (TUR)</span></li>
+        <li><span class="num">22</span><span class="pname">Steven Moreira</span><span class="pclub">Columbus Crew (USA)</span></li>
+      </ul>
+      <div class="rsub">Bench</div>
+      <ul class="xi">
+        <li><span class="num">2</span><span class="pname">Stopira</span><span class="pclub">Torreense (POR)</span></li>
+        <li><span class="num">5</span><span class="pname">Logan Costa</span><span class="pclub">Villarreal (ESP)</span></li>
+        <li><span class="num">7</span><span class="pname">Jovane Cabral</span><span class="pclub">Estrela da Amadora (POR)</span></li>
+        <li><span class="num gk">12</span><span class="pname">Márcio Rosa</span><span class="pclub">Montana (BUL)</span></li>
+        <li><span class="num">13</span><span class="pname">Sidny Lopes Cabral</span><span class="pclub">Benfica (POR)</span></li>
+        <li><span class="num">14</span><span class="pname">Deroy Duarte</span><span class="pclub">Ludogorets (BUL)</span></li>
+        <li><span class="num">16</span><span class="pname">Yannick Semedo</span><span class="pclub">Farense (POR)</span></li>
+        <li><span class="num">17</span><span class="pname">Willy Semedo</span><span class="pclub">Omonia Nicosia (CYP)</span></li>
+        <li><span class="num">18</span><span class="pname">Telmo Arcanjo</span><span class="pclub">Vitória SC (POR)</span></li>
+        <li><span class="num">19</span><span class="pname">Dailon Livramento</span><span class="pclub">Casa Pia (POR)</span></li>
+        <li><span class="num">21</span><span class="pname">Nuno da Costa</span><span class="pclub">Başakşehir (TUR)</span></li>
+        <li><span class="num gk">23</span><span class="pname">CJ dos Santos</span><span class="pclub">San Diego FC (USA)</span></li>
+        <li><span class="num">24</span><span class="pname">Wagner Pina</span><span class="pclub">Trabzonspor (TUR)</span></li>
+        <li><span class="num">25</span><span class="pname">Kelvin Pires</span><span class="pclub">SJK Seinäjoki (FIN)</span></li>
+        <li><span class="num">26</span><span class="pname">Hélio Varela</span><span class="pclub">Maccabi Tel Aviv (ISR)</span></li>
+      </ul>
+      <div class="note">Numbers per ESPN's squad list (GKs 1/12/23, the real WC convention) — high-confidence, not officially cross-checked. Predicted XI is a proxy from the settled Saudi Arabia game; vs Argentina expect a deeper shape (4-3-3 → low block / 4-5-1). Logan Costa (Villarreal) and Sidny Cabral (Benfica) push for the back line.</div>
+    </div>
+  </div>
+  </div>
+
+  <div class="foot">
+    pre-match (confirmed XIs + shirt numbers drop ~1hr before kickoff) <span>Per ESPN / SI / FIFA / Al Jazeera / Wikipedia previews. Cape Verde numbers unofficial; referee &amp; kits TBC.</span>
+  </div>
+
+</div>
+</body>
+</html>

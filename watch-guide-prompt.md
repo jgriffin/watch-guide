@@ -27,7 +27,7 @@ First team = **home** (left side); second = **away** (right side).
 
 Reproduce the **visual language** of the accompanying `example.html` (a phone-first one-pager), adapting the content to this match. Don't copy its text — copy its *style and structure*:
 
-- Dense sports-programme aesthetic: condensed display fonts (Oswald / Barlow Condensed via a Google Fonts `@import`), **team-colored headers**, dark accent bars, gold highlights, dotted dividers, squad-number chips. **Prose sections are single-column** (What's At Stake, What To Watch For, Names You'll Hear Most) — easier to scan on a phone. **Lineups** side-by-side on wide screens; **CSS-only tabs** on narrow (`@media max-width:680px`).
+- Dense sports-programme aesthetic: Oswald for display, **Barlow for all paragraph-length reading** (not Barlow Condensed at tiny sizes), Barlow Condensed for short labels only. **Team-colored headers**, gold accents, dotted dividers, squad-number chips. **Prose sections are single-column.** **Lineups** side-by-side on wide screens; **CSS-only tabs** on narrow (`@media max-width:680px`). **Type scale in `:root`** (`--text-base` = 16px body, `--text-2xl` = 22px section titles, `--text-3xl` = 28px nicknames) — copy from `example.html`; never hardcode 9–11px body text.
 - **Stakes strip** stacks vertically: gold **message** on top, then a full-width dark **`.tie`** bar below (knockout) or full-width **group table** (group stage). Knockout `.tie` = two prose lines, not a key-value table:
   - `.tie-main` — e.g. `<b>Winner → Round of 16</b> · Loser eliminated`
   - `.tie-sub` — e.g. `<b>Next:</b> vs … · <b>Odds:</b> …` (fold odds here; skip redundant Winner/Loser rows)
