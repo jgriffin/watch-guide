@@ -1,0 +1,532 @@
+{
+  "generated": "2026-06-29",
+  "source": "openfootball/worldcup.json (2026) — github.com/openfootball/worldcup.json",
+  "rounds": [
+    {
+      "key": "r32",
+      "label": "Round of 32",
+      "ties": [
+        {
+          "num": 74,
+          "date": "2026-06-29",
+          "t1": "Germany",
+          "t2": "Paraguay",
+          "f1": "🇩🇪",
+          "f2": "🇵🇾",
+          "s1": "1",
+          "s2": "1",
+          "winner": 2,
+          "note": "3–4 pen",
+          "feeders": null,
+          "slug": "germany-paraguay"
+        },
+        {
+          "num": 77,
+          "date": "2026-06-30",
+          "t1": "France",
+          "t2": "Sweden",
+          "f1": "🇫🇷",
+          "f2": "🇸🇪",
+          "s1": null,
+          "s2": null,
+          "winner": null,
+          "note": null,
+          "feeders": null,
+          "slug": "france-sweden"
+        },
+        {
+          "num": 73,
+          "date": "2026-06-28",
+          "t1": "South Africa",
+          "t2": "Canada",
+          "f1": "🇿🇦",
+          "f2": "🇨🇦",
+          "s1": "0",
+          "s2": "1",
+          "winner": 2,
+          "note": null,
+          "feeders": null,
+          "slug": "canada-south-africa"
+        },
+        {
+          "num": 75,
+          "date": "2026-06-29",
+          "t1": "Netherlands",
+          "t2": "Morocco",
+          "f1": "🇳🇱",
+          "f2": "🇲🇦",
+          "s1": "1",
+          "s2": "1",
+          "winner": 2,
+          "note": "2–3 pen",
+          "feeders": null,
+          "slug": "netherlands-morocco"
+        },
+        {
+          "num": 83,
+          "date": "2026-07-02",
+          "t1": "Portugal",
+          "t2": "Croatia",
+          "f1": "🇵🇹",
+          "f2": "🇭🇷",
+          "s1": null,
+          "s2": null,
+          "winner": null,
+          "note": null,
+          "feeders": null,
+          "slug": "portugal-croatia"
+        },
+        {
+          "num": 84,
+          "date": "2026-07-02",
+          "t1": "Spain",
+          "t2": "Austria",
+          "f1": "🇪🇸",
+          "f2": "🇦🇹",
+          "s1": null,
+          "s2": null,
+          "winner": null,
+          "note": null,
+          "feeders": null,
+          "slug": "spain-austria"
+        },
+        {
+          "num": 81,
+          "date": "2026-07-01",
+          "t1": "USA",
+          "t2": "Bosnia & Herzegovina",
+          "f1": "🇺🇸",
+          "f2": "🇧🇦",
+          "s1": null,
+          "s2": null,
+          "winner": null,
+          "note": null,
+          "feeders": null,
+          "slug": "usa-bosnia-herzegovina"
+        },
+        {
+          "num": 82,
+          "date": "2026-07-01",
+          "t1": "Belgium",
+          "t2": "Senegal",
+          "f1": "🇧🇪",
+          "f2": "🇸🇳",
+          "s1": null,
+          "s2": null,
+          "winner": null,
+          "note": null,
+          "feeders": null,
+          "slug": "belgium-senegal"
+        },
+        {
+          "num": 76,
+          "date": "2026-06-29",
+          "t1": "Brazil",
+          "t2": "Japan",
+          "f1": "🇧🇷",
+          "f2": "🇯🇵",
+          "s1": "2",
+          "s2": "1",
+          "winner": 1,
+          "note": null,
+          "feeders": null,
+          "slug": "brazil-japan"
+        },
+        {
+          "num": 78,
+          "date": "2026-06-30",
+          "t1": "Ivory Coast",
+          "t2": "Norway",
+          "f1": "🇨🇮",
+          "f2": "🇳🇴",
+          "s1": null,
+          "s2": null,
+          "winner": null,
+          "note": null,
+          "feeders": null,
+          "slug": "ivory-coast-norway"
+        },
+        {
+          "num": 79,
+          "date": "2026-06-30",
+          "t1": "Mexico",
+          "t2": "Ecuador",
+          "f1": "🇲🇽",
+          "f2": "🇪🇨",
+          "s1": null,
+          "s2": null,
+          "winner": null,
+          "note": null,
+          "feeders": null,
+          "slug": "mexico-ecuador"
+        },
+        {
+          "num": 80,
+          "date": "2026-07-01",
+          "t1": "England",
+          "t2": "DR Congo",
+          "f1": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+          "f2": "🇨🇩",
+          "s1": null,
+          "s2": null,
+          "winner": null,
+          "note": null,
+          "feeders": null,
+          "slug": "england-congo-dr"
+        },
+        {
+          "num": 86,
+          "date": "2026-07-03",
+          "t1": "Argentina",
+          "t2": "Cape Verde",
+          "f1": "🇦🇷",
+          "f2": "🇨🇻",
+          "s1": null,
+          "s2": null,
+          "winner": null,
+          "note": null,
+          "feeders": null,
+          "slug": "argentina-cape-verde"
+        },
+        {
+          "num": 88,
+          "date": "2026-07-03",
+          "t1": "Australia",
+          "t2": "Egypt",
+          "f1": "🇦🇺",
+          "f2": "🇪🇬",
+          "s1": null,
+          "s2": null,
+          "winner": null,
+          "note": null,
+          "feeders": null,
+          "slug": "australia-egypt"
+        },
+        {
+          "num": 85,
+          "date": "2026-07-02",
+          "t1": "Switzerland",
+          "t2": "Algeria",
+          "f1": "🇨🇭",
+          "f2": "🇩🇿",
+          "s1": null,
+          "s2": null,
+          "winner": null,
+          "note": null,
+          "feeders": null,
+          "slug": "switzerland-algeria"
+        },
+        {
+          "num": 87,
+          "date": "2026-07-03",
+          "t1": "Colombia",
+          "t2": "Ghana",
+          "f1": "🇨🇴",
+          "f2": "🇬🇭",
+          "s1": null,
+          "s2": null,
+          "winner": null,
+          "note": null,
+          "feeders": null,
+          "slug": "colombia-ghana"
+        }
+      ]
+    },
+    {
+      "key": "r16",
+      "label": "Round of 16",
+      "ties": [
+        {
+          "num": 89,
+          "date": "2026-07-04",
+          "t1": "Paraguay",
+          "t2": null,
+          "f1": "🇵🇾",
+          "f2": null,
+          "s1": null,
+          "s2": null,
+          "winner": null,
+          "note": null,
+          "feeders": [
+            74,
+            77
+          ],
+          "slug": null
+        },
+        {
+          "num": 90,
+          "date": "2026-07-04",
+          "t1": "Canada",
+          "t2": "Morocco",
+          "f1": "🇨🇦",
+          "f2": "🇲🇦",
+          "s1": null,
+          "s2": null,
+          "winner": null,
+          "note": null,
+          "feeders": [
+            73,
+            75
+          ],
+          "slug": null
+        },
+        {
+          "num": 93,
+          "date": "2026-07-06",
+          "t1": null,
+          "t2": null,
+          "f1": null,
+          "f2": null,
+          "s1": null,
+          "s2": null,
+          "winner": null,
+          "note": null,
+          "feeders": [
+            83,
+            84
+          ],
+          "slug": null
+        },
+        {
+          "num": 94,
+          "date": "2026-07-06",
+          "t1": null,
+          "t2": null,
+          "f1": null,
+          "f2": null,
+          "s1": null,
+          "s2": null,
+          "winner": null,
+          "note": null,
+          "feeders": [
+            81,
+            82
+          ],
+          "slug": null
+        },
+        {
+          "num": 91,
+          "date": "2026-07-05",
+          "t1": "Brazil",
+          "t2": null,
+          "f1": "🇧🇷",
+          "f2": null,
+          "s1": null,
+          "s2": null,
+          "winner": null,
+          "note": null,
+          "feeders": [
+            76,
+            78
+          ],
+          "slug": null
+        },
+        {
+          "num": 92,
+          "date": "2026-07-05",
+          "t1": null,
+          "t2": null,
+          "f1": null,
+          "f2": null,
+          "s1": null,
+          "s2": null,
+          "winner": null,
+          "note": null,
+          "feeders": [
+            79,
+            80
+          ],
+          "slug": null
+        },
+        {
+          "num": 95,
+          "date": "2026-07-07",
+          "t1": null,
+          "t2": null,
+          "f1": null,
+          "f2": null,
+          "s1": null,
+          "s2": null,
+          "winner": null,
+          "note": null,
+          "feeders": [
+            86,
+            88
+          ],
+          "slug": null
+        },
+        {
+          "num": 96,
+          "date": "2026-07-07",
+          "t1": null,
+          "t2": null,
+          "f1": null,
+          "f2": null,
+          "s1": null,
+          "s2": null,
+          "winner": null,
+          "note": null,
+          "feeders": [
+            85,
+            87
+          ],
+          "slug": null
+        }
+      ]
+    },
+    {
+      "key": "qf",
+      "label": "Quarter-finals",
+      "ties": [
+        {
+          "num": 97,
+          "date": "2026-07-09",
+          "t1": null,
+          "t2": null,
+          "f1": null,
+          "f2": null,
+          "s1": null,
+          "s2": null,
+          "winner": null,
+          "note": null,
+          "feeders": [
+            89,
+            90
+          ],
+          "slug": null
+        },
+        {
+          "num": 98,
+          "date": "2026-07-10",
+          "t1": null,
+          "t2": null,
+          "f1": null,
+          "f2": null,
+          "s1": null,
+          "s2": null,
+          "winner": null,
+          "note": null,
+          "feeders": [
+            93,
+            94
+          ],
+          "slug": null
+        },
+        {
+          "num": 99,
+          "date": "2026-07-11",
+          "t1": null,
+          "t2": null,
+          "f1": null,
+          "f2": null,
+          "s1": null,
+          "s2": null,
+          "winner": null,
+          "note": null,
+          "feeders": [
+            91,
+            92
+          ],
+          "slug": null
+        },
+        {
+          "num": 100,
+          "date": "2026-07-11",
+          "t1": null,
+          "t2": null,
+          "f1": null,
+          "f2": null,
+          "s1": null,
+          "s2": null,
+          "winner": null,
+          "note": null,
+          "feeders": [
+            95,
+            96
+          ],
+          "slug": null
+        }
+      ]
+    },
+    {
+      "key": "sf",
+      "label": "Semi-finals",
+      "ties": [
+        {
+          "num": 101,
+          "date": "2026-07-14",
+          "t1": null,
+          "t2": null,
+          "f1": null,
+          "f2": null,
+          "s1": null,
+          "s2": null,
+          "winner": null,
+          "note": null,
+          "feeders": [
+            97,
+            98
+          ],
+          "slug": null
+        },
+        {
+          "num": 102,
+          "date": "2026-07-15",
+          "t1": null,
+          "t2": null,
+          "f1": null,
+          "f2": null,
+          "s1": null,
+          "s2": null,
+          "winner": null,
+          "note": null,
+          "feeders": [
+            99,
+            100
+          ],
+          "slug": null
+        }
+      ]
+    },
+    {
+      "key": "final",
+      "label": "Final",
+      "ties": [
+        {
+          "num": 104,
+          "date": "2026-07-19",
+          "t1": null,
+          "t2": null,
+          "f1": null,
+          "f2": null,
+          "s1": null,
+          "s2": null,
+          "winner": null,
+          "note": null,
+          "feeders": [
+            101,
+            102
+          ],
+          "slug": null
+        }
+      ]
+    }
+  ],
+  "third": {
+    "num": 103,
+    "date": "2026-07-18",
+    "t1": null,
+    "t2": null,
+    "f1": null,
+    "f2": null,
+    "s1": null,
+    "s2": null,
+    "winner": null,
+    "note": null,
+    "feeders": [
+      101,
+      102
+    ],
+    "slug": null
+  }
+}
