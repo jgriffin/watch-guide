@@ -104,8 +104,20 @@ Scope research to what the format needs (table below), from a few high-yield sou
     2. **"FIFA rank" header field is a sourcing-cliff item** — previews don't surface it cleanly; mark optional/approx so it isn't invented.
     3. **Formation can be genuinely disputed pre-match** (Iran 3-4-3 vs 5-4-1) — prompt should say "label per source consensus; flag if disputed" (done inline in both sheets' lineup notes).
     4. Worked well: `<home>-<away>` slug, section order, look/colors all came through from two independent builders.
-  - [ ] **NEXT: apply findings 1-3 to `watch-guide-prompt.md` + `example.html`**, then regenerate for the day's live fixtures.
-- [x] Refactor to lighter architecture: `template.html` (Jinja2) + thin `render.py` + `matches/`/`archive/` layout
+  - [x] Applied findings 1-3 to `watch-guide-prompt.md` + `example.html` (Jun 27).
 - [x] Efficient squad-number research (Wikipedia WC squads ⋈ predicted XI) → full numbered roster, all 52 players
-- [ ] Polish pass on the regenerated sheet (spacing, roster density on phone)
-- [ ] Eventually: fold render into a reusable skill (move off interim Python)
+- [x] **Two-file split** (Jun 27): each match folder = `data.md` (research, source of truth) + `<home>-<away>.html` (rendered from it). Re-skin without re-research. Folders `matches/<YYYY-MM-DD>-<HHMM>-<slug>/`, time in **Pacific** (reader is Seattle). Filename match-slug (saves cleanly to phone).
+- [x] **Matchday kit colors** added to spec — lineups tinted by the worn kit, identity colors in header.
+- [x] **Mobile look** (Jun 29): `example.html` got CSS-only lineup tabs (radio switcher), 2×2 infobar, single-column prose. Re-skin the day's guides to inherit it.
+- [x] **9 guides built so far:** Jun 26 (egypt-iran, spain-uruguay), Jun 27 (panama-england, colombia-portugal, jordan-argentina), Jun 28 (canada-south-africa), Jun 29 R32 (brazil-japan, germany-paraguay, netherlands-morocco).
+- [x] **Vercel site LIVE** (Jun 29): **https://wc-watch-guide.vercel.app** — static, schedule landing (grouped by day) + clean guide URLs (`/brazil-japan`) + site-wide hide-scores toggle (localStorage). Solves the iPhone Files-preview problem.
+
+### Site / redeploy
+- Build: `./build-site.sh` regenerates `site/` from `matches/` + `fixtures.json` (copies each guide → `site/<slug>/index.html`, injects the hide-scores snippet, generates the schedule landing). `fixtures.json` (project root) is the maintained schedule source → gives **placeholders** ("Guide not generated yet") for upcoming games not yet built; refresh it as the bracket fills in. Landing layout: chronological oldest→newest, **only today open**; past games collapsed in an "Earlier games" `<details>` at top, future in "Upcoming games" `<details>` at bottom (tiers computed at build time vs `date +%F`). `site/` is gitignored (derived); `build-site.sh` + `fixtures.json` are the source.
+- Deploy: `cd site && vercel --prod` (project `wc-watch-guide`, scope `johngrif`, linked via `site/.vercel`). Manual CLI by design. ⚠️ `build-site.sh` **must preserve `site/.vercel`** (it clears site/ contents but excludes `.vercel`) — else `vercel --prod` re-links to a junk project named after the dir ("site"). Don't revert that to a plain `rm -rf site`.
+- After regenerating/adding guides: `./build-site.sh && (cd site && vercel --prod)`.
+
+### Open
+- [ ] **v1b: visual R32→final bracket** on the landing (results-heavy → leans on hide-scores).
+- [ ] Re-skin the 6 pre-Jun-29 guides to the mobile lineup-tabs look (only the Jun-29 three have it).
+- [ ] Eventually: fold the whole flow into a reusable skill.

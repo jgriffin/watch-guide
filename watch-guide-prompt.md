@@ -27,8 +27,10 @@ First team = **home** (left side); second = **away** (right side).
 
 Reproduce the **visual language** of the accompanying `example.html` (a phone-first one-pager), adapting the content to this match. Don't copy its text — copy its *style and structure*:
 
-- Dense sports-programme aesthetic: condensed display fonts (Oswald / Barlow Condensed via a Google Fonts `@import`), **team-colored headers**, dark accent bars, gold highlights, dotted dividers, squad-number chips, two-column blocks that collapse on a phone (`@media max-width:680px`).
-- **Mobile layout (copy from `example.html`):** infobar wraps 2×2; header nicknames shrink; prose columns go single-column; **lineups use CSS-only tabs** (`.lineup-tabs` with radio inputs + `.tab-bar` labels — one team at full width on phone, side-by-side on desktop). Never leave `.cols` as two columns on narrow screens.
+- Dense sports-programme aesthetic: condensed display fonts (Oswald / Barlow Condensed via a Google Fonts `@import`), **team-colored headers**, dark accent bars, gold highlights, dotted dividers, squad-number chips. **Prose sections are single-column** (What's At Stake, What To Watch For, Names You'll Hear Most) — easier to scan on a phone. **Lineups** side-by-side on wide screens; **CSS-only tabs** on narrow (`@media max-width:680px`).
+- **Stakes strip** stacks vertically: gold **message** on top, then a full-width dark **`.tie`** bar below (knockout) or full-width **group table** (group stage). Knockout `.tie` = two prose lines, not a key-value table:
+  - `.tie-main` — e.g. `<b>Winner → Round of 16</b> · Loser eliminated`
+  - `.tie-sub` — e.g. `<b>Next:</b> vs … · <b>Odds:</b> …` (fold odds here; skip redundant Winner/Loser rows)
 - **Self-contained:** one HTML file, inline `<style>`, no external deps beyond the font import. Opens directly in a browser; reads/prints well on a phone.
 - **Use each team's REAL colors** (kit/flag) for their side — not the example's red/green. (e.g. Spain red/gold, Portugal red/green, Argentina sky-blue/white.) Pick a primary + a darker shade per team.
 - Conceptually one page; it can scroll on a phone.
@@ -42,7 +44,7 @@ If you can read the repo, `example.html` is at the project root. **If this was h
 1. **Header** — both teams: nickname, FIFA rank, coach, formation. Plus an **info bar**: venue, kickoff (Pacific primary + venue-local in parens — see INPUT), TV, referee.
    - **FIFA rank** is a sourcing-cliff field (previews rarely surface it cleanly) — include it only if you have it from a reliable source; otherwise mark it approx or omit. **Never invent a rank.**
    - **Formation** can be genuinely disputed pre-match (e.g. 3-4-3 vs 5-4-1 are the same shape seen two ways). Label per source consensus and **flag the dispute inline** in the lineup note if sources disagree.
-2. **Stakes strip + standings table.** (Knockout tie: replace the group table with the tie context — aggregate, what's at stake.)
+2. **Stakes strip + standings.** Knockout: gold `.msg` narrative, then full-width dark `.tie` bar (`.tie-main` + `.tie-sub` — winner/loser + next opponent + odds). Group stage: same stacked strip with a full-width `table.grp` instead of `.tie`.
 3. **How They Got Here** — condensed, chronological: `date · vs opponent · score` with W/D/L chips. No long blurbs.
 4. **What's At Stake & What's Next.**
 5. **What To Watch For** — 3–4 key individual battles + a set-piece tip.

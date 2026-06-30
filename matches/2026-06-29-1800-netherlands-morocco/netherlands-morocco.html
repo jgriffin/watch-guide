@@ -34,15 +34,15 @@
   .infobar div:last-child{border-right:none;}
   .infobar b{color:var(--gold);font-weight:600;letter-spacing:.07em;text-transform:uppercase;font-size:10px;display:block;}
 
-  /* STAKES + KNOCKOUT PANEL */
-  .strip{display:flex;align-items:stretch;background:var(--gold);color:#241e10;}
-  .strip .msg{flex:1;padding:9px 16px;font-family:'Barlow Condensed';font-size:14px;font-weight:500;align-self:center;}
+  /* STAKES + TIE BAR */
+  .strip{display:flex;flex-direction:column;align-items:stretch;background:var(--gold);color:#241e10;}
+  .strip .msg{padding:9px 16px;font-family:'Barlow Condensed';font-size:14px;font-weight:500;}
   .strip .msg b{font-weight:700;}
-  table.grp{border-collapse:collapse;font-family:'Barlow Condensed';font-size:12px;background:#241e10;color:#f6f3ec;min-width:226px;}
-  table.grp th{font-size:9px;letter-spacing:.08em;padding:4px 9px;color:var(--gold);text-transform:uppercase;font-weight:600;text-align:left;}
-  table.grp td{padding:3px 9px;border-top:1px solid #3a3220;}
-  table.grp td.k{color:var(--gold);text-transform:uppercase;font-size:9px;letter-spacing:.06em;font-weight:600;white-space:nowrap;}
-  table.grp td.v{text-align:left;font-family:'Barlow';font-size:11.5px;font-weight:600;}
+  .tie{background:#241e10;color:#f6f3ec;font-family:'Barlow Condensed';padding:8px 16px;width:100%;}
+  .tie-main{font-size:13px;color:#ffe9a8;line-height:1.38;}
+  .tie-main b{font-family:'Barlow';font-weight:600;color:#fff;}
+  .tie-sub{font-size:11px;color:#a89f8e;margin-top:5px;line-height:1.35;}
+  .tie-sub b{color:var(--gold);font-weight:600;}
 
   /* TEAM COLUMNS */
   .cols{display:grid;grid-template-columns:1fr 1fr;}
@@ -93,7 +93,7 @@
   /* WATCH */
   .watch{padding:13px 18px;}
   .watch h3{font-family:'Oswald';font-size:12px;letter-spacing:.2em;color:var(--ned-deep);text-transform:uppercase;margin-bottom:9px;}
-  .wgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 22px;}
+  .wgrid{display:grid;grid-template-columns:1fr;gap:10px;}
   .star{display:flex;gap:9px;}
   .star .wn{font-family:'Oswald';font-weight:700;font-size:15px;width:30px;height:28px;display:flex;align-items:center;justify-content:center;border-radius:3px;color:#fff;flex-shrink:0;}
   .wn.n{background:var(--ned-org);} .wn.m{background:var(--mar-red);}
@@ -110,7 +110,7 @@
   /* NEXT */
   .next{background:#efe9dc;padding:12px 18px;border-top:1px solid var(--line);}
   .next h3{font-family:'Oswald';font-size:12px;letter-spacing:.2em;color:var(--mar-grn);text-transform:uppercase;margin-bottom:7px;}
-  .next .ng{columns:2;column-gap:24px;}
+  .next .ng{columns:1;}
   .next p{font-size:11px;margin-bottom:6px;break-inside:avoid;line-height:1.36;padding-left:13px;position:relative;}
   .next p::before{content:"\25B8";position:absolute;left:0;color:var(--gold);font-size:9px;top:2px;}
   .next b{font-weight:600;}
@@ -118,7 +118,7 @@
   /* WHAT TO WATCH FOR */
   .wtw{padding:13px 18px;border-top:1px solid var(--line);}
   .wtw h3{font-family:'Oswald';font-size:12px;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;margin-bottom:9px;}
-  .battles{columns:2;column-gap:24px;}
+  .battles{columns:1;}
   .battle{font-size:11px;line-height:1.36;margin-bottom:8px;break-inside:avoid;}
   .battle .bt{font-family:'Oswald';font-weight:600;font-size:11.5px;text-transform:uppercase;letter-spacing:.02em;color:var(--ink);display:block;margin-bottom:1px;}
   .tip{margin-top:6px;background:#efe9dc;border-left:3px solid var(--gold);padding:8px 11px;font-size:11.5px;font-family:'Barlow Condensed';line-height:1.4;}
@@ -134,13 +134,60 @@
   .foot{background:var(--ink);color:#9a9081;font-size:9.5px;text-align:center;padding:7px;font-family:'Barlow Condensed';letter-spacing:.05em;}
   .foot span{color:var(--gold);}
 
+  /* LINEUP TABS — mobile team switcher (CSS-only) */
+  .lineup-tabs .tab-input{position:absolute;opacity:0;width:0;height:0;pointer-events:none;}
+  .lineup-tabs .tab-bar{display:none;}
+
   @media (max-width:680px){
-    body{padding:7px;}
-    .wgrid,.roadgrid,.next .ng,.battles{grid-template-columns:1fr;columns:1;}
-    .nat{font-size:22px;}
-    .pclub{font-size:10px;}
-    .strip{flex-direction:column;}
-    table.grp{min-width:0;width:100%;}
+    body{padding:7px;overflow-x:hidden;}
+    .sheet{overflow-x:clip;}
+    .roadgrid{grid-template-columns:1fr;}
+    .cols{grid-template-columns:1fr;}
+
+    /* Header — shrink nicknames, let flex children shrink */
+    .top .side{padding:10px 12px;min-width:0;}
+    .top .mid{min-width:64px;padding:8px 10px;}
+    .nat{font-size:17px;line-height:1.08;overflow-wrap:break-word;text-wrap:balance;}
+    .flag{font-size:10px;letter-spacing:.1em;line-height:1.3;}
+    .sub{font-size:10px;line-height:1.25;margin-top:4px;}
+
+    /* Infobar — 2×2 grid instead of one overflowing row */
+    .infobar{flex-wrap:wrap;}
+    .infobar div{flex:1 1 46%;white-space:normal;min-width:0;padding:6px 10px;font-size:12px;}
+    .infobar div:nth-child(2){border-right:none;}
+    .infobar div:nth-child(3),
+    .infobar div:nth-child(4){border-top:1px solid #2c2c2c;}
+
+    /* Lineup tabs */
+    .lineup-tabs .tab-bar{
+      display:flex;margin:0 16px;padding-top:10px;
+      border-bottom:2px solid var(--line);
+    }
+    .lineup-tabs .tab-bar label{
+      flex:1;text-align:center;padding:8px 6px;
+      font-family:'Oswald';font-size:13px;font-weight:600;
+      text-transform:uppercase;letter-spacing:.06em;
+      cursor:pointer;color:var(--muted);
+      border-bottom:3px solid transparent;margin-bottom:-2px;
+    }
+    .lineup-tabs #lineup-home:checked ~ .tab-bar .tab-home{border-bottom-color:var(--ned-org);color:var(--ned-deep);}
+    .lineup-tabs #lineup-away:checked ~ .tab-bar .tab-away{border-bottom-color:var(--mar-red);color:var(--mar-red);}
+    .lineup-tabs #lineup-home:checked ~ .cols .col:last-child{display:none;}
+    .lineup-tabs #lineup-away:checked ~ .cols .col:first-child{display:none;}
+    .col.ned,.col.mar{border-right:none;}
+    .colhead{flex-wrap:wrap;align-items:flex-start;gap:4px;}
+    .colhead h2{font-size:16px;}
+
+    /* Player rows — full width */
+    .pname{min-width:0;flex:1;font-size:12px;}
+    .pclub{white-space:normal;flex-shrink:1;max-width:46%;font-size:9.5px;}
+
+    /* Stars */
+    .star,.star > div{min-width:0;}
+    .star .nm{font-size:13px;}
+
+    /* Prose blocks */
+    .next p,.battle,.blurb{overflow-wrap:break-word;}
   }
   @media print{body{background:#fff;padding:0;}.sheet{box-shadow:none;border:none;}@page{margin:7mm;}}
 </style>
@@ -175,13 +222,10 @@
 
   <div class="strip">
     <div class="msg"><b>Win or go home.</b> No second leg, no group safety net — the winner reaches the <b>Round of 16</b> in Houston; the loser is <b>out of the World Cup</b>. Morocco, 2022's history-making semi-finalists, vs a Dutch side that topped its group.</div>
-    <table class="grp">
-      <tr><th colspan="2">Knockout · R32</th></tr>
-      <tr><td class="k">All-time</td><td class="v">NED 2&ndash;1 MAR (3 mtgs)</td></tr>
-      <tr><td class="k">Winner</td><td class="v">&rarr; R16 · Houston · Sat Jul 4</td></tr>
-      <tr><td class="k">vs</td><td class="v">S.&nbsp;Africa / Canada (TBC)</td></tr>
-      <tr><td class="k">Odds</td><td class="v">NED +110 · Dr +230 · MAR +260</td></tr>
-    </table>
+    <div class="tie">
+      <div class="tie-main"><b>Winner → Round of 16</b> · Loser eliminated · Houston, Sat Jul 4</div>
+      <div class="tie-sub"><b>Next:</b> vs Canada/South Africa winner (TBC) · <b>Odds:</b> NED +110 · Draw +230 · MAR +260 · All-time: NED 2–1 MAR (3 mtgs)</div>
+    </div>
   </div>
 
   <div class="road">
@@ -241,6 +285,13 @@
   </div>
 
   <div class="rtitle">The Lineups · By The Numbers</div>
+  <div class="lineup-tabs">
+    <input type="radio" name="lineup-tab" id="lineup-home" class="tab-input" checked>
+    <input type="radio" name="lineup-tab" id="lineup-away" class="tab-input">
+    <div class="tab-bar">
+      <label for="lineup-home" class="tab-home">Netherlands</label>
+      <label for="lineup-away" class="tab-away">Morocco</label>
+    </div>
   <div class="cols">
     <div class="col ned">
       <div class="colhead"><h2>Netherlands</h2><span class="form">4-3-3 · high press, set-piece power</span></div>
@@ -316,6 +367,7 @@
       </ul>
       <div class="note">XI is fluid (~4 possible changes) — Amrabat may drop to the bench; the lone striker could be El Kaabi or Rahimi instead of Saibari. Shape reads 4-3-3 or 4-2-3-1. Confirmed ~1hr pre-kick.</div>
     </div>
+  </div>
   </div>
 
   <div class="foot">
