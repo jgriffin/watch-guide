@@ -126,6 +126,7 @@ cat > "$LANDING" <<'HEAD'
   .section{font-family:'Oswald';font-weight:700;font-size:14px;letter-spacing:.16em;text-transform:uppercase;padding:12px 22px;border-bottom:1px solid var(--line);}
   .section.today{background:var(--gold);color:var(--ink);}
   .section.next{background:var(--ink);color:var(--gold);}
+  .secsub{font-family:'Oswald';font-weight:600;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;opacity:.82;margin-left:11px;}
   .day{font-family:'Oswald';font-weight:600;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);background:#efeadf;padding:8px 22px;border-bottom:1px solid var(--line);}
   a.row{display:flex;align-items:center;gap:14px;padding:13px 22px;border-bottom:1px solid var(--line);text-decoration:none;color:var(--ink);}
   a.row:hover{background:#efeadf;}
@@ -143,13 +144,11 @@ cat > "$LANDING" <<'HEAD'
   details.earlier>summary::before{content:"\25B8\00a0";color:var(--gold);}
   details.earlier[open]>summary::before{content:"\25BE\00a0";}
   .foot{padding:13px 22px;font-family:'Barlow Condensed';font-size:12px;color:var(--muted);background:var(--paper);}
-  /* ---- bracket (landing hero) ---- */
-  .bracket-wrap{background:var(--ink);color:var(--paper);border-bottom:1px solid var(--line);}
-  .b-hd{font-family:'Oswald';font-weight:700;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);padding:15px 22px 4px;}
-  .b-sub{font-family:'Barlow Condensed';font-size:12px;color:#a59a86;padding:0 22px 6px;letter-spacing:.02em;}
-  .brk-in{position:absolute;opacity:0;width:0;height:0;pointer-events:none;}
-  .brk-tabs{display:none;}
-  .bracket{display:flex;flex-direction:row;align-items:stretch;padding:6px 18px 20px;overflow-x:auto;}
+  /* ---- bracket (below the schedule) ---- */
+  .bracket-wrap{background:var(--ink);color:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:20px;}
+  .b-hd{font-family:'Oswald';font-weight:700;font-size:17px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);padding:22px 22px 6px;}
+  .b-sub{font-family:'Barlow Condensed';font-size:13px;color:#a59a86;padding:0 22px 14px;letter-spacing:.02em;}
+  .bracket{display:flex;flex-direction:row;align-items:stretch;padding:10px 18px 24px;overflow-x:auto;-webkit-overflow-scrolling:touch;}
   .rnd{flex:1 1 0;min-width:128px;display:flex;flex-direction:column;}
   .rnd:not(:last-child){margin-right:22px;}
   .rnd-hd{font-family:'Barlow Condensed';font-weight:600;font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--gold);text-align:center;padding:2px 0 7px;opacity:.85;}
@@ -182,19 +181,16 @@ cat > "$LANDING" <<'HEAD'
   body.hide-scores .nm.adv{color:transparent;position:relative;}
   body.hide-scores .nm.adv::after{content:"TBD";position:absolute;left:0;top:0;color:#8a8071;font-weight:500;letter-spacing:.01em;}
   body.hide-scores .tie.today .note{visibility:hidden;}
-  /* mobile: one round at a time via CSS-only tabs */
+  /* mobile: keep the connected tree — just horizontally scrollable. The
+     current round shows with its pair-bracket connectors; scroll right → for
+     the rounds it feeds. No taller than the round's own height. */
   @media (max-width:680px){
-    .brk-tabs{display:flex;margin:2px 14px 0;border-bottom:2px solid #3a3220;}
-    .brk-tabs label{flex:1;text-align:center;font-family:'Oswald';font-weight:600;font-size:12px;letter-spacing:.04em;text-transform:uppercase;padding:9px 2px;color:#a59a86;cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px;}
-    #brk-r32:checked~.brk-tabs .t-r32,#brk-r16:checked~.brk-tabs .t-r16,#brk-qf:checked~.brk-tabs .t-qf,#brk-sf:checked~.brk-tabs .t-sf,#brk-final:checked~.brk-tabs .t-final{color:var(--gold);border-bottom-color:var(--gold);}
-    .bracket{flex-direction:column;overflow-x:visible;padding:10px 14px 16px;}
-    .rnd{margin-right:0;min-width:0;}
-    .rnd-hd{display:none;}
-    .ties{display:none;gap:9px;}
-    .ties .tie{flex:0 0 auto;margin:0;}
-    .ties .tie::after{display:none;}
-    .rnd:last-child .ties .tie{margin:0;}
-    #brk-r32:checked~.bracket .rnd-r32 .ties,#brk-r16:checked~.bracket .rnd-r16 .ties,#brk-qf:checked~.bracket .rnd-qf .ties,#brk-sf:checked~.bracket .rnd-sf .ties,#brk-final:checked~.bracket .rnd-final .ties{display:flex;}
+    .bracket{padding:8px 0 16px 14px;}      /* row + overflow-x:auto kept from base */
+    .rnd{min-width:150px;}                    /* a round fits, with a peek of the next */
+    .rnd:not(:last-child){margin-right:20px;}
+    .rnd:last-child{padding-right:14px;}      /* breathing room at the scroll end */
+    .rnd-hd{font-size:11px;}
+    .tm{padding:6px 8px;font-size:12.5px;}    /* a touch bigger for touch */
   }
 </style>
 </head>
@@ -203,22 +199,19 @@ cat > "$LANDING" <<'HEAD'
   <div class="hd"><div class="kicker">FIFA World Cup 2026</div><h1>Watch Guides</h1></div>
 HEAD
 
-# ---- bracket hero (rendered from bracket.json) ------------------------------
-# The knockout tree is the landing's hero. Data = bracket.json (refreshed by
-# fetch-bracket.sh). Desktop shows the connected tree; mobile shows one round at
-# a time via CSS-only radio tabs. Result/advancement chips honour hide-scores.
+# ---- bracket (rendered from bracket.json) -----------------------------------
+# The knockout tree. Data = bracket.json (refreshed by fetch-bracket.sh).
+# Desktop shows the connected tree; mobile shows one round at a time via
+# CSS-only radio tabs. Result/advancement chips honour hide-scores.
+# Emitted to a temp file here and spliced in BELOW the schedule (the schedule
+# — Today / Next up — is the primary nav; the bracket is the map beneath it).
 BRK="$ROOT/bracket.json"
+BRK_HTML="$SITE/.bracket.html"
 if [ -f "$BRK" ]; then
   {
     printf '  <div class="bracket-wrap">\n'
     printf '    <div class="b-hd">The Bracket — Road to the Final</div>\n'
-    printf '    <div class="b-sub">Round of 32 onward. Tap a round on mobile; tap any tie for its watch guide.</div>\n'
-    printf '    <input class="brk-in" type="radio" name="brk" id="brk-r32" checked>\n'
-    printf '    <input class="brk-in" type="radio" name="brk" id="brk-r16">\n'
-    printf '    <input class="brk-in" type="radio" name="brk" id="brk-qf">\n'
-    printf '    <input class="brk-in" type="radio" name="brk" id="brk-sf">\n'
-    printf '    <input class="brk-in" type="radio" name="brk" id="brk-final">\n'
-    printf '    <div class="brk-tabs"><label class="t-r32" for="brk-r32">R32</label><label class="t-r16" for="brk-r16">R16</label><label class="t-qf" for="brk-qf">QF</label><label class="t-sf" for="brk-sf">SF</label><label class="t-final" for="brk-final">Final</label></div>\n'
+    printf '    <div class="b-sub">The full knockout tree \342\200\224 scroll across the rounds \342\206\222 &nbsp;tap any tie for its watch guide.</div>\n'
     printf '    <div class="bracket">'
     jq -r --arg today "$TODAY" '
       # $spoilScore: this score is a TODAY result -> mark .score so the toggle masks it
@@ -255,7 +248,7 @@ if [ -f "$BRK" ]; then
           ] | join("")
     ' "$BRK"
     printf '</div>\n  </div>\n'
-  } >> "$LANDING"
+  } > "$BRK_HTML"
 fi
 
 # fixture slugs (to detect generated guides that AREN'T scheduled fixtures)
@@ -284,15 +277,13 @@ NEXTDAY="${UPDATES[0]:-}"
 
 # ---- Today (open) -----------------------------------------------------------
 if [ "$(jq -r --arg t "$TODAY" '[.fixtures[]|select(.date==$t)]|length' "$FIX")" -gt 0 ]; then
-  printf '  <div class="section today">Today</div>\n' >> "$LANDING"
-  printf '  <div class="day">%s</div>\n' "$(fmt_date "$TODAY")" >> "$LANDING"
+  printf '  <div class="section today">Today<span class="secsub">%s</span></div>\n' "$(fmt_date "$TODAY")" >> "$LANDING"
   emit_day "$TODAY"
 fi
 
 # ---- Next up (open): the soonest upcoming match day -------------------------
 if [ -n "$NEXTDAY" ]; then
-  printf '  <div class="section next">Next up</div>\n' >> "$LANDING"
-  printf '  <div class="day">%s</div>\n' "$(fmt_date "$NEXTDAY")" >> "$LANDING"
+  printf '  <div class="section next">Next up<span class="secsub">%s</span></div>\n' "$(fmt_date "$NEXTDAY")" >> "$LANDING"
   emit_day "$NEXTDAY"
 fi
 
@@ -305,6 +296,9 @@ if [ "${#UPDATES[@]}" -gt 1 ]; then
   done
   printf '  </details>\n' >> "$LANDING"
 fi
+
+# ---- Bracket (below the schedule; the schedule is the primary nav) ----------
+[ -f "$BRK_HTML" ] && cat "$BRK_HTML" >> "$LANDING" && rm -f "$BRK_HTML"
 
 # ---- Earlier games (collapsed, bottom): past fixtures + orphan guides -------
 EARLIER="$SITE/.earlier.tsv"
