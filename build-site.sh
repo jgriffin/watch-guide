@@ -90,7 +90,9 @@ done
 # aren't in fixtures.json (e.g. group-stage) are folded into "Earlier games".
 LANDING="$SITE/index.html"
 FIX="$ROOT/fixtures.json"
-TODAY="$(date +%F)"
+# Pin "today" to the reader's zone (Pacific), NOT the build machine's. Vercel/
+# GitHub build in UTC, which would otherwise flip "Today" at 5pm PT (00:00 UTC).
+TODAY="$(TZ=America/Los_Angeles date +%F)"
 
 guide_exists(){ [ -f "$SITE/$1/index.html" ]; }      # slug -> guide was generated?
 esc(){ printf '%s' "${1//&/&amp;}"; }                # minimal HTML-escape for & in names
