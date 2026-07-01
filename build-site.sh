@@ -61,8 +61,9 @@ fmt_time(){ # HHMM -> "h:mm AM/PM PDT"
 }
 fmt_date(){ # YYYY-MM-DD -> "Weekday · Month D"
   local dow mon day
-  dow=$(date -j -f "%Y-%m-%d" "$1" "+%A")
-  mon=$(date -j -f "%Y-%m-%d" "$1" "+%B")
+  # Portable: GNU date (Linux/Vercel) first, BSD date (macOS) as fallback.
+  dow=$(date -d "$1" "+%A" 2>/dev/null || date -j -f "%Y-%m-%d" "$1" "+%A")
+  mon=$(date -d "$1" "+%B" 2>/dev/null || date -j -f "%Y-%m-%d" "$1" "+%B")
   day=$((10#${1:8:2}))
   printf '%s · %s %d' "$dow" "$mon" "$day"
 }
@@ -90,7 +91,6 @@ done
 LANDING="$SITE/index.html"
 FIX="$ROOT/fixtures.json"
 TODAY="$(date +%F)"
-YEST="$(date -v-1d +%F)"
 
 guide_exists(){ [ -f "$SITE/$1/index.html" ]; }      # slug -> guide was generated?
 esc(){ printf '%s' "${1//&/&amp;}"; }                # minimal HTML-escape for & in names
