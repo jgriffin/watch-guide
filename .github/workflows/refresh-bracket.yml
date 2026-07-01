@@ -1,0 +1,59 @@
+name: refresh-bracket
+
+# Auto-refresh bracket.json from openfootball, then let Vercel's git
+# integration redeploy. Scoped to shortly after each of the ~3 daily knockout
+# finish windows (only 3 games/day, so only 3 interesting windows), plus one
+# late catch-up for results openfootball posts with a lag. Commits + pushes
+# ONLY when bracket.json actually changed — most runs are no-ops.
+#
+# Times are UTC. Games run ~9am–10pm Pacific (PDT = UTC-7):
+#   morning slot   KO ~9–12 PDT  → finishes by ~21:15 UTC  → poll 21:35
+#   afternoon slot KO ~13–16 PDT → finishes by ~01:15 UTC  → poll 01:35
+#   evening slot   KO ~17–20 PDT → finishes by ~05:45 UTC  → poll 05:35
+#   late catch-up (openfootball posting lag)               → poll 08:35
+on:
+  schedule:
+    - cron: '35 21 * * *'
+    - cron: '35 1 * * *'
+    - cron: '35 5 * * *'
+    - cron: '35 8 * * *'
+  workflow_dispatch: {}      # manual run from the Actions tab / gh CLI
+
+permissions:
+  contents: write            # commit + push bracket.json with the default token
+
+concurrency:
+  group: refresh-bracket     # never overlap two refreshes
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Refresh bracket (fetch; commit + push only if changed)
+        run: |
+          set -euo pipefail
+
+          # Self-limit: after the final the data never changes anyway, but stop
+          # scheduling work once the tournament is over.
+          today=$(date -u +%F)
+          if [[ "$today" > "2026-07-20" ]]; then
+            echo "Past the tournament ($today) — nothing to refresh."
+            exit 0
+          fi
+
+          ./fetch-bracket.sh
+
+          if git diff --quiet -- bracket.json; then
+            echo "bracket.json unchanged — no commit, no deploy."
+            exit 0
+          fi
+
+          echo "bracket.json changed — committing and pushing (Vercel will redeploy)."
+          git config user.name  "bracket-bot"
+          git config user.email "bracket-bot@users.noreply.github.com"
+          git add bracket.json
+          git commit -m "bracket: auto-refresh results ($(date -u +%FT%TZ))"
+          git push
