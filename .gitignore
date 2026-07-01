@@ -6,3 +6,4 @@
 
 # derived build artifact (build-site.sh is the source)
 /site/
+.vercel
