@@ -259,22 +259,27 @@ if [ -f "$BRK" ]; then
 fi
 
 # fixture slugs (to detect generated guides that AREN'T scheduled fixtures)
-FIXSLUGS=(); while IFS= read -r s; do FIXSLUGS+=("$s"); done < <(jq -r '.fixtures[].slug' "$FIX")
+FIXSLUGS=(); _t=$(mktemp); jq -r '.fixtures[].slug' "$FIX" > "$_t"
+while IFS= read -r s; do FIXSLUGS+=("$s"); done < "$_t"; rm -f "$_t"
 in_fixtures(){ local s; for s in "${FIXSLUGS[@]}"; do [ "$s" = "$1" ] && return 0; done; return 1; }
 
 # Schedule below the bracket (the bracket is the hero; this is "how you get to a
 # guide"). Lead with what's actionable: Today + the next match day are open; the
 # rest of the upcoming slate and past games fold into collapsed sections.
 emit_day(){ # arg: YYYY-MM-DD -> that day's fixture cards, sorted by kickoff
-  local d="$1" ko kod home away venue slug ex
+  local d="$1" ko kod home away venue slug ex _t
+  _t=$(mktemp)
+  jq -r --arg d "$d" '.fixtures[]|select(.date==$d)|[.ko_pacific,.ko_display,.home,.away,.venue,.slug]|@tsv' "$FIX" | sort > "$_t"
   while IFS=$'\t' read -r ko kod home away venue slug; do
     ex=0; guide_exists "$slug" && ex=1
     emit_card "$ex" "$kod" "$slug" "$(esc "$home") vs $(esc "$away")" "Round of 32 &middot; $(esc "$venue")"
-  done < <(jq -r --arg d "$d" '.fixtures[]|select(.date==$d)|[.ko_pacific,.ko_display,.home,.away,.venue,.slug]|@tsv' "$FIX" | sort)
+  done < "$_t"
+  rm -f "$_t"
 }
 
 # upcoming match days (strictly after today), ascending
-UPDATES=(); while IFS= read -r s; do UPDATES+=("$s"); done < <(jq -r '.fixtures[].date' "$FIX" | sort -u | awk -v t="$TODAY" '$0>t')
+UPDATES=(); _t=$(mktemp); jq -r '.fixtures[].date' "$FIX" | sort -u | awk -v t="$TODAY" '$0>t' > "$_t"
+while IFS= read -r s; do UPDATES+=("$s"); done < "$_t"; rm -f "$_t"
 NEXTDAY="${UPDATES[0]:-}"
 
 # ---- Today (open) -----------------------------------------------------------
@@ -304,10 +309,11 @@ fi
 # ---- Earlier games (collapsed, bottom): past fixtures + orphan guides -------
 EARLIER="$SITE/.earlier.tsv"
 : > "$EARLIER"
+_t=$(mktemp); jq -r --arg t "$TODAY" '.fixtures[]|select(.date<$t)|[.date,.ko_pacific,.ko_display,.home,.away,.venue,.slug]|@tsv' "$FIX" > "$_t"
 while IFS=$'\t' read -r d ko kod home away venue slug; do
   ex=0; guide_exists "$slug" && ex=1
   printf '%s\t%s\t%s\t%s\t%s\t%s\n' "$d" "$ko" "$ex" "$slug" "$(esc "$home") vs $(esc "$away")" "Round of 32 &middot; $(esc "$venue")" >> "$EARLIER"
-done < <(jq -r --arg t "$TODAY" '.fixtures[]|select(.date<$t)|[.date,.ko_pacific,.ko_display,.home,.away,.venue,.slug]|@tsv' "$FIX")
+done < "$_t"; rm -f "$_t"
 # generated guides not present in fixtures.json (group-stage etc.) -> always earlier
 for dir in "$MATCHES"/*/; do
   [ -d "$dir" ] || continue
@@ -324,10 +330,11 @@ done
 if [ -s "$EARLIER" ]; then
   printf '  <details class="earlier"><summary>Earlier games</summary>\n' >> "$LANDING"
   cur=""
+  _t=$(mktemp); sort -t$'\t' -k1,1 -k2,2 "$EARLIER" > "$_t"
   while IFS=$'\t' read -r d hh ex slug name sub; do
     if [ "$d" != "$cur" ]; then cur="$d"; printf '  <div class="day">%s</div>\n' "$(fmt_date "$d")" >> "$LANDING"; fi
     emit_card "$ex" "$(fmt_time "$hh")" "$slug" "$name" "$sub"
-  done < <(sort -t$'\t' -k1,1 -k2,2 "$EARLIER")
+  done < "$_t"; rm -f "$_t"
   printf '  </details>\n' >> "$LANDING"
 fi
 rm -f "$EARLIER"
