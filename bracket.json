@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-02",
+  "generated": "2026-07-03",
   "source": "openfootball/worldcup.json (2026) — github.com/openfootball/worldcup.json",
   "rounds": [
     {
@@ -69,9 +69,9 @@
           "t2": "Croatia",
           "f1": "🇵🇹",
           "f2": "🇭🇷",
-          "s1": null,
-          "s2": null,
-          "winner": null,
+          "s1": "2",
+          "s2": "1",
+          "winner": 1,
           "note": null,
           "feeders": null,
           "slug": "portugal-croatia"
@@ -209,9 +209,9 @@
           "t2": "Algeria",
           "f1": "🇨🇭",
           "f2": "🇩🇿",
-          "s1": null,
-          "s2": null,
-          "winner": null,
+          "s1": "2",
+          "s2": "0",
+          "winner": 1,
           "note": null,
           "feeders": null,
           "slug": "switzerland-algeria"
@@ -273,9 +273,9 @@
         {
           "num": 93,
           "date": "2026-07-06",
-          "t1": null,
+          "t1": "Portugal",
           "t2": "Spain",
-          "f1": null,
+          "f1": "🇵🇹",
           "f2": "🇪🇸",
           "s1": null,
           "s2": null,
@@ -358,9 +358,9 @@
         {
           "num": 96,
           "date": "2026-07-07",
-          "t1": null,
+          "t1": "Switzerland",
           "t2": null,
-          "f1": null,
+          "f1": "🇨🇭",
           "f2": null,
           "s1": null,
           "s2": null,
