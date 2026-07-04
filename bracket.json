@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-03",
+  "generated": "2026-07-04",
   "source": "openfootball/worldcup.json (2026) — github.com/openfootball/worldcup.json",
   "rounds": [
     {
@@ -181,10 +181,10 @@
           "t2": "Cape Verde",
           "f1": "🇦🇷",
           "f2": "🇨🇻",
-          "s1": null,
-          "s2": null,
-          "winner": null,
-          "note": null,
+          "s1": "1",
+          "s2": "1",
+          "winner": 1,
+          "note": "a.e.t.",
           "feeders": null,
           "slug": "argentina-cape-verde"
         },
@@ -223,9 +223,9 @@
           "t2": "Ghana",
           "f1": "🇨🇴",
           "f2": "🇬🇭",
-          "s1": null,
-          "s2": null,
-          "winner": null,
+          "s1": "1",
+          "s2": "0",
+          "winner": 1,
           "note": null,
           "feeders": null,
           "slug": "colombia-ghana"
@@ -341,9 +341,9 @@
         {
           "num": 95,
           "date": "2026-07-07",
-          "t1": null,
+          "t1": "Argentina",
           "t2": "Egypt",
-          "f1": null,
+          "f1": "🇦🇷",
           "f2": "🇪🇬",
           "s1": null,
           "s2": null,
@@ -359,9 +359,9 @@
           "num": 96,
           "date": "2026-07-07",
           "t1": "Switzerland",
-          "t2": null,
+          "t2": "Colombia",
           "f1": "🇨🇭",
-          "f2": null,
+          "f2": "🇨🇴",
           "s1": null,
           "s2": null,
           "winner": null,
