@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mexico vs England — 2026 World Cup, Round of 16</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&family=Barlow:wght@400;500;600&display=swap');
+
+  :root{
+    --mx-grn:#006847; --mx-deep:#00512f; --gold:#C39A2B; --mx-red:#CE1126;
+    --en-nav:#1c2a5e; --en-deep:#0f183a;
+
+    --text-micro:0.75rem; --text-sm:0.8125rem; --text-base:1rem; --text-md:1.0625rem;
+    --text-lg:1.125rem; --text-xl:1.25rem; --text-2xl:1.375rem; --text-3xl:1.75rem;
+    --leading:1.45;
+    --ink:#1a1714; --paper:#f6f3ec; --line:#d8d2c4; --muted:#6f675b;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Barlow',sans-serif;font-size:var(--text-base);background:#26231f;color:var(--ink);padding:18px;line-height:var(--leading);}
+  .sheet{max-width:920px;margin:0 auto;background:var(--paper);border:1px solid var(--line);box-shadow:0 14px 44px rgba(0,0,0,.5);overflow:hidden;}
+
+  /* HEADER */
+  .top{display:flex;align-items:stretch;color:#f6f3ec;}
+  .top .side{flex:1;padding:13px 18px;}
+  .top .mx{background:linear-gradient(135deg,var(--mx-grn),var(--mx-deep));}
+  .top .en{background:linear-gradient(225deg,var(--en-nav),var(--en-deep));text-align:right;}
+  .top .mid{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 14px;min-width:118px;background:var(--ink);}
+  .flag{font-size:var(--text-sm);letter-spacing:.18em;font-family:'Oswald';font-weight:600;opacity:.85;}
+  .nat{font-family:'Oswald';font-weight:700;font-size:var(--text-3xl);line-height:1;text-transform:uppercase;}
+  .sub{font-size:0.875rem;opacity:.82;margin-top:3px;font-family:'Barlow Condensed';letter-spacing:.04em;}
+  .vs{font-family:'Oswald';font-weight:700;font-size:var(--text-xl);color:var(--gold);}
+  .mid .comp{font-size:var(--text-micro);letter-spacing:.12em;font-family:'Oswald';opacity:.7;text-align:center;}
+
+  .infobar{display:flex;background:#000;color:#f6f3ec;font-family:'Barlow Condensed';font-size:0.9375rem;}
+  .infobar div{padding:6px 14px;border-right:1px solid #2c2c2c;flex:1;text-align:center;white-space:nowrap;}
+  .infobar div:last-child{border-right:none;}
+  .infobar b{color:var(--gold);font-weight:600;letter-spacing:.07em;text-transform:uppercase;font-size:var(--text-micro);display:block;}
+
+  /* STAKES */
+  .strip{display:flex;flex-direction:column;align-items:stretch;background:var(--gold);color:#241e10;}
+  .strip .msg{padding:11px 16px;font-family:'Barlow',sans-serif;font-size:var(--text-md);font-weight:500;}
+  .strip .msg b{font-weight:700;}
+
+  /* Knockout footer bar — full width under stakes message */
+  .tie{background:#241e10;color:#f6f3ec;font-family:'Barlow Condensed';padding:8px 16px;width:100%;}
+  .tie-main{font-size:var(--text-base);color:#ffe9a8;line-height:1.38;}
+  .tie-main b{font-family:'Barlow';font-weight:600;color:#fff;}
+  .tie-sub{font-size:0.875rem;color:#a89f8e;margin-top:5px;line-height:1.35;}
+  .tie-sub b{color:var(--gold);font-weight:600;}
+
+  /* TEAM COLUMNS */
+  .cols{display:grid;grid-template-columns:1fr 1fr;}
+  .col{padding:13px 16px;}
+  .col.mx{border-right:2px solid var(--line);}
+  .colhead{display:flex;align-items:baseline;justify-content:space-between;border-bottom:2px solid;padding-bottom:5px;margin-bottom:8px;}
+  .col.mx .colhead{border-color:var(--mx-grn);}
+  .col.en .colhead{border-color:var(--en-nav);}
+  .colhead h2{font-family:'Oswald';font-size:var(--text-xl);text-transform:uppercase;letter-spacing:.02em;}
+  .col.mx .colhead h2{color:var(--mx-grn);}
+  .col.en .colhead h2{color:var(--en-nav);}
+  .form{font-family:'Barlow Condensed';font-size:0.875rem;color:var(--muted);letter-spacing:.05em;}
+
+  .xi{list-style:none;}
+  .xi li{display:flex;gap:9px;align-items:center;padding:2.5px 0;border-bottom:1px dotted var(--line);}
+  .xi li:last-child{border-bottom:none;}
+  .num{font-family:'Oswald';font-weight:700;font-size:var(--text-lg);width:28px;height:26px;display:flex;align-items:center;justify-content:center;color:#fff;border-radius:3px;flex-shrink:0;}
+  .col.mx .num{background:var(--mx-grn);}
+  .col.en .num{background:var(--en-nav);}
+  .num.gk{background:#444 !important;}
+  .pname{font-weight:600;font-size:var(--text-lg);}
+  .pclub{color:var(--muted);font-size:var(--text-sm);font-family:'Barlow Condensed';margin-left:auto;text-align:right;letter-spacing:.02em;white-space:nowrap;}
+  .cap{color:var(--gold);font-weight:700;font-size:var(--text-micro);vertical-align:super;margin-left:1px;}
+
+  .kitnote{font-size:var(--text-micro);color:var(--muted);font-family:'Barlow Condensed';letter-spacing:.05em;text-transform:uppercase;}
+  .note{font-size:var(--text-sm);color:var(--muted);font-style:italic;margin-top:6px;line-height:1.3;}
+
+  /* ROAD HERE */
+  .road{background:var(--ink);color:#ece5d8;padding:13px 18px;}
+  .road h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--gold);text-transform:uppercase;margin-bottom:9px;text-align:center;}
+  .roadgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .rh{font-family:'Oswald';font-size:var(--text-base);text-transform:uppercase;letter-spacing:.03em;margin-bottom:5px;}
+  .rh.m{color:#7fdca0;} .rh.e{color:#9db7ff;}
+  .game{display:flex;gap:8px;margin-bottom:6px;font-size:0.9375rem;line-height:var(--leading);}
+  .score{font-family:'Oswald';font-weight:700;font-size:var(--text-sm);padding:2px 6px;border-radius:3px;height:fit-content;white-space:nowrap;flex-shrink:0;color:#fff;}
+  .score.w{background:#2c5e38;} .score.l{background:#6e2530;} .score.d{background:#5a5036;}
+  .game .gt{color:#cfc7b8;}
+  .game .gt b{color:#fff;font-weight:600;}
+  .game .gt small{display:block;color:#a89f8e;font-size:var(--text-sm);font-style:italic;}
+  .game .gt .dt{color:#fff;font-weight:600;}
+
+  /* NEXT */
+  .next{background:#efe9dc;padding:12px 18px;border-top:1px solid var(--line);}
+  .next h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--mx-grn);text-transform:uppercase;margin-bottom:7px;}
+  .next .ng{columns:1;}
+  .next p{font-family:'Barlow',sans-serif;font-size:var(--text-base);margin-bottom:8px;break-inside:avoid;line-height:var(--leading);padding-left:13px;position:relative;}
+  .next p::before{content:"\25B8";position:absolute;left:0;color:var(--gold);font-size:var(--text-micro);top:2px;}
+  .next b{font-weight:600;}
+
+  /* WHAT TO WATCH FOR */
+  .wtw{padding:13px 18px;border-top:1px solid var(--line);}
+  .wtw h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--gold);text-transform:uppercase;margin-bottom:9px;}
+  .battles{columns:1;}
+  .battle{font-family:'Barlow',sans-serif;font-size:var(--text-base);line-height:var(--leading);margin-bottom:8px;break-inside:avoid;}
+  .battle .bt{font-family:'Oswald';font-weight:600;font-size:var(--text-md);text-transform:uppercase;letter-spacing:.02em;color:var(--ink);display:block;margin-bottom:1px;}
+  .tip{margin-top:8px;background:#efe9dc;border-left:3px solid var(--gold);padding:10px 12px;font-family:'Barlow',sans-serif;font-size:var(--text-md);line-height:var(--leading);}
+  .tip b{font-family:'Barlow';font-weight:600;color:#241e10;}
+  .deadball{margin-top:8px;font-family:'Barlow',sans-serif;font-size:var(--text-sm);color:var(--muted);line-height:var(--leading);}
+  .deadball b{color:var(--ink);font-weight:600;text-transform:uppercase;letter-spacing:.03em;font-size:var(--text-micro);}
+
+  /* WATCH split-by-team */
+  .watch{padding:13px 18px;}
+  .watch h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--mx-grn);text-transform:uppercase;margin-bottom:9px;}
+  .wgrid{display:grid;grid-template-columns:1fr;gap:10px;}
+  .star{display:flex;gap:9px;}
+  .star .wn{font-family:'Oswald';font-weight:700;font-size:var(--text-lg);width:34px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:3px;color:#fff;flex-shrink:0;}
+  .wn.m{background:var(--mx-grn);} .wn.e{background:var(--en-nav);}
+  .star .nm{font-family:'Oswald';font-size:var(--text-xl);font-weight:600;line-height:1.05;}
+  .star .meta{font-size:var(--text-sm);color:var(--muted);font-family:'Barlow Condensed';letter-spacing:.03em;text-transform:uppercase;margin-bottom:2px;}
+  .star .blurb{font-family:'Barlow',sans-serif;font-size:var(--text-base);line-height:var(--leading);}
+  .star b{font-weight:600;}
+  .wgroup{margin-bottom:12px;}
+  .wgroup:last-child{margin-bottom:0;}
+  .wteam{font-family:'Oswald';font-size:var(--text-md);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;padding-bottom:3px;border-bottom:2px solid;}
+  .wteam.m{color:var(--mx-grn);border-color:var(--mx-grn);}
+  .wteam.e{color:var(--en-nav);border-color:var(--en-nav);}
+
+  /* LINEUPS */
+  .rtitle{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--ink);text-transform:uppercase;text-align:center;padding:13px 18px 0;}
+  .rsub{font-family:'Oswald';font-size:var(--text-micro);letter-spacing:.13em;color:var(--muted);text-transform:uppercase;margin:9px 0 3px;}
+  .rsub:first-child{margin-top:0;}
+
+  .foot{background:var(--ink);color:#9a9081;font-size:var(--text-micro);text-align:center;padding:7px;font-family:'Barlow Condensed';letter-spacing:.05em;}
+  .foot span{color:var(--gold);}
+
+  /* LINEUP TABS — mobile team switcher (CSS-only) */
+  .lineup-tabs .tab-input{position:absolute;opacity:0;width:0;height:0;pointer-events:none;}
+  .lineup-tabs .tab-bar{display:none;}
+
+  @media (max-width:680px){
+    body{padding:7px;overflow-x:hidden;}
+    .sheet{overflow-x:clip;}
+    .wgrid,.roadgrid{grid-template-columns:1fr;}
+    .cols{grid-template-columns:1fr;}
+
+    .top .side{padding:10px 12px;min-width:0;}
+    .top .mid{min-width:64px;padding:8px 10px;}
+
+    .infobar{flex-wrap:wrap;}
+    .infobar div{flex:1 1 46%;white-space:normal;min-width:0;padding:6px 10px;font-size:0.9375rem;}
+    .infobar div:nth-child(2){border-right:none;}
+    .infobar div:nth-child(3),
+    .infobar div:nth-child(4){border-top:1px solid #2c2c2c;}
+
+    .lineup-tabs .tab-bar{
+      display:flex;margin:0 16px;padding-top:10px;
+      border-bottom:2px solid var(--line);
+    }
+    .lineup-tabs .tab-bar label{
+      flex:1;text-align:center;padding:10px 6px;
+      font-family:'Oswald';font-size:var(--text-md);font-weight:600;
+      text-transform:uppercase;letter-spacing:.06em;
+      cursor:pointer;color:var(--muted);
+      border-bottom:3px solid transparent;margin-bottom:-2px;
+    }
+    .lineup-tabs #lineup-home:checked ~ .tab-bar .tab-home{border-bottom-color:var(--mx-grn);color:var(--mx-grn);}
+    .lineup-tabs #lineup-away:checked ~ .tab-bar .tab-away{border-bottom-color:var(--en-nav);color:var(--en-nav);}
+    .lineup-tabs #lineup-home:checked ~ .cols .col:last-child{display:none;}
+    .lineup-tabs #lineup-away:checked ~ .cols .col:first-child{display:none;}
+    .col.mx,.col.en{border-right:none;}
+    .colhead{flex-wrap:wrap;align-items:flex-start;gap:4px;}
+
+    .pname{min-width:0;flex:1;}
+    .pclub{white-space:normal;flex-shrink:1;max-width:46%;}
+    .star,.star > div{min-width:0;}
+    .nat{line-height:1.08;overflow-wrap:break-word;text-wrap:balance;}
+    .next p,.battle,.blurb{overflow-wrap:break-word;}
+  }
+  @media print{body{background:#fff;padding:0;}.sheet{box-shadow:none;border:none;}@page{margin:7mm;}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="top">
+    <div class="side mx">
+      <div class="flag">🇲🇽 MEXICO</div>
+      <div class="nat">El Tri</div>
+      <div class="sub">FIFA ~#15 · Coach: Javier Aguirre · 4-3-3</div>
+    </div>
+    <div class="mid">
+      <div class="comp">ROUND&nbsp;OF&nbsp;16</div>
+      <div class="vs">V</div>
+      <div class="comp">WORLD&nbsp;CUP&nbsp;'26</div>
+    </div>
+    <div class="side en">
+      <div class="flag">ENGLAND 🏴󠁧󠁢󠁥󠁮󠁧󠁿</div>
+      <div class="nat">Three Lions</div>
+      <div class="sub">4-2-3-1 · Coach: Thomas Tuchel · FIFA #4</div>
+    </div>
+  </div>
+
+  <div class="infobar">
+    <div><b>Venue</b>Estadio Azteca, Mexico City</div>
+    <div><b>Kickoff</b>Sun 5:00 PM PDT (6 PM local)</div>
+    <div><b>TV</b>FOX / Telemundo</div>
+    <div><b>Altitude</b>~7,200 ft</div>
+  </div>
+
+  <div class="strip">
+    <div class="msg"><b>Win or go home — and Mexico are home.</b> A co-host in a knockout at the Azteca, chasing a first World Cup quarter-final since 1986. England, world #4, arrive at the ground of Maradona's ghosts, 40 years on.</div>
+    <div class="tie">
+      <div class="tie-main"><b>Winner → Quarter-final</b> (Sat Jul 11) · <b>Loser eliminated</b></div>
+      <div class="tie-sub"><b>Next:</b> QF vs the winner of Brazil vs Norway · <b>Odds:</b> England ~41% · Mexico ~32% · ~28% level after 90 (Opta). England favored despite home + altitude.</div>
+    </div>
+  </div>
+
+  <div class="road">
+    <h3>How They Got Here</h3>
+    <div class="roadgrid">
+      <div>
+        <div class="rh m">Mexico · Group A winners (3-0-0, 0 conceded)</div>
+        <div class="game"><span class="score w">2&ndash;0</span><span class="gt"><span class="dt">Jun 11</span> · vs South Africa<small>Tournament opener at the Azteca</small></span></div>
+        <div class="game"><span class="score w">1&ndash;0</span><span class="gt"><span class="dt">Jun 18</span> · vs South Korea</span></div>
+        <div class="game"><span class="score w">3&ndash;0</span><span class="gt"><span class="dt">Jun 24</span> · vs Czechia</span></div>
+        <div class="game"><span class="score w">2&ndash;0</span><span class="gt"><span class="dt">Jun 30</span> · R32 vs Ecuador<small>First WC knockout win in 40 years — curse broken</small></span></div>
+      </div>
+      <div>
+        <div class="rh e">England · group winners</div>
+        <div class="game"><span class="score w">4&ndash;2</span><span class="gt"><span class="dt">Jun 17</span> · vs Croatia</span></div>
+        <div class="game"><span class="score d">0&ndash;0</span><span class="gt"><span class="dt">Jun 23</span> · vs Ghana</span></div>
+        <div class="game"><span class="score w">2&ndash;0</span><span class="gt"><span class="dt">Jun 27</span> · vs Panama<small>Kane passed Lineker's England WC record</small></span></div>
+        <div class="game"><span class="score w">2&ndash;1</span><span class="gt"><span class="dt">Jul 1</span> · R32 vs DR Congo<small>Trailed from 7'; Kane's late double rescued it</small></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="next">
+    <h3>What's At Stake & What's Next</h3>
+    <div class="ng">
+      <p><b>Mexico:</b> Win = a first World Cup quarter-final since 1986 — on home soil, at the Azteca. The "quinto partido" barrier (out in the R16 at seven straight World Cups, 1994&ndash;2018) already fell in the R32; this would be the breakthrough the nation has waited 40 years for. Lose = the fairytale home run ends.</p>
+      <p><b>England:</b> Win = through to the QF and a step toward a first World Cup since 1966. Lose = a chastening early exit for the #4 side after unconvincing group and R32 displays — heavy scrutiny on Tuchel.</p>
+      <p><b>The prize:</b> the winner meets the winner of <b>Brazil vs Norway</b> in the quarter-final on <b>Sat Jul 11</b>.</p>
+      <p><b>The venue's ghost:</b> the Azteca is where Maradona's "Hand of God" and "Goal of the Century" knocked England out in 1986. Same ground, 40 years on — England say they're "not seeking revenge," but the memory hangs over the fixture.</p>
+      <p><b>Altitude as a subplot:</b> ~7,200 ft is a real test for a sea-level England. If it's level late, whose legs go first could decide it.</p>
+    </div>
+  </div>
+
+  <div class="wtw">
+    <h3>What To Watch For</h3>
+    <div class="battles">
+      <div class="battle"><span class="bt">Bellingham vs Mexico's midfield three</span>The game inside the game. Mexico will swarm the middle in the thin air; Bellingham's job is to break the first line of Álvarez&ndash;Lira&ndash;Mora and feed Kane. Watch whether El Tri stay compact for 90 minutes at altitude.</div>
+      <div class="battle"><span class="bt">Saka vs Mexico's left flank</span>England's likeliest creative source. Saka cutting inside off the right onto his left foot is the recurring threat — watch if Gallardo is left isolated when Mexico push forward.</div>
+      <div class="battle"><span class="bt">Kane vs Montes &amp; Vásquez</span>Kane drops to link, then attacks the box; Mexico's ball-playing centre-backs must decide whether to follow him out and risk the gap behind. He's also England's set-piece focal point.</div>
+      <div class="battle"><span class="bt">Jiménez / Giménez vs Konsa &amp; Guéhi</span>Mexico's hold-up and aerial play against a back line that wobbled vs DR Congo. This is El Tri's route to unsettle England and drag the tie into a nervy second half.</div>
+    </div>
+    <div class="deadball"><b>England dead-ball:</b> a genuine weapon — Rice deliveries onto Kane, Stones, Guéhi, Konsa. Penalties: Kane.<br><b>Mexico dead-ball:</b> Vega and Luis Chávez delivery to Montes and Vásquez; Jiménez / Vega on penalties.</div>
+    <div class="tip"><b>Set-piece tip:</b> if it's tight late, treat every England corner as a real chance — it's their most reliable goal source, and Mexico will be defending deep with a lead to protect or a game to save.</div>
+  </div>
+
+  <div class="watch">
+    <h3>&#9733; The Names You'll Hear Most &#9733;</h3>
+    <div class="wgroup"><div class="wteam m">Mexico</div><div class="wgrid">
+      <div class="star"><span class="wn m">11</span><div><div class="nm">Santiago Giménez</div><div class="meta">Mexico · AC Milan · Striker</div><div class="blurb">"Bebote" — Mexico's premier modern striker after a Serie A move from Feyenoord. A penalty-box poacher pushing hard to start; the front line is fluid.</div></div></div>
+      <div class="star"><span class="wn m">4</span><div><div class="nm">Edson Álvarez</div><div class="meta">Mexico · Fenerbahçe · Captain</div><div class="blurb">"Machín" — the destroyer who screens the back four. The spine and leader of an El Tri that didn't concede a single group goal.</div></div></div>
+      <div class="star"><span class="wn m">19</span><div><div class="nm">Gilberto Mora</div><div class="meta">Mexico · Tijuana · Midfield</div><div class="blurb">The 17-year-old prodigy — youngest Mexican ever at a World Cup, already a first-team fixture and the future face of the national team.</div></div></div>
+    </div></div>
+    <div class="wgroup"><div class="wteam e">England</div><div class="wgrid">
+      <div class="star"><span class="wn e">9</span><div><div class="nm">Harry Kane</div><div class="meta">England · Bayern Munich · Captain</div><div class="blurb">England's all-time top scorer — and now their all-time World Cup top scorer, having passed Lineker here. Rescued the R32 with a late double.</div></div></div>
+      <div class="star"><span class="wn e">10</span><div><div class="nm">Jude Bellingham</div><div class="meta">England · Real Madrid · Midfield</div><div class="blurb">The superstar engine. Drives England from the 10 and sets the tempo — the single biggest lever on the pitch, feeding Kane.</div></div></div>
+      <div class="star"><span class="wn e">7</span><div><div class="nm">Bukayo Saka</div><div class="meta">England · Arsenal · Winger</div><div class="blurb">England's most direct wide threat — the dribbler cutting in off the right that Mexico's left side has to double up on.</div></div></div>
+    </div></div>
+  </div>
+
+  <div class="rtitle">The Lineups · By The Numbers</div>
+  <div class="lineup-tabs">
+    <input type="radio" name="lineup-tab" id="lineup-home" class="tab-input" checked>
+    <input type="radio" name="lineup-tab" id="lineup-away" class="tab-input">
+    <div class="tab-bar">
+      <label for="lineup-home" class="tab-home">Mexico</label>
+      <label for="lineup-away" class="tab-away">England</label>
+    </div>
+  <div class="cols">
+    <div class="col mx">
+      <div class="colhead"><h2>Mexico</h2><span class="form">4-3-3 · green home kit</span></div>
+      <div class="rsub">Starters</div>
+      <ul class="xi">
+        <li><span class="num gk">1</span><span class="pname">Raúl Rangel</span><span class="pclub">Guadalajara</span></li>
+        <li><span class="num">2</span><span class="pname">Jorge Sánchez</span><span class="pclub">PAOK</span></li>
+        <li><span class="num">3</span><span class="pname">César Montes</span><span class="pclub">Lokomotiv Moscow</span></li>
+        <li><span class="num">5</span><span class="pname">Johan Vásquez</span><span class="pclub">Genoa</span></li>
+        <li><span class="num">23</span><span class="pname">Jesús Gallardo</span><span class="pclub">Toluca</span></li>
+        <li><span class="num">4</span><span class="pname">Edson Álvarez<span class="cap">C</span></span><span class="pclub">Fenerbahçe</span></li>
+        <li><span class="num">6</span><span class="pname">Érik Lira</span><span class="pclub">Cruz Azul</span></li>
+        <li><span class="num">19</span><span class="pname">Gilberto Mora</span><span class="pclub">Tijuana</span></li>
+        <li><span class="num">25</span><span class="pname">Roberto Alvarado</span><span class="pclub">Guadalajara</span></li>
+        <li><span class="num">9</span><span class="pname">Raúl Jiménez</span><span class="pclub">Fulham</span></li>
+        <li><span class="num">16</span><span class="pname">Julián Quiñones</span><span class="pclub">Al-Qadsiah</span></li>
+      </ul>
+      <div class="rsub">Bench</div>
+      <ul class="xi">
+        <li><span class="num">7</span><span class="pname">Luis Romo</span><span class="pclub">Guadalajara</span></li>
+        <li><span class="num">8</span><span class="pname">Álvaro Fidalgo</span><span class="pclub">Real Betis</span></li>
+        <li><span class="num">10</span><span class="pname">Alexis Vega</span><span class="pclub">Toluca</span></li>
+        <li><span class="num">11</span><span class="pname">Santiago Giménez</span><span class="pclub">AC Milan</span></li>
+        <li><span class="num gk">12</span><span class="pname">Carlos Acevedo</span><span class="pclub">Santos Laguna</span></li>
+        <li><span class="num gk">13</span><span class="pname">Guillermo Ochoa</span><span class="pclub">AEL Limassol</span></li>
+        <li><span class="num">14</span><span class="pname">Armando González</span><span class="pclub">Guadalajara</span></li>
+        <li><span class="num">15</span><span class="pname">Israel Reyes</span><span class="pclub">América</span></li>
+        <li><span class="num">17</span><span class="pname">Orbelín Pineda</span><span class="pclub">AEK Athens</span></li>
+        <li><span class="num">18</span><span class="pname">Obed Vargas</span><span class="pclub">Atlético Madrid</span></li>
+        <li><span class="num">20</span><span class="pname">Mateo Chávez</span><span class="pclub">AZ Alkmaar</span></li>
+        <li><span class="num">21</span><span class="pname">César Huerta</span><span class="pclub">Anderlecht</span></li>
+        <li><span class="num">22</span><span class="pname">Guillermo Martínez</span><span class="pclub">Pumas UNAM</span></li>
+        <li><span class="num">24</span><span class="pname">Luis Chávez</span><span class="pclub">Dynamo Moscow</span></li>
+        <li><span class="num">26</span><span class="pname">Brian Gutiérrez</span><span class="pclub">Chicago Fire</span></li>
+      </ul>
+      <div class="note">Predicted XI — front line fluid: Giménez (11) pushes to start over/with Jiménez, Romo (7) contends in midfield, Vega (10) wide. Ochoa (13), at a record 6th World Cup, backs up Rangel. Confirmed ~1hr pre-KO.</div>
+    </div>
+    <div class="col en">
+      <div class="colhead"><h2>England</h2><span class="form">4-2-3-1 · white home kit</span></div>
+      <div class="rsub">Starters</div>
+      <ul class="xi">
+        <li><span class="num gk">1</span><span class="pname">Jordan Pickford</span><span class="pclub">Everton</span></li>
+        <li><span class="num">25</span><span class="pname">Djed Spence</span><span class="pclub">Tottenham</span></li>
+        <li><span class="num">2</span><span class="pname">Ezri Konsa</span><span class="pclub">Aston Villa</span></li>
+        <li><span class="num">6</span><span class="pname">Marc Guéhi</span><span class="pclub">Crystal Palace</span></li>
+        <li><span class="num">3</span><span class="pname">Nico O'Reilly</span><span class="pclub">Manchester City</span></li>
+        <li><span class="num">8</span><span class="pname">Elliot Anderson</span><span class="pclub">Nottm Forest</span></li>
+        <li><span class="num">4</span><span class="pname">Declan Rice</span><span class="pclub">Arsenal</span></li>
+        <li><span class="num">7</span><span class="pname">Bukayo Saka</span><span class="pclub">Arsenal</span></li>
+        <li><span class="num">10</span><span class="pname">Jude Bellingham</span><span class="pclub">Real Madrid</span></li>
+        <li><span class="num">18</span><span class="pname">Anthony Gordon</span><span class="pclub">Newcastle</span></li>
+        <li><span class="num">9</span><span class="pname">Harry Kane<span class="cap">C</span></span><span class="pclub">Bayern Munich</span></li>
+      </ul>
+      <div class="rsub">Bench</div>
+      <ul class="xi">
+        <li><span class="num">5</span><span class="pname">John Stones</span><span class="pclub">Manchester City</span></li>
+        <li><span class="num">11</span><span class="pname">Marcus Rashford</span><span class="pclub">Barcelona (loan)</span></li>
+        <li><span class="num">12</span><span class="pname">Tino Livramento</span><span class="pclub">Newcastle</span></li>
+        <li><span class="num gk">13</span><span class="pname">Dean Henderson</span><span class="pclub">Crystal Palace</span></li>
+        <li><span class="num">14</span><span class="pname">Jordan Henderson</span><span class="pclub">—</span></li>
+        <li><span class="num">15</span><span class="pname">Dan Burn</span><span class="pclub">Newcastle</span></li>
+        <li><span class="num">16</span><span class="pname">Kobbie Mainoo</span><span class="pclub">Manchester Utd</span></li>
+        <li><span class="num">17</span><span class="pname">Morgan Rogers</span><span class="pclub">Aston Villa</span></li>
+        <li><span class="num">19</span><span class="pname">Ollie Watkins</span><span class="pclub">Aston Villa</span></li>
+        <li><span class="num">20</span><span class="pname">Noni Madueke</span><span class="pclub">Arsenal</span></li>
+        <li><span class="num">21</span><span class="pname">Eberechi Eze</span><span class="pclub">Arsenal</span></li>
+        <li><span class="num">22</span><span class="pname">Ivan Toney</span><span class="pclub">Al-Ahli</span></li>
+        <li><span class="num gk">23</span><span class="pname">James Trafford</span><span class="pclub">Manchester City</span></li>
+        <li><span class="num">24</span><span class="pname">Reece James</span><span class="pclub">Chelsea</span></li>
+        <li><span class="num">26</span><span class="pname">Jarell Quansah</span><span class="pclub">Bayer Leverkusen</span></li>
+      </ul>
+      <div class="note">Predicted XI — doubts: Stones (5) vs Konsa at CB, Gordon (18) vs Rashford (11)/Madueke (20) left, Spence (25) vs Livramento (12) at RB. White kit → navy number chips for legibility. Confirmed ~1hr pre-KO.</div>
+    </div>
+  </div>
+  </div>
+
+  <div class="foot">
+    pre-match (confirmed XIs + shirt numbers drop ~1hr before kickoff) <span>Per Wikipedia / ESPN / Al Jazeera previews. Kickoff 5:00 PM PDT = 6 PM Mexico City (UTC−6, no DST).</span>
+  </div>
+
+</div>
+</body>
+</html>

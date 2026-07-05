@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>USA vs Belgium — 2026 World Cup, Round of 16</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&family=Barlow:wght@400;500;600&display=swap');
+
+  :root{
+    --us-blu:#0A3161; --us-deep:#08264a; --us-red:#B31942;
+    --be-red:#E30613; --be-deep:#101820; --be-gold:#FDDA24;
+    --us-kit:#0A3161; --be-kit:#4a8fd0;
+    --gold:#C39A2B;
+
+    --text-micro:0.75rem; --text-sm:0.8125rem; --text-base:1rem; --text-md:1.0625rem;
+    --text-lg:1.125rem; --text-xl:1.25rem; --text-2xl:1.375rem; --text-3xl:1.75rem;
+    --leading:1.45;
+    --ink:#1a1714; --paper:#f6f3ec; --line:#d8d2c4; --muted:#6f675b;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Barlow',sans-serif;font-size:var(--text-base);background:#26231f;color:var(--ink);padding:18px;line-height:var(--leading);}
+  .sheet{max-width:920px;margin:0 auto;background:var(--paper);border:1px solid var(--line);box-shadow:0 14px 44px rgba(0,0,0,.5);overflow:hidden;}
+
+  /* HEADER */
+  .top{display:flex;align-items:stretch;color:#f6f3ec;}
+  .top .side{flex:1;padding:13px 18px;}
+  .top .us{background:linear-gradient(135deg,var(--us-blu),var(--us-deep));}
+  .top .be{background:linear-gradient(225deg,var(--be-red),var(--be-deep));text-align:right;}
+  .top .mid{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 14px;min-width:118px;background:var(--ink);}
+  .flag{font-size:var(--text-sm);letter-spacing:.18em;font-family:'Oswald';font-weight:600;opacity:.85;}
+  .nat{font-family:'Oswald';font-weight:700;font-size:var(--text-3xl);line-height:1;text-transform:uppercase;}
+  .sub{font-size:0.875rem;opacity:.82;margin-top:3px;font-family:'Barlow Condensed';letter-spacing:.04em;}
+  .vs{font-family:'Oswald';font-weight:700;font-size:var(--text-xl);color:var(--gold);}
+  .mid .comp{font-size:var(--text-micro);letter-spacing:.12em;font-family:'Oswald';opacity:.7;text-align:center;}
+
+  .infobar{display:flex;background:#000;color:#f6f3ec;font-family:'Barlow Condensed';font-size:0.9375rem;}
+  .infobar div{padding:6px 14px;border-right:1px solid #2c2c2c;flex:1;text-align:center;white-space:nowrap;}
+  .infobar div:last-child{border-right:none;}
+  .infobar b{color:var(--gold);font-weight:600;letter-spacing:.07em;text-transform:uppercase;font-size:var(--text-micro);display:block;}
+
+  /* STAKES */
+  .strip{display:flex;flex-direction:column;align-items:stretch;background:var(--gold);color:#241e10;}
+  .strip .msg{padding:11px 16px;font-family:'Barlow',sans-serif;font-size:var(--text-md);font-weight:500;}
+  .strip .msg b{font-weight:700;}
+
+  .tie{background:#241e10;color:#f6f3ec;font-family:'Barlow Condensed';padding:8px 16px;width:100%;}
+  .tie-main{font-size:var(--text-base);color:#ffe9a8;line-height:1.38;}
+  .tie-main b{font-family:'Barlow';font-weight:600;color:#fff;}
+  .tie-sub{font-size:0.875rem;color:#a89f8e;margin-top:5px;line-height:1.35;}
+  .tie-sub b{color:var(--gold);font-weight:600;}
+
+  /* TEAM COLUMNS */
+  .cols{display:grid;grid-template-columns:1fr 1fr;}
+  .col{padding:13px 16px;}
+  .col.us{border-right:2px solid var(--line);}
+  .colhead{display:flex;align-items:baseline;justify-content:space-between;border-bottom:2px solid;padding-bottom:5px;margin-bottom:8px;gap:8px;}
+  .col.us .colhead{border-color:var(--us-blu);}
+  .col.be .colhead{border-color:var(--be-red);}
+  .colhead h2{font-family:'Oswald';font-size:var(--text-xl);text-transform:uppercase;letter-spacing:.02em;}
+  .col.us .colhead h2{color:var(--us-blu);}
+  .col.be .colhead h2{color:var(--be-red);}
+  .form{font-family:'Barlow Condensed';font-size:0.875rem;color:var(--muted);letter-spacing:.05em;text-align:right;}
+  .kit{display:inline-block;font-family:'Barlow Condensed';font-size:var(--text-micro);text-transform:uppercase;letter-spacing:.06em;padding:1px 7px;border-radius:10px;border:1px solid var(--line);color:var(--muted);}
+  .kit .sw{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:4px;vertical-align:middle;border:1px solid rgba(0,0,0,.2);}
+
+  .xi{list-style:none;}
+  .xi li{display:flex;gap:9px;align-items:center;padding:2.5px 0;border-bottom:1px dotted var(--line);}
+  .xi li:last-child{border-bottom:none;}
+  .num{font-family:'Oswald';font-weight:700;font-size:var(--text-lg);width:28px;height:26px;display:flex;align-items:center;justify-content:center;color:#fff;border-radius:3px;flex-shrink:0;}
+  .col.us .num{background:var(--us-kit);}
+  .col.be .num{background:var(--be-kit);}
+  .num.gk{background:#444 !important;}
+  .pname{font-weight:600;font-size:var(--text-lg);}
+  .pclub{color:var(--muted);font-size:var(--text-sm);font-family:'Barlow Condensed';margin-left:auto;text-align:right;letter-spacing:.02em;white-space:nowrap;}
+  .cap{color:var(--gold);font-weight:700;font-size:var(--text-micro);vertical-align:super;margin-left:1px;}
+
+  .note{font-size:var(--text-sm);color:var(--muted);font-style:italic;margin-top:6px;line-height:1.3;}
+
+  /* ROAD HERE */
+  .road{background:var(--ink);color:#ece5d8;padding:13px 18px;}
+  .road h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--gold);text-transform:uppercase;margin-bottom:9px;text-align:center;}
+  .roadgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .rh{font-family:'Oswald';font-size:var(--text-base);text-transform:uppercase;letter-spacing:.03em;margin-bottom:5px;}
+  .rh.u{color:#8ab4e8;} .rh.b{color:#ff9aa5;}
+  .game{display:flex;gap:8px;margin-bottom:6px;font-size:0.9375rem;line-height:var(--leading);}
+  .score{font-family:'Oswald';font-weight:700;font-size:var(--text-sm);padding:2px 6px;border-radius:3px;height:fit-content;white-space:nowrap;flex-shrink:0;color:#fff;}
+  .score.w{background:#2c5e38;} .score.l{background:#6e2530;} .score.d{background:#5a5036;}
+  .game .gt{color:#cfc7b8;}
+  .game .gt b{color:#fff;font-weight:600;}
+  .game .gt small{display:block;color:#a89f8e;font-size:var(--text-sm);font-style:italic;}
+  .game .gt .dt{color:#fff;font-weight:600;}
+
+  /* WATCH */
+  .watch{padding:13px 18px;}
+  .watch h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--us-blu);text-transform:uppercase;margin-bottom:9px;}
+  .wgrid{display:grid;grid-template-columns:1fr;gap:10px;}
+  .star{display:flex;gap:9px;}
+  .star .wn{font-family:'Oswald';font-weight:700;font-size:var(--text-lg);width:34px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:3px;color:#fff;flex-shrink:0;}
+  .wn.u{background:var(--us-kit);} .wn.b{background:var(--be-kit);}
+  .star .nm{font-family:'Oswald';font-size:var(--text-xl);font-weight:600;line-height:1.05;}
+  .star .meta{font-size:var(--text-sm);color:var(--muted);font-family:'Barlow Condensed';letter-spacing:.03em;text-transform:uppercase;margin-bottom:2px;}
+  .star .blurb{font-family:'Barlow',sans-serif;font-size:var(--text-base);line-height:var(--leading);}
+  .star b{font-weight:600;}
+  .wgroup{margin-bottom:12px;}
+  .wgroup:last-child{margin-bottom:0;}
+  .wteam{font-family:'Oswald';font-size:var(--text-md);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;padding-bottom:3px;border-bottom:2px solid;}
+  .wteam.u{color:var(--us-blu);border-color:var(--us-blu);}
+  .wteam.b{color:var(--be-red);border-color:var(--be-red);}
+
+  /* NEXT */
+  .next{background:#efe9dc;padding:12px 18px;border-top:1px solid var(--line);}
+  .next h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--be-red);text-transform:uppercase;margin-bottom:7px;}
+  .next .ng{columns:1;}
+  .next p{font-family:'Barlow',sans-serif;font-size:var(--text-base);margin-bottom:8px;break-inside:avoid;line-height:var(--leading);padding-left:13px;position:relative;}
+  .next p::before{content:"\25B8";position:absolute;left:0;color:var(--gold);font-size:var(--text-micro);top:2px;}
+  .next b{font-weight:600;}
+
+  /* WHAT TO WATCH FOR */
+  .wtw{padding:13px 18px;border-top:1px solid var(--line);}
+  .wtw h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--gold);text-transform:uppercase;margin-bottom:9px;}
+  .battles{columns:1;}
+  .battle{font-family:'Barlow',sans-serif;font-size:var(--text-base);line-height:var(--leading);margin-bottom:8px;break-inside:avoid;}
+  .battle .bt{font-family:'Oswald';font-weight:600;font-size:var(--text-md);text-transform:uppercase;letter-spacing:.02em;color:var(--ink);display:block;margin-bottom:1px;}
+  .tip{margin-top:8px;background:#efe9dc;border-left:3px solid var(--gold);padding:10px 12px;font-family:'Barlow',sans-serif;font-size:var(--text-md);line-height:var(--leading);}
+  .tip b{font-family:'Barlow';font-weight:600;color:#241e10;}
+  .deadball{margin-top:8px;font-family:'Barlow',sans-serif;font-size:var(--text-sm);color:var(--muted);line-height:var(--leading);}
+  .deadball b{color:var(--ink);font-weight:600;text-transform:uppercase;letter-spacing:.03em;font-size:var(--text-micro);}
+
+  /* LINEUPS */
+  .rtitle{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--ink);text-transform:uppercase;text-align:center;padding:13px 18px 0;}
+  .rsub{font-family:'Oswald';font-size:var(--text-micro);letter-spacing:.13em;color:var(--muted);text-transform:uppercase;margin:9px 0 3px;}
+  .rsub:first-child{margin-top:0;}
+
+  .foot{background:var(--ink);color:#9a9081;font-size:var(--text-micro);text-align:center;padding:7px;font-family:'Barlow Condensed';letter-spacing:.05em;}
+  .foot span{color:var(--gold);}
+
+  /* LINEUP TABS — mobile team switcher (CSS-only) */
+  .lineup-tabs .tab-input{position:absolute;opacity:0;width:0;height:0;pointer-events:none;}
+  .lineup-tabs .tab-bar{display:none;}
+
+  @media (max-width:680px){
+    body{padding:7px;overflow-x:hidden;}
+    .sheet{overflow-x:clip;}
+    .wgrid,.roadgrid{grid-template-columns:1fr;}
+    .cols{grid-template-columns:1fr;}
+
+    .top .side{padding:10px 12px;min-width:0;}
+    .top .mid{min-width:64px;padding:8px 10px;}
+
+    .infobar{flex-wrap:wrap;}
+    .infobar div{flex:1 1 46%;white-space:normal;min-width:0;padding:6px 10px;font-size:0.9375rem;}
+    .infobar div:nth-child(2){border-right:none;}
+    .infobar div:nth-child(3),
+    .infobar div:nth-child(4){border-top:1px solid #2c2c2c;}
+
+    .lineup-tabs .tab-bar{
+      display:flex;margin:0 16px;padding-top:10px;
+      border-bottom:2px solid var(--line);
+    }
+    .lineup-tabs .tab-bar label{
+      flex:1;text-align:center;padding:10px 6px;
+      font-family:'Oswald';font-size:var(--text-md);font-weight:600;
+      text-transform:uppercase;letter-spacing:.06em;
+      cursor:pointer;color:var(--muted);
+      border-bottom:3px solid transparent;margin-bottom:-2px;
+    }
+    .lineup-tabs #lineup-home:checked ~ .tab-bar .tab-home{border-bottom-color:var(--us-blu);color:var(--us-blu);}
+    .lineup-tabs #lineup-away:checked ~ .tab-bar .tab-away{border-bottom-color:var(--be-red);color:var(--be-red);}
+    .lineup-tabs #lineup-home:checked ~ .cols .col:last-child{display:none;}
+    .lineup-tabs #lineup-away:checked ~ .cols .col:first-child{display:none;}
+    .col.us,.col.be{border-right:none;}
+    .colhead{flex-wrap:wrap;align-items:flex-start;gap:4px;}
+
+    .pname{min-width:0;flex:1;}
+    .pclub{white-space:normal;flex-shrink:1;max-width:46%;}
+    .star,.star > div{min-width:0;}
+    .nat{line-height:1.08;overflow-wrap:break-word;text-wrap:balance;}
+    .next p,.battle,.blurb{overflow-wrap:break-word;}
+  }
+  @media print{body{background:#fff;padding:0;}.sheet{box-shadow:none;border:none;}@page{margin:7mm;}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="top">
+    <div class="side us">
+      <div class="flag">🇺🇸 UNITED STATES</div>
+      <div class="nat">Stars &amp; Stripes</div>
+      <div class="sub">FIFA #17 · Coach: Mauricio Pochettino · 4-3-3</div>
+    </div>
+    <div class="mid">
+      <div class="comp">ROUND&nbsp;OF&nbsp;16</div>
+      <div class="vs">V</div>
+      <div class="comp">WORLD&nbsp;CUP&nbsp;'26</div>
+    </div>
+    <div class="side be">
+      <div class="flag">BELGIUM 🇧🇪</div>
+      <div class="nat">Red Devils</div>
+      <div class="sub">4-2-3-1 · Coach: Rudi Garcia · FIFA #10</div>
+    </div>
+  </div>
+
+  <div class="infobar">
+    <div><b>Venue</b>Lumen Field, Seattle</div>
+    <div><b>Kickoff</b>Mon 5:00 PM PDT</div>
+    <div><b>TV</b>FOX / Telemundo</div>
+    <div><b>Referee</b>TBD</div>
+  </div>
+
+  <div class="strip">
+    <div class="msg"><b>The co-hosts play a home knockout in Seattle — and it's a 2014 rematch.</b> Belgium won that Round of 16 <b>2-1 after extra time</b>, behind Tim Howard's record 15 saves. Twelve years on, De Bruyne and Lukaku are still here. Win and you're in the quarters.</div>
+    <div class="tie">
+      <div class="tie-main"><b>Winner → Quarter-final (Fri Jul 10)</b> · Loser eliminated</div>
+      <div class="tie-sub"><b>Next:</b> QF vs the winner of Portugal vs Spain · <b>Odds:</b> a genuine pick 'em (~50/50; Belgium a hair shorter in regulation, USA edge on home advantage)</div>
+    </div>
+  </div>
+
+  <div class="road">
+    <h3>How They Got Here</h3>
+    <div class="roadgrid">
+      <div>
+        <div class="rh u">United States · Group D winners</div>
+        <div class="game"><span class="score w">4&ndash;1</span><span class="gt"><span class="dt">Jun 12</span> · vs Paraguay<small>Balogun brace, Reyna late</small></span></div>
+        <div class="game"><span class="score w">2&ndash;0</span><span class="gt"><span class="dt">Jun 19</span> · vs Australia<small>Burgess, Freeman — in Seattle</small></span></div>
+        <div class="game"><span class="score l">2&ndash;3</span><span class="gt"><span class="dt">Jun 25</span> · vs Turkey<small>led early, conceded a 90+8' winner</small></span></div>
+        <div class="game"><span class="score w">2&ndash;0</span><span class="gt"><span class="dt">Jul 1 · R32</span> · vs Bosnia &amp; Herzegovina<small>Balogun, Tillman; clean sheet</small></span></div>
+      </div>
+      <div>
+        <div class="rh b">Belgium · Group G winners</div>
+        <div class="game"><span class="score d">1&ndash;1</span><span class="gt"><span class="dt">Jun 15</span> · vs Egypt</span></div>
+        <div class="game"><span class="score d">0&ndash;0</span><span class="gt"><span class="dt">Jun 21</span> · vs Iran</span></div>
+        <div class="game"><span class="score w">5&ndash;1</span><span class="gt"><span class="dt">Jun 26</span> · vs New Zealand<small>Trossard brace, De Bruyne, Lukaku</small></span></div>
+        <div class="game"><span class="score w">3&ndash;2</span><span class="gt"><span class="dt">Jul 1 · R32</span> · vs Senegal (AET)<small>trailed 2-0; Tielemans won it, 120+5' pen</small></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="next">
+    <h3>What's At Stake &amp; What's Next</h3>
+    <div class="ng">
+      <p><b>USA:</b> Win = first-ever World Cup win over Belgium since 1930, and a quarter-final on home soil. A raucous Seattle crowd, a young Pochettino side, and a shot at the last eight.</p>
+      <p><b>Belgium:</b> Win = the golden generation rolls on — De Bruyne, Lukaku, Tielemans and co. into a quarter-final, quite possibly their last major-tournament run together.</p>
+      <p><b>Winner's reward:</b> a Quarter-final on <b>Fri Jul 10</b> vs the winner of <b>Portugal vs Spain</b> — an Iberian heavyweight awaits.</p>
+      <p><b>The 2014 ghost:</b> the last USA–Belgium meeting was the 2-1 AET heartbreak in Salvador. Every USMNT fan in the building will remember Tim Howard's 15 saves.</p>
+      <p><b>1930 bookend:</b> the only time the USA has ever beaten Belgium was a 3-0 win in 1930 — the USMNT's first-ever World Cup match. This is a chance to end a ~96-year wait.</p>
+    </div>
+  </div>
+
+  <div class="wtw">
+    <h3>What To Watch For</h3>
+    <div class="battles">
+      <div class="battle"><span class="bt">Pulisic vs Belgium's right side</span>The headline duel. The USMNT's talisman and top scorer cuts in from the left; Castagne (and whoever partners him) must live with him for 90 minutes. Watch whether Pulisic isolates 1v1 or drifts central to combine.</div>
+      <div class="battle"><span class="bt">Doku vs Antonee Robinson</span>Arguably the best footrace on the pitch — Doku's dribbling and burst against one of the fastest full-backs in world football. Whoever wins this flank tilts the game.</div>
+      <div class="battle"><span class="bt">De Bruyne vs Adams &amp; the USA midfield</span>The control battle. Tyler Adams is the USA's screen and ball-winner; his job is to deny De Bruyne the half-second he needs. Every KDB touch between the lines is danger.</div>
+      <div class="battle"><span class="bt">USA's press vs Belgium's veteran build-up</span>Pochettino's side want to hunt the ball high; Belgium, with Courtois behind and De Bruyne dropping in, want to play through it. If the press breaks, Doku and Trossard run at a stretched back line.</div>
+    </div>
+    <div class="deadball"><b>USA dead-ball:</b> Pulisic is the delivery + direct free-kick threat; the danger is speed of transition (Weah, Pepi runs) more than aerial height.<br><b>Belgium dead-ball:</b> a clear edge — Courtois (6'6") commands his box, De Bruyne's delivery is elite, and Lukaku off the bench is a genuine late target man.</div>
+    <div class="tip"><b>Set-piece tip:</b> if it's tight past the hour, watch for Garcia to send on <b>Lukaku</b> and turn crosses and set-pieces into Belgium's cleanest route to a goal.</div>
+  </div>
+
+  <div class="watch">
+    <h3>&#9733; The Names You'll Hear Most &#9733;</h3>
+    <div class="wgroup"><div class="wteam u">United States</div><div class="wgrid">
+      <div class="star"><span class="wn u">10</span><div><div class="nm">Christian Pulisic</div><div class="meta">USA · Milan · Talisman</div><div class="blurb">The face of the USMNT and its go-to match-winner — cuts in from the left, takes the big free-kicks, carries the home crowd's hopes.</div></div></div>
+      <div class="star"><span class="wn u">8</span><div><div class="nm">Weston McKennie</div><div class="meta">USA · Juventus · Engine</div><div class="blurb">Box-to-box heartbeat: late runs into the area, set-piece presence, and the emotional driver of the side.</div></div></div>
+      <div class="star"><span class="wn u">5</span><div><div class="nm">Antonee Robinson</div><div class="meta">USA · Fulham · Left-back</div><div class="blurb">Among the quickest defenders in the game — he both shackles Doku and overlaps Pulisic down the left.</div></div></div>
+      <div class="star"><span class="wn u">7</span><div><div class="nm">Giovanni Reyna</div><div class="meta">USA · M'gladbach · Creator</div><div class="blurb">The silky change-of-tempo option off the bench (or in) — scored the late goal vs Paraguay; can unlock a low block.</div></div></div>
+      <div class="star"><span class="wn u">20</span><div><div class="nm">Folarin Balogun</div><div class="meta">USA · Monaco · Striker</div><div class="blurb">The tournament breakout — 3 goals so far (Paraguay ×2, Bosnia) after choosing the USA over England and France.</div></div></div>
+    </div></div>
+    <div class="wgroup"><div class="wteam b">Belgium</div><div class="wgrid">
+      <div class="star"><span class="wn b">7</span><div><div class="nm">Kevin De Bruyne</div><div class="meta">Belgium · Napoli · Orchestrator</div><div class="blurb">Still the pass no one else sees. Scored in the group rout of New Zealand — and was on the scoresheet against the USA back in 2014.</div></div></div>
+      <div class="star"><span class="wn b">11</span><div><div class="nm">Jérémy Doku</div><div class="meta">Belgium · Man City · Winger</div><div class="blurb">The most explosive dribbler in the squad — a one-man overload down the right, direct and fearless.</div></div></div>
+      <div class="star"><span class="wn b">8</span><div><div class="nm">Youri Tielemans</div><div class="meta">Belgium · Aston Villa · Captain</div><div class="blurb">The R32 hero: forced extra time vs Senegal at 89', then buried the 120+5' winning penalty. Wears the armband.</div></div></div>
+      <div class="star"><span class="wn b">9</span><div><div class="nm">Romelu Lukaku</div><div class="meta">Belgium · Napoli · Target man</div><div class="blurb">Belgium's record scorer and impact weapon — may open on the bench behind a false-9, but scored vs both NZ and Senegal and looms late.</div></div></div>
+    </div></div>
+  </div>
+
+  <div class="rtitle">The Lineups · By The Numbers</div>
+  <div class="lineup-tabs">
+    <input type="radio" name="lineup-tab" id="lineup-home" class="tab-input" checked>
+    <input type="radio" name="lineup-tab" id="lineup-away" class="tab-input">
+    <div class="tab-bar">
+      <label for="lineup-home" class="tab-home">United States</label>
+      <label for="lineup-away" class="tab-away">Belgium</label>
+    </div>
+  <div class="cols">
+    <div class="col us">
+      <div class="colhead"><h2>United States</h2><span class="form">4-3-3 · high press<br><span class="kit"><span class="sw" style="background:#0A3161"></span>away · navy</span></span></div>
+      <div class="rsub">Starters</div>
+      <ul class="xi">
+        <li><span class="num">2</span><span class="pname">Sergiño Dest</span><span class="pclub">PSV</span></li>
+        <li><span class="num">3</span><span class="pname">Chris Richards</span><span class="pclub">Crystal Palace</span></li>
+        <li><span class="num">4</span><span class="pname">Tyler Adams</span><span class="pclub">Bournemouth</span></li>
+        <li><span class="num">5</span><span class="pname">Antonee Robinson</span><span class="pclub">Fulham</span></li>
+        <li><span class="num">8</span><span class="pname">Weston McKennie</span><span class="pclub">Juventus</span></li>
+        <li><span class="num">9</span><span class="pname">Ricardo Pepi</span><span class="pclub">PSV</span></li>
+        <li><span class="num">10</span><span class="pname">Christian Pulisic</span><span class="pclub">Milan</span></li>
+        <li><span class="num">13</span><span class="pname">Tim Ream<span class="cap">C</span></span><span class="pclub">Charlotte FC</span></li>
+        <li><span class="num">16</span><span class="pname">Alex Freeman</span><span class="pclub">Villarreal</span></li>
+        <li><span class="num">17</span><span class="pname">Malik Tillman</span><span class="pclub">Leverkusen</span></li>
+        <li><span class="num gk">24</span><span class="pname">Matt Freese</span><span class="pclub">NYCFC</span></li>
+      </ul>
+      <div class="rsub">Bench</div>
+      <ul class="xi">
+        <li><span class="num gk">1</span><span class="pname">Matt Turner</span><span class="pclub">New England</span></li>
+        <li><span class="num">6</span><span class="pname">Auston Trusty</span><span class="pclub">Celtic</span></li>
+        <li><span class="num">7</span><span class="pname">Giovanni Reyna</span><span class="pclub">M'gladbach</span></li>
+        <li><span class="num">11</span><span class="pname">Brenden Aaronson</span><span class="pclub">Leeds</span></li>
+        <li><span class="num">12</span><span class="pname">Miles Robinson</span><span class="pclub">Cincinnati</span></li>
+        <li><span class="num">14</span><span class="pname">Sebastian Berhalter</span><span class="pclub">Vancouver</span></li>
+        <li><span class="num">15</span><span class="pname">Cristian Roldan</span><span class="pclub">Seattle</span></li>
+        <li><span class="num">18</span><span class="pname">Max Arfsten</span><span class="pclub">Columbus</span></li>
+        <li><span class="num">19</span><span class="pname">Haji Wright</span><span class="pclub">Coventry</span></li>
+        <li><span class="num">20</span><span class="pname">Folarin Balogun</span><span class="pclub">Monaco</span></li>
+        <li><span class="num">21</span><span class="pname">Timothy Weah</span><span class="pclub">Marseille</span></li>
+        <li><span class="num">22</span><span class="pname">Mark McKenzie</span><span class="pclub">Toulouse</span></li>
+        <li><span class="num">23</span><span class="pname">Joe Scally</span><span class="pclub">M'gladbach</span></li>
+        <li><span class="num gk">25</span><span class="pname">Chris Brady</span><span class="pclub">Chicago Fire</span></li>
+        <li><span class="num">26</span><span class="pname">Alejandro Zendejas</span><span class="pclub">Club América</span></li>
+      </ul>
+      <div class="note">Predicted XI (ESPN 4-3-3). Main doubt: the No.9 — Pepi (9) vs Balogun (20), who'd push McKennie to a 10. Freese (24), not the No.1 Turner, is the starting keeper. Confirmed ~1hr before kickoff.</div>
+    </div>
+    <div class="col be">
+      <div class="colhead"><h2>Belgium</h2><span class="form">4-2-3-1 · veteran control<br><span class="kit"><span class="sw" style="background:#7FB4E0"></span>away · sky blue</span></span></div>
+      <div class="rsub">Starters</div>
+      <ul class="xi">
+        <li><span class="num gk">1</span><span class="pname">Thibaut Courtois</span><span class="pclub">Real Madrid</span></li>
+        <li><span class="num">3</span><span class="pname">Arthur Theate</span><span class="pclub">Eint. Frankfurt</span></li>
+        <li><span class="num">4</span><span class="pname">Brandon Mechele</span><span class="pclub">Club Brugge</span></li>
+        <li><span class="num">7</span><span class="pname">Kevin De Bruyne</span><span class="pclub">Napoli</span></li>
+        <li><span class="num">8</span><span class="pname">Youri Tielemans<span class="cap">C</span></span><span class="pclub">Aston Villa</span></li>
+        <li><span class="num">10</span><span class="pname">Leandro Trossard</span><span class="pclub">Arsenal</span></li>
+        <li><span class="num">11</span><span class="pname">Jérémy Doku</span><span class="pclub">Man City</span></li>
+        <li><span class="num">17</span><span class="pname">Charles De Ketelaere</span><span class="pclub">Atalanta</span></li>
+        <li><span class="num">21</span><span class="pname">Timothy Castagne</span><span class="pclub">Fulham</span></li>
+        <li><span class="num">24</span><span class="pname">Amadou Onana</span><span class="pclub">Aston Villa</span></li>
+        <li><span class="num">25</span><span class="pname">Nathan Ngoy</span><span class="pclub">Lille</span></li>
+      </ul>
+      <div class="rsub">Bench</div>
+      <ul class="xi">
+        <li><span class="num">2</span><span class="pname">Zeno Debast</span><span class="pclub">Sporting CP</span></li>
+        <li><span class="num">5</span><span class="pname">Maxim De Cuyper</span><span class="pclub">Brighton</span></li>
+        <li><span class="num">6</span><span class="pname">Axel Witsel</span><span class="pclub">Girona</span></li>
+        <li><span class="num">9</span><span class="pname">Romelu Lukaku</span><span class="pclub">Napoli</span></li>
+        <li><span class="num gk">12</span><span class="pname">Senne Lammens</span><span class="pclub">Man United</span></li>
+        <li><span class="num gk">13</span><span class="pname">Mike Penders</span><span class="pclub">Strasbourg</span></li>
+        <li><span class="num">14</span><span class="pname">Dodi Lukébakio</span><span class="pclub">Benfica</span></li>
+        <li><span class="num">15</span><span class="pname">Thomas Meunier</span><span class="pclub">Lille</span></li>
+        <li><span class="num">16</span><span class="pname">Koni De Winter</span><span class="pclub">Milan</span></li>
+        <li><span class="num">18</span><span class="pname">Joaquin Seys</span><span class="pclub">Club Brugge</span></li>
+        <li><span class="num">19</span><span class="pname">Diego Moreira</span><span class="pclub">Strasbourg</span></li>
+        <li><span class="num">20</span><span class="pname">Hans Vanaken</span><span class="pclub">Club Brugge</span></li>
+        <li><span class="num">22</span><span class="pname">Alexis Saelemaekers</span><span class="pclub">Milan</span></li>
+        <li><span class="num">23</span><span class="pname">Nicolas Raskin</span><span class="pclub">Rangers</span></li>
+        <li><span class="num">26</span><span class="pname">Matias Fernandez-Pardo</span><span class="pclub">Lille</span></li>
+      </ul>
+      <div class="note">Predicted XI (ESPN 4-2-3-1). De Ketelaere (17) as false-9 is the consensus start; Lukaku (9) likely opens on the bench as the late target man. Doubts: CB pairing, the double pivot (Onana/Vanaken), and left-back. Confirmed ~1hr before kickoff.</div>
+    </div>
+  </div>
+  </div>
+
+  <div class="foot">
+    pre-match (predicted XIs + confirmed shirt numbers firm up ~1hr before kickoff) · referee TBD <span>Squads: Wikipedia 2026 WC squads · XIs: ESPN/SI · kits: FOX/Footy Headlines · H2H: FIFA/Yahoo.</span>
+  </div>
+
+</div>
+</body>
+</html>

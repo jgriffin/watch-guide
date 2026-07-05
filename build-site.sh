@@ -262,12 +262,12 @@ in_fixtures(){ local s; for s in "${FIXSLUGS[@]}"; do [ "$s" = "$1" ] && return 
 # guide"). Lead with what's actionable: Today + the next match day are open; the
 # rest of the upcoming slate and past games fold into collapsed sections.
 emit_day(){ # arg: YYYY-MM-DD -> that day's fixture cards, sorted by kickoff
-  local d="$1" ko kod home away venue slug ex _t
+  local d="$1" ko kod home away venue slug round ex _t
   _t=$(mktemp)
-  jq -r --arg d "$d" '.fixtures[]|select(.date==$d)|[.ko_pacific,.ko_display,.home,.away,.venue,.slug]|@tsv' "$FIX" | sort > "$_t"
-  while IFS=$'\t' read -r ko kod home away venue slug; do
+  jq -r --arg d "$d" '.fixtures[]|select(.date==$d)|[.ko_pacific,.ko_display,.home,.away,.venue,.slug,.round]|@tsv' "$FIX" | sort > "$_t"
+  while IFS=$'\t' read -r ko kod home away venue slug round; do
     ex=0; guide_exists "$slug" && ex=1
-    emit_card "$ex" "$kod" "$slug" "$(esc "$home") vs $(esc "$away")" "Round of 32 &middot; $(esc "$venue")"
+    emit_card "$ex" "$kod" "$slug" "$(esc "$home") vs $(esc "$away")" "$(esc "${round:-Round of 32}") &middot; $(esc "$venue")"
   done < "$_t"
   rm -f "$_t"
 }
@@ -305,10 +305,10 @@ fi
 # ---- Earlier games (collapsed, bottom): past fixtures + orphan guides -------
 EARLIER="$SITE/.earlier.tsv"
 : > "$EARLIER"
-_t=$(mktemp); jq -r --arg t "$TODAY" '.fixtures[]|select(.date<$t)|[.date,.ko_pacific,.ko_display,.home,.away,.venue,.slug]|@tsv' "$FIX" > "$_t"
-while IFS=$'\t' read -r d ko kod home away venue slug; do
+_t=$(mktemp); jq -r --arg t "$TODAY" '.fixtures[]|select(.date<$t)|[.date,.ko_pacific,.ko_display,.home,.away,.venue,.slug,.round]|@tsv' "$FIX" > "$_t"
+while IFS=$'\t' read -r d ko kod home away venue slug round; do
   ex=0; guide_exists "$slug" && ex=1
-  printf '%s\t%s\t%s\t%s\t%s\t%s\n' "$d" "$ko" "$ex" "$slug" "$(esc "$home") vs $(esc "$away")" "Round of 32 &middot; $(esc "$venue")" >> "$EARLIER"
+  printf '%s\t%s\t%s\t%s\t%s\t%s\n' "$d" "$ko" "$ex" "$slug" "$(esc "$home") vs $(esc "$away")" "$(esc "${round:-Round of 32}") &middot; $(esc "$venue")" >> "$EARLIER"
 done < "$_t"; rm -f "$_t"
 # generated guides not present in fixtures.json (group-stage etc.) -> always earlier
 for dir in "$MATCHES"/*/; do

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portugal vs Spain — 2026 World Cup, Round of 16</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&family=Barlow:wght@400;500;600&display=swap');
+
+  :root{
+    --pt-red:#C5122E; --pt-deep:#6e0a1c; --pt-grn:#0B6E37;
+    --es-red:#AA151B; --es-deep:#6f0d11; --es-gold:#F1BF00;
+    --gold:#C39A2B;
+
+    --text-micro:0.75rem; --text-sm:0.8125rem; --text-base:1rem; --text-md:1.0625rem;
+    --text-lg:1.125rem; --text-xl:1.25rem; --text-2xl:1.375rem; --text-3xl:1.75rem;
+    --leading:1.45;
+    --ink:#1a1714; --paper:#f6f3ec; --line:#d8d2c4; --muted:#6f675b;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Barlow',sans-serif;font-size:var(--text-base);background:#26231f;color:var(--ink);padding:18px;line-height:var(--leading);}
+  .sheet{max-width:920px;margin:0 auto;background:var(--paper);border:1px solid var(--line);box-shadow:0 14px 44px rgba(0,0,0,.5);overflow:hidden;}
+
+  /* HEADER */
+  .top{display:flex;align-items:stretch;color:#f6f3ec;}
+  .top .side{flex:1;padding:13px 18px;}
+  .top .pt{background:linear-gradient(135deg,var(--pt-red),var(--pt-deep));border-bottom:4px solid var(--pt-grn);}
+  .top .es{background:linear-gradient(225deg,var(--es-red),var(--es-deep));text-align:right;border-bottom:4px solid var(--es-gold);}
+  .top .mid{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 14px;min-width:118px;background:var(--ink);}
+  .flag{font-size:var(--text-sm);letter-spacing:.18em;font-family:'Oswald';font-weight:600;opacity:.85;}
+  .nat{font-family:'Oswald';font-weight:700;font-size:var(--text-3xl);line-height:1;text-transform:uppercase;}
+  .sub{font-size:0.875rem;opacity:.85;margin-top:3px;font-family:'Barlow Condensed';letter-spacing:.04em;}
+  .vs{font-family:'Oswald';font-weight:700;font-size:var(--text-xl);color:var(--gold);}
+  .mid .comp{font-size:var(--text-micro);letter-spacing:.12em;font-family:'Oswald';opacity:.7;text-align:center;}
+
+  .infobar{display:flex;background:#000;color:#f6f3ec;font-family:'Barlow Condensed';font-size:0.9375rem;}
+  .infobar div{padding:6px 14px;border-right:1px solid #2c2c2c;flex:1;text-align:center;white-space:nowrap;}
+  .infobar div:last-child{border-right:none;}
+  .infobar b{color:var(--gold);font-weight:600;letter-spacing:.07em;text-transform:uppercase;font-size:var(--text-micro);display:block;}
+
+  /* STAKES */
+  .strip{display:flex;flex-direction:column;align-items:stretch;background:var(--gold);color:#241e10;}
+  .strip .msg{padding:11px 16px;font-family:'Barlow',sans-serif;font-size:var(--text-md);font-weight:500;}
+  .strip .msg b{font-weight:700;}
+
+  .tie{background:#241e10;color:#f6f3ec;font-family:'Barlow Condensed';padding:8px 16px;width:100%;}
+  .tie-main{font-size:var(--text-base);color:#ffe9a8;line-height:1.38;}
+  .tie-main b{font-family:'Barlow';font-weight:600;color:#fff;}
+  .tie-sub{font-size:0.875rem;color:#a89f8e;margin-top:5px;line-height:1.35;}
+  .tie-sub b{color:var(--gold);font-weight:600;}
+
+  /* TEAM COLUMNS */
+  .cols{display:grid;grid-template-columns:1fr 1fr;}
+  .col{padding:13px 16px;}
+  .col.pt{border-right:2px solid var(--line);}
+  .col.es{background:#fbfaf5;}
+  .colhead{display:flex;align-items:baseline;justify-content:space-between;border-bottom:2px solid;padding-bottom:5px;margin-bottom:8px;}
+  .col.pt .colhead{border-color:var(--pt-red);}
+  .col.es .colhead{border-color:var(--es-gold);}
+  .colhead h2{font-family:'Oswald';font-size:var(--text-xl);text-transform:uppercase;letter-spacing:.02em;}
+  .col.pt .colhead h2{color:var(--pt-red);}
+  .col.es .colhead h2{color:var(--es-red);}
+  .form{font-family:'Barlow Condensed';font-size:0.875rem;color:var(--muted);letter-spacing:.04em;text-align:right;}
+
+  .xi{list-style:none;}
+  .xi li{display:flex;gap:9px;align-items:center;padding:2.5px 0;border-bottom:1px dotted var(--line);}
+  .xi li:last-child{border-bottom:none;}
+  .num{font-family:'Oswald';font-weight:700;font-size:var(--text-lg);width:28px;height:26px;display:flex;align-items:center;justify-content:center;color:#fff;border-radius:3px;flex-shrink:0;}
+  .col.pt .num{background:var(--pt-red);}
+  .col.es .num{background:var(--es-red);border:1px solid var(--es-gold);}
+  .num.gk{background:#444 !important;border-color:#444 !important;}
+  .pname{font-weight:600;font-size:var(--text-lg);}
+  .pclub{color:var(--muted);font-size:var(--text-sm);font-family:'Barlow Condensed';margin-left:auto;text-align:right;letter-spacing:.02em;white-space:nowrap;}
+  .cap{color:var(--gold);font-weight:700;font-size:var(--text-micro);vertical-align:super;margin-left:1px;}
+
+  .note{font-size:var(--text-sm);color:var(--muted);font-style:italic;margin-top:6px;line-height:1.3;}
+
+  /* ROAD HERE */
+  .road{background:var(--ink);color:#ece5d8;padding:13px 18px;}
+  .road h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--gold);text-transform:uppercase;margin-bottom:9px;text-align:center;}
+  .roadgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .rh{font-family:'Oswald';font-size:var(--text-base);text-transform:uppercase;letter-spacing:.03em;margin-bottom:5px;}
+  .rh.p{color:#ff8e9e;} .rh.s{color:#ffd773;}
+  .game{display:flex;gap:8px;margin-bottom:6px;font-size:0.9375rem;line-height:var(--leading);}
+  .score{font-family:'Oswald';font-weight:700;font-size:var(--text-sm);padding:2px 6px;border-radius:3px;height:fit-content;white-space:nowrap;flex-shrink:0;color:#fff;}
+  .score.w{background:#2c5e38;} .score.l{background:#6e2530;} .score.d{background:#5a5036;}
+  .game .gt{color:#cfc7b8;}
+  .game .gt b{color:#fff;font-weight:600;}
+  .game .gt small{display:block;color:#a89f8e;font-size:var(--text-sm);font-style:italic;}
+  .game .gt .dt{color:#fff;font-weight:600;}
+
+  /* NEXT */
+  .next{background:#efe9dc;padding:12px 18px;border-top:1px solid var(--line);}
+  .next h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--es-red);text-transform:uppercase;margin-bottom:7px;}
+  .next .ng{columns:1;}
+  .next p{font-family:'Barlow',sans-serif;font-size:var(--text-base);margin-bottom:8px;break-inside:avoid;line-height:var(--leading);padding-left:13px;position:relative;}
+  .next p::before{content:"\25B8";position:absolute;left:0;color:var(--gold);font-size:var(--text-micro);top:2px;}
+  .next b{font-weight:600;}
+
+  /* WHAT TO WATCH FOR */
+  .wtw{padding:13px 18px;border-top:1px solid var(--line);}
+  .wtw h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--gold);text-transform:uppercase;margin-bottom:9px;}
+  .battles{columns:1;}
+  .battle{font-family:'Barlow',sans-serif;font-size:var(--text-base);line-height:var(--leading);margin-bottom:8px;break-inside:avoid;}
+  .battle .bt{font-family:'Oswald';font-weight:600;font-size:var(--text-md);text-transform:uppercase;letter-spacing:.02em;color:var(--ink);display:block;margin-bottom:1px;}
+  .tip{margin-top:8px;background:#efe9dc;border-left:3px solid var(--gold);padding:10px 12px;font-family:'Barlow',sans-serif;font-size:var(--text-md);line-height:var(--leading);}
+  .tip b{font-family:'Barlow';font-weight:600;color:#241e10;}
+  .deadball{margin-top:8px;font-family:'Barlow',sans-serif;font-size:var(--text-sm);color:var(--muted);line-height:var(--leading);}
+  .deadball b{color:var(--ink);font-weight:600;text-transform:uppercase;letter-spacing:.03em;font-size:var(--text-micro);}
+
+  /* WATCH — stars split by team */
+  .watch{padding:13px 18px;}
+  .watch h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--pt-red);text-transform:uppercase;margin-bottom:9px;}
+  .wgroup{margin-bottom:12px;}
+  .wgroup:last-child{margin-bottom:0;}
+  .wteam{font-family:'Oswald';font-size:var(--text-md);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;padding-bottom:3px;border-bottom:2px solid;}
+  .wteam.p{color:var(--pt-red);border-color:var(--pt-red);}
+  .wteam.s{color:var(--es-red);border-color:var(--es-gold);}
+  .wgrid{display:grid;grid-template-columns:1fr;gap:10px;}
+  .star{display:flex;gap:9px;}
+  .star .wn{font-family:'Oswald';font-weight:700;font-size:var(--text-lg);width:34px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:3px;color:#fff;flex-shrink:0;}
+  .wn.p{background:var(--pt-red);} .wn.s{background:var(--es-red);border:1px solid var(--es-gold);}
+  .star .nm{font-family:'Oswald';font-size:var(--text-xl);font-weight:600;line-height:1.05;}
+  .star .meta{font-size:var(--text-sm);color:var(--muted);font-family:'Barlow Condensed';letter-spacing:.03em;text-transform:uppercase;margin-bottom:2px;}
+  .star .blurb{font-family:'Barlow',sans-serif;font-size:var(--text-base);line-height:var(--leading);}
+  .star b{font-weight:600;}
+
+  /* LINEUPS */
+  .rtitle{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--ink);text-transform:uppercase;text-align:center;padding:13px 18px 0;}
+  .rsub{font-family:'Oswald';font-size:var(--text-micro);letter-spacing:.13em;color:var(--muted);text-transform:uppercase;margin:9px 0 3px;}
+  .rsub:first-child{margin-top:0;}
+
+  .foot{background:var(--ink);color:#9a9081;font-size:var(--text-micro);text-align:center;padding:7px;font-family:'Barlow Condensed';letter-spacing:.05em;line-height:1.5;}
+  .foot span{color:var(--gold);}
+
+  /* LINEUP TABS — mobile */
+  .lineup-tabs .tab-input{position:absolute;opacity:0;width:0;height:0;pointer-events:none;}
+  .lineup-tabs .tab-bar{display:none;}
+
+  @media (max-width:680px){
+    body{padding:7px;overflow-x:hidden;}
+    .sheet{overflow-x:clip;}
+    .wgrid,.roadgrid{grid-template-columns:1fr;}
+    .cols{grid-template-columns:1fr;}
+
+    .top .side{padding:10px 12px;min-width:0;}
+    .top .mid{min-width:64px;padding:8px 10px;}
+
+    .infobar{flex-wrap:wrap;}
+    .infobar div{flex:1 1 46%;white-space:normal;min-width:0;padding:6px 10px;font-size:0.9375rem;}
+    .infobar div:nth-child(2){border-right:none;}
+    .infobar div:nth-child(3),
+    .infobar div:nth-child(4){border-top:1px solid #2c2c2c;}
+
+    .lineup-tabs .tab-bar{
+      display:flex;margin:0 16px;padding-top:10px;
+      border-bottom:2px solid var(--line);
+    }
+    .lineup-tabs .tab-bar label{
+      flex:1;text-align:center;padding:10px 6px;
+      font-family:'Oswald';font-size:var(--text-md);font-weight:600;
+      text-transform:uppercase;letter-spacing:.06em;
+      cursor:pointer;color:var(--muted);
+      border-bottom:3px solid transparent;margin-bottom:-2px;
+    }
+    .lineup-tabs #lineup-home:checked ~ .tab-bar .tab-home{border-bottom-color:var(--pt-red);color:var(--pt-red);}
+    .lineup-tabs #lineup-away:checked ~ .tab-bar .tab-away{border-bottom-color:var(--es-gold);color:var(--es-red);}
+    .lineup-tabs #lineup-home:checked ~ .cols .col:last-child{display:none;}
+    .lineup-tabs #lineup-away:checked ~ .cols .col:first-child{display:none;}
+    .col.pt,.col.es{border-right:none;}
+    .colhead{flex-wrap:wrap;align-items:flex-start;gap:4px;}
+
+    .pname{min-width:0;flex:1;}
+    .pclub{white-space:normal;flex-shrink:1;max-width:46%;}
+    .star,.star > div{min-width:0;}
+    .nat{line-height:1.08;overflow-wrap:break-word;text-wrap:balance;}
+    .next p,.battle,.blurb{overflow-wrap:break-word;}
+  }
+  @media print{body{background:#fff;padding:0;}.sheet{box-shadow:none;border:none;}@page{margin:7mm;}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="top">
+    <div class="side pt">
+      <div class="flag">🇵🇹 PORTUGAL</div>
+      <div class="nat">A Seleção</div>
+      <div class="sub">FIFA ~#6 · Coach: Roberto Martínez · 4-2-3-1</div>
+    </div>
+    <div class="mid">
+      <div class="comp">ROUND&nbsp;OF&nbsp;16</div>
+      <div class="vs">V</div>
+      <div class="comp">WORLD&nbsp;CUP&nbsp;'26</div>
+    </div>
+    <div class="side es">
+      <div class="flag">SPAIN 🇪🇸</div>
+      <div class="nat">La Roja</div>
+      <div class="sub">4-3-3 · Coach: Luis de la Fuente · FIFA #2</div>
+    </div>
+  </div>
+
+  <div class="infobar">
+    <div><b>Venue</b>AT&amp;T Stadium, Arlington</div>
+    <div><b>Kickoff</b>Mon 12:00 PM PDT · 2 PM CT</div>
+    <div><b>TV</b>FOX / Telemundo</div>
+    <div><b>Last met</b>2025 (POR won on pens)</div>
+  </div>
+
+  <div class="strip">
+    <div class="msg">The <b>Iberian Derby</b> lands in the Round of 16 — two of the tournament's favorites, and one goes home. <b>Win and advance; lose and you're out.</b> Portugal have <b>never beaten Spain at a World Cup.</b></div>
+    <div class="tie">
+      <div class="tie-main"><b>Winner → Quarter-final</b> (Fri Jul 10) vs the winner of USA v Belgium · <b>Loser eliminated</b></div>
+      <div class="tie-sub"><b>Odds:</b> Spain &minus;111 · Draw +250 · Portugal +300 (Spain edge — near coin-flip) · <b>H2H:</b> Spain 17W&ndash;18D&ndash;6L all-time, but Portugal won the last meeting (2025 Nations League final, 5&ndash;3 on pens)</div>
+    </div>
+  </div>
+
+  <div class="road">
+    <h3>How They Got Here</h3>
+    <div class="roadgrid">
+      <div>
+        <div class="rh p">Portugal · Group K (2nd) → R32</div>
+        <div class="game"><span class="score d">1&ndash;1</span><span class="gt">vs <b>DR Congo</b></span></div>
+        <div class="game"><span class="score w">5&ndash;0</span><span class="gt">vs <b>Uzbekistan</b></span></div>
+        <div class="game"><span class="score d">0&ndash;0</span><span class="gt">vs <b>Colombia</b></span></div>
+        <div class="game"><span class="score w">2&ndash;1</span><span class="gt"><span class="dt">R32 · Jul 3</span> · vs <b>Croatia</b><small>Ronaldo penalty, won it late (Toronto)</small></span></div>
+      </div>
+      <div>
+        <div class="rh s">Spain · Group H (1st) → R32</div>
+        <div class="game"><span class="score d">0&ndash;0</span><span class="gt"><span class="dt">Jun 15</span> · vs <b>Cape Verde</b></span></div>
+        <div class="game"><span class="score w">4&ndash;0</span><span class="gt"><span class="dt">Jun 21</span> · vs <b>Saudi Arabia</b></span></div>
+        <div class="game"><span class="score w">1&ndash;0</span><span class="gt"><span class="dt">Jun 26</span> · vs <b>Uruguay</b></span></div>
+        <div class="game"><span class="score w">3&ndash;0</span><span class="gt"><span class="dt">R32 · Jul 2</span> · vs <b>Austria</b><small>8 goals for, 0 against all tournament</small></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="next">
+    <h3>What's At Stake &amp; What's Next</h3>
+    <div class="ng">
+      <p><b>Portugal:</b> Win = the quarter-finals — and a first-ever World Cup victory over Spain, at the perfect moment. It's also <b>Roberto Martínez's farewell run</b>: he leaves after this tournament regardless of the result.</p>
+      <p><b>Spain:</b> Arrived <b>unbeaten and yet to concede</b> — 8 goals scored, 0 against. The reigning European champions are chasing the one trophy still missing since Euro 2024.</p>
+      <p><b>Next:</b> the winner goes to the <b>Quarter-final on Fri Jul 10</b>, vs the winner of <b>USA vs Belgium.</b></p>
+      <p><b>Ronaldo's milestone:</b> at <b>41</b>, this is his <b>sixth World Cup</b>; he's <b>2 goals</b> from passing Eusébio's Portugal World Cup record (9).</p>
+      <p><b>The subplot in the home dugout:</b> Portugal are coached by a <b>Spaniard</b> — Roberto Martínez, born in Catalonia — trying to knock out his own homeland.</p>
+    </div>
+  </div>
+
+  <div class="wtw">
+    <h3>What To Watch For</h3>
+    <div class="battles">
+      <div class="battle"><span class="bt">Nuno Mendes vs Lamine Yamal</span>The marquee duel. Mendes <b>shut Yamal down in the 2025 Nations League final</b> — the rematch may decide the tie. Mendes is an attacking full-back who pushes high; the space behind him is exactly where Spain will try to spring Yamal in transition.</div>
+      <div class="battle"><span class="bt">The midfield: Rodri &amp; Pedri vs Vitinha &amp; João Neves</span>Spain's positional game wants to overload and play through the middle; previews flag Portugal's pivot as vulnerable to central penetration. Whoever owns the centre likely owns the game.</div>
+      <div class="battle"><span class="bt">Bruno Fernandes vs Spain's press</span>Portugal's chief creator against a ball-dominant, high-pressing side. If Bruno can turn and release Leão or Ronaldo, that's Portugal's clearest route in.</div>
+      <div class="battle"><span class="bt">Ronaldo vs Cubarsí &amp; Laporte</span>With Spain likely to hold the ball, Portugal's threat is direct and transitional — Ronaldo living on the shoulder of Spain's young back line, waiting for one gap.</div>
+    </div>
+    <div class="deadball"><b>Portugal dead-ball:</b> With Spain barely conceding in open play, a set piece may be Portugal's cheapest goal — Bruno Fernandes on delivery, Ronaldo's boot the direct threat.<br><b>Spain:</b> Patient possession and overloads rather than dead balls — they'll try to walk it in, not launch it.</div>
+    <div class="tip"><b>Set-piece tip:</b> Two of the last three Portugal–Spain knockouts went to <b>penalties</b> (Euro 2012 to Spain, 2025 Nations League final to Portugal). If it's level late, expect this one to go the distance too.</div>
+  </div>
+
+  <div class="watch">
+    <h3>&#9733; The Names You'll Hear Most &#9733;</h3>
+    <div class="wgroup">
+      <div class="wteam p">Portugal</div>
+      <div class="wgrid">
+        <div class="star"><span class="wn p">7</span><div><div class="nm">Cristiano Ronaldo</div><div class="meta">Portugal · Al-Nassr · FW / captain</div><div class="blurb">The main event, at <b>41</b>. All-time men's international record holder — <b>226 caps, 143 goals</b> — in his sixth World Cup, 2 from Eusébio's Portugal WC record. Now a box finisher and dead-ball threat.</div></div></div>
+        <div class="star"><span class="wn p">8</span><div><div class="nm">Bruno Fernandes</div><div class="meta">Portugal · Man Utd · Playmaker</div><div class="blurb">Portugal's creative engine and dead-ball deliverer — the tempo-setter who has to break Spain's press.</div></div></div>
+        <div class="star"><span class="wn p">17</span><div><div class="nm">Rafael Leão</div><div class="meta">Portugal · AC Milan · Winger</div><div class="blurb">Explosive and direct off the left — Portugal's main pace and verticality against Spain's high line.</div></div></div>
+        <div class="star"><span class="wn p">23</span><div><div class="nm">Vitinha</div><div class="meta">Portugal · PSG · Midfield metronome</div><div class="blurb">The heartbeat of PSG's Champions League winners — press-resistant deep playmaker who must out-pass Pedri.</div></div></div>
+      </div>
+    </div>
+    <div class="wgroup">
+      <div class="wteam s">Spain</div>
+      <div class="wgrid">
+        <div class="star"><span class="wn s">19</span><div><div class="nm">Lamine Yamal</div><div class="meta">Spain · Barcelona · Winger</div><div class="blurb">The tournament's marquee teenager — <b>18</b>, turning 19 the week of this match. His right-wing 1v1s vs Nuno Mendes are the tie's headline duel.</div></div></div>
+        <div class="star"><span class="wn s">20</span><div><div class="nm">Pedri</div><div class="meta">Spain · Barcelona · Conductor</div><div class="blurb">Press-resistant midfield conductor and tempo-setter. Spain's best days come when he's humming.</div></div></div>
+        <div class="star"><span class="wn s">16</span><div><div class="nm">Rodri</div><div class="meta">Spain · Man City · MF / captain</div><div class="blurb">The <b>2024 Ballon d'Or</b> winner and defensive anchor, back from a serious knee injury. Near his best, Spain's control is elite.</div></div></div>
+        <div class="star"><span class="wn s">17</span><div><div class="nm">Nico Williams</div><div class="meta">Spain · Athletic Bilbao · Impact winger</div><div class="blurb">Explosive left-sided dribbler — a high-impact option off the bench in this XI, and a game-changer when legs tire.</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rtitle">The Lineups · By The Numbers</div>
+  <div class="lineup-tabs">
+    <input type="radio" name="lineup-tab" id="lineup-home" class="tab-input" checked>
+    <input type="radio" name="lineup-tab" id="lineup-away" class="tab-input">
+    <div class="tab-bar">
+      <label for="lineup-home" class="tab-home">Portugal</label>
+      <label for="lineup-away" class="tab-away">Spain</label>
+    </div>
+  <div class="cols">
+    <div class="col pt">
+      <div class="colhead"><h2>Portugal</h2><span class="form">home red kit · 4-2-3-1</span></div>
+      <div class="rsub">Starters</div>
+      <ul class="xi">
+        <li><span class="num gk">1</span><span class="pname">Diogo Costa</span><span class="pclub">Porto</span></li>
+        <li><span class="num">3</span><span class="pname">Rúben Dias</span><span class="pclub">Man City</span></li>
+        <li><span class="num">7</span><span class="pname">Cristiano Ronaldo<span class="cap">C</span></span><span class="pclub">Al-Nassr</span></li>
+        <li><span class="num">8</span><span class="pname">Bruno Fernandes</span><span class="pclub">Man Utd</span></li>
+        <li><span class="num">13</span><span class="pname">Renato Veiga</span><span class="pclub">Villarreal</span></li>
+        <li><span class="num">15</span><span class="pname">João Neves</span><span class="pclub">PSG</span></li>
+        <li><span class="num">17</span><span class="pname">Rafael Leão</span><span class="pclub">AC Milan</span></li>
+        <li><span class="num">18</span><span class="pname">Pedro Neto</span><span class="pclub">Chelsea</span></li>
+        <li><span class="num">20</span><span class="pname">João Cancelo</span><span class="pclub">Barcelona</span></li>
+        <li><span class="num">23</span><span class="pname">Vitinha</span><span class="pclub">PSG</span></li>
+        <li><span class="num">25</span><span class="pname">Nuno Mendes</span><span class="pclub">PSG</span></li>
+      </ul>
+      <div class="rsub">Bench</div>
+      <ul class="xi">
+        <li><span class="num">2</span><span class="pname">Nélson Semedo</span><span class="pclub">Fenerbahçe</span></li>
+        <li><span class="num">4</span><span class="pname">Tomás Araújo</span><span class="pclub">Benfica</span></li>
+        <li><span class="num">5</span><span class="pname">Diogo Dalot</span><span class="pclub">Man Utd</span></li>
+        <li><span class="num">6</span><span class="pname">Matheus Nunes</span><span class="pclub">Man City</span></li>
+        <li><span class="num">9</span><span class="pname">Gonçalo Ramos</span><span class="pclub">PSG</span></li>
+        <li><span class="num">10</span><span class="pname">Bernardo Silva</span><span class="pclub">Man City</span></li>
+        <li><span class="num">11</span><span class="pname">João Félix</span><span class="pclub">Al-Nassr</span></li>
+        <li><span class="num gk">12</span><span class="pname">José Sá</span><span class="pclub">Wolves</span></li>
+        <li><span class="num">14</span><span class="pname">Gonçalo Inácio</span><span class="pclub">Sporting CP</span></li>
+        <li><span class="num">16</span><span class="pname">Francisco Trincão</span><span class="pclub">Sporting CP</span></li>
+        <li><span class="num">19</span><span class="pname">Gonçalo Guedes</span><span class="pclub">Real Sociedad</span></li>
+        <li><span class="num">21</span><span class="pname">Rúben Neves</span><span class="pclub">Al-Hilal</span></li>
+        <li><span class="num gk">22</span><span class="pname">Rui Silva</span><span class="pclub">Sporting CP</span></li>
+        <li><span class="num">24</span><span class="pname">Samu Costa</span><span class="pclub">Mallorca</span></li>
+        <li><span class="num">26</span><span class="pname">Francisco Conceição</span><span class="pclub">Juventus</span></li>
+      </ul>
+      <div class="note">Predicted XI (ESPN / Squawka / Rotowire). Ronaldo starting over Gonçalo Ramos (9) is a game-time call; Vitinha &amp; Bruno both subbed ~60' vs Croatia. Shape reads 4-2-3-1 or 4-3-3 by source.</div>
+    </div>
+    <div class="col es">
+      <div class="colhead"><h2>Spain</h2><span class="form">white change kit · 4-3-3</span></div>
+      <div class="rsub">Starters</div>
+      <ul class="xi">
+        <li><span class="num gk">23</span><span class="pname">Unai Simón</span><span class="pclub">Athletic Bilbao</span></li>
+        <li><span class="num">10</span><span class="pname">Dani Olmo</span><span class="pclub">Barcelona</span></li>
+        <li><span class="num">12</span><span class="pname">Pedro Porro</span><span class="pclub">Tottenham</span></li>
+        <li><span class="num">14</span><span class="pname">Aymeric Laporte</span><span class="pclub">Athletic Bilbao</span></li>
+        <li><span class="num">15</span><span class="pname">Álex Baena</span><span class="pclub">Atlético Madrid</span></li>
+        <li><span class="num">16</span><span class="pname">Rodri<span class="cap">C</span></span><span class="pclub">Man City</span></li>
+        <li><span class="num">19</span><span class="pname">Lamine Yamal</span><span class="pclub">Barcelona</span></li>
+        <li><span class="num">20</span><span class="pname">Pedri</span><span class="pclub">Barcelona</span></li>
+        <li><span class="num">21</span><span class="pname">Mikel Oyarzabal</span><span class="pclub">Real Sociedad</span></li>
+        <li><span class="num">22</span><span class="pname">Pau Cubarsí</span><span class="pclub">Barcelona</span></li>
+        <li><span class="num">24</span><span class="pname">Marc Cucurella</span><span class="pclub">Chelsea</span></li>
+      </ul>
+      <div class="rsub">Bench</div>
+      <ul class="xi">
+        <li><span class="num gk">1</span><span class="pname">David Raya</span><span class="pclub">Arsenal</span></li>
+        <li><span class="num">2</span><span class="pname">Marc Pubill</span><span class="pclub">Atlético Madrid</span></li>
+        <li><span class="num">3</span><span class="pname">Alejandro Grimaldo</span><span class="pclub">B. Leverkusen</span></li>
+        <li><span class="num">4</span><span class="pname">Eric García</span><span class="pclub">Barcelona</span></li>
+        <li><span class="num">5</span><span class="pname">Marcos Llorente</span><span class="pclub">Atlético Madrid</span></li>
+        <li><span class="num">6</span><span class="pname">Mikel Merino</span><span class="pclub">Arsenal</span></li>
+        <li><span class="num">7</span><span class="pname">Ferran Torres</span><span class="pclub">Barcelona</span></li>
+        <li><span class="num">8</span><span class="pname">Fabián Ruiz</span><span class="pclub">PSG</span></li>
+        <li><span class="num">9</span><span class="pname">Gavi</span><span class="pclub">Barcelona</span></li>
+        <li><span class="num">11</span><span class="pname">Yeremy Pino</span><span class="pclub">Crystal Palace</span></li>
+        <li><span class="num gk">13</span><span class="pname">Joan García</span><span class="pclub">Barcelona</span></li>
+        <li><span class="num">17</span><span class="pname">Nico Williams</span><span class="pclub">Athletic Bilbao</span></li>
+        <li><span class="num">18</span><span class="pname">Martín Zubimendi</span><span class="pclub">Arsenal</span></li>
+        <li><span class="num">25</span><span class="pname">Víctor Muñoz</span><span class="pclub">—</span></li>
+        <li><span class="num">26</span><span class="pname">Borja Iglesias</span><span class="pclub">Celta Vigo</span></li>
+      </ul>
+      <div class="note">Predicted XI (SI) — unchanged from the 3-0 win over Austria. The front three (Baena &amp; Oyarzabal alongside Yamal) is the softest call; <b>Nico Williams (17) is a sub here.</b> No Real Madrid players in the squad — a Spain WC first.</div>
+    </div>
+  </div>
+  </div>
+
+  <div class="foot">
+    Pre-match — confirmed XIs + shirt numbers drop ~1hr before kickoff. Referee not yet assigned; Portugal FIFA rank approx; some Spain bench clubs unconfirmed. <span>Per Wikipedia / ESPN / SI / Squawka / FIFA / RFEF.</span>
+  </div>
+
+</div>
+</body>
+</html>
