@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-04",
+  "generated": "2026-07-05",
   "source": "openfootball/worldcup.json (2026) — github.com/openfootball/worldcup.json",
   "rounds": [
     {
@@ -243,9 +243,9 @@
           "t2": "France",
           "f1": "🇵🇾",
           "f2": "🇫🇷",
-          "s1": null,
-          "s2": null,
-          "winner": null,
+          "s1": "0",
+          "s2": "1",
+          "winner": 2,
           "note": null,
           "feeders": [
             74,
@@ -381,9 +381,9 @@
         {
           "num": 97,
           "date": "2026-07-09",
-          "t1": null,
+          "t1": "France",
           "t2": "Morocco",
-          "f1": null,
+          "f1": "🇫🇷",
           "f2": "🇲🇦",
           "s1": null,
           "s2": null,
