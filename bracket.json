@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-05",
+  "generated": "2026-07-06",
   "source": "openfootball/worldcup.json (2026) — github.com/openfootball/worldcup.json",
   "rounds": [
     {
@@ -328,9 +328,9 @@
           "t2": "England",
           "f1": "🇲🇽",
           "f2": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-          "s1": null,
-          "s2": null,
-          "winner": null,
+          "s1": "2",
+          "s2": "3",
+          "winner": 2,
           "note": null,
           "feeders": [
             79,
@@ -416,9 +416,9 @@
           "num": 99,
           "date": "2026-07-11",
           "t1": "Norway",
-          "t2": null,
+          "t2": "England",
           "f1": "🇳🇴",
-          "f2": null,
+          "f2": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
           "s1": null,
           "s2": null,
           "winner": null,
