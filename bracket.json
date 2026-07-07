@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-06",
+  "generated": "2026-07-07",
   "source": "openfootball/worldcup.json (2026) — github.com/openfootball/worldcup.json",
   "rounds": [
     {
@@ -294,9 +294,9 @@
           "t2": "Belgium",
           "f1": "🇺🇸",
           "f2": "🇧🇪",
-          "s1": null,
-          "s2": null,
-          "winner": null,
+          "s1": "1",
+          "s2": "4",
+          "winner": 2,
           "note": null,
           "feeders": [
             81,
@@ -399,9 +399,9 @@
           "num": 98,
           "date": "2026-07-10",
           "t1": "Spain",
-          "t2": null,
+          "t2": "Belgium",
           "f1": "🇪🇸",
-          "f2": null,
+          "f2": "🇧🇪",
           "s1": null,
           "s2": null,
           "winner": null,
