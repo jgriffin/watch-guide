@@ -1,0 +1,230 @@
+{
+  "_comment": "Fixed 2026 WC knockout calendar keyed by FIFA match number. Team-independent (venues/times never change; teams fill in as the bracket resolves). Source of truth for fixtures.json, which fetch-bracket.sh derives by joining this with resolved bracket ties. R32/R16 bootstrapped from the original hand-authored fixtures.json; QF-onward researched (ESPN + FIFA/SI, cross-checked).",
+  "generated": "2026-07-07",
+  "matches": {
+    "74": {
+      "round": "Round of 32",
+      "date": "2026-06-29",
+      "ko_pacific": "1330",
+      "ko_display": "1:30 PM PDT",
+      "venue": "Gillette Stadium, Boston"
+    },
+    "77": {
+      "round": "Round of 32",
+      "date": "2026-06-30",
+      "ko_pacific": "1400",
+      "ko_display": "2:00 PM PDT",
+      "venue": "MetLife Stadium, East Rutherford"
+    },
+    "73": {
+      "round": "Round of 32",
+      "date": "2026-06-28",
+      "ko_pacific": "1200",
+      "ko_display": "12:00 PM PDT",
+      "venue": "SoFi Stadium, Los Angeles"
+    },
+    "75": {
+      "round": "Round of 32",
+      "date": "2026-06-29",
+      "ko_pacific": "1800",
+      "ko_display": "6:00 PM PDT",
+      "venue": "Estadio BBVA, Monterrey"
+    },
+    "83": {
+      "round": "Round of 32",
+      "date": "2026-07-02",
+      "ko_pacific": "1600",
+      "ko_display": "4:00 PM PDT",
+      "venue": "BMO Field, Toronto"
+    },
+    "84": {
+      "round": "Round of 32",
+      "date": "2026-07-02",
+      "ko_pacific": "1200",
+      "ko_display": "12:00 PM PDT",
+      "venue": "SoFi Stadium, Los Angeles"
+    },
+    "81": {
+      "round": "Round of 32",
+      "date": "2026-07-01",
+      "ko_pacific": "1700",
+      "ko_display": "5:00 PM PDT",
+      "venue": "Levi's Stadium, Santa Clara"
+    },
+    "82": {
+      "round": "Round of 32",
+      "date": "2026-07-01",
+      "ko_pacific": "1300",
+      "ko_display": "1:00 PM PDT",
+      "venue": "Lumen Field, Seattle"
+    },
+    "76": {
+      "round": "Round of 32",
+      "date": "2026-06-29",
+      "ko_pacific": "1000",
+      "ko_display": "10:00 AM PDT",
+      "venue": "NRG Stadium, Houston"
+    },
+    "78": {
+      "round": "Round of 32",
+      "date": "2026-06-30",
+      "ko_pacific": "1000",
+      "ko_display": "10:00 AM PDT",
+      "venue": "AT&T Stadium, Dallas"
+    },
+    "79": {
+      "round": "Round of 32",
+      "date": "2026-06-30",
+      "ko_pacific": "1800",
+      "ko_display": "6:00 PM PDT",
+      "venue": "Estadio Azteca, Mexico City"
+    },
+    "80": {
+      "round": "Round of 32",
+      "date": "2026-07-01",
+      "ko_pacific": "0900",
+      "ko_display": "9:00 AM PDT",
+      "venue": "Mercedes-Benz Stadium, Atlanta"
+    },
+    "86": {
+      "round": "Round of 32",
+      "date": "2026-07-03",
+      "ko_pacific": "1500",
+      "ko_display": "3:00 PM PDT",
+      "venue": "Hard Rock Stadium, Miami"
+    },
+    "88": {
+      "round": "Round of 32",
+      "date": "2026-07-03",
+      "ko_pacific": "1100",
+      "ko_display": "11:00 AM PDT",
+      "venue": "AT&T Stadium, Dallas"
+    },
+    "85": {
+      "round": "Round of 32",
+      "date": "2026-07-02",
+      "ko_pacific": "2000",
+      "ko_display": "8:00 PM PDT",
+      "venue": "BC Place, Vancouver"
+    },
+    "87": {
+      "round": "Round of 32",
+      "date": "2026-07-03",
+      "ko_pacific": "1830",
+      "ko_display": "6:30 PM PDT",
+      "venue": "Arrowhead Stadium, Kansas City"
+    },
+    "89": {
+      "round": "Round of 16",
+      "date": "2026-07-04",
+      "ko_pacific": "1000",
+      "ko_display": "10:00 AM PDT",
+      "venue": "Lincoln Financial Field, Philadelphia"
+    },
+    "90": {
+      "round": "Round of 16",
+      "date": "2026-07-04",
+      "ko_pacific": "1400",
+      "ko_display": "2:00 PM PDT",
+      "venue": "NRG Stadium, Houston"
+    },
+    "93": {
+      "round": "Round of 16",
+      "date": "2026-07-06",
+      "ko_pacific": "1200",
+      "ko_display": "12:00 PM PDT",
+      "venue": "AT&T Stadium, Arlington"
+    },
+    "94": {
+      "round": "Round of 16",
+      "date": "2026-07-06",
+      "ko_pacific": "1700",
+      "ko_display": "5:00 PM PDT",
+      "venue": "Lumen Field, Seattle"
+    },
+    "91": {
+      "round": "Round of 16",
+      "date": "2026-07-05",
+      "ko_pacific": "1300",
+      "ko_display": "1:00 PM PDT",
+      "venue": "MetLife Stadium, East Rutherford"
+    },
+    "92": {
+      "round": "Round of 16",
+      "date": "2026-07-05",
+      "ko_pacific": "1700",
+      "ko_display": "5:00 PM PDT",
+      "venue": "Estadio Azteca, Mexico City"
+    },
+    "95": {
+      "round": "Round of 16",
+      "date": "2026-07-07",
+      "ko_pacific": "0900",
+      "ko_display": "9:00 AM PDT",
+      "venue": "Mercedes-Benz Stadium, Atlanta"
+    },
+    "96": {
+      "round": "Round of 16",
+      "date": "2026-07-07",
+      "ko_pacific": "1300",
+      "ko_display": "1:00 PM PDT",
+      "venue": "BC Place, Vancouver"
+    },
+    "97": {
+      "round": "Quarter-finals",
+      "date": "2026-07-09",
+      "ko_pacific": "1300",
+      "ko_display": "1:00 PM PDT",
+      "venue": "Gillette Stadium, Foxborough"
+    },
+    "98": {
+      "round": "Quarter-finals",
+      "date": "2026-07-10",
+      "ko_pacific": "1200",
+      "ko_display": "12:00 PM PDT",
+      "venue": "SoFi Stadium, Los Angeles"
+    },
+    "99": {
+      "round": "Quarter-finals",
+      "date": "2026-07-11",
+      "ko_pacific": "1400",
+      "ko_display": "2:00 PM PDT",
+      "venue": "Hard Rock Stadium, Miami"
+    },
+    "100": {
+      "round": "Quarter-finals",
+      "date": "2026-07-11",
+      "ko_pacific": "1800",
+      "ko_display": "6:00 PM PDT",
+      "venue": "Arrowhead Stadium, Kansas City"
+    },
+    "101": {
+      "round": "Semi-finals",
+      "date": "2026-07-14",
+      "ko_pacific": "1200",
+      "ko_display": "12:00 PM PDT",
+      "venue": "AT&T Stadium, Arlington"
+    },
+    "102": {
+      "round": "Semi-finals",
+      "date": "2026-07-15",
+      "ko_pacific": "1200",
+      "ko_display": "12:00 PM PDT",
+      "venue": "Mercedes-Benz Stadium, Atlanta"
+    },
+    "103": {
+      "round": "Third-place playoff",
+      "date": "2026-07-18",
+      "ko_pacific": "1400",
+      "ko_display": "2:00 PM PDT",
+      "venue": "Hard Rock Stadium, Miami"
+    },
+    "104": {
+      "round": "Final",
+      "date": "2026-07-19",
+      "ko_pacific": "1200",
+      "ko_display": "12:00 PM PDT",
+      "venue": "MetLife Stadium, East Rutherford"
+    }
+  }
+}

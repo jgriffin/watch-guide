@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-08",
+  "generated": "2026-07-07",
   "source": "openfootball/worldcup.json (2026) — github.com/openfootball/worldcup.json",
   "rounds": [
     {
@@ -393,7 +393,7 @@
             89,
             90
           ],
-          "slug": null
+          "slug": "france-morocco"
         },
         {
           "num": 98,
@@ -410,7 +410,7 @@
             93,
             94
           ],
-          "slug": null
+          "slug": "spain-belgium"
         },
         {
           "num": 99,
@@ -427,7 +427,7 @@
             91,
             92
           ],
-          "slug": null
+          "slug": "norway-england"
         },
         {
           "num": 100,
@@ -444,7 +444,7 @@
             95,
             96
           ],
-          "slug": null
+          "slug": "argentina-switzerland"
         }
       ]
     },

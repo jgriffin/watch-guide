@@ -46,14 +46,17 @@ jobs:
 
           ./fetch-bracket.sh
 
-          if git diff --quiet -- bracket.json; then
-            echo "bracket.json unchanged — no commit, no deploy."
+          # fetch-bracket.sh regenerates BOTH bracket.json and the derived
+          # fixtures.json (new-round matchups) — commit both so the schedule
+          # auto-extends, not just the bracket tree.
+          if git diff --quiet -- bracket.json fixtures.json; then
+            echo "bracket.json/fixtures.json unchanged — no commit, no deploy."
             exit 0
           fi
 
-          echo "bracket.json changed — committing and pushing (Vercel will redeploy)."
+          echo "results changed — committing bracket.json + fixtures.json (Vercel will redeploy)."
           git config user.name  "bracket-bot"
           git config user.email "bracket-bot@users.noreply.github.com"
-          git add bracket.json
+          git add bracket.json fixtures.json
           git commit -m "bracket: auto-refresh results ($(date -u +%FT%TZ))"
           git push
