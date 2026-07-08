@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paraguay vs France — 2026 World Cup, Round of 16</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&family=Barlow:wght@400;500;600&display=swap');
+
+  :root{
+    --pa-red:#D9282F; --pa-deep:#9c1c22; --pa-blue:#0038A8;
+    --fr-blue:#1E3A8F; --fr-deep:#122457; --fr-red:#C8102E;
+    --gold:#C39A2B;
+
+    --text-micro:0.75rem; --text-sm:0.8125rem; --text-base:1rem; --text-md:1.0625rem;
+    --text-lg:1.125rem; --text-xl:1.25rem; --text-2xl:1.375rem; --text-3xl:1.75rem;
+    --leading:1.45;
+    --ink:#1a1714; --paper:#f6f3ec; --line:#d8d2c4; --muted:#6f675b;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Barlow',sans-serif;font-size:var(--text-base);background:#26231f;color:var(--ink);padding:18px;line-height:var(--leading);}
+  .sheet{max-width:920px;margin:0 auto;background:var(--paper);border:1px solid var(--line);box-shadow:0 14px 44px rgba(0,0,0,.5);overflow:hidden;}
+
+  /* HEADER */
+  .top{display:flex;align-items:stretch;color:#f6f3ec;}
+  .top .side{flex:1;padding:13px 18px;}
+  .top .pa{background:linear-gradient(135deg,var(--pa-red),var(--pa-deep));border-bottom:4px solid var(--pa-blue);}
+  .top .fr{background:linear-gradient(225deg,var(--fr-blue),var(--fr-deep));text-align:right;border-bottom:4px solid var(--fr-red);}
+  .top .mid{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 14px;min-width:128px;background:var(--ink);}
+  .flag{font-size:var(--text-sm);letter-spacing:.18em;font-family:'Oswald';font-weight:600;opacity:.85;}
+  .nat{font-family:'Oswald';font-weight:700;font-size:var(--text-3xl);line-height:1;text-transform:uppercase;}
+  .sub{font-size:0.875rem;opacity:.85;margin-top:3px;font-family:'Barlow Condensed';letter-spacing:.04em;}
+  .mid .comp{font-size:var(--text-micro);letter-spacing:.12em;font-family:'Oswald';opacity:.7;text-align:center;}
+  .scoreline{font-family:'Oswald';font-weight:700;font-size:2.1rem;line-height:1;color:var(--gold);letter-spacing:.02em;margin:5px 0 4px;}
+  .ftlabel{font-size:var(--text-micro);letter-spacing:.16em;font-family:'Oswald';font-weight:600;color:#ece5d8;background:#3a3220;padding:2px 8px;border-radius:3px;}
+
+  .infobar{display:flex;background:#000;color:#f6f3ec;font-family:'Barlow Condensed';font-size:0.9375rem;}
+  .infobar div{padding:6px 14px;border-right:1px solid #2c2c2c;flex:1;text-align:center;white-space:nowrap;}
+  .infobar div:last-child{border-right:none;}
+  .infobar b{color:var(--gold);font-weight:600;letter-spacing:.07em;text-transform:uppercase;font-size:var(--text-micro);display:block;}
+
+  /* STAKES / RESULT */
+  .strip{display:flex;flex-direction:column;align-items:stretch;background:var(--gold);color:#241e10;}
+  .strip .msg{padding:11px 16px;font-family:'Barlow',sans-serif;font-size:var(--text-md);font-weight:500;}
+  .strip .msg b{font-weight:700;}
+
+  .tie{background:#241e10;color:#f6f3ec;font-family:'Barlow Condensed';padding:8px 16px;width:100%;}
+  .tie-main{font-size:var(--text-base);color:#ffe9a8;line-height:1.38;}
+  .tie-main b{font-family:'Barlow';font-weight:600;color:#fff;}
+  .tie-sub{font-size:0.875rem;color:#a89f8e;margin-top:5px;line-height:1.35;}
+  .tie-sub b{color:var(--gold);font-weight:600;}
+
+  /* TEAM COLUMNS */
+  .cols{display:grid;grid-template-columns:1fr 1fr;}
+  .col{padding:13px 16px;}
+  .col.pa{border-right:2px solid var(--line);}
+  .col.fr{background:#f3f5fb;}
+  .colhead{display:flex;align-items:baseline;justify-content:space-between;border-bottom:2px solid;padding-bottom:5px;margin-bottom:8px;}
+  .col.pa .colhead{border-color:var(--pa-red);}
+  .col.fr .colhead{border-color:var(--fr-blue);}
+  .colhead h2{font-family:'Oswald';font-size:var(--text-xl);text-transform:uppercase;letter-spacing:.02em;}
+  .col.pa .colhead h2{color:var(--pa-red);}
+  .col.fr .colhead h2{color:var(--fr-blue);}
+  .form{font-family:'Barlow Condensed';font-size:0.875rem;color:var(--muted);letter-spacing:.04em;text-align:right;}
+
+  .xi{list-style:none;}
+  .xi li{display:flex;gap:9px;align-items:center;padding:2.5px 0;border-bottom:1px dotted var(--line);}
+  .xi li:last-child{border-bottom:none;}
+  .num{font-family:'Oswald';font-weight:700;font-size:var(--text-lg);width:28px;height:26px;display:flex;align-items:center;justify-content:center;color:#fff;border-radius:3px;flex-shrink:0;}
+  .col.pa .num{background:var(--pa-red);}
+  .col.fr .num{background:var(--fr-blue);}
+  .num.gk{background:#444 !important;}
+  .pname{font-weight:600;font-size:var(--text-lg);}
+  .pclub{color:var(--muted);font-size:var(--text-sm);font-family:'Barlow Condensed';margin-left:auto;text-align:right;letter-spacing:.02em;white-space:nowrap;}
+  .cap{color:var(--gold);font-weight:700;font-size:var(--text-micro);vertical-align:super;margin-left:1px;}
+  .goal{color:var(--gold);font-weight:700;font-size:var(--text-sm);margin-left:3px;}
+
+  .note{font-size:var(--text-sm);color:var(--muted);font-style:italic;margin-top:6px;line-height:1.3;}
+
+  /* ROAD HERE */
+  .road{background:var(--ink);color:#ece5d8;padding:13px 18px;}
+  .road h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--gold);text-transform:uppercase;margin-bottom:9px;text-align:center;}
+  .roadgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .rh{font-family:'Oswald';font-size:var(--text-base);text-transform:uppercase;letter-spacing:.03em;margin-bottom:5px;}
+  .rh.p{color:#ff9a9e;} .rh.f{color:#9db4ff;}
+  .game{display:flex;gap:8px;margin-bottom:6px;font-size:0.9375rem;line-height:var(--leading);}
+  .score{font-family:'Oswald';font-weight:700;font-size:var(--text-sm);padding:2px 6px;border-radius:3px;height:fit-content;white-space:nowrap;flex-shrink:0;color:#fff;}
+  .score.w{background:#2c5e38;} .score.l{background:#6e2530;} .score.d{background:#5a5036;}
+  .game .gt{color:#cfc7b8;}
+  .game .gt b{color:#fff;font-weight:600;}
+  .game .gt small{display:block;color:#a89f8e;font-size:var(--text-sm);font-style:italic;}
+  .game .gt .dt{color:#fff;font-weight:600;}
+
+  /* NEXT */
+  .next{background:#efe9dc;padding:12px 18px;border-top:1px solid var(--line);}
+  .next h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--fr-blue);text-transform:uppercase;margin-bottom:7px;}
+  .next .ng{columns:1;}
+  .next p{font-family:'Barlow',sans-serif;font-size:var(--text-base);margin-bottom:8px;break-inside:avoid;line-height:var(--leading);padding-left:13px;position:relative;}
+  .next p::before{content:"\25B8";position:absolute;left:0;color:var(--gold);font-size:var(--text-micro);top:2px;}
+  .next b{font-weight:600;}
+
+  /* WHAT DECIDED IT */
+  .wtw{padding:13px 18px;border-top:1px solid var(--line);}
+  .wtw h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--gold);text-transform:uppercase;margin-bottom:9px;}
+  .battles{columns:1;}
+  .battle{font-family:'Barlow',sans-serif;font-size:var(--text-base);line-height:var(--leading);margin-bottom:8px;break-inside:avoid;}
+  .battle .bt{font-family:'Oswald';font-weight:600;font-size:var(--text-md);text-transform:uppercase;letter-spacing:.02em;color:var(--ink);display:block;margin-bottom:1px;}
+  .tip{margin-top:8px;background:#efe9dc;border-left:3px solid var(--gold);padding:10px 12px;font-family:'Barlow',sans-serif;font-size:var(--text-md);line-height:var(--leading);}
+  .tip b{font-family:'Barlow';font-weight:600;color:#241e10;}
+
+  /* OPTA FACTS */
+  .facts{padding:13px 18px;border-top:1px solid var(--line);background:#efe9dc;}
+  .facts h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--pa-red);text-transform:uppercase;margin-bottom:9px;}
+  .facts ul{list-style:none;}
+  .facts li{font-family:'Barlow',sans-serif;font-size:var(--text-base);line-height:var(--leading);margin-bottom:8px;padding-left:15px;position:relative;}
+  .facts li::before{content:"\2605";position:absolute;left:0;color:var(--gold);font-size:var(--text-sm);top:2px;}
+  .facts b{font-weight:600;}
+
+  /* WATCH — stars split by team */
+  .watch{padding:13px 18px;}
+  .watch h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--pa-red);text-transform:uppercase;margin-bottom:9px;}
+  .wgroup{margin-bottom:12px;}
+  .wgroup:last-child{margin-bottom:0;}
+  .wteam{font-family:'Oswald';font-size:var(--text-md);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;padding-bottom:3px;border-bottom:2px solid;}
+  .wteam.p{color:var(--pa-red);border-color:var(--pa-red);}
+  .wteam.f{color:var(--fr-blue);border-color:var(--fr-blue);}
+  .wgrid{display:grid;grid-template-columns:1fr;gap:10px;}
+  .star{display:flex;gap:9px;}
+  .star .wn{font-family:'Oswald';font-weight:700;font-size:var(--text-lg);width:34px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:3px;color:#fff;flex-shrink:0;}
+  .wn.p{background:var(--pa-red);} .wn.f{background:var(--fr-blue);}
+  .star .nm{font-family:'Oswald';font-size:var(--text-xl);font-weight:600;line-height:1.05;}
+  .star .meta{font-size:var(--text-sm);color:var(--muted);font-family:'Barlow Condensed';letter-spacing:.03em;text-transform:uppercase;margin-bottom:2px;}
+  .star .blurb{font-family:'Barlow',sans-serif;font-size:var(--text-base);line-height:var(--leading);}
+  .star b{font-weight:600;}
+
+  /* LINEUPS */
+  .rtitle{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--ink);text-transform:uppercase;text-align:center;padding:13px 18px 0;}
+  .rsub{font-family:'Oswald';font-size:var(--text-micro);letter-spacing:.13em;color:var(--muted);text-transform:uppercase;margin:9px 0 3px;}
+  .rsub:first-child{margin-top:0;}
+
+  .foot{background:var(--ink);color:#9a9081;font-size:var(--text-micro);text-align:center;padding:7px;font-family:'Barlow Condensed';letter-spacing:.05em;line-height:1.5;}
+  .foot span{color:var(--gold);}
+
+  /* LINEUP TABS — mobile */
+  .lineup-tabs .tab-input{position:absolute;opacity:0;width:0;height:0;pointer-events:none;}
+  .lineup-tabs .tab-bar{display:none;}
+
+  @media (max-width:680px){
+    body{padding:7px;overflow-x:hidden;}
+    .sheet{overflow-x:clip;}
+    .wgrid,.roadgrid{grid-template-columns:1fr;}
+    .cols{grid-template-columns:1fr;}
+
+    .top .side{padding:10px 12px;min-width:0;}
+    .top .mid{min-width:78px;padding:8px 10px;}
+    .scoreline{font-size:1.7rem;}
+
+    .infobar{flex-wrap:wrap;}
+    .infobar div{flex:1 1 46%;white-space:normal;min-width:0;padding:6px 10px;font-size:0.9375rem;}
+    .infobar div:nth-child(2){border-right:none;}
+    .infobar div:nth-child(3),
+    .infobar div:nth-child(4){border-top:1px solid #2c2c2c;}
+
+    .lineup-tabs .tab-bar{
+      display:flex;margin:0 16px;padding-top:10px;
+      border-bottom:2px solid var(--line);
+    }
+    .lineup-tabs .tab-bar label{
+      flex:1;text-align:center;padding:10px 6px;
+      font-family:'Oswald';font-size:var(--text-md);font-weight:600;
+      text-transform:uppercase;letter-spacing:.06em;
+      cursor:pointer;color:var(--muted);
+      border-bottom:3px solid transparent;margin-bottom:-2px;
+    }
+    .lineup-tabs #lineup-home:checked ~ .tab-bar .tab-home{border-bottom-color:var(--pa-red);color:var(--pa-red);}
+    .lineup-tabs #lineup-away:checked ~ .tab-bar .tab-away{border-bottom-color:var(--fr-blue);color:var(--fr-blue);}
+    .lineup-tabs #lineup-home:checked ~ .cols .col:last-child{display:none;}
+    .lineup-tabs #lineup-away:checked ~ .cols .col:first-child{display:none;}
+    .col.pa,.col.fr{border-right:none;}
+    .colhead{flex-wrap:wrap;align-items:flex-start;gap:4px;}
+
+    .pname{min-width:0;flex:1;}
+    .pclub{white-space:normal;flex-shrink:1;max-width:46%;}
+    .star,.star > div{min-width:0;}
+    .nat{line-height:1.08;overflow-wrap:break-word;text-wrap:balance;}
+    .next p,.battle,.blurb,.facts li{overflow-wrap:break-word;}
+  }
+  @media print{body{background:#fff;padding:0;}.sheet{box-shadow:none;border:none;}@page{margin:7mm;}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="top">
+    <div class="side pa">
+      <div class="flag">🇵🇾 PARAGUAY</div>
+      <div class="nat">La Albirroja</div>
+      <div class="sub">FIFA ~#40 · Coach: Gustavo Alfaro · 5-4-1</div>
+    </div>
+    <div class="mid">
+      <div class="comp">ROUND&nbsp;OF&nbsp;16</div>
+      <div class="scoreline">0&ndash;1</div>
+      <div class="ftlabel">FULL&nbsp;TIME</div>
+    </div>
+    <div class="side fr">
+      <div class="flag">FRANCE 🇫🇷</div>
+      <div class="nat">Les Bleus</div>
+      <div class="sub">4-2-3-1 · Coach: Didier Deschamps · FIFA ~#2</div>
+    </div>
+  </div>
+
+  <div class="infobar">
+    <div><b>Venue</b>Lincoln Financial Field, Philadelphia</div>
+    <div><b>Kickoff</b>Sat 10:00 AM PDT · 1 PM ET</div>
+    <div><b>TV</b>FOX / Telemundo</div>
+    <div><b>Referee</b>Ilgiz Tantashev (UZB)</div>
+  </div>
+
+  <div class="strip">
+    <div class="msg"><b>France 1–0 Paraguay.</b> Les Bleus ground down a stubborn Paraguay low block in the Philadelphia heat — <b>Kylian Mbappé's 70' penalty</b> (his 7th of the tournament) the only goal. <b>France go through; Paraguay's giant-killing run ends in the last 16.</b></div>
+    <div class="tie">
+      <div class="tie-main"><b>France → Quarter-final</b> (Thu Jul 9, Boston) vs <b>Morocco</b> · <b>Paraguay eliminated</b></div>
+      <div class="tie-sub"><b>Decisive:</b> sub Désiré Doué won a penalty after a lengthy VAR review; Mbappé buried it. <b>Stats:</b> France 76% possession · xG 1.45–0.13 · Paraguay 1 shot on target. <b>H2H:</b> France won the only prior WC meeting too — 1998 R16, Blanc's golden goal, 1–0.</div>
+    </div>
+  </div>
+
+  <div class="road">
+    <h3>How They Got Here</h3>
+    <div class="roadgrid">
+      <div>
+        <div class="rh p">Paraguay · Group D (3rd) → R32</div>
+        <div class="game"><span class="score l">1&ndash;4</span><span class="gt"><span class="dt">Jun 12</span> · vs <b>USA</b></span></div>
+        <div class="game"><span class="score w">1&ndash;0</span><span class="gt"><span class="dt">Jun 19</span> · vs <b>Türkiye</b></span></div>
+        <div class="game"><span class="score d">0&ndash;0</span><span class="gt"><span class="dt">Jun 25</span> · vs <b>Australia</b></span></div>
+        <div class="game"><span class="score w">1&ndash;1</span><span class="gt"><span class="dt">R32 · Jun 29</span> · vs <b>Germany</b><small>Won 4–3 on pens — knocked out the 4× champions</small></span></div>
+      </div>
+      <div>
+        <div class="rh f">France · Group I (1st) → R32</div>
+        <div class="game"><span class="score w">3&ndash;1</span><span class="gt"><span class="dt">Jun 16</span> · vs <b>Senegal</b></span></div>
+        <div class="game"><span class="score w">3&ndash;0</span><span class="gt"><span class="dt">Jun 22</span> · vs <b>Iraq</b></span></div>
+        <div class="game"><span class="score w">4&ndash;1</span><span class="gt"><span class="dt">Jun 26</span> · vs <b>Norway</b></span></div>
+        <div class="game"><span class="score w">3&ndash;0</span><span class="gt"><span class="dt">R32 · Jun 30</span> · vs <b>Sweden</b><small>Paraguay win made it 5 straight — a France first</small></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="next">
+    <h3>What Happened &amp; What's Next</h3>
+    <div class="ng">
+      <p><b>France:</b> Through to the <b>Quarter-final (Thu Jul 9, Boston) vs Morocco</b> — who beat <b>Canada 3–0</b> to get there. Five wins from five, and yet to be truly tested.</p>
+      <p><b>Paraguay:</b> Out in the last 16, but the run — <b>topped by knocking out Germany on penalties</b> — was their best World Cup since 2010 and a tournament to remember for Alfaro's side.</p>
+      <p><b>The winning goal:</b> Mbappé's <b>70' penalty</b>, awarded for Diego Gómez's foul on substitute Désiré Doué after a lengthy VAR check. It was Mbappé's <b>7th of the tournament</b> — level with Messi in the Golden Boot race.</p>
+      <p><b>Deschamps' last dance:</b> France's coach steps down after 2026 — this run is his farewell, chasing a second title as manager to add to his 1998 winner's medal as a player.</p>
+    </div>
+  </div>
+
+  <div class="wtw">
+    <h3>What Decided It</h3>
+    <div class="battles">
+      <div class="battle"><span class="bt">France's front four vs Paraguay's back-five block</span>The defining fight. Paraguay packed the box in a deep 5-4-1 with Enciso alone up top, daring France to break them down — and it <b>held for 70 minutes</b>, France barely troubling Orlando Gill in open play.</div>
+      <div class="battle"><span class="bt">Deschamps' bench vs Alfaro's game-management</span>France's real edge was depth. <b>Désiré Doué's introduction on 61'</b> for Barcola changed the game's rhythm and led directly to the penalty — strength off the bench trumping Paraguay's stall-and-counter plan.</div>
+      <div class="battle"><span class="bt">Diego Gómez vs Doué — the decisive duel</span>The moment the block cracked: the young Brighton midfielder's mistimed challenge on the fresh-legged Doué inside the box conceded the penalty that settled the tie.</div>
+      <div class="battle"><span class="bt">Almirón &amp; Enciso on the break vs France's control</span>Paraguay's only route was transition through Almirón and Enciso — but France's <b>76% possession</b> starved them of it. Paraguay managed <b>one shot on target</b> all night.</div>
+    </div>
+    <div class="tip"><b>The moment:</b> 70th minute — Doué goes down under Diego Gómez's challenge, referee Tantashev checks the monitor, and points to the spot. Mbappé sends Gill the wrong way. 1–0, and that was that.</div>
+  </div>
+
+  <div class="facts">
+    <h3>Opta Corner · Fun Facts</h3>
+    <ul>
+      <li><b>1998, all over again.</b> The only prior France–Paraguay World Cup meeting — the <b>1998 Round of 16</b> — France also won <b>1–0</b>, on <b>Laurent Blanc's golden goal</b>, en route to the title. Deschamps captained that side.</li>
+      <li><b>Five in a row.</b> Beating Paraguay made it <b>five straight wins in a single World Cup — a first for France.</b></li>
+      <li><b>Giant-killers.</b> Paraguay reached the last 16 by <b>eliminating four-time champions Germany 4–3 on penalties</b> — only their second finals since 2006.</li>
+      <li><b>Golden Boot pace.</b> Mbappé's penalty was his <b>7th goal of the tournament</b>, level with Messi at the top.</li>
+      <li><b>Two Gómezes, unrelated.</b> Captain <b>Gustavo Gómez</b> (15) and midfielder <b>Diego Gómez</b> (8) both started — and it was Diego's foul that conceded the winner.</li>
+      <li><b>Total control.</b> France finished with ~76% possession, ~510 passes to ~98, and a <b>1.45–0.13 xG edge</b>; Paraguay had just one shot on target.</li>
+    </ul>
+  </div>
+
+  <div class="watch">
+    <h3>&#9733; The Names You'll Hear Most &#9733;</h3>
+    <div class="wgroup">
+      <div class="wteam f">France</div>
+      <div class="wgrid">
+        <div class="star"><span class="wn f">10</span><div><div class="nm">Kylian Mbappé</div><div class="meta">France · Real Madrid · FW / captain</div><div class="blurb">The matchwinner. France's all-time top scorer and the tournament's co-leading scorer on <b>7</b> after his 70' penalty. Blistering pace, left-footed finish — captaining at his third World Cup.</div></div></div>
+        <div class="star"><span class="wn f">7</span><div><div class="nm">Ousmane Dembélé</div><div class="meta">France · PSG · Winger</div><div class="blurb">The reigning <b>2025 Ballon d'Or</b> winner off a treble-winning PSG season. Two-footed and direct, he stretched Paraguay from the right before making way for Cherki on 84'.</div></div></div>
+        <div class="star"><span class="wn f">11</span><div><div class="nm">Michael Olise</div><div class="meta">France · Bayern Munich · Attacker</div><div class="blurb">One of Europe's most in-form creators after a standout Bayern season — left-footed, plays off either flank, a set-piece threat. Started centrally in the France band.</div></div></div>
+        <div class="star"><span class="wn f">8</span><div><div class="nm">Aurélien Tchouaméni</div><div class="meta">France · Real Madrid · Midfield anchor</div><div class="blurb">France's usual deep-lying metronome — elite passing range and aerial presence — but <b>a surprise sub here</b>, with Koné &amp; Rabiot preferred as the double pivot.</div></div></div>
+      </div>
+    </div>
+    <div class="wgroup">
+      <div class="wteam p">Paraguay</div>
+      <div class="wgrid">
+        <div class="star"><span class="wn p">10</span><div><div class="nm">Miguel Almirón</div><div class="meta">Paraguay · Atlanta United · Playmaker</div><div class="blurb">Paraguay's creative engine and relentless presser — the ex-Newcastle man drifts into the No.10 space and links everything. Withdrawn on 71' as the game got away.</div></div></div>
+        <div class="star"><span class="wn p">19</span><div><div class="nm">Julio Enciso</div><div class="meta">Paraguay · Strasbourg · Lone forward</div><div class="blurb">The squad's most gifted young attacker — low centre of gravity, a spectacular long-range shot. Alfaro asked him to hold up the ball alone and spring counters that never quite came.</div></div></div>
+        <div class="star"><span class="wn p">15</span><div><div class="nm">Gustavo Gómez</div><div class="meta">Paraguay · Palmeiras · CB / captain</div><div class="blurb">Most-capped man and defensive leader — commanding, a set-piece threat, the anchor of Alfaro's compact back five that frustrated France for 70 minutes.</div></div></div>
+        <div class="star"><span class="wn p">9</span><div><div class="nm">Antonio Sanabria</div><div class="meta">Paraguay · Cremonese · Striker</div><div class="blurb">Experienced No.9 with four goals in qualifying — but <b>started on the bench</b> as Alfaro packed the midfield behind a lone Enciso.</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rtitle">The Lineups · By The Numbers</div>
+  <div class="lineup-tabs">
+    <input type="radio" name="lineup-tab" id="lineup-home" class="tab-input" checked>
+    <input type="radio" name="lineup-tab" id="lineup-away" class="tab-input">
+    <div class="tab-bar">
+      <label for="lineup-home" class="tab-home">Paraguay</label>
+      <label for="lineup-away" class="tab-away">France</label>
+    </div>
+  <div class="cols">
+    <div class="col pa">
+      <div class="colhead"><h2>Paraguay</h2><span class="form">red/white stripes · 5-4-1</span></div>
+      <div class="rsub">Starters (as played)</div>
+      <ul class="xi">
+        <li><span class="num gk">12</span><span class="pname">Orlando Gill</span><span class="pclub">San Lorenzo</span></li>
+        <li><span class="num">2</span><span class="pname">Gustavo Velázquez</span><span class="pclub">Cerro Porteño</span></li>
+        <li><span class="num">3</span><span class="pname">Omar Alderete</span><span class="pclub">Sunderland</span></li>
+        <li><span class="num">4</span><span class="pname">Juan Cáceres</span><span class="pclub">Dynamo Moscow</span></li>
+        <li><span class="num">6</span><span class="pname">Júnior Alonso</span><span class="pclub">Atlético Mineiro</span></li>
+        <li><span class="num">8</span><span class="pname">Diego Gómez</span><span class="pclub">Brighton</span></li>
+        <li><span class="num">10</span><span class="pname">Miguel Almirón</span><span class="pclub">Atlanta United</span></li>
+        <li><span class="num">14</span><span class="pname">Andrés Cubas</span><span class="pclub">Vancouver</span></li>
+        <li><span class="num">15</span><span class="pname">Gustavo Gómez<span class="cap">C</span></span><span class="pclub">Palmeiras</span></li>
+        <li><span class="num">19</span><span class="pname">Julio Enciso</span><span class="pclub">Strasbourg</span></li>
+        <li><span class="num">23</span><span class="pname">Matías Galarza</span><span class="pclub">Atlanta United</span></li>
+      </ul>
+      <div class="rsub">Bench</div>
+      <ul class="xi">
+        <li><span class="num gk">1</span><span class="pname">Gatito Fernández</span><span class="pclub">Cerro Porteño</span></li>
+        <li><span class="num">5</span><span class="pname">Fabián Balbuena</span><span class="pclub">Grêmio</span></li>
+        <li><span class="num">7</span><span class="pname">Ramón Sosa</span><span class="pclub">Palmeiras</span></li>
+        <li><span class="num">9</span><span class="pname">Antonio Sanabria</span><span class="pclub">Cremonese</span></li>
+        <li><span class="num">11</span><span class="pname">Maurício</span><span class="pclub">Palmeiras</span></li>
+        <li><span class="num">13</span><span class="pname">José Canale</span><span class="pclub">Lanús</span></li>
+        <li><span class="num">16</span><span class="pname">Damián Bobadilla</span><span class="pclub">São Paulo</span></li>
+        <li><span class="num">17</span><span class="pname">Kaku Romero</span><span class="pclub">Al Ain</span></li>
+        <li><span class="num">18</span><span class="pname">Gabriel Ávalos</span><span class="pclub">Independiente</span></li>
+        <li><span class="num">20</span><span class="pname">Braian Ojeda</span><span class="pclub">Orlando City</span></li>
+        <li><span class="num">21</span><span class="pname">Isidro Pitta</span><span class="pclub">RB Bragantino</span></li>
+        <li><span class="num gk">22</span><span class="pname">Gastón Olveira</span><span class="pclub">Olimpia</span></li>
+        <li><span class="num">24</span><span class="pname">Gustavo Caballero</span><span class="pclub">Portsmouth</span></li>
+        <li><span class="num">25</span><span class="pname">Álex Arce</span><span class="pclub">Ind. Rivadavia</span></li>
+        <li><span class="num">26</span><span class="pname">Alexandro Maidana</span><span class="pclub">Talleres</span></li>
+      </ul>
+      <div class="note">As played (5-4-1 low block). Subs: Canale 58' (Alderete), Caballero 61' (Enciso), Maurício 71' (D. Gómez), Ávalos 71' (Almirón). Bench numbers 17/18/21/24/25 best-effort (correct players, exact number unconfirmed).</div>
+    </div>
+    <div class="col fr">
+      <div class="colhead"><h2>France</h2><span class="form">blue home kit · 4-2-3-1</span></div>
+      <div class="rsub">Starters (as played)</div>
+      <ul class="xi">
+        <li><span class="num gk">1</span><span class="pname">Mike Maignan</span><span class="pclub">AC Milan</span></li>
+        <li><span class="num">3</span><span class="pname">Jules Koundé</span><span class="pclub">Barcelona</span></li>
+        <li><span class="num">4</span><span class="pname">Dayot Upamecano</span><span class="pclub">Bayern Munich</span></li>
+        <li><span class="num">5</span><span class="pname">William Saliba</span><span class="pclub">Arsenal</span></li>
+        <li><span class="num">6</span><span class="pname">Manu Koné</span><span class="pclub">Roma</span></li>
+        <li><span class="num">7</span><span class="pname">Ousmane Dembélé</span><span class="pclub">PSG</span></li>
+        <li><span class="num">10</span><span class="pname">Kylian Mbappé<span class="cap">C</span><span class="goal">⚽70' (P)</span></span><span class="pclub">Real Madrid</span></li>
+        <li><span class="num">11</span><span class="pname">Michael Olise</span><span class="pclub">Bayern Munich</span></li>
+        <li><span class="num">12</span><span class="pname">Bradley Barcola</span><span class="pclub">PSG</span></li>
+        <li><span class="num">14</span><span class="pname">Adrien Rabiot</span><span class="pclub">AC Milan</span></li>
+        <li><span class="num">17</span><span class="pname">Lucas Digne</span><span class="pclub">Aston Villa</span></li>
+      </ul>
+      <div class="rsub">Bench</div>
+      <ul class="xi">
+        <li><span class="num">2</span><span class="pname">Malo Gusto</span><span class="pclub">Chelsea</span></li>
+        <li><span class="num">8</span><span class="pname">Aurélien Tchouaméni</span><span class="pclub">Real Madrid</span></li>
+        <li><span class="num">9</span><span class="pname">Marcus Thuram</span><span class="pclub">Inter Milan</span></li>
+        <li><span class="num">13</span><span class="pname">N'Golo Kanté</span><span class="pclub">Fenerbahçe</span></li>
+        <li><span class="num">15</span><span class="pname">Ibrahima Konaté</span><span class="pclub">Liverpool</span></li>
+        <li><span class="num gk">16</span><span class="pname">Brice Samba</span><span class="pclub">Rennes</span></li>
+        <li><span class="num">18</span><span class="pname">Warren Zaïre-Emery</span><span class="pclub">PSG</span></li>
+        <li><span class="num">19</span><span class="pname">Theo Hernandez</span><span class="pclub">Al-Hilal</span></li>
+        <li><span class="num">20</span><span class="pname">Désiré Doué</span><span class="pclub">PSG</span></li>
+        <li><span class="num">21</span><span class="pname">Lucas Hernandez</span><span class="pclub">PSG</span></li>
+        <li><span class="num">22</span><span class="pname">Jean-Philippe Mateta</span><span class="pclub">Crystal Palace</span></li>
+        <li><span class="num gk">23</span><span class="pname">Robin Risser</span><span class="pclub">Lens</span></li>
+        <li><span class="num">24</span><span class="pname">Rayan Cherki</span><span class="pclub">Man City</span></li>
+        <li><span class="num">25</span><span class="pname">Maghnes Akliouche</span><span class="pclub">Monaco</span></li>
+        <li><span class="num">26</span><span class="pname">Maxence Lacroix</span><span class="pclub">Crystal Palace</span></li>
+      </ul>
+      <div class="note">As played (4-2-3-1; Tchouaméni benched). Subs: Doué 61' (Barcola) — won the penalty; Cherki 84' (Dembélé). Bench numbers 16/21/23/26 best-effort (correct players, exact number unconfirmed).</div>
+    </div>
+  </div>
+  </div>
+
+  <div class="foot">
+    Retrospective — final result &amp; XIs as played (no live score to confirm). Some bench shirt numbers &amp; FIFA ranks approximate; venue per fixture list. <span>Per ESPN / Al Jazeera / FIFA / Wikipedia 2026 WC squads.</span>
+  </div>
+
+</div>
+</body>
+</html>

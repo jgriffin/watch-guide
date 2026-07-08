@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Canada 0–3 Morocco — 2026 World Cup, Round of 16</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&family=Barlow:wght@400;500;600&display=swap');
+
+  :root{
+    --ca-red:#D52B1E; --ca-deep:#9b1b14; --gold:#C39A2B;
+    --ma-red:#C1272D; --ma-deep:#8f1d22; --ma-grn:#006233;
+
+    --text-micro:0.75rem; --text-sm:0.8125rem; --text-base:1rem; --text-md:1.0625rem;
+    --text-lg:1.125rem; --text-xl:1.25rem; --text-2xl:1.375rem; --text-3xl:1.75rem;
+    --leading:1.45;
+    --ink:#1a1714; --paper:#f6f3ec; --line:#d8d2c4; --muted:#6f675b;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Barlow',sans-serif;font-size:var(--text-base);background:#26231f;color:var(--ink);padding:18px;line-height:var(--leading);}
+  .sheet{max-width:920px;margin:0 auto;background:var(--paper);border:1px solid var(--line);box-shadow:0 14px 44px rgba(0,0,0,.5);overflow:hidden;}
+
+  /* HEADER */
+  .top{display:flex;align-items:stretch;color:#f6f3ec;}
+  .top .side{flex:1;padding:13px 18px;}
+  .top .ca{background:linear-gradient(135deg,var(--ca-red),var(--ca-deep));}
+  .top .ma{background:linear-gradient(225deg,var(--ma-red),var(--ma-deep));text-align:right;border-left:4px solid var(--ma-grn);}
+  .top .mid{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 14px;min-width:124px;background:var(--ink);}
+  .flag{font-size:var(--text-sm);letter-spacing:.18em;font-family:'Oswald';font-weight:600;opacity:.85;}
+  .nat{font-family:'Oswald';font-weight:700;font-size:var(--text-3xl);line-height:1;text-transform:uppercase;}
+  .sub{font-size:0.875rem;opacity:.82;margin-top:3px;font-family:'Barlow Condensed';letter-spacing:.04em;}
+  .mid .comp{font-size:var(--text-micro);letter-spacing:.12em;font-family:'Oswald';opacity:.7;text-align:center;}
+  .ftscore{font-family:'Oswald';font-weight:700;font-size:2.1rem;line-height:1;color:#fff;margin:3px 0;}
+  .ftlabel{color:var(--gold);opacity:1 !important;font-weight:600;letter-spacing:.16em;}
+
+  .infobar{display:flex;background:#000;color:#f6f3ec;font-family:'Barlow Condensed';font-size:0.9375rem;}
+  .infobar div{padding:6px 14px;border-right:1px solid #2c2c2c;flex:1;text-align:center;white-space:nowrap;}
+  .infobar div:last-child{border-right:none;}
+  .infobar b{color:var(--gold);font-weight:600;letter-spacing:.07em;text-transform:uppercase;font-size:var(--text-micro);display:block;}
+
+  /* STAKES / RESULT strip */
+  .strip{display:flex;flex-direction:column;align-items:stretch;background:var(--gold);color:#241e10;}
+  .strip .msg{padding:11px 16px;font-family:'Barlow',sans-serif;font-size:var(--text-md);font-weight:500;}
+  .strip .msg b{font-weight:700;}
+  .tie{background:#241e10;color:#f6f3ec;font-family:'Barlow Condensed';padding:8px 16px;width:100%;}
+  .tie-main{font-size:var(--text-base);color:#ffe9a8;line-height:1.38;}
+  .tie-main b{font-family:'Barlow';font-weight:600;color:#fff;}
+  .tie-sub{font-size:0.875rem;color:#a89f8e;margin-top:5px;line-height:1.35;}
+  .tie-sub b{color:var(--gold);font-weight:600;}
+
+  /* ROAD HERE */
+  .road{background:var(--ink);color:#ece5d8;padding:13px 18px;}
+  .road h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--gold);text-transform:uppercase;margin-bottom:9px;text-align:center;}
+  .roadgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .rh{font-family:'Oswald';font-size:var(--text-base);text-transform:uppercase;letter-spacing:.03em;margin-bottom:5px;}
+  .rh.c{color:#ff9a90;} .rh.m{color:#7fdca0;}
+  .game{display:flex;gap:8px;margin-bottom:6px;font-size:0.9375rem;line-height:var(--leading);}
+  .score{font-family:'Oswald';font-weight:700;font-size:var(--text-sm);padding:2px 6px;border-radius:3px;height:fit-content;white-space:nowrap;flex-shrink:0;color:#fff;}
+  .score.w{background:#2c5e38;} .score.l{background:#6e2530;} .score.d{background:#5a5036;}
+  .game .gt{color:#cfc7b8;}
+  .game .gt .dt{color:#fff;font-weight:600;}
+  .game .gt small{display:block;color:#a89f8e;font-size:var(--text-sm);font-style:italic;}
+
+  /* NEXT / STAKES prose */
+  .next{background:#efe9dc;padding:12px 18px;border-top:1px solid var(--line);}
+  .next h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--ma-grn);text-transform:uppercase;margin-bottom:7px;}
+  .next p{font-family:'Barlow',sans-serif;font-size:var(--text-base);margin-bottom:8px;break-inside:avoid;line-height:var(--leading);padding-left:13px;position:relative;}
+  .next p::before{content:"\25B8";position:absolute;left:0;color:var(--gold);font-size:var(--text-micro);top:2px;}
+  .next b{font-weight:600;}
+
+  /* WHAT DECIDED IT */
+  .wtw{padding:13px 18px;border-top:1px solid var(--line);}
+  .wtw h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--gold);text-transform:uppercase;margin-bottom:9px;}
+  .battle{font-family:'Barlow',sans-serif;font-size:var(--text-base);line-height:var(--leading);margin-bottom:8px;}
+  .battle .bt{font-family:'Oswald';font-weight:600;font-size:var(--text-md);text-transform:uppercase;letter-spacing:.02em;color:var(--ink);display:block;margin-bottom:1px;}
+  .battle b{font-weight:600;}
+  .tip{margin-top:8px;background:#efe9dc;border-left:3px solid var(--gold);padding:10px 12px;font-family:'Barlow',sans-serif;font-size:var(--text-md);line-height:var(--leading);}
+  .tip b{font-family:'Barlow';font-weight:600;color:#241e10;}
+
+  /* NAMES */
+  .watch{padding:13px 18px;border-top:1px solid var(--line);}
+  .watch h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--ca-red);text-transform:uppercase;margin-bottom:9px;}
+  .wgroup{margin-bottom:12px;}
+  .wgroup:last-child{margin-bottom:0;}
+  .wteam{font-family:'Oswald';font-size:var(--text-md);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;padding-bottom:3px;border-bottom:2px solid;}
+  .wteam.c{color:var(--ca-red);border-color:var(--ca-red);}
+  .wteam.m{color:var(--ma-grn);border-color:var(--ma-grn);}
+  .wgrid{display:grid;grid-template-columns:1fr;gap:10px;}
+  .star{display:flex;gap:9px;}
+  .star .wn{font-family:'Oswald';font-weight:700;font-size:var(--text-lg);width:34px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:3px;color:#fff;flex-shrink:0;}
+  .wn.c{background:var(--ca-red);} .wn.m{background:var(--ma-grn);}
+  .star .nm{font-family:'Oswald';font-size:var(--text-xl);font-weight:600;line-height:1.05;}
+  .star .meta{font-size:var(--text-sm);color:var(--muted);font-family:'Barlow Condensed';letter-spacing:.03em;text-transform:uppercase;margin-bottom:2px;}
+  .star .blurb{font-family:'Barlow',sans-serif;font-size:var(--text-base);line-height:var(--leading);}
+  .star b{font-weight:600;}
+
+  /* LINEUPS */
+  .rtitle{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--ink);text-transform:uppercase;text-align:center;padding:13px 18px 0;}
+  .cols{display:grid;grid-template-columns:1fr 1fr;}
+  .col{padding:13px 16px;}
+  .col.ca{border-right:2px solid var(--line);background:#fbfaf6;}
+  .col.ma{background:#faf5f4;}
+  .colhead{display:flex;align-items:baseline;justify-content:space-between;border-bottom:2px solid;padding-bottom:5px;margin-bottom:8px;flex-wrap:wrap;gap:4px;}
+  .col.ca .colhead{border-color:var(--ca-red);}
+  .col.ma .colhead{border-color:var(--ma-grn);}
+  .colhead h2{font-family:'Oswald';font-size:var(--text-xl);text-transform:uppercase;letter-spacing:.02em;}
+  .col.ca .colhead h2{color:var(--ca-red);}
+  .col.ma .colhead h2{color:var(--ma-grn);}
+  .form{font-family:'Barlow Condensed';font-size:0.875rem;color:var(--muted);letter-spacing:.05em;display:flex;align-items:center;gap:6px;}
+  .kit{display:inline-block;width:13px;height:13px;border-radius:3px;border:1px solid rgba(0,0,0,.25);vertical-align:middle;}
+  .kit.white{background:#fff;} .kit.red{background:var(--ma-red);}
+
+  .xi{list-style:none;}
+  .xi li{display:flex;gap:9px;align-items:center;padding:2.5px 0;border-bottom:1px dotted var(--line);}
+  .xi li:last-child{border-bottom:none;}
+  .num{font-family:'Oswald';font-weight:700;font-size:var(--text-lg);width:28px;height:26px;display:flex;align-items:center;justify-content:center;color:#fff;border-radius:3px;flex-shrink:0;}
+  .col.ca .num{background:var(--ca-red);}
+  .col.ma .num{background:var(--ma-grn);}
+  .num.gk{background:#444 !important;}
+  .pname{font-weight:600;font-size:var(--text-lg);}
+  .pclub{color:var(--muted);font-size:var(--text-sm);font-family:'Barlow Condensed';margin-left:auto;text-align:right;letter-spacing:.02em;white-space:nowrap;}
+  .cap{color:var(--gold);font-weight:700;font-size:var(--text-micro);vertical-align:super;margin-left:1px;}
+  .rsub{font-family:'Oswald';font-size:var(--text-micro);letter-spacing:.13em;color:var(--muted);text-transform:uppercase;margin:9px 0 3px;}
+  .rsub:first-child{margin-top:0;}
+  .note{font-size:var(--text-sm);color:var(--muted);font-style:italic;margin-top:6px;line-height:1.3;}
+
+  .foot{background:var(--ink);color:#9a9081;font-size:var(--text-micro);text-align:center;padding:8px 10px;font-family:'Barlow Condensed';letter-spacing:.04em;line-height:1.5;}
+  .foot span{color:var(--gold);}
+
+  /* LINEUP TABS — mobile */
+  .lineup-tabs .tab-input{position:absolute;opacity:0;width:0;height:0;pointer-events:none;}
+  .lineup-tabs .tab-bar{display:none;}
+
+  @media (max-width:680px){
+    body{padding:7px;overflow-x:hidden;}
+    .sheet{overflow-x:clip;}
+    .wgrid,.roadgrid{grid-template-columns:1fr;}
+    .cols{grid-template-columns:1fr;}
+    .top .side{padding:10px 12px;min-width:0;}
+    .top .mid{min-width:70px;padding:8px 8px;}
+    .ftscore{font-size:1.7rem;}
+    .infobar{flex-wrap:wrap;}
+    .infobar div{flex:1 1 46%;white-space:normal;min-width:0;padding:6px 10px;font-size:0.9375rem;}
+    .infobar div:nth-child(2){border-right:none;}
+    .infobar div:nth-child(3),
+    .infobar div:nth-child(4){border-top:1px solid #2c2c2c;}
+    .lineup-tabs .tab-bar{display:flex;margin:0 16px;padding-top:10px;border-bottom:2px solid var(--line);}
+    .lineup-tabs .tab-bar label{flex:1;text-align:center;padding:10px 6px;font-family:'Oswald';font-size:var(--text-md);font-weight:600;text-transform:uppercase;letter-spacing:.06em;cursor:pointer;color:var(--muted);border-bottom:3px solid transparent;margin-bottom:-2px;}
+    .lineup-tabs #lineup-home:checked ~ .tab-bar .tab-home{border-bottom-color:var(--ca-red);color:var(--ca-red);}
+    .lineup-tabs #lineup-away:checked ~ .tab-bar .tab-away{border-bottom-color:var(--ma-grn);color:var(--ma-grn);}
+    .lineup-tabs #lineup-home:checked ~ .cols .col:last-child{display:none;}
+    .lineup-tabs #lineup-away:checked ~ .cols .col:first-child{display:none;}
+    .col.ca,.col.ma{border-right:none;}
+    .pname{min-width:0;flex:1;}
+    .pclub{white-space:normal;flex-shrink:1;max-width:46%;}
+    .star,.star > div{min-width:0;}
+    .nat{line-height:1.08;overflow-wrap:break-word;text-wrap:balance;}
+    .next p,.battle,.blurb{overflow-wrap:break-word;}
+  }
+  @media print{body{background:#fff;padding:0;}.sheet{box-shadow:none;border:none;}@page{margin:7mm;}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="top">
+    <div class="side ca">
+      <div class="flag">🇨🇦 CANADA</div>
+      <div class="nat">Les Rouges</div>
+      <div class="sub">FIFA #32 · Coach: Jesse Marsch · 4-4-2</div>
+    </div>
+    <div class="mid">
+      <div class="comp">ROUND&nbsp;OF&nbsp;16</div>
+      <div class="ftscore">0&nbsp;–&nbsp;3</div>
+      <div class="comp ftlabel">FULL&nbsp;TIME</div>
+    </div>
+    <div class="side ma">
+      <div class="flag">MOROCCO 🇲🇦</div>
+      <div class="nat">Atlas Lions</div>
+      <div class="sub">4-3-3 · Coach: Mohamed Ouahbi · FIFA #7</div>
+    </div>
+  </div>
+
+  <div class="infobar">
+    <div><b>Venue</b>NRG Stadium, Houston</div>
+    <div><b>Played</b>Sat Jul 4 · 2:00 PM PDT</div>
+    <div><b>TV</b>FOX / Telemundo</div>
+    <div><b>Result</b>Morocco win 3–0</div>
+  </div>
+
+  <div class="strip">
+    <div class="msg"><b>Morocco cruised to a 3–0 win and marched into the Quarter-finals.</b> The 2022 semifinalists were too strong for Canada, whose historic run — their first-ever World Cup knockout win, over South Africa — ends in the Round of 16.</div>
+    <div class="tie">
+      <div class="tie-main"><b>Morocco → Quarter-final</b> · Canada eliminated (best-ever WC finish)</div>
+      <div class="tie-sub"><b>Next for Morocco:</b> vs France · Thu Jul 9 · a rematch of the 2022 semi-final (France won that 2–0). <b>France</b> reached the QF by beating Paraguay 1–0.</div>
+    </div>
+  </div>
+
+  <div class="road">
+    <h3>How They Got Here</h3>
+    <div class="roadgrid">
+      <div>
+        <div class="rh c">Canada · Group B 2nd → R32</div>
+        <div class="game"><span class="score d">1–1</span><span class="gt"><span class="dt">Jun 12</span> · vs Bosnia &amp; Herz.<small>Larin</small></span></div>
+        <div class="game"><span class="score w">6–0</span><span class="gt"><span class="dt">Jun 18</span> · vs Qatar<small>David ×3 — first-ever WC win</small></span></div>
+        <div class="game"><span class="score l">1–2</span><span class="gt"><span class="dt">Jun 24</span> · vs Switzerland</span></div>
+        <div class="game"><span class="score w">1–0</span><span class="gt"><span class="dt">Jun 28</span> · vs South Africa <small>R32 · first-ever WC knockout win</small></span></div>
+      </div>
+      <div>
+        <div class="rh m">Morocco · Group C 2nd → R32</div>
+        <div class="game"><span class="score d">1–1</span><span class="gt"><span class="dt">Jun 13</span> · vs Brazil</span></div>
+        <div class="game"><span class="score w">1–0</span><span class="gt"><span class="dt">Jun 19</span> · vs Scotland</span></div>
+        <div class="game"><span class="score w">4–2</span><span class="gt"><span class="dt">Jun 24</span> · vs Haiti<small>finished group unbeaten</small></span></div>
+        <div class="game"><span class="score w">1–1</span><span class="gt"><span class="dt">Jun 29</span> · vs Netherlands <small>R32 · won 3–2 on pens (Hakimi)</small></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="next">
+    <h3>What It Meant &amp; What's Next</h3>
+    <div class="ng">
+      <p><b>Morocco:</b> Through to the <b>Quarter-final</b> — back in the last eight, three years after becoming the first African/Arab nation to reach a World Cup semi-final. Next: <b>France, Thu Jul 9</b>, a straight rematch of that 2022 semi (France won 2–0). Revenge on offer.</p>
+      <p><b>Canada:</b> Out — but this was their <b>best-ever World Cup</b>. They'd already made history in the R32, winning the first World Cup knockout match in Canadian men's history (1–0 vs South Africa). The Round of 16 is uncharted, celebrated territory for Les Rouges.</p>
+      <p><b>The result matched the paper:</b> Morocco (FIFA ~#7, 2022 semifinalists) were heavy favorites over Canada (~#32). A comfortable 3–0 was about what the gap suggested.</p>
+      <p><b>Goal detail:</b> the <b>3–0 scoreline is confirmed</b>; individual scorers/minutes aren't recorded in the available data, so this sheet doesn't attribute the goals. Morocco's quality simply told across 90 minutes.</p>
+    </div>
+  </div>
+
+  <div class="wtw">
+    <h3>What Decided It</h3>
+    <div class="battle"><span class="bt">The quality gap, plainly</span>A Champions-League-winning captain (Hakimi) and a Real Madrid playmaker (Brahim Díaz) against plucky first-time knockout winners. Over 90 minutes the class told and Morocco controlled the game.</div>
+    <div class="battle"><span class="bt">Morocco's press &amp; midfield ownership</span>Morocco's young, high-energy engine room — Bouaddi, El Aynaoui, El Khannouss — swarmed Canada's first pass and denied Marsch's side the platform they'd used to beat South Africa. Canada rarely settled on the ball.</div>
+    <div class="battle"><span class="bt">Hakimi's flank vs Canada's left</span>Canada's biggest pre-match hope was pace down the left — but with <b>Alphonso Davies still a fitness spectator</b>, that threat never came, and Hakimi was free to attack like an auxiliary winger.</div>
+    <div class="battle"><span class="bt">No Davies spark, David starved</span>The one Canadian who could have turned it into a shoot-out spent the whole tournament nursing his post-ACL recovery. Without him, Jonathan David got no service and Canada lacked a game-breaker to trouble Morocco's back line.</div>
+    <div class="tip"><b>Dead-ball footnote:</b> Morocco carried the set-piece edge too — <b>Hakimi</b> the penalty king (2022 panenka to knock out Spain; scored the R32 shootout winner vs the Netherlands). Canada's aerial route through Larin never got going against a settled Moroccan defence.</div>
+  </div>
+
+  <div class="watch">
+    <h3>&#9733; The Names You Heard Most &#9733;</h3>
+    <div class="wgroup"><div class="wteam m">Morocco</div><div class="wgrid">
+      <div class="star"><span class="wn m">2</span><div><div class="nm">Achraf Hakimi</div><div class="meta">Morocco · PSG · RB / Captain</div><div class="blurb">The superstar. Won the <b>2025 Champions League</b> (scored in the final) in PSG's treble; a Ballon d'Or contender. Attacks like a winger — and Morocco's penalty king (panenka to eliminate Spain in 2022; converted the R32 shootout vs the Netherlands).</div></div></div>
+      <div class="star"><span class="wn m">10</span><div><div class="nm">Brahim Díaz</div><div class="meta">Morocco · Real Madrid · Attacking mid</div><div class="blurb">The creative spark and a real goal threat; a standout at AFCON 2025 who unlocks exactly the kind of deep, compact defence Canada tried to set.</div></div></div>
+      <div class="star"><span class="wn m">8</span><div><div class="nm">Azzedine Ounahi</div><div class="meta">Morocco · Girona · Central mid</div><div class="blurb">The elegant, long-limbed midfielder who announced himself at the 2022 World Cup ("where did he come from?" — Luis Enrique). The glue in Morocco's engine room.</div></div></div>
+    </div></div>
+    <div class="wgroup"><div class="wteam c">Canada</div><div class="wgrid">
+      <div class="star"><span class="wn c">10</span><div><div class="nm">Jonathan David</div><div class="meta">Canada · Juventus · Striker / Talisman</div><div class="blurb">Canada's <b>all-time top scorer (39)</b>, 3 goals at this World Cup (a hat-trick vs Qatar). Joined Juventus on a free from Lille. Canada's main hope — starved of service here.</div></div></div>
+      <div class="star"><span class="wn c">19</span><div><div class="nm">Alphonso Davies</div><div class="meta">Canada · Bayern Munich · Captain / X-factor</div><div class="blurb">The GOAT of Canadian soccer — but a <b>fitness story all tournament</b> (ACL March 2025 + setbacks; <b>zero minutes</b> across the WC). The great "what if" of Canada's run.</div></div></div>
+      <div class="star"><span class="wn c">7</span><div><div class="nm">Stephen Eustáquio</div><div class="meta">Canada · LAFC · Midfield metronome</div><div class="blurb">Canada's tempo-setter and set-piece deliverer — the man Canada needed to win the midfield they instead lost.</div></div></div>
+    </div></div>
+  </div>
+
+  <div class="rtitle">The Lineups · By The Numbers</div>
+  <div class="lineup-tabs">
+    <input type="radio" name="lineup-tab" id="lineup-home" class="tab-input" checked>
+    <input type="radio" name="lineup-tab" id="lineup-away" class="tab-input">
+    <div class="tab-bar">
+      <label for="lineup-home" class="tab-home">Canada</label>
+      <label for="lineup-away" class="tab-away">Morocco</label>
+    </div>
+    <div class="cols">
+      <div class="col ca">
+        <div class="colhead"><h2>Canada</h2><span class="form"><span class="kit white"></span> white (away) · 4-4-2</span></div>
+        <div class="rsub">Starters</div>
+        <ul class="xi">
+          <li><span class="num gk">16</span><span class="pname">Maxime Crépeau</span><span class="pclub">Orlando City</span></li>
+          <li><span class="num">2</span><span class="pname">Alistair Johnston</span><span class="pclub">Celtic (SCO)</span></li>
+          <li><span class="num">4</span><span class="pname">Luc de Fougerolles</span><span class="pclub">Dender (BEL)</span></li>
+          <li><span class="num">13</span><span class="pname">Derek Cornelius</span><span class="pclub">Rangers (SCO)</span></li>
+          <li><span class="num">22</span><span class="pname">Richie Laryea</span><span class="pclub">Toronto FC</span></li>
+          <li><span class="num">6</span><span class="pname">Mathieu Choinière</span><span class="pclub">Los Angeles FC</span></li>
+          <li><span class="num">25</span><span class="pname">Nathan Saliba</span><span class="pclub">Anderlecht (BEL)</span></li>
+          <li><span class="num">17</span><span class="pname">Tajon Buchanan</span><span class="pclub">Villarreal (ESP)</span></li>
+          <li><span class="num">20</span><span class="pname">Ali Ahmed</span><span class="pclub">Norwich City (ENG)</span></li>
+          <li><span class="num">9</span><span class="pname">Cyle Larin</span><span class="pclub">Southampton (ENG)</span></li>
+          <li><span class="num">10</span><span class="pname">Jonathan David</span><span class="pclub">Juventus (ITA)</span></li>
+        </ul>
+        <div class="rsub">Bench</div>
+        <ul class="xi">
+          <li><span class="num gk">1</span><span class="pname">Dayne St. Clair</span><span class="pclub">Inter Miami</span></li>
+          <li><span class="num">3</span><span class="pname">Alfie Jones</span><span class="pclub">Middlesbrough (ENG)</span></li>
+          <li><span class="num">5</span><span class="pname">Joel Waterman</span><span class="pclub">Chicago Fire</span></li>
+          <li><span class="num">7</span><span class="pname">Stephen Eustáquio</span><span class="pclub">Los Angeles FC</span></li>
+          <li><span class="num">8</span><span class="pname">Ismaël Koné</span><span class="pclub">Sassuolo — injured</span></li>
+          <li><span class="num">11</span><span class="pname">Liam Millar</span><span class="pclub">Hull City (ENG)</span></li>
+          <li><span class="num">12</span><span class="pname">Tani Oluwaseyi</span><span class="pclub">Villarreal (ESP)</span></li>
+          <li><span class="num">14</span><span class="pname">Jacob Shaffelburg</span><span class="pclub">Los Angeles FC</span></li>
+          <li><span class="num">15</span><span class="pname">Moïse Bombito</span><span class="pclub">Nice (FRA)</span></li>
+          <li><span class="num gk">18</span><span class="pname">Owen Goodman</span><span class="pclub">Barnsley (ENG)</span></li>
+          <li><span class="num">19</span><span class="pname">Alphonso Davies<span class="cap">C</span></span><span class="pclub">Bayern — unfit</span></li>
+          <li><span class="num">21</span><span class="pname">Jonathan Osorio</span><span class="pclub">Toronto FC</span></li>
+          <li><span class="num">23</span><span class="pname">Niko Sigur</span><span class="pclub">Hajduk Split (CRO)</span></li>
+          <li><span class="num">24</span><span class="pname">Promise David</span><span class="pclub">Union SG (BEL)</span></li>
+          <li><span class="num">26</span><span class="pname">Jayden Nelson</span><span class="pclub">Austin FC</span></li>
+        </ul>
+        <div class="note">Squad-captain Davies (#19) remained a fitness spectator — zero minutes all tournament.</div>
+      </div>
+      <div class="col ma">
+        <div class="colhead"><h2>Morocco</h2><span class="form"><span class="kit red"></span> red (home) · 4-3-3</span></div>
+        <div class="rsub">Starters</div>
+        <ul class="xi">
+          <li><span class="num gk">1</span><span class="pname">Yassine "Bono" Bounou</span><span class="pclub">Al-Hilal (KSA)</span></li>
+          <li><span class="num">2</span><span class="pname">Achraf Hakimi<span class="cap">C</span></span><span class="pclub">PSG (FRA)</span></li>
+          <li><span class="num">14</span><span class="pname">Issa Diop</span><span class="pclub">Fulham (ENG)</span></li>
+          <li><span class="num">18</span><span class="pname">Chadi Riad</span><span class="pclub">Crystal Palace (ENG)</span></li>
+          <li><span class="num">3</span><span class="pname">Noussair Mazraoui</span><span class="pclub">Man United (ENG)</span></li>
+          <li><span class="num">6</span><span class="pname">Ayyoub Bouaddi</span><span class="pclub">Lille (FRA)</span></li>
+          <li><span class="num">24</span><span class="pname">Neil El Aynaoui</span><span class="pclub">Roma (ITA)</span></li>
+          <li><span class="num">8</span><span class="pname">Azzedine Ounahi</span><span class="pclub">Girona (ESP)</span></li>
+          <li><span class="num">23</span><span class="pname">Bilal El Khannouss</span><span class="pclub">VfB Stuttgart (GER)</span></li>
+          <li><span class="num">10</span><span class="pname">Brahim Díaz</span><span class="pclub">Real Madrid (ESP)</span></li>
+          <li><span class="num">11</span><span class="pname">Ismael Saibari</span><span class="pclub">PSV (NED)</span></li>
+        </ul>
+        <div class="rsub">Bench</div>
+        <ul class="xi">
+          <li><span class="num">4</span><span class="pname">Sofyan Amrabat</span><span class="pclub">Real Betis (ESP)</span></li>
+          <li><span class="num">5</span><span class="pname">Nayef Aguerd</span><span class="pclub">Marseille (FRA)</span></li>
+          <li><span class="num">7</span><span class="pname">Chemsdine Talbi</span><span class="pclub">Sunderland (ENG)</span></li>
+          <li><span class="num">9</span><span class="pname">Soufiane Rahimi</span><span class="pclub">Al-Ain (UAE)</span></li>
+          <li><span class="num gk">12</span><span class="pname">Munir El Kajoui</span><span class="pclub">RS Berkane (MAR)</span></li>
+          <li><span class="num">13</span><span class="pname">Zakaria El Ouahdi</span><span class="pclub">KRC Genk (BEL)</span></li>
+          <li><span class="num">15</span><span class="pname">Samir El Mourabet</span><span class="pclub">—</span></li>
+          <li><span class="num">16</span><span class="pname">Yassine Gessime</span><span class="pclub">—</span></li>
+          <li><span class="num">17</span><span class="pname">Abde Ezzalzouli</span><span class="pclub">Real Betis (ESP)</span></li>
+          <li><span class="num">19</span><span class="pname">Youssef Belammari</span><span class="pclub">Al-Ahly (EGY)</span></li>
+          <li><span class="num">20</span><span class="pname">Ayoub El Kaabi</span><span class="pclub">Olympiacos (GRE)</span></li>
+          <li><span class="num">21</span><span class="pname">Ayoube Amaimouni</span><span class="pclub">—</span></li>
+          <li><span class="num gk">22</span><span class="pname">Ahmed Reda Tagnaouti</span><span class="pclub">AS FAR (MAR)</span></li>
+          <li><span class="num">25</span><span class="pname">Redouane Halhal</span><span class="pclub">KV Mechelen (BEL)</span></li>
+          <li><span class="num">26</span><span class="pname">Anass Salah-Eddine</span><span class="pclub">PSV (NED)</span></li>
+        </ul>
+        <div class="note">Ouahbi left 2022 hero Youssef En-Nesyri and Hakim Ziyech out of the 26 entirely.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    Retrospective — this match was played. <span>Final: Canada 0–3 Morocco.</span> Result &amp; feeder results from repo bracket data. Starting XIs carried from each side's R32 lineup (best available); goal scorers not recorded and not attributed here. En-Nesyri omitted from Morocco's squad per tournament rosters.
+  </div>
+
+</div>
+</body>
+</html>

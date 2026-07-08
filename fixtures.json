@@ -3,7 +3,7 @@
   "source": "R32 from Yahoo Sports bracket; R16 from Wikipedia knockout stage + FOX/CBS schedules (venues/ET times), cross-checked against bracket.json seeding; ET converted to Pacific (PDT = ET - 3h)",
   "round": "Round of 16",
   "fixtures": [
-    {"date":"2026-07-04","ko_pacific":"1000","ko_display":"10:00 AM PDT","home":"Paraguay","away":"France","round":"Round of 16","venue":"Citizens Bank Park, Philadelphia","slug":"paraguay-france"},
+    {"date":"2026-07-04","ko_pacific":"1000","ko_display":"10:00 AM PDT","home":"Paraguay","away":"France","round":"Round of 16","venue":"Lincoln Financial Field, Philadelphia","slug":"paraguay-france"},
     {"date":"2026-07-04","ko_pacific":"1400","ko_display":"2:00 PM PDT","home":"Canada","away":"Morocco","round":"Round of 16","venue":"NRG Stadium, Houston","slug":"canada-morocco"},
     {"date":"2026-07-05","ko_pacific":"1300","ko_display":"1:00 PM PDT","home":"Brazil","away":"Norway","round":"Round of 16","venue":"MetLife Stadium, East Rutherford","slug":"brazil-norway"},
     {"date":"2026-07-05","ko_pacific":"1700","ko_display":"5:00 PM PDT","home":"Mexico","away":"England","round":"Round of 16","venue":"Estadio Azteca, Mexico City","slug":"mexico-england"},

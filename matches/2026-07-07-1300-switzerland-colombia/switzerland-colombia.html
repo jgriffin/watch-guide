@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Switzerland vs Colombia — 2026 World Cup, Round of 16</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&family=Barlow:wght@400;500;600&display=swap');
+
+  :root{
+    --sui-red:#D52B1E; --sui-deep:#a01d13;
+    --co-yel:#FCD116; --co-deep:#e0aa00; --co-blue:#003087; --co-red:#CE1126;
+    --gold:#C39A2B;
+
+    --text-micro:0.75rem; --text-sm:0.8125rem; --text-base:1rem; --text-md:1.0625rem;
+    --text-lg:1.125rem; --text-xl:1.25rem; --text-2xl:1.375rem; --text-3xl:1.75rem;
+    --leading:1.45;
+    --ink:#1a1714; --paper:#f6f3ec; --line:#d8d2c4; --muted:#6f675b;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Barlow',sans-serif;font-size:var(--text-base);background:#26231f;color:var(--ink);padding:18px;line-height:var(--leading);}
+  .sheet{max-width:920px;margin:0 auto;background:var(--paper);border:1px solid var(--line);box-shadow:0 14px 44px rgba(0,0,0,.5);overflow:hidden;}
+
+  /* HEADER */
+  .top{display:flex;align-items:stretch;color:#f6f3ec;}
+  .top .side{flex:1;padding:13px 18px;}
+  .top .sui{background:linear-gradient(135deg,var(--sui-red),var(--sui-deep));}
+  .top .co{background:linear-gradient(225deg,var(--co-yel),var(--co-deep));text-align:right;color:#1a1714;}
+  .top .mid{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 14px;min-width:118px;background:var(--ink);}
+  .flag{font-size:var(--text-sm);letter-spacing:.18em;font-family:'Oswald';font-weight:600;opacity:.9;}
+  .nat{font-family:'Oswald';font-weight:700;font-size:var(--text-3xl);line-height:1;text-transform:uppercase;}
+  .sub{font-size:0.875rem;opacity:.82;margin-top:3px;font-family:'Barlow Condensed';letter-spacing:.04em;}
+  .vs{font-family:'Oswald';font-weight:700;font-size:var(--text-xl);color:var(--gold);}
+  .mid .comp{font-size:var(--text-micro);letter-spacing:.12em;font-family:'Oswald';opacity:.7;text-align:center;}
+
+  .infobar{display:flex;background:#000;color:#f6f3ec;font-family:'Barlow Condensed';font-size:0.9375rem;}
+  .infobar div{padding:6px 14px;border-right:1px solid #2c2c2c;flex:1;text-align:center;white-space:nowrap;}
+  .infobar div:last-child{border-right:none;}
+  .infobar b{color:var(--gold);font-weight:600;letter-spacing:.07em;text-transform:uppercase;font-size:var(--text-micro);display:block;}
+
+  /* STAKES */
+  .strip{display:flex;flex-direction:column;align-items:stretch;background:var(--gold);color:#241e10;}
+  .strip .msg{padding:11px 16px;font-family:'Barlow',sans-serif;font-size:var(--text-md);font-weight:500;}
+  .strip .msg b{font-weight:700;}
+
+  /* Knockout footer bar — full width under stakes message */
+  .tie{background:#241e10;color:#f6f3ec;font-family:'Barlow Condensed';padding:8px 16px;width:100%;}
+  .tie-main{font-size:var(--text-base);color:#ffe9a8;line-height:1.38;}
+  .tie-main b{font-family:'Barlow';font-weight:600;color:#fff;}
+  .tie-sub{font-size:0.875rem;color:#a89f8e;margin-top:5px;line-height:1.35;}
+  .tie-sub b{color:var(--gold);font-weight:600;}
+
+  /* TEAM COLUMNS */
+  .cols{display:grid;grid-template-columns:1fr 1fr;}
+  .col{padding:13px 16px;}
+  .col.sui{border-right:2px solid var(--line);}
+  .colhead{display:flex;align-items:baseline;justify-content:space-between;border-bottom:2px solid;padding-bottom:5px;margin-bottom:8px;}
+  .col.sui .colhead{border-color:var(--sui-red);}
+  .col.co .colhead{border-color:var(--co-blue);}
+  .colhead h2{font-family:'Oswald';font-size:var(--text-xl);text-transform:uppercase;letter-spacing:.02em;}
+  .col.sui .colhead h2{color:var(--sui-red);}
+  .col.co .colhead h2{color:var(--co-blue);}
+  .form{font-family:'Barlow Condensed';font-size:0.875rem;color:var(--muted);letter-spacing:.05em;}
+
+  .xi{list-style:none;}
+  .xi li{display:flex;gap:9px;align-items:center;padding:2.5px 0;border-bottom:1px dotted var(--line);}
+  .xi li:last-child{border-bottom:none;}
+  .num{font-family:'Oswald';font-weight:700;font-size:var(--text-lg);width:28px;height:26px;display:flex;align-items:center;justify-content:center;color:#fff;border-radius:3px;flex-shrink:0;}
+  .col.sui .num{background:var(--sui-red);}
+  .col.co .num{background:var(--co-blue);}
+  .num.gk{background:#444 !important;}
+  .pname{font-weight:600;font-size:var(--text-lg);}
+  .pos{font-family:'Barlow Condensed';font-size:var(--text-sm);color:var(--muted);letter-spacing:.05em;text-transform:uppercase;margin-left:2px;}
+  .pclub{color:var(--muted);font-size:var(--text-sm);font-family:'Barlow Condensed';margin-left:auto;text-align:right;letter-spacing:.02em;white-space:nowrap;}
+  .cap{color:var(--gold);font-weight:700;font-size:var(--text-micro);vertical-align:super;margin-left:1px;}
+
+  .note{font-size:var(--text-sm);color:var(--muted);font-style:italic;margin-top:6px;line-height:1.3;}
+
+  /* ROAD HERE */
+  .road{background:var(--ink);color:#ece5d8;padding:13px 18px;}
+  .road h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--gold);text-transform:uppercase;margin-bottom:9px;text-align:center;}
+  .roadgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .rh{font-family:'Oswald';font-size:var(--text-base);text-transform:uppercase;letter-spacing:.03em;margin-bottom:5px;}
+  .rh.sui{color:#ff9a90;} .rh.co{color:#ffe08a;}
+  .game{display:flex;gap:8px;margin-bottom:6px;font-size:0.9375rem;line-height:var(--leading);}
+  .score{font-family:'Oswald';font-weight:700;font-size:var(--text-sm);padding:2px 6px;border-radius:3px;height:fit-content;white-space:nowrap;flex-shrink:0;color:#fff;}
+  .score.w{background:#2c5e38;} .score.l{background:#6e2530;} .score.d{background:#5a5036;}
+  .game .gt{color:#cfc7b8;}
+  .game .gt b{color:#fff;font-weight:600;}
+  .game .gt small{display:block;color:#a89f8e;font-size:var(--text-sm);font-style:italic;}
+  .game .gt .dt{color:#fff;font-weight:600;}
+
+  /* NEXT */
+  .next{background:#efe9dc;padding:12px 18px;border-top:1px solid var(--line);}
+  .next h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--co-blue);text-transform:uppercase;margin-bottom:7px;}
+  .next .ng{columns:1;}
+  .next p{font-family:'Barlow',sans-serif;font-size:var(--text-base);margin-bottom:8px;break-inside:avoid;line-height:var(--leading);padding-left:13px;position:relative;}
+  .next p::before{content:"\25B8";position:absolute;left:0;color:var(--gold);font-size:var(--text-micro);top:2px;}
+  .next b{font-weight:600;}
+
+  /* WHAT TO WATCH FOR */
+  .wtw{padding:13px 18px;border-top:1px solid var(--line);}
+  .wtw h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--gold);text-transform:uppercase;margin-bottom:9px;}
+  .battles{columns:1;}
+  .battle{font-family:'Barlow',sans-serif;font-size:var(--text-base);line-height:var(--leading);margin-bottom:8px;break-inside:avoid;}
+  .battle .bt{font-family:'Oswald';font-weight:600;font-size:var(--text-md);text-transform:uppercase;letter-spacing:.02em;color:var(--ink);display:block;margin-bottom:1px;}
+  .tip{margin-top:8px;background:#efe9dc;border-left:3px solid var(--gold);padding:10px 12px;font-family:'Barlow',sans-serif;font-size:var(--text-md);line-height:var(--leading);}
+  .tip b{font-family:'Barlow';font-weight:600;color:#241e10;}
+
+  /* WATCH split-by-team */
+  .watch{padding:13px 18px;}
+  .watch h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--sui-red);text-transform:uppercase;margin-bottom:9px;}
+  .wgroup{margin-bottom:12px;}
+  .wgroup:last-child{margin-bottom:0;}
+  .wteam{font-family:'Oswald';font-size:var(--text-md);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;padding-bottom:3px;border-bottom:2px solid;}
+  .wteam.sui{color:var(--sui-red);border-color:var(--sui-red);}
+  .wteam.co{color:var(--co-blue);border-color:var(--co-blue);}
+  .wgrid{display:grid;grid-template-columns:1fr;gap:10px;}
+  .star{display:flex;gap:9px;}
+  .star .wn{font-family:'Oswald';font-weight:700;font-size:var(--text-lg);width:34px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:3px;color:#fff;flex-shrink:0;}
+  .wn.sui{background:var(--sui-red);} .wn.co{background:var(--co-blue);}
+  .star .nm{font-family:'Oswald';font-size:var(--text-xl);font-weight:600;line-height:1.05;}
+  .star .meta{font-size:var(--text-sm);color:var(--muted);font-family:'Barlow Condensed';letter-spacing:.03em;text-transform:uppercase;margin-bottom:2px;}
+  .star .blurb{font-family:'Barlow',sans-serif;font-size:var(--text-base);line-height:var(--leading);}
+  .star b{font-weight:600;}
+
+  /* LINEUPS */
+  .rtitle{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--ink);text-transform:uppercase;text-align:center;padding:13px 18px 0;}
+  .rsub{font-family:'Oswald';font-size:var(--text-micro);letter-spacing:.13em;color:var(--muted);text-transform:uppercase;margin:9px 0 3px;}
+  .rsub:first-child{margin-top:0;}
+
+  .foot{background:var(--ink);color:#9a9081;font-size:var(--text-micro);text-align:center;padding:7px;font-family:'Barlow Condensed';letter-spacing:.05em;}
+  .foot span{color:var(--gold);}
+
+  /* LINEUP TABS — mobile team switcher (CSS-only) */
+  .lineup-tabs .tab-input{position:absolute;opacity:0;width:0;height:0;pointer-events:none;}
+  .lineup-tabs .tab-bar{display:none;}
+
+  @media (max-width:680px){
+    body{padding:7px;overflow-x:hidden;}
+    .sheet{overflow-x:clip;}
+    .wgrid,.roadgrid{grid-template-columns:1fr;}
+    .cols{grid-template-columns:1fr;}
+
+    .top .side{padding:10px 12px;min-width:0;}
+    .top .mid{min-width:64px;padding:8px 10px;}
+
+    .infobar{flex-wrap:wrap;}
+    .infobar div{flex:1 1 46%;white-space:normal;min-width:0;padding:6px 10px;font-size:0.9375rem;}
+    .infobar div:nth-child(2){border-right:none;}
+    .infobar div:nth-child(3),
+    .infobar div:nth-child(4){border-top:1px solid #2c2c2c;}
+
+    .lineup-tabs .tab-bar{
+      display:flex;margin:0 16px;padding-top:10px;
+      border-bottom:2px solid var(--line);
+    }
+    .lineup-tabs .tab-bar label{
+      flex:1;text-align:center;padding:10px 6px;
+      font-family:'Oswald';font-size:var(--text-md);font-weight:600;
+      text-transform:uppercase;letter-spacing:.06em;
+      cursor:pointer;color:var(--muted);
+      border-bottom:3px solid transparent;margin-bottom:-2px;
+    }
+    .lineup-tabs #lineup-home:checked ~ .tab-bar .tab-home{border-bottom-color:var(--sui-red);color:var(--sui-red);}
+    .lineup-tabs #lineup-away:checked ~ .tab-bar .tab-away{border-bottom-color:var(--co-blue);color:var(--co-blue);}
+    .lineup-tabs #lineup-home:checked ~ .cols .col:last-child{display:none;}
+    .lineup-tabs #lineup-away:checked ~ .cols .col:first-child{display:none;}
+    .col.sui,.col.co{border-right:none;}
+    .colhead{flex-wrap:wrap;align-items:flex-start;gap:4px;}
+
+    .pname{min-width:0;flex:1;}
+    .pclub{white-space:normal;flex-shrink:1;max-width:44%;}
+    .star,.star > div{min-width:0;}
+    .nat{line-height:1.08;overflow-wrap:break-word;text-wrap:balance;}
+    .next p,.battle,.blurb{overflow-wrap:break-word;}
+  }
+  @media print{body{background:#fff;padding:0;}.sheet{box-shadow:none;border:none;}@page{margin:7mm;}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="top">
+    <div class="side sui">
+      <div class="flag">🇨🇭 SWITZERLAND</div>
+      <div class="nat">La Nati</div>
+      <div class="sub">FIFA #19 · Coach: Murat Yakin · 3-4-2-1</div>
+    </div>
+    <div class="mid">
+      <div class="comp">ROUND&nbsp;OF&nbsp;16</div>
+      <div class="vs">V</div>
+      <div class="comp">WORLD&nbsp;CUP&nbsp;'26</div>
+    </div>
+    <div class="side co">
+      <div class="flag">COLOMBIA 🇨🇴</div>
+      <div class="nat">Los Cafeteros</div>
+      <div class="sub">4-3-3 · Coach: Néstor Lorenzo · FIFA #13</div>
+    </div>
+  </div>
+
+  <div class="infobar">
+    <div><b>Venue</b>BC Place, Vancouver</div>
+    <div><b>Kickoff</b>Tue 1:00 PM PDT</div>
+    <div><b>TV</b>FOX / Telemundo</div>
+    <div><b>Referee</b>TBD (unassigned)</div>
+  </div>
+
+  <div class="strip">
+    <div class="msg"><b>Win and you're in the last eight — lose and you fly home.</b> Two of the tournament's meanest defences collide: Switzerland have conceded <b>once all tournament</b>; Colombia arrive on <b>three straight clean sheets.</b> Expect a game of few, precious chances.</div>
+    <div class="tie">
+      <div class="tie-main"><b>Winner → Quarter-final (Sat Jul 11)</b> · Loser eliminated</div>
+      <div class="tie-sub"><b>Next:</b> vs winner of Argentina vs Egypt · <b>Only prior WC meeting:</b> 1994 (Colombia 2-0) · <b>Curse watch:</b> Switzerland out at the R16 in '06 · '14 · '18 · '22</div>
+    </div>
+  </div>
+
+  <div class="road">
+    <h3>How They Got Here</h3>
+    <div class="roadgrid">
+      <div>
+        <div class="rh sui">Switzerland · Group B winners (7 pts)</div>
+        <div class="game"><span class="score d">1&ndash;1</span><span class="gt"><span class="dt">Jun 13</span> · vs Qatar</span></div>
+        <div class="game"><span class="score w">4&ndash;1</span><span class="gt"><span class="dt">Jun 18</span> · vs Bosnia &amp; Herzegovina</span></div>
+        <div class="game"><span class="score w">2&ndash;1</span><span class="gt"><span class="dt">Jun 24</span> · vs Canada</span></div>
+        <div class="game"><span class="score w">2&ndash;0</span><span class="gt"><span class="dt">Jul 2</span> · vs Algeria<small>R32 (Vancouver) · Embolo &amp; Ndoye</small></span></div>
+      </div>
+      <div>
+        <div class="rh co">Colombia · Group K winners</div>
+        <div class="game"><span class="score w">3&ndash;1</span><span class="gt"><span class="dt">Jun 17</span> · vs Uzbekistan</span></div>
+        <div class="game"><span class="score w">1&ndash;0</span><span class="gt"><span class="dt">Jun 23</span> · vs DR Congo</span></div>
+        <div class="game"><span class="score d">0&ndash;0</span><span class="gt"><span class="dt">Jun 27</span> · vs Portugal<small>Topped the group</small></span></div>
+        <div class="game"><span class="score w">1&ndash;0</span><span class="gt"><span class="dt">Jul 3</span> · vs Ghana<small>R32 (Kansas City) · Arias 14'; Ghana 0 shots on target</small></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="next">
+    <h3>What's At Stake &amp; What's Next</h3>
+    <div class="ng">
+      <p><b>Switzerland:</b> Win = a first World Cup quarter-final in <b>72 years</b> (since 1954, which they hosted) and the breaking of a four-tournament Round-of-16 curse. Yakin's cede-possession-and-counter model has conceded just once all tournament.</p>
+      <p><b>Colombia:</b> Win = a first quarter-final since <b>James's 2014 run</b> — and a chance to extend the revival one more round. Unbeaten, and three clean sheets deep.</p>
+      <p><b>Played for:</b> the winner meets the winner of <b>Argentina vs Egypt</b> in the quarter-final, <b>Sat Jul 11.</b></p>
+      <p><b>Full-circle Vancouver:</b> James's MLS debut for Minnesota (Mar 2026) was a <b>6-0 loss away at Vancouver</b> — he returns to the same city for a World Cup knockout.</p>
+      <p><b>Coach vs country:</b> Colombia's Néstor Lorenzo is <b>Argentine</b> and played in the <b>1990 World Cup final</b> — now trying to steer Colombia toward a possible quarter-final against his homeland.</p>
+    </div>
+  </div>
+
+  <div class="wtw">
+    <h3>What To Watch For</h3>
+    <div class="battles">
+      <div class="battle"><span class="bt">Luis Díaz vs Switzerland's right side</span>In Yakin's 3-4-2-1 the right wing-back (Ndoye, a converted winger) covers huge ground — and Díaz's pace off the left is Colombia's most dangerous 1v1. If the Swiss back three slides to double him, the far post opens for runners; that's exactly how Arias arrived for the Ghana winner.</div>
+      <div class="battle"><span class="bt">Xhaka vs Colombia's midfield</span>Switzerland deliberately give the ball up and counter, so Xhaka has to control tempo from fewer touches against a Ríos–Lerma–James midfield that dominated possession vs Ghana. Whoever wins the second balls sets the rhythm.</div>
+      <div class="battle"><span class="bt">Colombia's clean-sheet back line vs Embolo</span>Davinson Sánchez &amp; Lucumí smothered Ghana to zero shots on target. Embolo is a physical, back-to-goal focal point who scored vs Algeria — can they handle him while also tracking Ndoye's runs in behind?</div>
+      <div class="battle"><span class="bt">James's quality vs a compact Swiss block</span>Switzerland conceded once in four games and defend in a disciplined mid-block. Colombia's cleanest route through is James's delivery and between-the-lines vision — <i>if</i> he starts (see the lineup note).</div>
+    </div>
+    <div class="tip"><b>Set-piece tip:</b> With two mean defences, a dead ball may be the cheapest goal going. <b>James is the elite deliverer</b> — free kicks, corners, and the likely penalty. Switzerland lean on <b>Xhaka's left foot</b> to aerial targets <b>Akanji &amp; Elvedi.</b> (Neither side has actually scored from a set piece this tournament — a threat, not a proven weapon.)</div>
+  </div>
+
+  <div class="watch">
+    <h3>&#9733; The Names You'll Hear Most &#9733;</h3>
+    <div class="wgroup">
+      <div class="wteam sui">Switzerland</div>
+      <div class="wgrid">
+        <div class="star"><span class="wn sui">10</span><div><div class="nm">Granit Xhaka</div><div class="meta">Switzerland · Sunderland · DM / Captain</div><div class="blurb">The metronome and on-field boss — his <b>4th straight World Cup</b> and a Swiss-record 12 WC caps. Was the general of Leverkusen's unbeaten title side; anchors Switzerland's whole shape.</div></div></div>
+        <div class="star"><span class="wn sui">5</span><div><div class="nm">Manuel Akanji</div><div class="meta">Switzerland · Inter Milan · Centre-back</div><div class="blurb">Ball-playing CB who <b>left Man City for Inter</b> and became a regular; steps out with the ball — the ideal fit for Yakin's back three.</div></div></div>
+        <div class="star"><span class="wn sui">7</span><div><div class="nm">Breel Embolo</div><div class="meta">Switzerland · Rennes · Striker</div><div class="blurb"><b>Born in Yaoundé, Cameroon</b>; the physical focal point at the tip of the 3-4-2-1. Opened the scoring in the R32 win over Algeria.</div></div></div>
+        <div class="star"><span class="wn sui">11</span><div><div class="nm">Dan Ndoye</div><div class="meta">Switzerland · Nott'm Forest · Winger</div><div class="blurb">A <b>£34m</b> 2025 signing; quick and direct, Switzerland's main wide-pace outlet — and scorer of the clinching second vs Algeria.</div></div></div>
+      </div>
+    </div>
+    <div class="wgroup">
+      <div class="wteam co">Colombia</div>
+      <div class="wgrid">
+        <div class="star"><span class="wn co">10</span><div><div class="nm">James Rodríguez</div><div class="meta">Colombia · Minnesota United · Captain</div><div class="blurb">The talisman and twilight story. <b>2014 WC Golden Boot</b>; won the <b>Golden Ball at Copa América 2024</b> (a record 6 assists). Still a world-class dead-ball weapon — but at 35 his start isn't guaranteed (see lineup note).</div></div></div>
+        <div class="star"><span class="wn co">7</span><div><div class="nm">Luis Díaz</div><div class="meta">Colombia · Bayern Munich · Left wing</div><div class="blurb">Colombia's pace-and-directness weapon; <b>left Liverpool for Bayern (~€75m)</b> in 2025 and hit the ground running. The man Switzerland's right side must track all game.</div></div></div>
+        <div class="star"><span class="wn co">6</span><div><div class="nm">Richard Ríos</div><div class="meta">Colombia · Benfica · Midfield</div><div class="blurb">The breakout engine — a <b>futsal product</b> who rose via Palmeiras before <b>Benfica broke their transfer record (~€27m)</b> for him. Ball-winner who carries and links play.</div></div></div>
+        <div class="star"><span class="wn co">11</span><div><div class="nm">Jhon Arias</div><div class="meta">Colombia · Palmeiras · Winger</div><div class="blurb">Scored the <b>only goal to beat Ghana</b> in the R32; Colombia's wide creator opposite Díaz, arriving at the far post.</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rtitle">The Lineups · By The Numbers</div>
+  <div class="lineup-tabs">
+    <input type="radio" name="lineup-tab" id="lineup-home" class="tab-input" checked>
+    <input type="radio" name="lineup-tab" id="lineup-away" class="tab-input">
+    <div class="tab-bar">
+      <label for="lineup-home" class="tab-home">Switzerland</label>
+      <label for="lineup-away" class="tab-away">Colombia</label>
+    </div>
+  <div class="cols">
+    <div class="col sui">
+      <div class="colhead"><h2>Switzerland</h2><span class="form">3-4-2-1 · home red kit</span></div>
+      <div class="rsub">Starters</div>
+      <ul class="xi">
+        <li><span class="num gk">1</span><span class="pname">Gregor Kobel</span><span class="pos">GK</span><span class="pclub">Dortmund</span></li>
+        <li><span class="num">4</span><span class="pname">Nico Elvedi</span><span class="pos">DF</span><span class="pclub">M'gladbach</span></li>
+        <li><span class="num">5</span><span class="pname">Manuel Akanji</span><span class="pos">DF</span><span class="pclub">Inter Milan</span></li>
+        <li><span class="num">6</span><span class="pname">Denis Zakaria</span><span class="pos">DF</span><span class="pclub">Monaco</span></li>
+        <li><span class="num">13</span><span class="pname">Ricardo Rodriguez</span><span class="pos">WB</span><span class="pclub">Real Betis</span></li>
+        <li><span class="num">10</span><span class="pname">Granit Xhaka<span class="cap">C</span></span><span class="pos">MF</span><span class="pclub">Sunderland</span></li>
+        <li><span class="num">8</span><span class="pname">Remo Freuler</span><span class="pos">MF</span><span class="pclub">Bologna</span></li>
+        <li><span class="num">11</span><span class="pname">Dan Ndoye</span><span class="pos">WB</span><span class="pclub">Nott'm Forest</span></li>
+        <li><span class="num">9</span><span class="pname">Johan Manzambi</span><span class="pos">MF</span><span class="pclub">Freiburg</span></li>
+        <li><span class="num">17</span><span class="pname">Rubén Vargas</span><span class="pos">FW</span><span class="pclub">Sevilla</span></li>
+        <li><span class="num">7</span><span class="pname">Breel Embolo</span><span class="pos">FW</span><span class="pclub">Rennes</span></li>
+      </ul>
+      <div class="rsub">Bench</div>
+      <ul class="xi">
+        <li><span class="num">2</span><span class="pname">Miro Muheim</span><span class="pos">DF</span><span class="pclub">Hamburger SV</span></li>
+        <li><span class="num">3</span><span class="pname">Silvan Widmer</span><span class="pos">DF</span><span class="pclub">Mainz 05</span></li>
+        <li><span class="num gk">12</span><span class="pname">Yvon Mvogo</span><span class="pos">GK</span><span class="pclub">Lorient</span></li>
+        <li><span class="num">14</span><span class="pname">Ardon Jashari</span><span class="pos">MF</span><span class="pclub">AC Milan</span></li>
+        <li><span class="num">15</span><span class="pname">Djibril Sow</span><span class="pos">MF</span><span class="pclub">Sevilla</span></li>
+        <li><span class="num">16</span><span class="pname">Christian Fassnacht</span><span class="pos">FW</span><span class="pclub">Young Boys</span></li>
+        <li><span class="num">18</span><span class="pname">Eray Cömert</span><span class="pos">DF</span><span class="pclub">Valencia</span></li>
+        <li><span class="num">19</span><span class="pname">Noah Okafor</span><span class="pos">FW</span><span class="pclub">Leeds United</span></li>
+        <li><span class="num">20</span><span class="pname">Michel Aebischer</span><span class="pos">MF</span><span class="pclub">Pisa</span></li>
+        <li><span class="num gk">21</span><span class="pname">Marvin Keller</span><span class="pos">GK</span><span class="pclub">Young Boys</span></li>
+        <li><span class="num">22</span><span class="pname">Fabian Rieder</span><span class="pos">MF</span><span class="pclub">Augsburg</span></li>
+        <li><span class="num">23</span><span class="pname">Zeki Amdouni</span><span class="pos">FW</span><span class="pclub">Burnley</span></li>
+        <li><span class="num">24</span><span class="pname">Aurèle Amenda</span><span class="pos">DF</span><span class="pclub">Frankfurt</span></li>
+        <li><span class="num">25</span><span class="pname">Luca Jaquez</span><span class="pos">DF</span><span class="pclub">Stuttgart</span></li>
+        <li><span class="num">26</span><span class="pname">Cedric Itten</span><span class="pos">FW</span><span class="pclub">F. Düsseldorf</span></li>
+      </ul>
+      <div class="note">Anchored on the confirmed R32 back three vs Algeria. Some outlets read the same 11 as a 4-2-3-1 (Zakaria at RB) — shape disputed, personnel agreed. Confirmed XI ~1hr pre-KO.</div>
+    </div>
+    <div class="col co">
+      <div class="colhead"><h2>Colombia</h2><span class="form">4-3-3 · home yellow kit</span></div>
+      <div class="rsub">Starters</div>
+      <ul class="xi">
+        <li><span class="num gk">12</span><span class="pname">Camilo Vargas</span><span class="pos">GK</span><span class="pclub">Atlas</span></li>
+        <li><span class="num">2</span><span class="pname">Daniel Muñoz</span><span class="pos">DF</span><span class="pclub">Crystal Palace</span></li>
+        <li><span class="num">23</span><span class="pname">Davinson Sánchez</span><span class="pos">DF</span><span class="pclub">Galatasaray</span></li>
+        <li><span class="num">3</span><span class="pname">Jhon Lucumí</span><span class="pos">DF</span><span class="pclub">Bologna</span></li>
+        <li><span class="num">17</span><span class="pname">Johan Mojica</span><span class="pos">DF</span><span class="pclub">Mallorca</span></li>
+        <li><span class="num">6</span><span class="pname">Richard Ríos</span><span class="pos">MF</span><span class="pclub">Benfica</span></li>
+        <li><span class="num">16</span><span class="pname">Jefferson Lerma</span><span class="pos">MF</span><span class="pclub">Crystal Palace</span></li>
+        <li><span class="num">10</span><span class="pname">James Rodríguez<span class="cap">C</span></span><span class="pos">MF</span><span class="pclub">Minnesota Utd</span></li>
+        <li><span class="num">11</span><span class="pname">Jhon Arias</span><span class="pos">FW</span><span class="pclub">Palmeiras</span></li>
+        <li><span class="num">9</span><span class="pname">Jhon Córdoba</span><span class="pos">FW</span><span class="pclub">Krasnodar</span></li>
+        <li><span class="num">7</span><span class="pname">Luis Díaz</span><span class="pos">FW</span><span class="pclub">Bayern Munich</span></li>
+      </ul>
+      <div class="rsub">Bench</div>
+      <ul class="xi">
+        <li><span class="num gk">1</span><span class="pname">David Ospina</span><span class="pos">GK</span><span class="pclub">At. Nacional</span></li>
+        <li><span class="num">4</span><span class="pname">Santiago Arias</span><span class="pos">DF</span><span class="pclub">Independiente</span></li>
+        <li><span class="num">5</span><span class="pname">Kevin Castaño</span><span class="pos">MF</span><span class="pclub">River Plate</span></li>
+        <li><span class="num">8</span><span class="pname">Jorge Carrascal</span><span class="pos">MF</span><span class="pclub">Flamengo</span></li>
+        <li><span class="num">13</span><span class="pname">Yerry Mina</span><span class="pos">DF</span><span class="pclub">Cagliari</span></li>
+        <li><span class="num">14</span><span class="pname">Gustavo Puerta</span><span class="pos">MF</span><span class="pclub">Racing Sant.</span></li>
+        <li><span class="num">15</span><span class="pname">Juan Portilla</span><span class="pos">MF</span><span class="pclub">Ath. Paranaense</span></li>
+        <li><span class="num">18</span><span class="pname">Willer Ditta</span><span class="pos">DF</span><span class="pclub">Cruz Azul</span></li>
+        <li><span class="num">19</span><span class="pname">Cucho Hernández</span><span class="pos">FW</span><span class="pclub">Real Betis</span></li>
+        <li><span class="num">20</span><span class="pname">Juan F. Quintero</span><span class="pos">MF</span><span class="pclub">River Plate</span></li>
+        <li><span class="num">21</span><span class="pname">Jaminton Campaz</span><span class="pos">FW</span><span class="pclub">Rosario Central</span></li>
+        <li><span class="num">22</span><span class="pname">Deiver Machado</span><span class="pos">DF</span><span class="pclub">Nantes</span></li>
+        <li><span class="num gk">24</span><span class="pname">Álvaro Montero</span><span class="pos">GK</span><span class="pclub">Vélez</span></li>
+        <li><span class="num">25</span><span class="pname">Luis Suárez</span><span class="pos">FW</span><span class="pclub">Sporting CP</span></li>
+        <li><span class="num">26</span><span class="pname">Andrés Gómez</span><span class="pos">FW</span><span class="pclub">Vasco da Gama</span></li>
+      </ul>
+      <div class="note">Real XI uncertainty: the R32 midfield vs Ghana was Ríos–Puerta–Lerma with <b>James (captain) benched</b>. Predicted here: James returns for Puerta in a knockout — Puerta the alternative. GK Camilo Vargas (12), not Ospina (1), is the tournament starter; Córdoba (9) limped off vs Ghana, so Luis Suárez (25) is next in. Confirmed XI ~1hr pre-KO.</div>
+    </div>
+  </div>
+  </div>
+
+  <div class="foot">
+    pre-match (confirmed XIs + shirt numbers drop ~1hr before kickoff) <span>Per Wikipedia (2026 WC squads) · ESPN / Yahoo / Al Jazeera · FanDuel / WhoScored previews.</span>
+  </div>
+
+</div>
+</body>
+</html>
