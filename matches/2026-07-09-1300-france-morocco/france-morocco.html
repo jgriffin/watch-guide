@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>France vs Morocco — 2026 World Cup, Quarter-final</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&family=Barlow:wght@400;500;600&display=swap');
+
+  :root{
+    --fr-blue:#1E3A8F; --fr-deep:#122457; --fr-red:#C8102E;
+    --ma-red:#C1272D; --ma-deep:#8f1d22; --ma-grn:#006233;
+    --gold:#C39A2B;
+
+    --text-micro:0.75rem; --text-sm:0.8125rem; --text-base:1rem; --text-md:1.0625rem;
+    --text-lg:1.125rem; --text-xl:1.25rem; --text-2xl:1.375rem; --text-3xl:1.75rem;
+    --leading:1.45;
+    --ink:#1a1714; --paper:#f6f3ec; --line:#d8d2c4; --muted:#6f675b;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Barlow',sans-serif;font-size:var(--text-base);background:#26231f;color:var(--ink);padding:18px;line-height:var(--leading);}
+  .sheet{max-width:920px;margin:0 auto;background:var(--paper);border:1px solid var(--line);box-shadow:0 14px 44px rgba(0,0,0,.5);overflow:hidden;}
+
+  /* HEADER */
+  .top{display:flex;align-items:stretch;color:#f6f3ec;}
+  .top .side{flex:1;padding:13px 18px;}
+  .top .fr{background:linear-gradient(135deg,var(--fr-blue),var(--fr-deep));border-bottom:4px solid var(--fr-red);}
+  .top .ma{background:linear-gradient(225deg,var(--ma-red),var(--ma-deep));text-align:right;border-bottom:4px solid var(--ma-grn);}
+  .top .mid{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 14px;min-width:118px;background:var(--ink);}
+  .flag{font-size:var(--text-sm);letter-spacing:.18em;font-family:'Oswald';font-weight:600;opacity:.85;}
+  .nat{font-family:'Oswald';font-weight:700;font-size:var(--text-3xl);line-height:1;text-transform:uppercase;}
+  .sub{font-size:0.875rem;opacity:.85;margin-top:3px;font-family:'Barlow Condensed';letter-spacing:.04em;}
+  .vs{font-family:'Oswald';font-weight:700;font-size:var(--text-xl);color:var(--gold);}
+  .mid .comp{font-size:var(--text-micro);letter-spacing:.12em;font-family:'Oswald';opacity:.7;text-align:center;}
+
+  .infobar{display:flex;background:#000;color:#f6f3ec;font-family:'Barlow Condensed';font-size:0.9375rem;}
+  .infobar div{padding:6px 14px;border-right:1px solid #2c2c2c;flex:1;text-align:center;white-space:nowrap;}
+  .infobar div:last-child{border-right:none;}
+  .infobar b{color:var(--gold);font-weight:600;letter-spacing:.07em;text-transform:uppercase;font-size:var(--text-micro);display:block;}
+
+  /* STAKES */
+  .strip{display:flex;flex-direction:column;align-items:stretch;background:var(--gold);color:#241e10;}
+  .strip .msg{padding:11px 16px;font-family:'Barlow',sans-serif;font-size:var(--text-md);font-weight:500;}
+  .strip .msg b{font-weight:700;}
+
+  .tie{background:#241e10;color:#f6f3ec;font-family:'Barlow Condensed';padding:8px 16px;width:100%;}
+  .tie-main{font-size:var(--text-base);color:#ffe9a8;line-height:1.38;}
+  .tie-main b{font-family:'Barlow';font-weight:600;color:#fff;}
+  .tie-sub{font-size:0.875rem;color:#a89f8e;margin-top:5px;line-height:1.35;}
+  .tie-sub b{color:var(--gold);font-weight:600;}
+
+  /* TEAM COLUMNS */
+  .cols{display:grid;grid-template-columns:1fr 1fr;}
+  .col{padding:13px 16px;}
+  .col.fr{border-right:2px solid var(--line);}
+  .col.ma{background:#fbfaf5;}
+  .colhead{display:flex;align-items:baseline;justify-content:space-between;border-bottom:2px solid;padding-bottom:5px;margin-bottom:8px;}
+  .col.fr .colhead{border-color:var(--fr-blue);}
+  .col.ma .colhead{border-color:var(--ma-grn);}
+  .colhead h2{font-family:'Oswald';font-size:var(--text-xl);text-transform:uppercase;letter-spacing:.02em;}
+  .col.fr .colhead h2{color:var(--fr-blue);}
+  .col.ma .colhead h2{color:var(--ma-red);}
+  .form{font-family:'Barlow Condensed';font-size:0.875rem;color:var(--muted);letter-spacing:.04em;text-align:right;}
+
+  .xi{list-style:none;}
+  .xi li{display:flex;gap:9px;align-items:center;padding:2.5px 0;border-bottom:1px dotted var(--line);}
+  .xi li:last-child{border-bottom:none;}
+  .num{font-family:'Oswald';font-weight:700;font-size:var(--text-lg);width:28px;height:26px;display:flex;align-items:center;justify-content:center;color:#fff;border-radius:3px;flex-shrink:0;}
+  .col.fr .num{background:var(--fr-blue);}
+  .col.ma .num{background:var(--ma-grn);}
+  .num.gk{background:#444 !important;}
+  .pname{font-weight:600;font-size:var(--text-lg);}
+  .pclub{color:var(--muted);font-size:var(--text-sm);font-family:'Barlow Condensed';margin-left:auto;text-align:right;letter-spacing:.02em;white-space:nowrap;}
+  .cap{color:var(--gold);font-weight:700;font-size:var(--text-micro);vertical-align:super;margin-left:1px;}
+
+  .note{font-size:var(--text-sm);color:var(--muted);font-style:italic;margin-top:6px;line-height:1.3;}
+
+  /* ROAD HERE */
+  .road{background:var(--ink);color:#ece5d8;padding:13px 18px;}
+  .road h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--gold);text-transform:uppercase;margin-bottom:9px;text-align:center;}
+  .roadgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .rh{font-family:'Oswald';font-size:var(--text-base);text-transform:uppercase;letter-spacing:.03em;margin-bottom:5px;}
+  .rh.f{color:#93b4ff;} .rh.m{color:#ff9aa0;}
+  .game{display:flex;gap:8px;margin-bottom:6px;font-size:0.9375rem;line-height:var(--leading);}
+  .score{font-family:'Oswald';font-weight:700;font-size:var(--text-sm);padding:2px 6px;border-radius:3px;height:fit-content;white-space:nowrap;flex-shrink:0;color:#fff;}
+  .score.w{background:#2c5e38;} .score.l{background:#6e2530;} .score.d{background:#5a5036;}
+  .game .gt{color:#cfc7b8;}
+  .game .gt b{color:#fff;font-weight:600;}
+  .game .gt small{display:block;color:#a89f8e;font-size:var(--text-sm);font-style:italic;}
+  .game .gt .dt{color:#fff;font-weight:600;}
+
+  /* NEXT */
+  .next{background:#efe9dc;padding:12px 18px;border-top:1px solid var(--line);}
+  .next h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--ma-red);text-transform:uppercase;margin-bottom:7px;}
+  .next .ng{columns:1;}
+  .next p{font-family:'Barlow',sans-serif;font-size:var(--text-base);margin-bottom:8px;break-inside:avoid;line-height:var(--leading);padding-left:13px;position:relative;}
+  .next p::before{content:"\25B8";position:absolute;left:0;color:var(--gold);font-size:var(--text-micro);top:2px;}
+  .next b{font-weight:600;}
+
+  /* WHAT TO WATCH FOR */
+  .wtw{padding:13px 18px;border-top:1px solid var(--line);}
+  .wtw h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--gold);text-transform:uppercase;margin-bottom:9px;}
+  .battles{columns:1;}
+  .battle{font-family:'Barlow',sans-serif;font-size:var(--text-base);line-height:var(--leading);margin-bottom:8px;break-inside:avoid;}
+  .battle .bt{font-family:'Oswald';font-weight:600;font-size:var(--text-md);text-transform:uppercase;letter-spacing:.02em;color:var(--ink);display:block;margin-bottom:1px;}
+  .tip{margin-top:8px;background:#efe9dc;border-left:3px solid var(--gold);padding:10px 12px;font-family:'Barlow',sans-serif;font-size:var(--text-md);line-height:var(--leading);}
+  .tip b{font-family:'Barlow';font-weight:600;color:#241e10;}
+  .deadball{margin-top:8px;font-family:'Barlow',sans-serif;font-size:var(--text-sm);color:var(--muted);line-height:var(--leading);}
+  .deadball b{color:var(--ink);font-weight:600;text-transform:uppercase;letter-spacing:.03em;font-size:var(--text-micro);}
+
+  /* WATCH — stars split by team */
+  .watch{padding:13px 18px;}
+  .watch h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--fr-blue);text-transform:uppercase;margin-bottom:9px;}
+  .wgroup{margin-bottom:12px;}
+  .wgroup:last-child{margin-bottom:0;}
+  .wteam{font-family:'Oswald';font-size:var(--text-md);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;padding-bottom:3px;border-bottom:2px solid;}
+  .wteam.f{color:var(--fr-blue);border-color:var(--fr-blue);}
+  .wteam.m{color:var(--ma-red);border-color:var(--ma-grn);}
+  .wgrid{display:grid;grid-template-columns:1fr;gap:10px;}
+  .star{display:flex;gap:9px;}
+  .star .wn{font-family:'Oswald';font-weight:700;font-size:var(--text-lg);width:34px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:3px;color:#fff;flex-shrink:0;}
+  .wn.f{background:var(--fr-blue);} .wn.m{background:var(--ma-grn);}
+  .star .nm{font-family:'Oswald';font-size:var(--text-xl);font-weight:600;line-height:1.05;}
+  .star .meta{font-size:var(--text-sm);color:var(--muted);font-family:'Barlow Condensed';letter-spacing:.03em;text-transform:uppercase;margin-bottom:2px;}
+  .star .blurb{font-family:'Barlow',sans-serif;font-size:var(--text-base);line-height:var(--leading);}
+  .star b{font-weight:600;}
+
+  /* LINEUPS */
+  .rtitle{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--ink);text-transform:uppercase;text-align:center;padding:13px 18px 0;}
+  .rsub{font-family:'Oswald';font-size:var(--text-micro);letter-spacing:.13em;color:var(--muted);text-transform:uppercase;margin:9px 0 3px;}
+  .rsub:first-child{margin-top:0;}
+
+  .foot{background:var(--ink);color:#9a9081;font-size:var(--text-micro);text-align:center;padding:7px;font-family:'Barlow Condensed';letter-spacing:.05em;line-height:1.5;}
+  .foot span{color:var(--gold);}
+
+  /* LINEUP TABS — mobile */
+  .lineup-tabs .tab-input{position:absolute;opacity:0;width:0;height:0;pointer-events:none;}
+  .lineup-tabs .tab-bar{display:none;}
+
+  @media (max-width:680px){
+    body{padding:7px;overflow-x:hidden;}
+    .sheet{overflow-x:clip;}
+    .wgrid,.roadgrid{grid-template-columns:1fr;}
+    .cols{grid-template-columns:1fr;}
+
+    .top .side{padding:10px 12px;min-width:0;}
+    .top .mid{min-width:64px;padding:8px 10px;}
+
+    .infobar{flex-wrap:wrap;}
+    .infobar div{flex:1 1 46%;white-space:normal;min-width:0;padding:6px 10px;font-size:0.9375rem;}
+    .infobar div:nth-child(2){border-right:none;}
+    .infobar div:nth-child(3),
+    .infobar div:nth-child(4){border-top:1px solid #2c2c2c;}
+
+    .lineup-tabs .tab-bar{
+      display:flex;margin:0 16px;padding-top:10px;
+      border-bottom:2px solid var(--line);
+    }
+    .lineup-tabs .tab-bar label{
+      flex:1;text-align:center;padding:10px 6px;
+      font-family:'Oswald';font-size:var(--text-md);font-weight:600;
+      text-transform:uppercase;letter-spacing:.06em;
+      cursor:pointer;color:var(--muted);
+      border-bottom:3px solid transparent;margin-bottom:-2px;
+    }
+    .lineup-tabs #lineup-home:checked ~ .tab-bar .tab-home{border-bottom-color:var(--fr-blue);color:var(--fr-blue);}
+    .lineup-tabs #lineup-away:checked ~ .tab-bar .tab-away{border-bottom-color:var(--ma-grn);color:var(--ma-red);}
+    .lineup-tabs #lineup-home:checked ~ .cols .col:last-child{display:none;}
+    .lineup-tabs #lineup-away:checked ~ .cols .col:first-child{display:none;}
+    .col.fr,.col.ma{border-right:none;}
+    .colhead{flex-wrap:wrap;align-items:flex-start;gap:4px;}
+
+    .pname{min-width:0;flex:1;}
+    .pclub{white-space:normal;flex-shrink:1;max-width:46%;}
+    .star,.star > div{min-width:0;}
+    .nat{line-height:1.08;overflow-wrap:break-word;text-wrap:balance;}
+    .next p,.battle,.blurb{overflow-wrap:break-word;}
+  }
+  @media print{body{background:#fff;padding:0;}.sheet{box-shadow:none;border:none;}@page{margin:7mm;}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="top">
+    <div class="side fr">
+      <div class="flag">🇫🇷 FRANCE</div>
+      <div class="nat">Les Bleus</div>
+      <div class="sub">FIFA ~#2 · Coach: Didier Deschamps · 4-2-3-1</div>
+    </div>
+    <div class="mid">
+      <div class="comp">QUARTER-FINAL</div>
+      <div class="vs">V</div>
+      <div class="comp">WORLD&nbsp;CUP&nbsp;'26</div>
+    </div>
+    <div class="side ma">
+      <div class="flag">MOROCCO 🇲🇦</div>
+      <div class="nat">Atlas Lions</div>
+      <div class="sub">4-3-3 · Coach: Mohamed Ouahbi · FIFA ~#7</div>
+    </div>
+  </div>
+
+  <div class="infobar">
+    <div><b>Venue</b>Gillette Stadium, Foxborough</div>
+    <div><b>Kickoff</b>Thu 1:00 PM PDT · 4 PM ET</div>
+    <div><b>TV</b>FOX / Telemundo</div>
+    <div><b>Last met</b>2022 WC semi (FRA 2–0)</div>
+  </div>
+
+  <div class="strip">
+    <div class="msg">A <b>rematch of the 2022 World Cup semi-final</b> — France won that one 2–0 on the way to the final, and Morocco became the <b>first African/Arab side ever</b> to reach the last four. Revenge, in the quarters. <b>Win and advance; lose and you're out.</b></div>
+    <div class="tie">
+      <div class="tie-main"><b>Winner → Semi-final</b> (Tue Jul 14, AT&amp;T Stadium, Arlington) vs the winner of Spain v Belgium · <b>Loser eliminated</b></div>
+      <div class="tie-sub"><b>Odds:</b> France clear favorites; Morocco a live underdog (indicative — no sourced line) · <b>H2H:</b> only competitive meeting was the <b>2022 WC semi, France 2–0</b>; earlier games were friendlies (record approx)</div>
+    </div>
+  </div>
+
+  <div class="road">
+    <h3>How They Got Here</h3>
+    <div class="roadgrid">
+      <div>
+        <div class="rh f">France · Group I (1st) → QF</div>
+        <div class="game"><span class="score w">3&ndash;1</span><span class="gt"><span class="dt">Jun 16</span> · vs <b>Senegal</b></span></div>
+        <div class="game"><span class="score w">3&ndash;0</span><span class="gt"><span class="dt">Jun 22</span> · vs <b>Iraq</b></span></div>
+        <div class="game"><span class="score w">4&ndash;1</span><span class="gt"><span class="dt">Jun 26</span> · vs <b>Norway</b></span></div>
+        <div class="game"><span class="score w">3&ndash;0</span><span class="gt"><span class="dt">R32 · Jun 30</span> · vs <b>Sweden</b></span></div>
+        <div class="game"><span class="score w">1&ndash;0</span><span class="gt"><span class="dt">R16 · Jul 4</span> · vs <b>Paraguay</b><small>Mbappé pen — 5 straight wins, a France first</small></span></div>
+      </div>
+      <div>
+        <div class="rh m">Morocco · Group C (2nd) → QF</div>
+        <div class="game"><span class="score d">1&ndash;1</span><span class="gt"><span class="dt">Jun 13</span> · vs <b>Brazil</b></span></div>
+        <div class="game"><span class="score w">1&ndash;0</span><span class="gt"><span class="dt">Jun 19</span> · vs <b>Scotland</b></span></div>
+        <div class="game"><span class="score w">4&ndash;2</span><span class="gt"><span class="dt">Jun 24</span> · vs <b>Haiti</b><small>Finished group unbeaten</small></span></div>
+        <div class="game"><span class="score d">1&ndash;1</span><span class="gt"><span class="dt">R32 · Jun 29</span> · vs <b>Netherlands</b><small>Won 3–2 on penalties (Hakimi again)</small></span></div>
+        <div class="game"><span class="score w">3&ndash;0</span><span class="gt"><span class="dt">R16 · Jul 4</span> · vs <b>Canada</b></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="next">
+    <h3>What's At Stake &amp; What's Next</h3>
+    <div class="ng">
+      <p><b>France:</b> A win puts them in a <b>semi-final</b> and one step from back-to-back finals — all in <b>Deschamps' farewell tournament</b> (he steps down after 2026). They've <b>won all five</b> so far, a France record for a single World Cup.</p>
+      <p><b>Morocco:</b> The 2022 semifinalists want to go one better — and settle a score. Beat France and it's a <b>second straight run to the last four</b>, this time as the story of a new, young regime under Ouahbi.</p>
+      <p><b>Next:</b> the winner meets the <b>winner of Spain vs Belgium</b> in the <b>Semi-final, Tue Jul 14</b> at AT&amp;T Stadium, Arlington.</p>
+      <p><b>Revenge angle:</b> Morocco haven't forgotten Qatar. <b>Théo Hernández</b> (still in this France squad) scored inside 5 minutes in that 2022 semi.</p>
+      <p><b>Mbappé's milestone:</b> on <b>7 goals</b>, co-leading the Golden Boot race, and already France's all-time top scorer.</p>
+    </div>
+  </div>
+
+  <div class="wtw">
+    <h3>What To Watch For</h3>
+    <div class="battles">
+      <div class="battle"><span class="bt">Hakimi vs France's left side</span>The tie's headline duel. Morocco's captain attacks like a winger and is their biggest outlet; France's left-back (Digne, with Theo an option) must defend him <b>and</b> support the attack. Extra spice: Hakimi's day job is at <b>PSG — in France.</b></div>
+      <div class="battle"><span class="bt">Mbappé vs Morocco's back line</span>France's talisman against one of the tournament's best-drilled defenses. Morocco will sit compact and dare France to break them down — the exact puzzle Paraguay set for 70 minutes in the R16.</div>
+      <div class="battle"><span class="bt">France's control vs Morocco's press &amp; counters</span>Morocco's young, high-energy midfield swarmed Canada's first pass. If they unsettle France's build-up and spring <b>Brahim Díaz</b> on the break, this becomes a real contest rather than a siege.</div>
+      <div class="battle"><span class="bt">The benches</span>France's edge in the R16 was depth — Doué came on and manufactured the winner. Late in a tight knockout, France's substitutes are elite; Ouahbi's answer is a fearless young core.</div>
+    </div>
+    <div class="deadball"><b>Morocco dead-ball:</b> A clear edge — <b>Hakimi</b> on penalties (2022 panenka vs Spain; the winning kick in the 2026 R32 shootout vs the Netherlands), plus <b>Aguerd/Diop</b> aerial threat off corners.<br><b>France:</b> Mbappé on penalties; delivery from the pivot into a big, athletic box.</div>
+    <div class="tip"><b>Set-piece tip:</b> If it's level late, don't fear extra time on Morocco's behalf — they beat the Netherlands on penalties this tournament and Spain on penalties in 2022. In a shootout, <b>Hakimi's nerve</b> is a genuine advantage.</div>
+  </div>
+
+  <div class="watch">
+    <h3>&#9733; The Names You'll Hear Most &#9733;</h3>
+    <div class="wgroup">
+      <div class="wteam f">France</div>
+      <div class="wgrid">
+        <div class="star"><span class="wn f">10</span><div><div class="nm">Kylian Mbappé</div><div class="meta">France · Real Madrid · FW / captain</div><div class="blurb">The main event. France's all-time top scorer and the tournament's <b>co-leading scorer (7)</b>. Blistering pace, lethal left foot; scored a hat-trick in the 2022 final.</div></div></div>
+        <div class="star"><span class="wn f">7</span><div><div class="nm">Ousmane Dembélé</div><div class="meta">France · PSG · Winger</div><div class="blurb">Reigning <b>2025 Ballon d'Or</b> winner off a treble-winning PSG season. Two-footed, direct, stretches defenses from the right.</div></div></div>
+        <div class="star"><span class="wn f">8</span><div><div class="nm">Aurélien Tchouaméni</div><div class="meta">France · Real Madrid · Midfield anchor</div><div class="blurb">Elite deep-lying passer and shield. <b>Rested in the R16</b> — expected back for a heavyweight QF (a projection).</div></div></div>
+        <div class="star"><span class="wn f">11</span><div><div class="nm">Michael Olise</div><div class="meta">France · Bayern Munich · Creator</div><div class="blurb">One of Europe's most in-form playmakers after a standout Bayern season; left-footed, works either flank, set-piece danger.</div></div></div>
+      </div>
+    </div>
+    <div class="wgroup">
+      <div class="wteam m">Morocco</div>
+      <div class="wgrid">
+        <div class="star"><span class="wn m">2</span><div><div class="nm">Achraf Hakimi</div><div class="meta">Morocco · PSG · RB / captain</div><div class="blurb">The superstar. Won the <b>2025 Champions League</b> (scored in the final) in PSG's treble; a Ballon d'Or contender. Attacks like a winger and is Morocco's <b>penalty king</b>.</div></div></div>
+        <div class="star"><span class="wn m">10</span><div><div class="nm">Brahim Díaz</div><div class="meta">Morocco · Real Madrid · Playmaker</div><div class="blurb">The creative spark and a real goal threat — the man to unlock tight, deep defenses. Chose Morocco over Spain; a standout at AFCON 2025.</div></div></div>
+        <div class="star"><span class="wn m">8</span><div><div class="nm">Azzedine Ounahi</div><div class="meta">Morocco · Girona · Midfielder</div><div class="blurb">The elegant midfielder who lit up the <b>2022 World Cup</b> ("where did he come from?" — Luis Enrique). Glue in Morocco's engine room.</div></div></div>
+        <div class="star"><span class="wn m">4</span><div><div class="nm">Sofyan Amrabat</div><div class="meta">Morocco · Real Betis · Screen</div><div class="blurb">The combative heartbeat of the 2022 semi-final run — the experience Ouahbi may reach for to protect the back line vs France (a bench option vs Canada).</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rtitle">The Lineups · By The Numbers</div>
+  <div class="lineup-tabs">
+    <input type="radio" name="lineup-tab" id="lineup-home" class="tab-input" checked>
+    <input type="radio" name="lineup-tab" id="lineup-away" class="tab-input">
+    <div class="tab-bar">
+      <label for="lineup-home" class="tab-home">France</label>
+      <label for="lineup-away" class="tab-away">Morocco</label>
+    </div>
+  <div class="cols">
+    <div class="col fr">
+      <div class="colhead"><h2>France</h2><span class="form">home blue kit · 4-2-3-1</span></div>
+      <div class="rsub">Starters</div>
+      <ul class="xi">
+        <li><span class="num gk">1</span><span class="pname">Mike Maignan</span><span class="pclub">AC Milan</span></li>
+        <li><span class="num">3</span><span class="pname">Jules Koundé</span><span class="pclub">Barcelona</span></li>
+        <li><span class="num">4</span><span class="pname">Dayot Upamecano</span><span class="pclub">Bayern Munich</span></li>
+        <li><span class="num">5</span><span class="pname">William Saliba</span><span class="pclub">Arsenal</span></li>
+        <li><span class="num">17</span><span class="pname">Lucas Digne</span><span class="pclub">Aston Villa</span></li>
+        <li><span class="num">8</span><span class="pname">Aurélien Tchouaméni</span><span class="pclub">Real Madrid</span></li>
+        <li><span class="num">14</span><span class="pname">Adrien Rabiot</span><span class="pclub">Marseille</span></li>
+        <li><span class="num">7</span><span class="pname">Ousmane Dembélé</span><span class="pclub">PSG</span></li>
+        <li><span class="num">11</span><span class="pname">Michael Olise</span><span class="pclub">Bayern Munich</span></li>
+        <li><span class="num">12</span><span class="pname">Bradley Barcola</span><span class="pclub">PSG</span></li>
+        <li><span class="num">10</span><span class="pname">Kylian Mbappé<span class="cap">C</span></span><span class="pclub">Real Madrid</span></li>
+      </ul>
+      <div class="rsub">Bench</div>
+      <ul class="xi">
+        <li><span class="num">2</span><span class="pname">Malo Gusto</span><span class="pclub">Chelsea</span></li>
+        <li><span class="num">6</span><span class="pname">Manu Koné</span><span class="pclub">AS Roma</span></li>
+        <li><span class="num">9</span><span class="pname">Marcus Thuram</span><span class="pclub">Inter</span></li>
+        <li><span class="num">13</span><span class="pname">N'Golo Kanté</span><span class="pclub">Al-Ittihad</span></li>
+        <li><span class="num">15</span><span class="pname">Ibrahima Konaté</span><span class="pclub">Liverpool</span></li>
+        <li><span class="num gk">16</span><span class="pname">Brice Samba</span><span class="pclub">Rennes</span></li>
+        <li><span class="num">18</span><span class="pname">Warren Zaïre-Emery</span><span class="pclub">PSG</span></li>
+        <li><span class="num">19</span><span class="pname">Theo Hernández</span><span class="pclub">Al-Hilal</span></li>
+        <li><span class="num">20</span><span class="pname">Désiré Doué</span><span class="pclub">PSG</span></li>
+        <li><span class="num">21</span><span class="pname">Lucas Hernández</span><span class="pclub">PSG</span></li>
+        <li><span class="num">22</span><span class="pname">Jean-Philippe Mateta</span><span class="pclub">Crystal Palace</span></li>
+        <li><span class="num gk">23</span><span class="pname">Robin Risser</span><span class="pclub">Strasbourg</span></li>
+        <li><span class="num">24</span><span class="pname">Rayan Cherki</span><span class="pclub">Man City</span></li>
+        <li><span class="num">25</span><span class="pname">Maghnes Akliouche</span><span class="pclub">Monaco</span></li>
+        <li><span class="num">26</span><span class="pname">Maxence Lacroix</span><span class="pclub">Crystal Palace</span></li>
+      </ul>
+      <div class="note">Predicted XI. <b>Tchouaméni recalled for Manu Koné</b> (6) is the key call — Koné–Rabiot started the R16; Deschamps often restores Tchouaméni for the biggest games. LB Digne vs Theo Hernández (19) also live. Confirmed ~1hr before KO.</div>
+    </div>
+    <div class="col ma">
+      <div class="colhead"><h2>Morocco</h2><span class="form">home red kit · 4-3-3</span></div>
+      <div class="rsub">Starters</div>
+      <ul class="xi">
+        <li><span class="num gk">1</span><span class="pname">Yassine Bounou</span><span class="pclub">Al-Hilal</span></li>
+        <li><span class="num">2</span><span class="pname">Achraf Hakimi<span class="cap">C</span></span><span class="pclub">PSG</span></li>
+        <li><span class="num">14</span><span class="pname">Issa Diop</span><span class="pclub">Fulham</span></li>
+        <li><span class="num">18</span><span class="pname">Chadi Riad</span><span class="pclub">Crystal Palace</span></li>
+        <li><span class="num">3</span><span class="pname">Noussair Mazraoui</span><span class="pclub">Man Utd</span></li>
+        <li><span class="num">4</span><span class="pname">Sofyan Amrabat</span><span class="pclub">Real Betis</span></li>
+        <li><span class="num">24</span><span class="pname">Neil El Aynaoui</span><span class="pclub">AS Roma</span></li>
+        <li><span class="num">8</span><span class="pname">Azzedine Ounahi</span><span class="pclub">Girona</span></li>
+        <li><span class="num">10</span><span class="pname">Brahim Díaz</span><span class="pclub">Real Madrid</span></li>
+        <li><span class="num">11</span><span class="pname">Ismael Saibari</span><span class="pclub">PSV</span></li>
+        <li><span class="num">23</span><span class="pname">Bilal El Khannouss</span><span class="pclub">VfB Stuttgart</span></li>
+      </ul>
+      <div class="rsub">Bench</div>
+      <ul class="xi">
+        <li><span class="num">5</span><span class="pname">Nayef Aguerd</span><span class="pclub">Marseille</span></li>
+        <li><span class="num">6</span><span class="pname">Ayyoub Bouaddi</span><span class="pclub">Lille</span></li>
+        <li><span class="num">7</span><span class="pname">Chemsdine Talbi</span><span class="pclub">Sunderland</span></li>
+        <li><span class="num">9</span><span class="pname">Soufiane Rahimi</span><span class="pclub">Al-Ain</span></li>
+        <li><span class="num gk">12</span><span class="pname">Munir El Kajoui</span><span class="pclub">RS Berkane</span></li>
+        <li><span class="num">13</span><span class="pname">Zakaria El Ouahdi</span><span class="pclub">KRC Genk</span></li>
+        <li><span class="num">15</span><span class="pname">Samir El Mourabet</span><span class="pclub">—</span></li>
+        <li><span class="num">16</span><span class="pname">Yassine Gessime</span><span class="pclub">—</span></li>
+        <li><span class="num">17</span><span class="pname">Abde Ezzalzouli</span><span class="pclub">Real Betis</span></li>
+        <li><span class="num">19</span><span class="pname">Youssef Belammari</span><span class="pclub">Al-Ahly</span></li>
+        <li><span class="num">20</span><span class="pname">Ayoub El Kaabi</span><span class="pclub">Olympiacos</span></li>
+        <li><span class="num">21</span><span class="pname">Ayoube Amaimouni</span><span class="pclub">—</span></li>
+        <li><span class="num gk">22</span><span class="pname">Ahmed Reda Tagnaouti</span><span class="pclub">AS FAR</span></li>
+        <li><span class="num">25</span><span class="pname">Redouane Halhal</span><span class="pclub">KV Mechelen</span></li>
+        <li><span class="num">26</span><span class="pname">Anass Salah-Eddine</span><span class="pclub">PSV</span></li>
+      </ul>
+      <div class="note">Predicted XI. <b>Amrabat in for Bouaddi</b> (6) is the projected QF change — steel to shield the back line; Ouahbi trusted the younger core vs Canada. <b>Aguerd</b> (5) for Diop and <b>Ayoub El Kaabi</b> (20) as an orthodox No.9 are the other live calls. Confirmed ~1hr before KO.</div>
+    </div>
+  </div>
+  </div>
+
+  <div class="foot">
+    Pre-match — confirmed XIs + shirt numbers drop ~1hr before kickoff. Predicted XIs are projections (Tchouaméni &amp; Amrabat recalls flagged). Referee not yet assigned; FIFA ranks approx; odds indicative; some Morocco bench clubs unconfirmed. <span>Squads reused from repo guides (Wikipedia 2026 WC squads / ESPN / FIFA).</span>
+  </div>
+
+</div>
+</body>
+</html>
