@@ -402,9 +402,9 @@
           "t2": "Belgium",
           "f1": "🇪🇸",
           "f2": "🇧🇪",
-          "s1": null,
-          "s2": null,
-          "winner": null,
+          "s1": "2",
+          "s2": "1",
+          "winner": 1,
           "note": null,
           "feeders": [
             93,
@@ -456,9 +456,9 @@
           "num": 101,
           "date": "2026-07-14",
           "t1": "France",
-          "t2": null,
+          "t2": "Spain",
           "f1": "🇫🇷",
-          "f2": null,
+          "f2": "🇪🇸",
           "s1": null,
           "s2": null,
           "winner": null,
@@ -467,7 +467,7 @@
             97,
             98
           ],
-          "slug": null
+          "slug": "france-spain"
         },
         {
           "num": 102,

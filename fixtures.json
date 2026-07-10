@@ -281,6 +281,16 @@
       "round": "Quarter-finals",
       "venue": "Arrowhead Stadium, Kansas City",
       "slug": "argentina-switzerland"
+    },
+    {
+      "date": "2026-07-14",
+      "ko_pacific": "1200",
+      "ko_display": "12:00 PM PDT",
+      "home": "France",
+      "away": "Spain",
+      "round": "Semi-finals",
+      "venue": "AT&T Stadium, Arlington",
+      "slug": "france-spain"
     }
   ]
 }
