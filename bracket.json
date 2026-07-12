@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-11",
+  "generated": "2026-07-12",
   "source": "openfootball/worldcup.json (2026) — github.com/openfootball/worldcup.json",
   "rounds": [
     {
@@ -419,10 +419,10 @@
           "t2": "England",
           "f1": "🇳🇴",
           "f2": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-          "s1": null,
-          "s2": null,
-          "winner": null,
-          "note": null,
+          "s1": "1",
+          "s2": "1",
+          "winner": 2,
+          "note": "a.e.t.",
           "feeders": [
             91,
             92
@@ -436,10 +436,10 @@
           "t2": "Switzerland",
           "f1": "🇦🇷",
           "f2": "🇨🇭",
-          "s1": null,
-          "s2": null,
-          "winner": null,
-          "note": null,
+          "s1": "1",
+          "s2": "1",
+          "winner": 1,
+          "note": "a.e.t.",
           "feeders": [
             95,
             96
@@ -472,10 +472,10 @@
         {
           "num": 102,
           "date": "2026-07-15",
-          "t1": null,
-          "t2": null,
-          "f1": null,
-          "f2": null,
+          "t1": "England",
+          "t2": "Argentina",
+          "f1": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+          "f2": "🇦🇷",
           "s1": null,
           "s2": null,
           "winner": null,
@@ -484,7 +484,7 @@
             99,
             100
           ],
-          "slug": null
+          "slug": "england-argentina"
         }
       ]
     },
