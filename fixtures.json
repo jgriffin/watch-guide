@@ -301,6 +301,26 @@
       "round": "Semi-finals",
       "venue": "Mercedes-Benz Stadium, Atlanta",
       "slug": "england-argentina"
+    },
+    {
+      "date": "2026-07-18",
+      "ko_pacific": "1400",
+      "ko_display": "2:00 PM PDT",
+      "home": "France",
+      "away": "England",
+      "round": "Third-place playoff",
+      "venue": "Hard Rock Stadium, Miami",
+      "slug": "france-england"
+    },
+    {
+      "date": "2026-07-19",
+      "ko_pacific": "1200",
+      "ko_display": "12:00 PM PDT",
+      "home": "Spain",
+      "away": "Argentina",
+      "round": "Final",
+      "venue": "MetLife Stadium, East Rutherford",
+      "slug": "spain-argentina"
     }
   ]
 }

@@ -476,9 +476,9 @@
           "t2": "Argentina",
           "f1": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
           "f2": "🇦🇷",
-          "s1": null,
-          "s2": null,
-          "winner": null,
+          "s1": "1",
+          "s2": "2",
+          "winner": 2,
           "note": null,
           "feeders": [
             99,
@@ -496,9 +496,9 @@
           "num": 104,
           "date": "2026-07-19",
           "t1": "Spain",
-          "t2": null,
+          "t2": "Argentina",
           "f1": "🇪🇸",
-          "f2": null,
+          "f2": "🇦🇷",
           "s1": null,
           "s2": null,
           "winner": null,
@@ -507,7 +507,7 @@
             101,
             102
           ],
-          "slug": null
+          "slug": "spain-argentina"
         }
       ]
     }
@@ -516,9 +516,9 @@
     "num": 103,
     "date": "2026-07-18",
     "t1": "France",
-    "t2": null,
+    "t2": "England",
     "f1": "🇫🇷",
-    "f2": null,
+    "f2": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
     "s1": null,
     "s2": null,
     "winner": null,
@@ -527,6 +527,6 @@
       101,
       102
     ],
-    "slug": null
+    "slug": "france-england"
   }
 }
