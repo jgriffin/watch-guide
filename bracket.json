@@ -499,10 +499,10 @@
           "t2": "Argentina",
           "f1": "🇪🇸",
           "f2": "🇦🇷",
-          "s1": null,
-          "s2": null,
-          "winner": null,
-          "note": null,
+          "s1": "0",
+          "s2": "0",
+          "winner": 1,
+          "note": "a.e.t.",
           "feeders": [
             101,
             102
