@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spain vs Argentina — 2026 World Cup Final · Spain World Champions</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&family=Barlow:wght@400;500;600&display=swap');
+
+  :root{
+    --es-red:#AA151B; --es-deep:#6f0d11; --gold:#C39A2B; --trophy:#E7C24B;
+    --ar-blue:#5C9DD6; --ar-deep:#2E6BA0;
+
+    --text-micro:0.75rem; --text-sm:0.8125rem; --text-base:1rem; --text-md:1.0625rem;
+    --text-lg:1.125rem; --text-xl:1.25rem; --text-2xl:1.375rem; --text-3xl:1.75rem;
+    --leading:1.45;
+    --ink:#1a1714; --paper:#f6f3ec; --line:#d8d2c4; --muted:#6f675b;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Barlow',sans-serif;font-size:var(--text-base);background:#26231f;color:var(--ink);padding:18px;line-height:var(--leading);}
+  .sheet{max-width:920px;margin:0 auto;background:var(--paper);border:1px solid var(--line);box-shadow:0 14px 44px rgba(0,0,0,.5);overflow:hidden;}
+
+  /* HEADER */
+  .top{display:flex;align-items:stretch;color:#f6f3ec;}
+  .top .side{flex:1;padding:13px 18px;}
+  .top .es{background:linear-gradient(135deg,var(--es-red),var(--es-deep));}
+  .top .ar{background:linear-gradient(225deg,var(--ar-blue),var(--ar-deep));text-align:right;}
+  .top .mid{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 14px;min-width:128px;background:var(--ink);}
+  .flag{font-size:var(--text-sm);letter-spacing:.18em;font-family:'Oswald';font-weight:600;opacity:.85;}
+  .nat{font-family:'Oswald';font-weight:700;font-size:var(--text-3xl);line-height:1;text-transform:uppercase;}
+  .sub{font-size:0.875rem;opacity:.82;margin-top:3px;font-family:'Barlow Condensed';letter-spacing:.04em;}
+  .mid .comp{font-size:var(--text-micro);letter-spacing:.12em;font-family:'Oswald';opacity:.75;text-align:center;color:var(--trophy);}
+  .mid .fscore{font-family:'Oswald';font-weight:700;font-size:var(--text-3xl);color:#fff;line-height:1;margin:3px 0 1px;}
+  .mid .aet{font-family:'Barlow Condensed';font-size:var(--text-micro);letter-spacing:.14em;color:var(--trophy);text-transform:uppercase;}
+
+  .infobar{display:flex;background:#000;color:#f6f3ec;font-family:'Barlow Condensed';font-size:0.9375rem;}
+  .infobar div{padding:6px 14px;border-right:1px solid #2c2c2c;flex:1;text-align:center;white-space:nowrap;}
+  .infobar div:last-child{border-right:none;}
+  .infobar b{color:var(--gold);font-weight:600;letter-spacing:.07em;text-transform:uppercase;font-size:var(--text-micro);display:block;}
+
+  /* CHAMPIONS BANNER */
+  .champ{background:linear-gradient(100deg,#8a6d14,#E7C24B 45%,#f3dd8a 55%,#8a6d14);color:#241a03;text-align:center;padding:12px 16px;}
+  .champ .lift{font-family:'Oswald';font-weight:700;font-size:var(--text-3xl);text-transform:uppercase;letter-spacing:.03em;line-height:1;}
+  .champ .liftsub{font-family:'Barlow Condensed';font-weight:600;font-size:var(--text-base);letter-spacing:.08em;text-transform:uppercase;margin-top:4px;opacity:.85;}
+
+  /* STAKES / RESULT strip */
+  .strip{display:flex;flex-direction:column;align-items:stretch;background:var(--gold);color:#241e10;}
+  .strip .msg{padding:11px 16px;font-family:'Barlow',sans-serif;font-size:var(--text-md);font-weight:500;}
+  .strip .msg b{font-weight:700;}
+  .tie{background:#241e10;color:#f6f3ec;font-family:'Barlow Condensed';padding:8px 16px;width:100%;}
+  .tie-main{font-size:var(--text-base);color:#ffe9a8;line-height:1.38;}
+  .tie-main b{font-family:'Barlow';font-weight:600;color:#fff;}
+  .tie-sub{font-size:0.875rem;color:#a89f8e;margin-top:5px;line-height:1.35;}
+  .tie-sub b{color:var(--gold);font-weight:600;}
+
+  /* ROAD HERE */
+  .road{background:var(--ink);color:#ece5d8;padding:13px 18px;}
+  .road h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--gold);text-transform:uppercase;margin-bottom:9px;text-align:center;}
+  .roadgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .rh{font-family:'Oswald';font-size:var(--text-base);text-transform:uppercase;letter-spacing:.03em;margin-bottom:5px;}
+  .rh.e{color:#ff9aa0;} .rh.a{color:#a8d3f2;}
+  .game{display:flex;gap:8px;margin-bottom:6px;font-size:0.9375rem;line-height:var(--leading);}
+  .score{font-family:'Oswald';font-weight:700;font-size:var(--text-sm);padding:2px 6px;border-radius:3px;height:fit-content;white-space:nowrap;flex-shrink:0;color:#fff;}
+  .score.w{background:#2c5e38;} .score.l{background:#6e2530;} .score.d{background:#5a5036;}
+  .game .gt{color:#cfc7b8;}
+  .game .gt .dt{color:#fff;font-weight:600;}
+  .game .gt small{display:block;color:#a89f8e;font-size:var(--text-sm);font-style:italic;}
+
+  /* CHAMPIONS / result prose */
+  .next{background:#efe9dc;padding:12px 18px;border-top:1px solid var(--line);}
+  .next h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--es-red);text-transform:uppercase;margin-bottom:7px;}
+  .next .ng{columns:1;}
+  .next p{font-family:'Barlow',sans-serif;font-size:var(--text-base);margin-bottom:8px;break-inside:avoid;line-height:var(--leading);padding-left:13px;position:relative;}
+  .next p::before{content:"\25B8";position:absolute;left:0;color:var(--gold);font-size:var(--text-micro);top:2px;}
+  .next b{font-weight:600;}
+
+  /* WHAT DECIDED IT */
+  .wtw{padding:13px 18px;border-top:1px solid var(--line);}
+  .wtw h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--gold);text-transform:uppercase;margin-bottom:9px;}
+  .battles{columns:1;}
+  .battle{font-family:'Barlow',sans-serif;font-size:var(--text-base);line-height:var(--leading);margin-bottom:8px;break-inside:avoid;}
+  .battle .bt{font-family:'Oswald';font-weight:600;font-size:var(--text-md);text-transform:uppercase;letter-spacing:.02em;color:var(--ink);display:block;margin-bottom:1px;}
+  .tip{margin-top:8px;background:#efe9dc;border-left:3px solid var(--gold);padding:10px 12px;font-family:'Barlow',sans-serif;font-size:var(--text-md);line-height:var(--leading);}
+  .tip b{font-family:'Barlow';font-weight:600;color:#241e10;}
+
+  /* NAMES */
+  .watch{padding:13px 18px;}
+  .watch h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--es-red);text-transform:uppercase;margin-bottom:9px;}
+  .wgrid{display:grid;grid-template-columns:1fr;gap:10px;}
+  .star{display:flex;gap:9px;}
+  .star .wn{font-family:'Oswald';font-weight:700;font-size:var(--text-lg);width:34px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:3px;color:#fff;flex-shrink:0;}
+  .wn.e{background:var(--es-red);} .wn.a{background:var(--ar-deep);}
+  .star .nm{font-family:'Oswald';font-size:var(--text-xl);font-weight:600;line-height:1.05;}
+  .star .meta{font-size:var(--text-sm);color:var(--muted);font-family:'Barlow Condensed';letter-spacing:.03em;text-transform:uppercase;margin-bottom:2px;}
+  .star .blurb{font-family:'Barlow',sans-serif;font-size:var(--text-base);line-height:var(--leading);}
+  .star b{font-weight:600;}
+  .wgroup{margin-bottom:12px;}
+  .wgroup:last-child{margin-bottom:0;}
+  .wteam{font-family:'Oswald';font-size:var(--text-md);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;padding-bottom:3px;border-bottom:2px solid;}
+  .wteam.e{color:var(--es-red);border-color:var(--es-red);}
+  .wteam.a{color:var(--ar-deep);border-color:var(--ar-deep);}
+
+  /* LINEUPS */
+  .rtitle{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--ink);text-transform:uppercase;text-align:center;padding:13px 18px 0;}
+  .rsub{font-family:'Oswald';font-size:var(--text-micro);letter-spacing:.13em;color:var(--muted);text-transform:uppercase;margin:9px 0 3px;}
+  .rsub:first-child{margin-top:0;}
+  .cols{display:grid;grid-template-columns:1fr 1fr;}
+  .col{padding:13px 16px;}
+  .col.es{border-right:2px solid var(--line);}
+  .colhead{display:flex;align-items:baseline;justify-content:space-between;border-bottom:2px solid;padding-bottom:5px;margin-bottom:8px;}
+  .col.es .colhead{border-color:var(--es-red);}
+  .col.ar .colhead{border-color:var(--ar-deep);}
+  .colhead h2{font-family:'Oswald';font-size:var(--text-xl);text-transform:uppercase;letter-spacing:.02em;}
+  .col.es .colhead h2{color:var(--es-red);}
+  .col.ar .colhead h2{color:var(--ar-deep);}
+  .form{font-family:'Barlow Condensed';font-size:0.875rem;color:var(--muted);letter-spacing:.05em;}
+  .xi{list-style:none;}
+  .xi li{display:flex;gap:9px;align-items:center;padding:2.5px 0;border-bottom:1px dotted var(--line);}
+  .xi li:last-child{border-bottom:none;}
+  .num{font-family:'Oswald';font-weight:700;font-size:var(--text-lg);width:28px;height:26px;display:flex;align-items:center;justify-content:center;color:#fff;border-radius:3px;flex-shrink:0;}
+  .col.es .num{background:var(--es-red);}
+  .col.ar .num{background:var(--ar-deep);}
+  .num.gk{background:#444 !important;}
+  .pname{font-weight:600;font-size:var(--text-lg);}
+  .pclub{color:var(--muted);font-size:var(--text-sm);font-family:'Barlow Condensed';margin-left:auto;text-align:right;letter-spacing:.02em;white-space:nowrap;}
+  .cap{color:var(--gold);font-weight:700;font-size:var(--text-micro);vertical-align:super;margin-left:1px;}
+  .note{font-size:var(--text-sm);color:var(--muted);font-style:italic;margin-top:6px;line-height:1.3;}
+
+  .foot{background:var(--ink);color:#9a9081;font-size:var(--text-micro);text-align:center;padding:7px;font-family:'Barlow Condensed';letter-spacing:.05em;}
+  .foot span{color:var(--gold);}
+
+  /* LINEUP TABS — mobile */
+  .lineup-tabs .tab-input{position:absolute;opacity:0;width:0;height:0;pointer-events:none;}
+  .lineup-tabs .tab-bar{display:none;}
+
+  @media (max-width:680px){
+    body{padding:7px;overflow-x:hidden;}
+    .sheet{overflow-x:clip;}
+    .wgrid,.roadgrid{grid-template-columns:1fr;}
+    .cols{grid-template-columns:1fr;}
+    .top .side{padding:10px 12px;min-width:0;}
+    .top .mid{min-width:74px;padding:8px 10px;}
+    .infobar{flex-wrap:wrap;}
+    .infobar div{flex:1 1 46%;white-space:normal;min-width:0;padding:6px 10px;font-size:0.9375rem;}
+    .infobar div:nth-child(2){border-right:none;}
+    .infobar div:nth-child(3),
+    .infobar div:nth-child(4){border-top:1px solid #2c2c2c;}
+    .lineup-tabs .tab-bar{display:flex;margin:0 16px;padding-top:10px;border-bottom:2px solid var(--line);}
+    .lineup-tabs .tab-bar label{flex:1;text-align:center;padding:10px 6px;font-family:'Oswald';font-size:var(--text-md);font-weight:600;text-transform:uppercase;letter-spacing:.06em;cursor:pointer;color:var(--muted);border-bottom:3px solid transparent;margin-bottom:-2px;}
+    .lineup-tabs #lineup-home:checked ~ .tab-bar .tab-home{border-bottom-color:var(--es-red);color:var(--es-red);}
+    .lineup-tabs #lineup-away:checked ~ .tab-bar .tab-away{border-bottom-color:var(--ar-deep);color:var(--ar-deep);}
+    .lineup-tabs #lineup-home:checked ~ .cols .col:last-child{display:none;}
+    .lineup-tabs #lineup-away:checked ~ .cols .col:first-child{display:none;}
+    .col.es,.col.ar{border-right:none;}
+    .colhead{flex-wrap:wrap;align-items:flex-start;gap:4px;}
+    .pname{min-width:0;flex:1;}
+    .pclub{white-space:normal;flex-shrink:1;max-width:46%;}
+    .star,.star > div{min-width:0;}
+    .nat{line-height:1.08;overflow-wrap:break-word;text-wrap:balance;}
+    .next p,.battle,.blurb{overflow-wrap:break-word;}
+  }
+  @media print{body{background:#fff;padding:0;}.sheet{box-shadow:none;border:none;}@page{margin:7mm;}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="top">
+    <div class="side es">
+      <div class="flag">🇪🇸 SPAIN</div>
+      <div class="nat">La Roja</div>
+      <div class="sub">FIFA #2 · Coach: Luis de la Fuente · 4-3-3</div>
+    </div>
+    <div class="mid">
+      <div class="comp">THE&nbsp;FINAL</div>
+      <div class="fscore">0&ndash;0</div>
+      <div class="aet">a.e.t.</div>
+      <div class="comp" style="margin-top:4px;">WORLD&nbsp;CUP&nbsp;'26</div>
+    </div>
+    <div class="side ar">
+      <div class="flag">ARGENTINA 🇦🇷</div>
+      <div class="nat">La Albiceleste</div>
+      <div class="sub">4-3-3 · Coach: Lionel Scaloni · FIFA No. 1</div>
+    </div>
+  </div>
+
+  <div class="infobar">
+    <div><b>Venue</b>MetLife Stadium, NJ</div>
+    <div><b>Kickoff</b>Sun 12:00 PM PDT (3PM ET)</div>
+    <div><b>TV</b>FOX / Telemundo</div>
+    <div><b>Match</b>104 · The Final</div>
+  </div>
+
+  <div class="champ">
+    <div class="lift">🏆 Spain — World Champions</div>
+    <div class="liftsub">Second star · first title since 2010 · Argentina runners-up</div>
+  </div>
+
+  <div class="strip">
+    <div class="msg"><b>A goalless final, settled in extra time.</b> Spain outlasted the reigning champions in a nerve-shredding 0&ndash;0 showpiece to be <b>crowned world champions</b> — denying Argentina the first title defence since Brazil in 1962, and ending <b>Messi's sixth and final World Cup</b> with a runners-up medal.</div>
+    <div class="tie">
+      <div class="tie-main"><b>Champions: SPAIN</b> · Runners-up: Argentina · <b>0&ndash;0 (a.e.t.)</b></div>
+      <div class="tie-sub"><b>Built on defence:</b> Spain conceded just once in the entire knockout phase and shut out Argentina in the final. <b>Handover:</b> Yamal (19) lifts it as Messi (39) bows out.</div>
+    </div>
+  </div>
+
+  <div class="road">
+    <h3>How They Got Here · Road To The Final</h3>
+    <div class="roadgrid">
+      <div>
+        <div class="rh e">Spain — flawless (conceded once all knockouts)</div>
+        <div class="game"><span class="score w">3&ndash;0</span><span class="gt"><span class="dt">R32</span> · vs Austria</span></div>
+        <div class="game"><span class="score w">1&ndash;0</span><span class="gt"><span class="dt">R16</span> · vs Portugal<small>won the Iberian Derby; knocked out Ronaldo</small></span></div>
+        <div class="game"><span class="score w">2&ndash;1</span><span class="gt"><span class="dt">QF</span> · vs Belgium<small>the only goal Spain conceded in the knockouts</small></span></div>
+        <div class="game"><span class="score w">2&ndash;0</span><span class="gt"><span class="dt">SF</span> · vs France<small>dismantled France to reach the final</small></span></div>
+      </div>
+      <div>
+        <div class="rh a">Argentina — survivors (3 of 4 to the wire)</div>
+        <div class="game"><span class="score w">1&ndash;1</span><span class="gt"><span class="dt">R32</span> · vs Cape Verde<small>a.e.t. — needed extra time vs the debutants</small></span></div>
+        <div class="game"><span class="score w">3&ndash;2</span><span class="gt"><span class="dt">R16</span> · vs Egypt<small>a five-goal thriller past Salah's Egypt</small></span></div>
+        <div class="game"><span class="score w">1&ndash;1</span><span class="gt"><span class="dt">QF</span> · vs Switzerland<small>a.e.t. — another one to extra time</small></span></div>
+        <div class="game"><span class="score w">2&ndash;1</span><span class="gt"><span class="dt">SF</span> · vs England<small>edged England for a second straight final</small></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="next">
+    <h3>Champions · How The Final Was Won</h3>
+    <div class="ng">
+      <p><b>Spain, world champions for the second time.</b> Sixteen years after Iniesta's goal in 2010, La Roja are back on top — the crowning act of a golden generation that already had Euro 2024 and the 2023 Nations League. The goalless final was <b>settled in extra time</b>, and Spain didn't blink.</p>
+      <p><b>Argentina, runners-up.</b> The dream of back-to-back titles — unmatched since <b>Brazil in 1962</b> — ended 120 minutes short. Battle-hardened by a knockout run of narrow escapes, they had nothing left to break Spain down.</p>
+      <p><b>Messi's last dance.</b> At 39, in his <b>sixth and final World Cup</b>, the all-time record-holder for appearances (30) and goals (20) walked off with a runners-up medal. The greatest career, one last final — this time it wasn't to be.</p>
+      <p><b>The meanest defence in the tournament.</b> Spain conceded <b>just once in the whole knockout phase</b> (to Belgium) and kept another clean sheet in the final. Unai Simón's shutout run was the spine of the title.</p>
+      <p><b>A generational handover.</b> Lamine Yamal (19) ends the summer a world champion; Messi (39) bows out. The outgoing GOAT and the incoming face of the sport, in the same showpiece.</p>
+    </div>
+  </div>
+
+  <div class="wtw">
+    <h3>What Decided It</h3>
+    <div class="battles">
+      <div class="battle"><span class="bt">Yamal vs Argentina's left side</span>The tournament's brightest teenager against Tagliafico and a doubled-up Argentine left. Denied the clean 1v1s he'd feasted on all summer, whether Yamal could conjure a single moment was the final's headline sub-plot.</div>
+      <div class="battle"><span class="bt">Messi vs Rodri &amp; Spain's screen</span>Messi roaming for pockets against a Spain side built to control the middle. Rodri — fit again, a Ballon d'Or anchor — shielding the back four and cutting the supply. Spain's answer: keep the ball, starve the No. 10.</div>
+      <div class="battle"><span class="bt">The midfield chess match</span>Pedri, Rodri &amp; Olmo vs Enzo, Mac Allister &amp; De Paul — two world-class engine rooms. Whoever owned the centre owned the final; in a 0-0, neither side blinked in open play.</div>
+      <div class="battle"><span class="bt">The goalkeepers</span>Unai Simón vs Dibu Martínez — a final of few clear chances turned on the two keepers, both imperious. Dibu, Argentina's 2022 folk hero; Simón, owner of the tournament's stingiest defence. In a goalless showpiece, they were always going to be central.</div>
+    </div>
+    <div class="tip"><b>How the margin fell Spain's way:</b> in extra time, with legs gone and Argentina's knockout mileage (three ties to extra time or the wire) telling, Spain's fresher, more emphatic route showed — and they found the resolve to be crowned champions.</div>
+  </div>
+
+  <div class="watch">
+    <h3>&#9733; The Names You'll Hear Most &#9733;</h3>
+    <div class="wgroup"><div class="wteam e">Spain — Champions</div><div class="wgrid">
+      <div class="star"><span class="wn e">19</span><div><div class="nm">Lamine Yamal</div><div class="meta">Spain · Barcelona · Talisman</div><div class="blurb">A world champion at <b>19</b>. The face of Spain's golden generation and heir to the No. 10 mantle just as Messi's era closes — right-wing 1v1s and left-footed curlers.</div></div></div>
+      <div class="star"><span class="wn e">16</span><div><div class="nm">Rodri</div><div class="meta">Spain · Man City · Captain</div><div class="blurb">The <b>2024 Ballon d'Or</b> winner, back from a serious knee injury — the screen in front of the back four, and the man who lifted the trophy.</div></div></div>
+      <div class="star"><span class="wn e">20</span><div><div class="nm">Pedri</div><div class="meta">Spain · Barcelona · Conductor</div><div class="blurb">Press-resistant midfield metronome; Spain hummed when he did. The tempo-setter of a possession machine that won it all.</div></div></div>
+      <div class="star"><span class="wn e">23</span><div><div class="nm">Unai Simón</div><div class="meta">Spain · Athletic Bilbao · Goalkeeper</div><div class="blurb">The wall behind the title: Spain conceded <b>just once in the whole knockout phase</b> and shut out Argentina in the final.</div></div></div>
+    </div></div>
+    <div class="wgroup"><div class="wteam a">Argentina — Runners-up</div><div class="wgrid">
+      <div class="star"><span class="wn a">10</span><div><div class="nm">Lionel Messi</div><div class="meta">Argentina · Inter Miami · Captain</div><div class="blurb">39; his <b>sixth and final World Cup</b>. All-time record-holder for appearances (30) and goals (20). One last final — this time it ended in runners-up. The story of the tournament, whatever the result.</div></div></div>
+      <div class="star"><span class="wn a">22</span><div><div class="nm">Lautaro Martínez</div><div class="meta">Argentina · Inter Milan · No. 9</div><div class="blurb">Argentina's penalty-box finisher, living off scraps in a starved final against Spain's calm young back line.</div></div></div>
+      <div class="star"><span class="wn a">24</span><div><div class="nm">Enzo Fernández</div><div class="meta">Argentina · Chelsea · Engine</div><div class="blurb">Best Young Player at Qatar 2022; the deep-lying tempo-setter tasked with breaking Spain's press and threading Messi in.</div></div></div>
+      <div class="star"><span class="wn a">23</span><div><div class="nm">Emiliano "Dibu" Martínez</div><div class="meta">Argentina · Aston Villa · Goalkeeper</div><div class="blurb">Argentina's 2022 Golden Glove and shootout folk hero; kept his side level deep into a goalless final.</div></div></div>
+    </div></div>
+  </div>
+
+  <div class="rtitle">The Lineups · By The Numbers</div>
+  <div class="lineup-tabs">
+    <input type="radio" name="lineup-tab" id="lineup-home" class="tab-input" checked>
+    <input type="radio" name="lineup-tab" id="lineup-away" class="tab-input">
+    <div class="tab-bar">
+      <label for="lineup-home" class="tab-home">Spain</label>
+      <label for="lineup-away" class="tab-away">Argentina</label>
+    </div>
+  <div class="cols">
+    <div class="col es">
+      <div class="colhead"><h2>Spain</h2><span class="form">home RED · possession &amp; press</span></div>
+      <div class="rsub">Starters (4-3-3)</div>
+      <ul class="xi">
+        <li><span class="num gk">23</span><span class="pname">Unai Simón</span><span class="pclub">Athletic Bilbao</span></li>
+        <li><span class="num">12</span><span class="pname">Pedro Porro</span><span class="pclub">Tottenham</span></li>
+        <li><span class="num">22</span><span class="pname">Pau Cubarsí</span><span class="pclub">Barcelona</span></li>
+        <li><span class="num">14</span><span class="pname">Aymeric Laporte</span><span class="pclub">Athletic Bilbao</span></li>
+        <li><span class="num">24</span><span class="pname">Marc Cucurella</span><span class="pclub">Chelsea</span></li>
+        <li><span class="num">16</span><span class="pname">Rodri<span class="cap">C</span></span><span class="pclub">Manchester City</span></li>
+        <li><span class="num">20</span><span class="pname">Pedri</span><span class="pclub">Barcelona</span></li>
+        <li><span class="num">10</span><span class="pname">Dani Olmo</span><span class="pclub">Barcelona</span></li>
+        <li><span class="num">19</span><span class="pname">Lamine Yamal</span><span class="pclub">Barcelona</span></li>
+        <li><span class="num">21</span><span class="pname">Mikel Oyarzabal</span><span class="pclub">Real Sociedad</span></li>
+        <li><span class="num">15</span><span class="pname">Álex Baena</span><span class="pclub">Atlético Madrid</span></li>
+      </ul>
+      <div class="rsub">Bench</div>
+      <ul class="xi">
+        <li><span class="num gk">1</span><span class="pname">David Raya</span><span class="pclub">Arsenal</span></li>
+        <li><span class="num">2</span><span class="pname">Marc Pubill</span><span class="pclub">Atlético Madrid</span></li>
+        <li><span class="num">3</span><span class="pname">Alejandro Grimaldo</span><span class="pclub">Bayer Leverkusen</span></li>
+        <li><span class="num">4</span><span class="pname">Eric García</span><span class="pclub">Barcelona</span></li>
+        <li><span class="num">5</span><span class="pname">Marcos Llorente</span><span class="pclub">Atlético Madrid</span></li>
+        <li><span class="num">6</span><span class="pname">Mikel Merino</span><span class="pclub">Arsenal</span></li>
+        <li><span class="num">7</span><span class="pname">Ferran Torres</span><span class="pclub">Barcelona</span></li>
+        <li><span class="num">8</span><span class="pname">Fabián Ruiz</span><span class="pclub">Paris Saint-Germain</span></li>
+        <li><span class="num">9</span><span class="pname">Gavi</span><span class="pclub">Barcelona</span></li>
+        <li><span class="num">11</span><span class="pname">Yeremy Pino</span><span class="pclub">Crystal Palace</span></li>
+        <li><span class="num gk">13</span><span class="pname">Joan García</span><span class="pclub">Barcelona</span></li>
+        <li><span class="num">17</span><span class="pname">Nico Williams</span><span class="pclub">Athletic Bilbao</span></li>
+        <li><span class="num">18</span><span class="pname">Martín Zubimendi</span><span class="pclub">Arsenal</span></li>
+        <li><span class="num">25</span><span class="pname">Víctor Muñoz</span><span class="pclub">Spain U21</span></li>
+        <li><span class="num">26</span><span class="pname">Borja Iglesias</span><span class="pclub">Celta Vigo</span></li>
+      </ul>
+      <div class="note">Most-likely final XI (carried from the R16 win over Portugal). Nico Williams (17) Spain's key attacking sub; Baena the softer front-three call. No Real Madrid players in the squad — a Spain World Cup first.</div>
+    </div>
+    <div class="col ar">
+      <div class="colhead"><h2>Argentina</h2><span class="form">home SKY-BLUE stripes · break to Messi</span></div>
+      <div class="rsub">Starters (4-3-3)</div>
+      <ul class="xi">
+        <li><span class="num gk">23</span><span class="pname">Emiliano Martínez</span><span class="pclub">Aston Villa</span></li>
+        <li><span class="num">26</span><span class="pname">Nahuel Molina</span><span class="pclub">Atlético Madrid</span></li>
+        <li><span class="num">13</span><span class="pname">Cristian Romero</span><span class="pclub">Tottenham</span></li>
+        <li><span class="num">6</span><span class="pname">Lisandro Martínez</span><span class="pclub">Manchester United</span></li>
+        <li><span class="num">3</span><span class="pname">Nicolás Tagliafico</span><span class="pclub">Lyon</span></li>
+        <li><span class="num">7</span><span class="pname">Rodrigo De Paul</span><span class="pclub">Inter Miami</span></li>
+        <li><span class="num">24</span><span class="pname">Enzo Fernández</span><span class="pclub">Chelsea</span></li>
+        <li><span class="num">20</span><span class="pname">Alexis Mac Allister</span><span class="pclub">Liverpool</span></li>
+        <li><span class="num">10</span><span class="pname">Lionel Messi<span class="cap">C</span></span><span class="pclub">Inter Miami</span></li>
+        <li><span class="num">22</span><span class="pname">Lautaro Martínez</span><span class="pclub">Inter Milan</span></li>
+        <li><span class="num">16</span><span class="pname">Thiago Almada</span><span class="pclub">Atlético Madrid</span></li>
+      </ul>
+      <div class="rsub">Bench</div>
+      <ul class="xi">
+        <li><span class="num gk">1</span><span class="pname">Juan Musso</span><span class="pclub">Atlético Madrid</span></li>
+        <li><span class="num">2</span><span class="pname">Leonardo Balerdi</span><span class="pclub">Marseille</span></li>
+        <li><span class="num">4</span><span class="pname">Gonzalo Montiel</span><span class="pclub">River Plate</span></li>
+        <li><span class="num">5</span><span class="pname">Leandro Paredes</span><span class="pclub">Boca Juniors</span></li>
+        <li><span class="num">8</span><span class="pname">Valentín Barco</span><span class="pclub">Strasbourg</span></li>
+        <li><span class="num">9</span><span class="pname">Julián Álvarez</span><span class="pclub">Atlético Madrid</span></li>
+        <li><span class="num">11</span><span class="pname">Giovani Lo Celso</span><span class="pclub">Real Betis</span></li>
+        <li><span class="num gk">12</span><span class="pname">Gerónimo Rulli</span><span class="pclub">Marseille</span></li>
+        <li><span class="num">14</span><span class="pname">Exequiel Palacios</span><span class="pclub">Bayer Leverkusen</span></li>
+        <li><span class="num">15</span><span class="pname">Nicolás González</span><span class="pclub">Juventus</span></li>
+        <li><span class="num">17</span><span class="pname">Giuliano Simeone</span><span class="pclub">Atlético Madrid</span></li>
+        <li><span class="num">18</span><span class="pname">Nico Paz</span><span class="pclub">Como</span></li>
+        <li><span class="num">19</span><span class="pname">Nicolás Otamendi</span><span class="pclub">Benfica</span></li>
+        <li><span class="num">21</span><span class="pname">José Manuel López</span><span class="pclub">Palmeiras</span></li>
+        <li><span class="num">25</span><span class="pname">Facundo Medina</span><span class="pclub">Marseille</span></li>
+      </ul>
+      <div class="note">XI carried from the R16 win over Egypt (sourced 4-3-3 consensus). Julián Álvarez (9), the 2022 hero, Argentina's biggest bench weapon and a plausible final starter over Almada; Otamendi the veteran leader off the bench.</div>
+    </div>
+  </div>
+  </div>
+
+  <div class="foot">
+    2026 World Cup final · finished-tournament retrospective. <span>Result is the site's synthetic ground truth; squads &amp; players real (per 2026 WC squad lists, ESPN/SI previews).</span>
+  </div>
+
+</div>
+</body>
+</html>

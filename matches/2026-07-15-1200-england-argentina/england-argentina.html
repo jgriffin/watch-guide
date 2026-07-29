@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>England vs Argentina — 2026 World Cup, Semi-Final</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700&family=Barlow:wght@400;500;600&display=swap');
+
+  :root{
+    --en-nav:#1c2a5e; --en-deep:#0f183a; --en-red:#CE1126;
+    --ar-sky:#5C9DD6; --ar-deep:#2E6BA0; --ar-sun:#F6B40E;
+    --gold:#C39A2B;
+
+    --text-micro:0.75rem; --text-sm:0.8125rem; --text-base:1rem; --text-md:1.0625rem;
+    --text-lg:1.125rem; --text-xl:1.25rem; --text-2xl:1.375rem; --text-3xl:1.75rem;
+    --leading:1.45;
+    --ink:#1a1714; --paper:#f6f3ec; --line:#d8d2c4; --muted:#6f675b;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Barlow',sans-serif;font-size:var(--text-base);background:#26231f;color:var(--ink);padding:18px;line-height:var(--leading);}
+  .sheet{max-width:920px;margin:0 auto;background:var(--paper);border:1px solid var(--line);box-shadow:0 14px 44px rgba(0,0,0,.5);overflow:hidden;}
+
+  /* HEADER */
+  .top{display:flex;align-items:stretch;color:#f6f3ec;}
+  .top .side{flex:1;padding:13px 18px;}
+  .top .en{background:linear-gradient(135deg,var(--en-nav),var(--en-deep));}
+  .top .ar{background:linear-gradient(225deg,var(--ar-sky),var(--ar-deep));text-align:right;}
+  .top .mid{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 14px;min-width:132px;background:var(--ink);}
+  .flag{font-size:var(--text-sm);letter-spacing:.18em;font-family:'Oswald';font-weight:600;opacity:.85;}
+  .nat{font-family:'Oswald';font-weight:700;font-size:var(--text-3xl);line-height:1;text-transform:uppercase;}
+  .sub{font-size:0.875rem;opacity:.82;margin-top:3px;font-family:'Barlow Condensed';letter-spacing:.04em;}
+  .mid .comp{font-size:var(--text-micro);letter-spacing:.12em;font-family:'Oswald';opacity:.7;text-align:center;}
+  .score{font-family:'Oswald';font-weight:700;font-size:2.35rem;line-height:1;color:#fff;letter-spacing:.02em;margin:3px 0 1px;}
+  .score .win{color:var(--ar-sun);}
+  .ft{font-size:var(--text-micro);letter-spacing:.14em;font-family:'Oswald';font-weight:600;color:var(--gold);}
+
+  .infobar{display:flex;background:#000;color:#f6f3ec;font-family:'Barlow Condensed';font-size:0.9375rem;}
+  .infobar div{padding:6px 14px;border-right:1px solid #2c2c2c;flex:1;text-align:center;white-space:nowrap;}
+  .infobar div:last-child{border-right:none;}
+  .infobar b{color:var(--gold);font-weight:600;letter-spacing:.07em;text-transform:uppercase;font-size:var(--text-micro);display:block;}
+
+  /* STAKES */
+  .strip{display:flex;flex-direction:column;align-items:stretch;background:var(--gold);color:#241e10;}
+  .strip .msg{padding:11px 16px;font-family:'Barlow',sans-serif;font-size:var(--text-md);font-weight:500;}
+  .strip .msg b{font-weight:700;}
+  .tie{background:#241e10;color:#f6f3ec;font-family:'Barlow Condensed';padding:8px 16px;width:100%;}
+  .tie-main{font-size:var(--text-base);color:#ffe9a8;line-height:1.38;}
+  .tie-main b{font-family:'Barlow';font-weight:600;color:#fff;}
+  .tie-sub{font-size:0.875rem;color:#a89f8e;margin-top:5px;line-height:1.35;}
+  .tie-sub b{color:var(--gold);font-weight:600;}
+
+  /* ROAD HERE */
+  .road{background:var(--ink);color:#ece5d8;padding:13px 18px;}
+  .road h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--gold);text-transform:uppercase;margin-bottom:9px;text-align:center;}
+  .roadgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .rh{font-family:'Oswald';font-size:var(--text-base);text-transform:uppercase;letter-spacing:.03em;margin-bottom:5px;}
+  .rh.e{color:#9ab4ff;} .rh.a{color:#bcdcff;}
+  .game{display:flex;gap:8px;margin-bottom:6px;font-size:0.9375rem;line-height:var(--leading);}
+  .sc{font-family:'Oswald';font-weight:700;font-size:var(--text-sm);padding:2px 6px;border-radius:3px;height:fit-content;white-space:nowrap;flex-shrink:0;color:#fff;}
+  .sc.w{background:#2c5e38;} .sc.l{background:#6e2530;} .sc.d{background:#5a5036;}
+  .game .gt{color:#cfc7b8;}
+  .game .gt .dt{color:#fff;font-weight:600;}
+  .game .gt small{display:block;color:#a89f8e;font-size:var(--text-sm);font-style:italic;}
+
+  /* NEXT */
+  .next{background:#efe9dc;padding:12px 18px;border-top:1px solid var(--line);}
+  .next h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--ar-deep);text-transform:uppercase;margin-bottom:7px;}
+  .next .ng{columns:1;}
+  .next p{font-family:'Barlow',sans-serif;font-size:var(--text-base);margin-bottom:8px;break-inside:avoid;line-height:var(--leading);padding-left:13px;position:relative;}
+  .next p::before{content:"\25B8";position:absolute;left:0;color:var(--gold);font-size:var(--text-micro);top:2px;}
+  .next b{font-weight:600;}
+
+  /* WHAT TO WATCH FOR */
+  .wtw{padding:13px 18px;border-top:1px solid var(--line);}
+  .wtw h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--gold);text-transform:uppercase;margin-bottom:9px;}
+  .battles{columns:1;}
+  .battle{font-family:'Barlow',sans-serif;font-size:var(--text-base);line-height:var(--leading);margin-bottom:8px;break-inside:avoid;}
+  .battle .bt{font-family:'Oswald';font-weight:600;font-size:var(--text-md);text-transform:uppercase;letter-spacing:.02em;color:var(--ink);display:block;margin-bottom:1px;}
+  .tip{margin-top:8px;background:#efe9dc;border-left:3px solid var(--gold);padding:10px 12px;font-family:'Barlow',sans-serif;font-size:var(--text-md);line-height:var(--leading);}
+  .tip b{font-family:'Barlow';font-weight:600;color:#241e10;}
+  .deadball{margin-top:8px;font-family:'Barlow',sans-serif;font-size:var(--text-sm);color:var(--muted);line-height:var(--leading);}
+  .deadball b{color:var(--ink);font-weight:600;text-transform:uppercase;letter-spacing:.03em;font-size:var(--text-micro);}
+
+  /* WATCH split-by-team */
+  .watch{padding:13px 18px;}
+  .watch h3{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--en-nav);text-transform:uppercase;margin-bottom:9px;}
+  .wgroup{margin-bottom:12px;}
+  .wgroup:last-child{margin-bottom:0;}
+  .wteam{font-family:'Oswald';font-size:var(--text-md);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;padding-bottom:3px;border-bottom:2px solid;}
+  .wteam.e{color:var(--en-nav);border-color:var(--en-nav);}
+  .wteam.a{color:var(--ar-deep);border-color:var(--ar-deep);}
+  .wgrid{display:grid;grid-template-columns:1fr;gap:10px;}
+  .star{display:flex;gap:9px;}
+  .star .wn{font-family:'Oswald';font-weight:700;font-size:var(--text-lg);width:34px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:3px;color:#fff;flex-shrink:0;}
+  .wn.e{background:var(--en-nav);} .wn.a{background:var(--ar-deep);}
+  .star .nm{font-family:'Oswald';font-size:var(--text-xl);font-weight:600;line-height:1.05;}
+  .star .meta{font-size:var(--text-sm);color:var(--muted);font-family:'Barlow Condensed';letter-spacing:.03em;text-transform:uppercase;margin-bottom:2px;}
+  .star .blurb{font-family:'Barlow',sans-serif;font-size:var(--text-base);line-height:var(--leading);}
+  .star b{font-weight:600;}
+
+  /* LINEUPS */
+  .rtitle{font-family:'Oswald';font-size:var(--text-2xl);letter-spacing:.08em;color:var(--ink);text-transform:uppercase;text-align:center;padding:13px 18px 0;}
+  .cols{display:grid;grid-template-columns:1fr 1fr;}
+  .col{padding:13px 16px;}
+  .col.en{border-right:2px solid var(--line);}
+  .colhead{display:flex;align-items:baseline;justify-content:space-between;border-bottom:2px solid;padding-bottom:5px;margin-bottom:8px;}
+  .col.en .colhead{border-color:var(--en-nav);}
+  .col.ar .colhead{border-color:var(--ar-sky);}
+  .colhead h2{font-family:'Oswald';font-size:var(--text-xl);text-transform:uppercase;letter-spacing:.02em;}
+  .col.en .colhead h2{color:var(--en-nav);}
+  .col.ar .colhead h2{color:var(--ar-deep);}
+  .form{font-family:'Barlow Condensed';font-size:0.875rem;color:var(--muted);letter-spacing:.05em;}
+  .rsub{font-family:'Oswald';font-size:var(--text-micro);letter-spacing:.13em;color:var(--muted);text-transform:uppercase;margin:9px 0 3px;}
+  .rsub:first-child{margin-top:0;}
+  .xi{list-style:none;}
+  .xi li{display:flex;gap:9px;align-items:center;padding:2.5px 0;border-bottom:1px dotted var(--line);}
+  .xi li:last-child{border-bottom:none;}
+  .num{font-family:'Oswald';font-weight:700;font-size:var(--text-lg);width:28px;height:26px;display:flex;align-items:center;justify-content:center;color:#fff;border-radius:3px;flex-shrink:0;}
+  .col.en .num{background:var(--en-nav);}
+  .col.ar .num{background:var(--ar-deep);}
+  .num.gk{background:#444 !important;}
+  .pname{font-weight:600;font-size:var(--text-lg);}
+  .pclub{color:var(--muted);font-size:var(--text-sm);font-family:'Barlow Condensed';margin-left:auto;text-align:right;letter-spacing:.02em;white-space:nowrap;}
+  .cap{color:var(--gold);font-weight:700;font-size:var(--text-micro);vertical-align:super;margin-left:1px;}
+
+  .foot{background:var(--ink);color:#9a9081;font-size:var(--text-micro);text-align:center;padding:7px;font-family:'Barlow Condensed';letter-spacing:.05em;}
+  .foot span{color:var(--gold);}
+
+  /* LINEUP TABS — mobile */
+  .lineup-tabs .tab-input{position:absolute;opacity:0;width:0;height:0;pointer-events:none;}
+  .lineup-tabs .tab-bar{display:none;}
+
+  @media (max-width:680px){
+    body{padding:7px;overflow-x:hidden;}
+    .sheet{overflow-x:clip;}
+    .wgrid,.roadgrid{grid-template-columns:1fr;}
+    .cols{grid-template-columns:1fr;}
+    .top .side{padding:10px 12px;min-width:0;}
+    .top .mid{min-width:96px;padding:8px 10px;}
+    .score{font-size:2rem;}
+    .infobar{flex-wrap:wrap;}
+    .infobar div{flex:1 1 46%;white-space:normal;min-width:0;padding:6px 10px;font-size:0.9375rem;}
+    .infobar div:nth-child(2){border-right:none;}
+    .infobar div:nth-child(3),
+    .infobar div:nth-child(4){border-top:1px solid #2c2c2c;}
+    .lineup-tabs .tab-bar{display:flex;margin:0 16px;padding-top:10px;border-bottom:2px solid var(--line);}
+    .lineup-tabs .tab-bar label{flex:1;text-align:center;padding:10px 6px;font-family:'Oswald';font-size:var(--text-md);font-weight:600;text-transform:uppercase;letter-spacing:.06em;cursor:pointer;color:var(--muted);border-bottom:3px solid transparent;margin-bottom:-2px;}
+    .lineup-tabs #lineup-home:checked ~ .tab-bar .tab-home{border-bottom-color:var(--en-nav);color:var(--en-nav);}
+    .lineup-tabs #lineup-away:checked ~ .tab-bar .tab-away{border-bottom-color:var(--ar-deep);color:var(--ar-deep);}
+    .lineup-tabs #lineup-home:checked ~ .cols .col:last-child{display:none;}
+    .lineup-tabs #lineup-away:checked ~ .cols .col:first-child{display:none;}
+    .col.en,.col.ar{border-right:none;}
+    .colhead{flex-wrap:wrap;align-items:flex-start;gap:4px;}
+    .pname{min-width:0;flex:1;}
+    .pclub{white-space:normal;flex-shrink:1;max-width:46%;}
+    .star,.star > div{min-width:0;}
+    .nat{line-height:1.08;overflow-wrap:break-word;text-wrap:balance;}
+    .next p,.battle,.blurb{overflow-wrap:break-word;}
+  }
+  @media print{body{background:#fff;padding:0;}.sheet{box-shadow:none;border:none;}@page{margin:7mm;}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="top">
+    <div class="side en">
+      <div class="flag">🏴󠁧󠁢󠁥󠁮󠁧󠁿 ENGLAND</div>
+      <div class="nat">The Three Lions</div>
+      <div class="sub">FIFA #4 · Coach: Thomas Tuchel · 4-2-3-1</div>
+    </div>
+    <div class="mid">
+      <div class="comp">SEMI-FINAL</div>
+      <div class="score">1&nbsp;<span class="win">2</span></div>
+      <div class="ft">FULL TIME</div>
+      <div class="comp">WORLD&nbsp;CUP&nbsp;'26</div>
+    </div>
+    <div class="side ar">
+      <div class="flag">ARGENTINA 🇦🇷</div>
+      <div class="nat">La Albiceleste</div>
+      <div class="sub">4-3-3 · Coach: Lionel Scaloni · FIFA #1</div>
+    </div>
+  </div>
+
+  <div class="infobar">
+    <div><b>Venue</b>Mercedes-Benz, Atlanta</div>
+    <div><b>Kickoff</b>Wed 12:00 PM PDT · 3 PM ET</div>
+    <div><b>TV</b>FOX / Telemundo</div>
+    <div><b>Last met</b>2002 WC (ENG 1-0)</div>
+  </div>
+
+  <div class="strip">
+    <div class="msg"><b>Argentina win the semi-final 2-1</b> and march into the final. The reigning champions edge a heavyweight tie against a resurgent England to keep the <b>back-to-back dream</b> — and Messi's last-dance run — alive.</div>
+    <div class="tie">
+      <div class="tie-main"><b>Argentina → FINAL</b> (vs Spain) · <b>England → Third-place playoff</b> (vs France)</div>
+      <div class="tie-sub"><b>What it meant:</b> Argentina one game from retaining the title; England fall at the last four again, still chasing a first men's trophy since 1966. · <b>Rivalry chapter:</b> after 1986, 1998 and 2002, England vs Argentina writes a semi-final.</div>
+    </div>
+  </div>
+
+  <div class="road">
+    <h3>How They Got Here · Route To The Last Four</h3>
+    <div class="roadgrid">
+      <div>
+        <div class="rh e">England</div>
+        <div class="game"><span class="sc w">2&ndash;1</span><span class="gt"><span class="dt">R32 · Jul 1</span> · vs DR Congo<small>Kane double to rescue it</small></span></div>
+        <div class="game"><span class="sc w">3&ndash;2</span><span class="gt"><span class="dt">R16 · Jul 5</span> · vs Mexico<small>Five-goal thriller at the Azteca</small></span></div>
+        <div class="game"><span class="sc w">1&ndash;1</span><span class="gt"><span class="dt">QF · Jul 11</span> · vs Norway<small>a.e.t. — survived to advance</small></span></div>
+      </div>
+      <div>
+        <div class="rh a">Argentina</div>
+        <div class="game"><span class="sc w">1&ndash;1</span><span class="gt"><span class="dt">R32 · Jul 3</span> · vs Cape Verde<small>a.e.t. — scare vs the debutants</small></span></div>
+        <div class="game"><span class="sc w">3&ndash;2</span><span class="gt"><span class="dt">R16 · Jul 7</span> · vs Egypt<small>Outscored a spirited Egypt</small></span></div>
+        <div class="game"><span class="sc w">1&ndash;1</span><span class="gt"><span class="dt">QF · Jul 11</span> · vs Switzerland<small>a.e.t. — another survival</small></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="next">
+    <h3>What It Meant &amp; What's Next</h3>
+    <div class="ng">
+      <p><b>Argentina:</b> the win booked a place in the <b>final vs Spain</b> and kept alive the bid to <b>retain the World Cup</b> — no nation has done it since Brazil in 1962. Messi's sixth and final World Cup runs on to the last game.</p>
+      <p><b>England:</b> a fourth semi-final near-miss of the modern era — into the <b>third-place playoff vs France</b>, still chasing a first men's trophy since 1966.</p>
+      <p><b>Messi milestone:</b> at 39, this was his <b>sixth and final World Cup</b>; already all-time record-holder for WC appearances (30) and goals (20) — and now one more final.</p>
+      <p><b>Kane subplot:</b> England's all-time top scorer, and now all-time WC top scorer past Lineker this tournament, came up one round short of the final.</p>
+      <p><b>The final on the horizon:</b> Argentina vs Spain — reigning World Cup holders against the reigning European champions.</p>
+    </div>
+  </div>
+
+  <div class="wtw">
+    <h3>The Duels That Shaped It</h3>
+    <div class="battles">
+      <div class="battle"><span class="bt">Bellingham vs Argentina's midfield three</span>The game inside the game. England's engine trying to break the champions' rhythm and feed Kane, against Enzo–Mac Allister–De Paul controlling tempo. Whoever owned the middle owned the tie.</div>
+      <div class="battle"><span class="bt">Kane vs Romero &amp; Lisandro Martínez</span>Kane dropping to link then attacking the box, against Argentina's aggressive, front-foot centre-backs. His duel with Cristian Romero was the physical heart of the match.</div>
+      <div class="battle"><span class="bt">Saka vs Tagliafico &amp; Argentina's left</span>England's likeliest spark, cutting in off the right onto his left foot. Whether Argentina's left side could handle him one-on-one was England's clearest route to goal.</div>
+      <div class="battle"><span class="bt">Messi vs England's double pivot</span>Messi roaming free off the front line; Rice's job to screen the space he drifts into. One moment of Messi magic is always the swing factor in a tight knockout — and it swung Argentina's way.</div>
+    </div>
+    <div class="deadball"><b>England dead-ball:</b> a genuine set-piece side — Rice deliveries onto Kane, Guéhi, Konsa, Stones; Kane on penalties.<br><b>Argentina dead-ball:</b> Messi / Mac Allister delivery to aerial threats Romero, Otamendi and Lautaro.</div>
+    <div class="tip"><b>The margin:</b> two extra-time survivors in the quarters met fresh off nervy wins — and in a 2-1 semi-final, the fine margins fell to the reigning champions.</div>
+  </div>
+
+  <div class="watch">
+    <h3>&#9733; The Names You'll Hear Most &#9733;</h3>
+    <div class="wgroup"><div class="wteam e">England</div><div class="wgrid">
+      <div class="star"><span class="wn e">9</span><div><div class="nm">Harry Kane</div><div class="meta">England · Bayern Munich · Captain</div><div class="blurb">England's all-time top scorer, and now their all-time World Cup top scorer past Lineker; rescued the R32 with a late double. The reference point everything runs through.</div></div></div>
+      <div class="star"><span class="wn e">10</span><div><div class="nm">Jude Bellingham</div><div class="meta">England · Real Madrid · Engine</div><div class="blurb">The midfield superstar who drives England from the 10 and feeds Kane. The single biggest tempo-setter in the side.</div></div></div>
+      <div class="star"><span class="wn e">7</span><div><div class="nm">Bukayo Saka</div><div class="meta">England · Arsenal · Right wing</div><div class="blurb">The right-wing dribbler and England's most direct wide threat; the man Argentina's left side had to double.</div></div></div>
+    </div></div>
+    <div class="wgroup"><div class="wteam a">Argentina</div><div class="wgrid">
+      <div class="star"><span class="wn a">10</span><div><div class="nm">Lionel Messi</div><div class="meta">Argentina · Inter Miami · Captain</div><div class="blurb">39, and his sixth and final World Cup — the tournament's headline act. All-time record-holder for WC appearances (30) and goals (20). When it's tight, he decides it — and here, he carried Argentina to the final.</div></div></div>
+      <div class="star"><span class="wn a">22</span><div><div class="nm">Lautaro Martínez</div><div class="meta">Argentina · Inter Milan · Striker</div><div class="blurb">Argentina's No.1 striker on form; a penalty-box finisher who thrives on Messi's service. Scored the 2024 Copa América final winner.</div></div></div>
+      <div class="star"><span class="wn a">24</span><div><div class="nm">Enzo Fernández</div><div class="meta">Argentina · Chelsea · Metronome</div><div class="blurb">Best Young Player of Qatar 2022; the deep-lying tempo-setter who set the rhythm alongside Mac Allister and De Paul.</div></div></div>
+    </div></div>
+  </div>
+
+  <div class="rtitle">The Lineups · By The Numbers</div>
+  <div class="lineup-tabs">
+    <input type="radio" name="lineup-tab" id="lineup-home" class="tab-input" checked>
+    <input type="radio" name="lineup-tab" id="lineup-away" class="tab-input">
+    <div class="tab-bar">
+      <label for="lineup-home" class="tab-home">England</label>
+      <label for="lineup-away" class="tab-away">Argentina</label>
+    </div>
+  <div class="cols">
+    <div class="col en">
+      <div class="colhead"><h2>England</h2><span class="form">white home · 4-2-3-1</span></div>
+      <div class="rsub">Starters</div><ul class="xi"><li><span class="num gk">1</span><span class="pname">Jordan Pickford</span><span class="pclub">Everton</span></li><li><span class="num">25</span><span class="pname">Djed Spence</span><span class="pclub">Tottenham</span></li><li><span class="num">2</span><span class="pname">Ezri Konsa</span><span class="pclub">Aston Villa</span></li><li><span class="num">6</span><span class="pname">Marc Guéhi</span><span class="pclub">Crystal Palace</span></li><li><span class="num">3</span><span class="pname">Nico O'Reilly</span><span class="pclub">Man City</span></li><li><span class="num">8</span><span class="pname">Elliot Anderson</span><span class="pclub">Nottm Forest</span></li><li><span class="num">4</span><span class="pname">Declan Rice</span><span class="pclub">Arsenal</span></li><li><span class="num">7</span><span class="pname">Bukayo Saka</span><span class="pclub">Arsenal</span></li><li><span class="num">10</span><span class="pname">Jude Bellingham</span><span class="pclub">Real Madrid</span></li><li><span class="num">18</span><span class="pname">Anthony Gordon</span><span class="pclub">Newcastle</span></li><li><span class="num">9</span><span class="pname">Harry Kane<span class="cap">C</span></span><span class="pclub">Bayern Munich</span></li></ul>
+      <div class="rsub">Bench</div><ul class="xi"><li><span class="num">5</span><span class="pname">John Stones</span><span class="pclub">Man City</span></li><li><span class="num">11</span><span class="pname">Marcus Rashford</span><span class="pclub">Barcelona</span></li><li><span class="num">12</span><span class="pname">Tino Livramento</span><span class="pclub">Newcastle</span></li><li><span class="num gk">13</span><span class="pname">Dean Henderson</span><span class="pclub">Crystal Palace</span></li><li><span class="num">14</span><span class="pname">Jordan Henderson</span><span class="pclub">veteran recall</span></li><li><span class="num">15</span><span class="pname">Dan Burn</span><span class="pclub">Newcastle</span></li><li><span class="num">16</span><span class="pname">Kobbie Mainoo</span><span class="pclub">Man Utd</span></li><li><span class="num">17</span><span class="pname">Morgan Rogers</span><span class="pclub">Aston Villa</span></li><li><span class="num">19</span><span class="pname">Ollie Watkins</span><span class="pclub">Aston Villa</span></li><li><span class="num">20</span><span class="pname">Noni Madueke</span><span class="pclub">Arsenal</span></li><li><span class="num">21</span><span class="pname">Eberechi Eze</span><span class="pclub">Arsenal</span></li><li><span class="num">22</span><span class="pname">Ivan Toney</span><span class="pclub">Al-Ahli</span></li><li><span class="num gk">23</span><span class="pname">James Trafford</span><span class="pclub">Man City</span></li><li><span class="num">24</span><span class="pname">Reece James</span><span class="pclub">Chelsea</span></li><li><span class="num">26</span><span class="pname">Jarell Quansah</span><span class="pclub">Leverkusen</span></li></ul>
+    </div>
+    <div class="col ar">
+      <div class="colhead"><h2>Argentina</h2><span class="form">sky-blue home · 4-3-3</span></div>
+      <div class="rsub">Starters</div><ul class="xi"><li><span class="num gk">23</span><span class="pname">Emiliano Martínez</span><span class="pclub">Aston Villa</span></li><li><span class="num">26</span><span class="pname">Nahuel Molina</span><span class="pclub">Atlético Madrid</span></li><li><span class="num">13</span><span class="pname">Cristian Romero</span><span class="pclub">Tottenham</span></li><li><span class="num">6</span><span class="pname">Lisandro Martínez</span><span class="pclub">Man United</span></li><li><span class="num">3</span><span class="pname">Nicolás Tagliafico</span><span class="pclub">Lyon</span></li><li><span class="num">7</span><span class="pname">Rodrigo De Paul</span><span class="pclub">Inter Miami</span></li><li><span class="num">24</span><span class="pname">Enzo Fernández</span><span class="pclub">Chelsea</span></li><li><span class="num">20</span><span class="pname">Alexis Mac Allister</span><span class="pclub">Liverpool</span></li><li><span class="num">10</span><span class="pname">Lionel Messi<span class="cap">C</span></span><span class="pclub">Inter Miami</span></li><li><span class="num">22</span><span class="pname">Lautaro Martínez</span><span class="pclub">Inter Milan</span></li><li><span class="num">16</span><span class="pname">Thiago Almada</span><span class="pclub">Atlético Madrid</span></li></ul>
+      <div class="rsub">Bench</div><ul class="xi"><li><span class="num gk">1</span><span class="pname">Juan Musso</span><span class="pclub">Atlético Madrid</span></li><li><span class="num">2</span><span class="pname">Leonardo Balerdi</span><span class="pclub">Marseille</span></li><li><span class="num">4</span><span class="pname">Gonzalo Montiel</span><span class="pclub">River Plate</span></li><li><span class="num">5</span><span class="pname">Leandro Paredes</span><span class="pclub">Boca Juniors</span></li><li><span class="num">8</span><span class="pname">Valentín Barco</span><span class="pclub">Strasbourg</span></li><li><span class="num">9</span><span class="pname">Julián Álvarez</span><span class="pclub">Atlético Madrid</span></li><li><span class="num">11</span><span class="pname">Giovani Lo Celso</span><span class="pclub">Real Betis</span></li><li><span class="num gk">12</span><span class="pname">Gerónimo Rulli</span><span class="pclub">Marseille</span></li><li><span class="num">14</span><span class="pname">Exequiel Palacios</span><span class="pclub">Leverkusen</span></li><li><span class="num">15</span><span class="pname">Nicolás González</span><span class="pclub">Juventus</span></li><li><span class="num">17</span><span class="pname">Giuliano Simeone</span><span class="pclub">Atlético Madrid</span></li><li><span class="num">18</span><span class="pname">Nico Paz</span><span class="pclub">Como</span></li><li><span class="num">19</span><span class="pname">Nicolás Otamendi</span><span class="pclub">Benfica</span></li><li><span class="num">21</span><span class="pname">José Manuel López</span><span class="pclub">Palmeiras</span></li><li><span class="num">25</span><span class="pname">Facundo Medina</span><span class="pclub">Marseille</span></li></ul>
+    </div>
+  </div>
+  </div>
+
+  <div class="foot">
+    Full time · Semi-final result and bracket are the site's projected 2026 ground truth. <span>Squads &amp; blurbs per this repo's sibling guides; rivalry history (1986 / 1998 / 2002) is genuine.</span>
+  </div>
+
+</div>
+</body>
+</html>
