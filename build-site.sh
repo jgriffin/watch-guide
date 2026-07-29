@@ -14,44 +14,6 @@ mkdir -p "$SITE"
 # otherwise the next `vercel --prod` re-links to a project named "site".
 find "$SITE" -mindepth 1 -maxdepth 1 ! -name '.vercel' -exec rm -rf {} +
 
-# ---- the hide-scores component (identical on every page) -------------------
-# Fixed bottom-right toggle. Persists in localStorage key wcHideScores, shared
-# across the origin. When active, masks .score result chips (text AND the
-# win/draw/loss background colour, which is itself a spoiler) with a neutral
-# "•–•" so layout doesn't collapse.
-SNIPPET="$SITE/.snippet.html"
-cat > "$SNIPPET" <<'SNIP'
-<!-- hide-scores toggle (shared component) -->
-<style>
-  .wc-hs-btn{position:fixed;bottom:14px;right:14px;z-index:9999;font-family:'Oswald',sans-serif;font-weight:600;font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:8px 14px;border:1px solid #C39A2B;border-radius:22px;background:#26231f;color:#C39A2B;cursor:pointer;box-shadow:0 3px 12px rgba(0,0,0,.4);opacity:.92;}
-  .wc-hs-btn:hover{opacity:1;}
-  body.hide-scores .score{background:#8a8378 !important;color:transparent !important;position:relative;}
-  body.hide-scores .score::after{content:"\2022\2013\2022";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;letter-spacing:.06em;}
-</style>
-<button class="wc-hs-btn" type="button" aria-pressed="false">Hide scores</button>
-<script>
-(function(){
-  var KEY='wcHideScores';
-  var btn=document.querySelector('.wc-hs-btn');
-  function apply(on){
-    document.body.classList.toggle('hide-scores',on);
-    btn.textContent=on?'Show scores':'Hide scores';
-    btn.setAttribute('aria-pressed',on?'true':'false');
-  }
-  // Default to HIDDEN (spoiler-safe for delayed viewing); honour an explicit
-  // choice once the user has toggled it.
-  var stored=localStorage.getItem(KEY);
-  var on = (stored===null) ? true : (stored==='1');
-  apply(on);
-  btn.addEventListener('click',function(){
-    on=!on;
-    localStorage.setItem(KEY, on?'1':'0');
-    apply(on);
-  });
-})();
-</script>
-SNIP
-
 # ---- helpers ----------------------------------------------------------------
 fmt_time(){ # HHMM -> "h:mm AM/PM PDT"
   local hh=$((10#${1:0:2})) mm=${1:2:2} ap=AM
@@ -70,8 +32,7 @@ fmt_date(){ # YYYY-MM-DD -> "Weekday · Month D"
 
 # ---- per-match: copy guide as-is --------------------------------------------
 # Guides are forward-looking (predicted XIs, no live score); any results in them
-# are older games you'd want to see anyway. So NO hide-scores snippet here — the
-# toggle lives only on the landing, where the bracket carries the day's results.
+# are older games you'd want to see anyway. Copied verbatim, no injected markup.
 slugs=()
 for dir in "$MATCHES"/*/; do
   [ -d "$dir" ] || continue
@@ -177,12 +138,6 @@ cat > "$LANDING" <<'HEAD'
   .rnd:last-child .ties{justify-content:center;}
   .rnd:last-child .ties .tie{flex:0 0 auto;margin:5px 0;}
   .rnd-final .card{border-color:var(--gold);}
-  /* hide-scores: only TODAY's result / advancement are spoilers (earlier stays shown) */
-  body.hide-scores .tie.today .tm.win{background:#241e10;}
-  body.hide-scores .tie.today .tm.win .nm{color:var(--paper);}
-  body.hide-scores .nm.adv{color:transparent;position:relative;}
-  body.hide-scores .nm.adv::after{content:"TBD";position:absolute;left:0;top:0;color:#8a8071;font-weight:500;letter-spacing:.01em;}
-  body.hide-scores .tie.today .note{visibility:hidden;}
   /* mobile: keep the connected tree — just horizontally scrollable. The
      current round shows with its pair-bracket connectors; scroll right → for
      the rounds it feeds. No taller than the round's own height. */
@@ -204,7 +159,7 @@ HEAD
 # ---- bracket (rendered from bracket.json) -----------------------------------
 # The knockout tree. Data = bracket.json (refreshed by fetch-bracket.sh).
 # Desktop shows the connected tree; mobile shows one round at a time via
-# CSS-only radio tabs. Result/advancement chips honour hide-scores.
+# CSS-only radio tabs. All results/advancements always shown.
 # Emitted to a temp file here and spliced in BELOW the schedule (the schedule
 # — Today / Next up — is the primary nav; the bracket is the map beneath it).
 BRK="$ROOT/bracket.json"
@@ -215,26 +170,19 @@ if [ -f "$BRK" ]; then
     printf '    <div class="b-hd">The Bracket — Road to the Final</div>\n'
     printf '    <div class="b-sub">The full knockout tree \342\200\224 scroll across the rounds \342\206\222 &nbsp;tap any tie for its watch guide.</div>\n'
     printf '    <div class="bracket">'
-    jq -r --arg today "$TODAY" '
-      # $spoilScore: this score is a TODAY result -> mark .score so the toggle masks it
-      # $adv: this advanced team was decided TODAY -> mark .adv so the toggle blanks it
-      def teamrow($nm;$fl;$sc;$win;$adv;$spoilScore):
+    jq -r '
+      def teamrow($nm;$fl;$sc;$win):
         "<div class=\"tm\(if $win then " win" else "" end)\(if $nm==null then " tbd" else "" end)\">"
         + "<span class=\"fl\">\($fl // "")</span>"
-        + "<span class=\"nm\(if $adv then " adv" else "" end)\">\($nm // "TBD")</span>"
-        + (if $sc != null then "<span class=\"sc\(if $spoilScore then " score" else "" end)\">\($sc)</span>" else "" end)
+        + "<span class=\"nm\">\($nm // "TBD")</span>"
+        + (if $sc != null then "<span class=\"sc\">\($sc)</span>" else "" end)
         + "</div>";
       . as $b
-      | (reduce ($b.rounds[].ties[], $b.third) as $t ({}; .[($t.num|tostring)]=$t.date)) as $dateByNum
-      | def fedDate($t;$i): ($t.feeders[$i]) as $f | (if $f==null then null else $dateByNum[($f|tostring)] end);
-        def tie($t;$isR32):
-          ($t.date==$today) as $isToday
-          | (if $isR32 then false else (($t.t1!=null) and (fedDate($t;0)==$today)) end) as $adv1
-          | (if $isR32 then false else (($t.t2!=null) and (fedDate($t;1)==$today)) end) as $adv2
-          | "<div class=\"tie\(if $isToday then " today" else "" end)\">"
+      | def tie($t):
+          "<div class=\"tie\">"
           + (if $t.slug != null then "<a class=\"card\" href=\"/\($t.slug)\">" else "<div class=\"card\">" end)
-          + teamrow($t.t1;$t.f1;$t.s1;($t.winner==1);$adv1;$isToday)
-          + teamrow($t.t2;$t.f2;$t.s2;($t.winner==2);$adv2;$isToday)
+          + teamrow($t.t1;$t.f1;$t.s1;($t.winner==1))
+          + teamrow($t.t2;$t.f2;$t.s2;($t.winner==2))
           + (if $t.note != null then "<div class=\"note\">\($t.note)</div>" else "" end)
           + (if $t.slug != null then "</a>" else "</div>" end)
           + "</div>";
@@ -242,9 +190,9 @@ if [ -f "$BRK" ]; then
         | [ $b.rounds[]
             | . as $r
             | "<div class=\"rnd rnd-\($r.key)\"><div class=\"rnd-hd\">\($r.label)</div><div class=\"ties\">"
-              + ( [ $r.ties[] | tie(.; ($r.key=="r32")) ] | join("") )
+              + ( [ $r.ties[] | tie(.) ] | join("") )
               + ( if $r.key=="final"
-                  then "<div class=\"mini\">Third place</div>" + tie($third; false)
+                  then "<div class=\"mini\">Third place</div>" + tie($third)
                   else "" end )
               + "</div></div>"
           ] | join("")
@@ -339,15 +287,12 @@ cat >> "$LANDING" <<'FOOT'
   <div class="foot">Times in Pacific. Predicted XIs; confirmed ~1hr before kickoff. Schedule from fixtures.json.</div>
 </div>
 FOOT
-cat "$SNIPPET" >> "$LANDING"
 printf '</body>\n</html>\n' >> "$LANDING"
 
 # ---- vercel config (clean URLs: /brazil-japan, not /brazil-japan/) ----------
 cat > "$SITE/vercel.json" <<'VJ'
 { "cleanUrls": true }
 VJ
-
-rm -f "$SNIPPET"
 
 # ---- summary ----------------------------------------------------------------
 echo "Built site/ with ${#slugs[@]} guides:"
