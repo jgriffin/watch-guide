@@ -1,6 +1,11 @@
 # Belgium vs Senegal — 2026 FIFA World Cup, Round of 32 · 2026-07-01
 <!-- Watch-guide research sidecar. Source of truth; belgium-senegal.html is rendered from this. -->
 
+## Result (final — authoritative, per bracket.json / openfootball)
+- **Belgium 3, Senegal 2 — after extra time (a.e.t.).** Belgium advance to the Round of 16. (Decided by a last-gasp extra-time goal, NOT a penalty shootout.)
+- Timeline: **Habib Diarra 25'** and **Ismaïla Sarr 51'** put Senegal **2-0** up → **Romelu Lukaku 86'** and **Youri Tielemans 89'** rescued Belgium to 2-2 late → into extra time → **Youri Tielemans 120+5'** won it at the death to complete his brace. Final **3-2**.
+- Note: everything below this line is the **pre-match** research/preview (predicted XIs, odds, "what to watch") as written before kickoff — left intact; the banner above records how it actually finished.
+
 ## Spine
 - Kickoff: **1:00 PM PDT** (1:00 PM local · Seattle — venue is in the reader's own zone) · 4:00 PM ET · Date: 2026-07-01 (Wed)
 - Venue: **Lumen Field**, Seattle, USA (FIFA branding "Seattle Stadium"; open-air; home of Sounders/Seahawks)

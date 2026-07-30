@@ -3,9 +3,9 @@
 <!-- RETROSPECTIVE guide: tournament is over. Recorded result is AUTHORITATIVE + SYNTHETIC (site's projected bracket). Teams/players are real. -->
 
 ## Result (authoritative — from site bracket)
-- **FINAL: Argentina 1, Switzerland 1 — Argentina advanced after extra time (a.e.t.).** (Match 100.)
+- **FINAL: Argentina 3, Switzerland 1 — after extra time (a.e.t.). Argentina advanced to the semi-final.** (Match 100.)
 - Argentina → **Semi-final vs England** (Wed Jul 15). Switzerland eliminated at the quarter-final — their furthest World Cup run since 1954.
-- *No penalty score fabricated: the tie finished level and Argentina went through in extra time.*
+- *Goals: Mac Allister 10' (ARG) · Ndoye 67' (SUI) — 1-1 through 90 minutes; then in extra time Álvarez 112' and Lautaro Martínez 120+1'. Decided by extra-time goals, NOT penalties.*
 
 ## Spine
 - Kickoff: **6:00 PM PDT** (8:00 PM CDT · Kansas City — Central time)  ·  Date: 2026-07-11 (Sat)
@@ -16,8 +16,8 @@
 
 ## Stakes & Standings (KNOCKOUT — no group table) — PAST TENSE
 - Single-leg knockout. **Winner → Semi-final** (Wed Jul 15). Loser eliminated.
-- **What it meant:** the reigning champions were pushed all the way by the tournament's meanest defence and needed **extra time** to see off Switzerland. **Argentina advanced 1-1 (a.e.t.)** and marched on to the semi-finals; **Switzerland went out** — but only after reaching a first World Cup quarter-final since **1954**, the tournament they hosted.
-- Odds (pre-match): **Argentina clear favourites** — champions and world No. 1 against a side that cedes the ball and counters; the tie was framed as Argentina's quality vs Switzerland's discipline. The scoreline said Switzerland got the low-scoring war they wanted; Argentina's depth decided it in extra time.
+- **What it meant:** the reigning champions were held level by the tournament's meanest defence for 90 minutes, then **pulled away in extra time** to see off Switzerland. **Argentina won 3-1 (a.e.t.)** — Mac Allister's early opener (10') cancelled by Ndoye (67'), before Álvarez (112') and Lautaro Martínez (120+1') settled it — and marched on to the semi-finals; **Switzerland went out** — but only after reaching a first World Cup quarter-final since **1954**, the tournament they hosted.
+- Odds (pre-match): **Argentina clear favourites** — champions and world No. 1 against a side that cedes the ball and counters; the tie was framed as Argentina's quality vs Switzerland's discipline. Switzerland got the low-scoring war they wanted for 90 minutes, but Argentina's depth broke it open in extra time.
 - **H2H — the extra-time echo:** their most famous meeting was the **2014 World Cup Round of 16, São Paulo — Argentina 1-0 a.e.t.**, Ángel Di María scoring in the **118th minute** after Messi's run. A **2018 friendly finished 1-1**. Twelve years on, another Argentina–Switzerland knockout **went to extra time** — and again Argentina found the decisive edge late.
 
 ## How They Got Here
@@ -40,20 +40,20 @@
 - **Messi (ARG, 10) vs Switzerland's back three** — Yakin's 3-4-2-1 sits deep and denies space between the lines; the whole game was Argentina probing a compact block for the one seam Messi could thread. Switzerland's plan lived on the shape holding — and it held long enough to force extra time.
 - **Xhaka (SUI, 10) vs Argentina's midfield (Enzo / Mac Allister / De Paul)** — Switzerland deliberately gave the ball up and countered, so their captain had to control tempo from fewer touches against a midfield built to dominate it. Whoever won the second balls set the rhythm.
 - **Embolo & Ndoye on the counter vs Argentina's high full-backs (Molina / Tagliafico)** — the instant Argentina lost it, Switzerland's most dangerous moments came springing Embolo's hold-up and Ndoye's pace into the space the full-backs vacated. Snuffing the first counter pass was Argentina's job all night.
-- **Keepers' duel — Kobel vs Emiliano Martínez** — two elite goalkeepers in a game that always looked like coming down to fine margins. Martínez's shootout aura is famous; Kobel had kept Switzerland's defence the tournament's stingiest. In a 1-1 that went the distance, both were decisive.
+- **Keepers' duel — Kobel vs Emiliano Martínez** — two elite goalkeepers in a game that always looked like coming down to fine margins. Martínez's shootout aura is famous; Kobel had kept Switzerland's defence the tournament's stingiest. In a game that stayed level into extra time, both were decisive.
 - **Set-piece / dead-ball tip:** with a mean Swiss block, a dead ball was Argentina's cleanest opening — **Romero, Otamendi and Lautaro** aerial on **Messi / Mac Allister** delivery. Switzerland leaned on **Xhaka's left foot** to **Akanji & Elvedi**. In a tight one, every corner mattered.
 
 ## The Names You'll Hear Most
 - **Argentina:**
   - **Lionel Messi** · Inter Miami · FW / captain — **39**; his **sixth and final World Cup** and the tournament's headline act. All-time record-holder for **WC appearances (30)** and **WC goals (20)**; roams free as Argentina's creative fulcrum. Scored the assist for Di María's 118th-minute winner the last time these two met in a knockout (2014).
-  - **Lautaro Martínez** · Inter Milan · FW — Argentina's No. 1 striker on form; ~37 international goals, scored the winner in the 2024 Copa América final. A penalty-box finisher who thrives on Messi's service.
+  - **Lautaro Martínez** · Inter Milan · FW — Argentina's No. 1 striker on form; ~37 international goals, scored the winner in the 2024 Copa América final. A penalty-box finisher who thrives on Messi's service — sealed this one in the last minute of extra time (120+1').
   - **Enzo Fernández** · Chelsea · MF — Best Young Player at Qatar 2022; the deep-lying tempo-setter who progresses the ball and sets the rhythm alongside Mac Allister and De Paul.
-  - **Julián Álvarez** · Atlético Madrid · FW — the Qatar 2022 hero and high-energy presser; Argentina's most dangerous impact sub, exactly the kind of depth that decides a tight extra-time night.
+  - **Julián Álvarez** · Atlético Madrid · FW — the Qatar 2022 hero and high-energy presser; Argentina's most dangerous impact sub — and here the man who broke Switzerland open, striking in the 112th minute of extra time.
 - **Switzerland:**
   - **Granit Xhaka** · Sunderland · DM / captain — the metronome and on-field boss; his **4th straight World Cup** and a Swiss-record **12 WC appearances**. Was the general of Leverkusen's unbeaten 2023-24 Bundesliga title side; anchors Switzerland's whole defensive shape.
   - **Manuel Akanji** · Inter Milan · CB — ball-playing centre-back who left Man City for Inter and became a regular; comfortable stepping out with the ball, ideal for Yakin's back three.
   - **Breel Embolo** · Rennes · ST — **born in Yaoundé, Cameroon**; the physical focal point at the tip of the 3-4-2-1. Opened the scoring vs Algeria in the R32.
-  - **Dan Ndoye** · Nottingham Forest · Winger / wing-back — a **£34m** 2025 signing; quick and direct, Switzerland's main wide pace outlet, who scored the clinching second vs Algeria.
+  - **Dan Ndoye** · Nottingham Forest · Winger / wing-back — a **£34m** 2025 signing; quick and direct, Switzerland's main wide pace outlet — scored the clinching second vs Algeria, and struck again here to level it at 1-1 (67').
 
 ## Rosters (numbered — official 2026 WC tournament numbers)
 ### Argentina (4-3-3) — captain Messi (#10) · matchday kit: home SKY-BLUE & WHITE stripes
@@ -134,6 +134,6 @@
 - Accent gold (programme): `#C39A2B`; ink `#1a1714`; paper `#f6f3ec`.
 
 ## Sources & Flags
-- Result/bracket: repo `bracket.json` (site's projected feed) — M100 **Argentina 1-1 Switzerland, Argentina advanced (a.e.t.)**; Argentina → SF M102 vs **England** (who beat Norway 1-1 a.e.t. in M99). Venue/time: repo `schedule.json` (M100 — Arrowhead Stadium, Kansas City, 6:00 PM PDT). Squads/numbers/blurbs/colors reused from this repo's sibling guides: Argentina from `matches/2026-07-07-0900-argentina-egypt/data.md`; Switzerland from `matches/2026-07-07-1300-switzerland-colombia/data.md`. Real-world facts (Messi WC records, 2014 R16 Di María 118', Xhaka WC apps, FIFA ranks, player clubs) from those guides' cited sources (Wikipedia 2026 WC squads, ESPN, FIFA).
-- Flagged uncertain (not invented): **referee** (not recorded — omitted); **Argentina FIFA rank** (world No. 1 / champions, not a dated table figure); **Switzerland shape label** (3-4-2-1 vs 4-2-3-1, same 11); **both XIs** are best-available/most-likely lineups carried from the sibling guides (not a fresh confirmed teamsheet); **matchday kits** (no-clash inference → both home). **The 1-1 a.e.t. result and Argentina's advancement are the site's synthetic ground truth — used exactly, not cross-checked against reality.**
-- Judgment calls: **No penalty score fabricated** — per the recorded result, the tie finished 1-1 and Argentina went through in extra time; narrative built around extra-time margins (keepers' duel, Argentina's depth) rather than a shootout. Rosters reused wholesale from siblings to keep the live-lookup numbers consistent and skip a re-research. Argentina rendered in home sky-blue stripes with deeper-blue number chips; Switzerland in home red. Four stars per side (a heavyweight quarter-final earns it). Leaned on the real 2014 extra-time meeting as the anchoring quirk since this synthetic result also went to extra time.
+- Result/bracket: repo `bracket.json` (site's projected feed) — M100 **Argentina 3-1 Switzerland (a.e.t.), Argentina advanced** (Mac Allister 10', Ndoye 67'; Álvarez 112', Lautaro 120+1'); Argentina → SF M102 vs **England** (who beat Norway 1-1 a.e.t. in M99). Venue/time: repo `schedule.json` (M100 — Arrowhead Stadium, Kansas City, 6:00 PM PDT). Squads/numbers/blurbs/colors reused from this repo's sibling guides: Argentina from `matches/2026-07-07-0900-argentina-egypt/data.md`; Switzerland from `matches/2026-07-07-1300-switzerland-colombia/data.md`. Real-world facts (Messi WC records, 2014 R16 Di María 118', Xhaka WC apps, FIFA ranks, player clubs) from those guides' cited sources (Wikipedia 2026 WC squads, ESPN, FIFA).
+- Flagged uncertain (not invented): **referee** (not recorded — omitted); **Argentina FIFA rank** (world No. 1 / champions, not a dated table figure); **Switzerland shape label** (3-4-2-1 vs 4-2-3-1, same 11); **both XIs** are best-available/most-likely lineups carried from the sibling guides (not a fresh confirmed teamsheet); **matchday kits** (no-clash inference → both home). **The 3-1 a.e.t. result and Argentina's advancement are the site's synthetic ground truth — used exactly, not cross-checked against reality.**
+- Judgment calls: **Decided in extra time, not on penalties** — per the recorded result the tie was 1-1 at 90 minutes (Mac Allister 10', Ndoye 67') before Argentina scored twice in ET (Álvarez 112', Lautaro 120+1') to win 3-1; narrative built around Argentina pulling away late rather than a shootout. Rosters reused wholesale from siblings to keep the live-lookup numbers consistent and skip a re-research. Argentina rendered in home sky-blue stripes with deeper-blue number chips; Switzerland in home red. Four stars per side (a heavyweight quarter-final earns it). Leaned on the real 2014 extra-time meeting as the anchoring quirk since this synthetic result also went to extra time.

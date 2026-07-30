@@ -34,7 +34,9 @@ jq -n \
       elif x.score.et!=null  then (if x.score.et[0]>x.score.et[1] then 1 elif x.score.et[1]>x.score.et[0] then 2 else null end)
       else (if x.score.ft[0]>x.score.ft[1] then 1 elif x.score.ft[1]>x.score.ft[0] then 2 else null end)
       end;
-  def sc(x;i): if x.score==null then null else (x.score.ft[i-1]|tostring) end;
+  # Show the score that decided it: after-extra-time when present, else full-time.
+  # (For pen games, et is the tied end-of-ET score, shown with the pen note.)
+  def sc(x;i): if x.score==null then null elif x.score.et!=null then (x.score.et[i-1]|tostring) else (x.score.ft[i-1]|tostring) end;
   def note(x):
       if x.score==null then null
       elif x.score.p!=null then ((x.score.p[0]|tostring)+"–"+(x.score.p[1]|tostring)+" pen")

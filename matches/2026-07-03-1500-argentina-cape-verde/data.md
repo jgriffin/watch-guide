@@ -8,6 +8,11 @@
 - Home — **Argentina** · "La Albiceleste" · FIFA #1 · Coach: **Lionel Scaloni** · **4-3-3** (defending champions, Group J winners)
 - Away — **Cape Verde** · "Tubarões Azuis" (Blue Sharks) · FIFA #67 · Coach: **Bubista** (Pedro Leitão Brito) · **4-3-3** (*expect a deeper low block / 4-5-1 vs Argentina — flag the shape shift*)
 
+## Result (FINAL — after extra time)
+- **Argentina 3, Cape Verde 2 (a.e.t.).** Argentina advance to the Round of 16. Decided by an extra-time goal — **NOT** on penalties.
+- Timeline: **Messi 29'** (ARG 1-0) → **Deroy Duarte 59'** (1-1) → 1-1 through 90 → extra time → **Lisandro Martínez 92'** (ARG 2-1) → **Sidny Lopes Cabral 103'** (2-2) → **Argentina's winner 111'** (3-2). Cape Verde battled level twice before Argentina edged it in ET.
+- ⚠️ **Own-goal flag (data provenance):** openfootball credits the decisive 111' goal to "Diney Borges" — a **Cape Verde** player (their #3 defender) — yet tallies it to **Argentina**. This is almost certainly an **own goal**. Rendered here and in the HTML as "**Borges o.g. 111'**"; do NOT credit an Argentina outfielder by name for it. Source of truth: bracket.json (Argentina 3–2, note "a.e.t.", winner 1), matching openfootball.
+
 ## Stakes & Standings (KNOCKOUT — no group table)
 - Single-leg knockout, no aggregate. **Winner → Round of 16** (Mercedes-Benz Stadium, Atlanta · Mon Jul 7). **Loser eliminated.**
 - R16 opponent: **winner of Australia vs Egypt** (the other Jul 3 R32 tie) — *to be confirmed by that result*.

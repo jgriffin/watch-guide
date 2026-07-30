@@ -3,8 +3,8 @@
 <!-- RETROSPECTIVE: tournament is over. Result below is the site's AUTHORITATIVE synthetic ground truth. -->
 
 ## RESULT (authoritative — do not "correct")
-- **SPAIN 0 – 0 ARGENTINA (a.e.t.)** — **SPAIN ARE WORLD CHAMPIONS.**
-- The final finished goalless after 120 minutes and was **settled in extra time**; Spain lifted the trophy. **Argentina are runners-up.** (No penalty score is stated — the guide presents the 0–0 scoreline and crowns Spain; do NOT fabricate a shootout line.)
+- **SPAIN 1 – 0 ARGENTINA (a.e.t.)** — **SPAIN ARE WORLD CHAMPIONS.**
+- Goalless through 90 minutes and deep into extra time, the final was **settled by Ferran Torres in the 106th minute** — the substitute striker breaking the deadlock to win it. Spain lifted the trophy; **Argentina are runners-up.** No shootout — decided in extra-time open play.
 - Spain's **second World Cup star** (first since 2010). Argentina's bid to **retain the 2022 title fell one game short.**
 
 ## Spine
@@ -18,7 +18,7 @@
 ## Stakes & Standings (THE FINAL — retrospective, past tense)
 - **Single match. The whole tournament in 120 minutes.** Winner = world champions; loser = runners-up.
 - **What was on the line:** Argentina were chasing **back-to-back titles** — **no nation has retained the World Cup since Brazil in 1962.** Spain, champions in 2010, were chasing a **second star** and the crowning act of their post-2024 golden generation.
-- **How it went:** a tense, cagey, **goalless** final — both defences and both goalkeepers on top of both attacks. After 90 level, it went to **extra time, where Spain prevailed** to be crowned champions.
+- **How it went:** a tense, cagey final — both defences and both goalkeepers on top for 90 minutes and much of extra time. Then, in the **106th minute, substitute Ferran Torres** struck the decisive goal; Spain saw it out to be crowned champions.
 - **The generational hinge:** Spain's teenage talisman **Lamine Yamal (19)** and the de la Fuente machine on one side; **Lionel Messi (39) in his sixth and final World Cup** on the other. Messi's last dance ended in the final — **runners-up.**
 - Odds pre-match had it near a coin flip with Spain marginal favourites off their unbeaten-and-barely-breached run (framed as such — not a dated line).
 
@@ -38,19 +38,19 @@
 - **The contrast:** Spain cruised (four wins by an aggregate 8-1 in the knockouts); Argentina survived (three of four knockout ties settled in extra time or by a single goal). Spain arrived fresher and more emphatic; Argentina arrived battle-hardened.
 
 ## Champions · How The Final Was Won
-- **Spain are world champions for the second time** (2010, 2026). The goalless final was **settled in extra time** — a defensive, nerve-shredding showpiece where the first mistake would decide it, and Spain didn't blink.
-- **Argentina are runners-up.** The back-to-back dream — unmatched since Brazil 1962 — ended 120 minutes short. **Messi's final World Cup** closes with a runners-up medal.
-- **Unai Simón's tournament:** Spain conceded just **once in the entire knockout phase** (to Belgium) and kept **another clean sheet in the final.** The 2026 title was built on the meanest defence in the tournament.
+- **Spain are world champions for the second time** (2010, 2026). Locked at 0-0 through 90 and deep into extra time, the final turned on **one moment: Ferran Torres off the bench, 106th minute** — the decisive strike in a nerve-shredding showpiece where the first mistake would decide it, and Spain didn't blink.
+- **Argentina are runners-up.** The back-to-back dream — unmatched since Brazil 1962 — ended one goal short in extra time. **Messi's final World Cup** closes with a runners-up medal.
+- **Unai Simón's tournament:** Spain conceded just **once in the entire knockout phase** (to Belgium) and kept **another clean sheet in the final** — shutting out Argentina across 120 minutes. The 2026 title was built on the meanest defence in the tournament.
 - **De la Fuente's clean sweep:** Euro 2024 → this. Spain's golden generation — Yamal, Pedri, a fit-again Rodri — now have the one trophy that had eluded La Roja since 2010.
 - **No "what's next":** this is the end of the road. Spain lift the trophy; the tournament is over.
 
 ## What Decided It (the duels that shaped the final)
 - **Lamine Yamal (ESP, 19) vs Nicolás Tagliafico & Argentina's left side** — the tournament's brightest teenager against a 33-year-old, tournament-toughened full-back. Argentina doubled up and denied him the clean 1v1s he'd feasted on all summer; in a tight final, whether Yamal could conjure one moment was the headline sub-plot.
 - **Messi (ARG, 10) vs Rodri & Spain's midfield screen** — Messi roaming for pockets against a Spain side built to control the middle and press the ball. Rodri (fit again, a Ballon d'Or anchor) shielding the back four and cutting the supply to Messi was the game's central chess match. Spain's answer: keep the ball, starve the No. 10.
-- **Midfield: Pedri/Rodri/Olmo (ESP) vs Enzo/Mac Allister/De Paul (ARG)** — two world-class midfields. Spain wanted possession and positional overloads; Argentina wanted to break the lines to Messi and Lautaro. Whoever owned the centre owned the final — and in a 0-0, neither blinked in open play.
+- **Midfield: Pedri/Rodri/Olmo (ESP) vs Enzo/Mac Allister/De Paul (ARG)** — two world-class midfields. Spain wanted possession and positional overloads; Argentina wanted to break the lines to Messi and Lautaro. Whoever owned the centre owned the final — Spain's control eventually told, and the one goal fell their way.
 - **Lautaro Martínez (ARG) vs Cubarsí/Laporte (ESP)** — Argentina's No. 9 against Spain's calm young back line. Service was scarce; Lautaro's movement had to manufacture from little.
-- **The goalkeepers — Unai Simón vs Emiliano "Dibu" Martínez** — a final of few clear chances turned on the two keepers, both in imperious tournament form. Dibu, Argentina's 2022 shootout folk hero; Unai Simón, owner of the tournament's stingiest defence. In a goalless showpiece, they were always going to be central.
-- **The decisive edge:** in extra time, with legs gone and Argentina's knockout mileage (three ties to extra time or the wire) telling, **Spain's fresher, more emphatic route to the final showed** — and they found the resolve to be crowned champions.
+- **The goalkeepers — Unai Simón vs Emiliano "Dibu" Martínez** — a final of few clear chances turned on the two keepers, both in imperious tournament form. Dibu, Argentina's 2022 shootout folk hero; Unai Simón, owner of the tournament's stingiest defence — and the one who kept his clean sheet to the end while Spain found the winner.
+- **The decisive edge:** in extra time, with legs gone and Argentina's knockout mileage (three ties to extra time or the wire) telling, **Spain's fresher, more emphatic route to the final showed** — de la Fuente went to his bench and **Ferran Torres delivered the 106th-minute winner** to crown them champions.
 
 ## The Names You'll Hear Most
 - **Spain:**
@@ -62,7 +62,7 @@
   - **Lionel Messi** · Inter Miami · FW / captain — **39**; his **sixth and final World Cup**, all-time record-holder for **WC appearances (30)** and **WC goals (20)**. The greatest of his generation, one last final — this time it ended in runners-up. The story of the tournament, whatever the result.
   - **Lautaro Martínez** · Inter Milan · FW — Argentina's No. 1 striker; a penalty-box finisher who lived off scraps in a starved final.
   - **Enzo Fernández** · Chelsea · MF — Best Young Player at Qatar 2022; the deep-lying tempo-setter who tried to break Spain's press and thread Messi in.
-  - **Emiliano "Dibu" Martínez** · Aston Villa · GK — Argentina's 2022 Golden Glove and shootout folk hero; kept Argentina level deep into a goalless final.
+  - **Emiliano "Dibu" Martínez** · Aston Villa · GK — Argentina's 2022 Golden Glove and shootout folk hero; kept Argentina level deep into extra time until Ferran Torres' 106th-minute strike beat him.
 
 ## Rosters (numbered — official 2026 WC tournament numbers)
 ### Spain (4-3-3) — captain Rodri (#16) · matchday kit: home RED
@@ -94,7 +94,7 @@
   - 18 · Martín Zubimendi · MF · Arsenal
   - 25 · Víctor Muñoz · MF · *(club unverified)*
   - 26 · Borja Iglesias · FW · Celta Vigo *(club unconfirmed)*
-- Note: Most-likely final XI carried from the R16 (Portugal) guide, the sourced consensus. **Nico Williams (17)** is Spain's key attacking option off the bench — a plausible starter on the left in a final; Baena is the softer call in the front three. **No Real Madrid players in the squad — a Spain World Cup first.** Rodri fit again after knee surgery.
+- Note: Most-likely final XI carried from the R16 (Portugal) guide, the sourced consensus. **Ferran Torres (7)** came off the bench to score the **106th-minute extra-time winner** — the goal that won the World Cup. **Nico Williams (17)** is Spain's key attacking option off the bench — a plausible starter on the left in a final; Baena is the softer call in the front three. **No Real Madrid players in the squad — a Spain World Cup first.** Rodri fit again after knee surgery.
 
 ### Argentina (4-3-3) — captain Messi (#10) · matchday kit: home SKY-BLUE & WHITE stripes
 - Starters:
@@ -133,7 +133,7 @@
 - **Messi's sixth and final World Cup ends in the final** — he retires from World Cups holding the all-time records for **appearances (30)** and **goals (20)**, but this last dance closes with runners-up.
 - **A generational handover final:** Messi (39) on one side, Lamine Yamal (19) on the other — the outgoing GOAT and the incoming face of the sport, in the same showpiece. Yamal ended it a **world champion at 19.**
 - **The meanest defence won it:** Spain conceded just **once in the entire knockout phase** (to Belgium in the QF) and shut out Argentina in the final — Unai Simón's clean-sheet run the spine of the title.
-- **A 0-0 final, settled in extra time** — no goals in 120 minutes; the whole tournament decided by the finest of margins, with both keepers (Unai Simón and Dibu Martínez) in imperious form.
+- **One goal decided the World Cup** — goalless through 90 and deep into extra time until **Ferran Torres struck in the 106th minute**; a substitute's moment settled the whole tournament by the finest of margins, with both keepers (Unai Simón and Dibu Martínez) in imperious form until the breakthrough.
 - **Contrasting roads:** Spain won their four knockout ties by an aggregate 8-1; Argentina needed **extra time or a one-goal margin in three of their four** — the fresher side lifted the trophy.
 - **De la Fuente's double:** Euro 2024 and now the World Cup — Spain's first coach to hold both since the 2008-2012 dynasty era.
 - **MetLife Stadium**, East Rutherford — the 2026 World Cup **final** venue (~82,500), just across the Hudson from Manhattan, open-air in the New Jersey summer.
@@ -144,8 +144,8 @@
 - Accent gold (programme): `#C39A2B`; ink `#1a1714`; paper `#f6f3ec`. Champions banner uses the trophy-gold.
 
 ## Sources & Flags
-- **RESULT is the site's authoritative synthetic ground truth** (projected 2026 bracket): Spain 0-0 Argentina (a.e.t.), Spain champions. Built the narrative FROM this scoreline; not corrected against the web.
+- **RESULT is the site's authoritative synthetic ground truth** (projected 2026 bracket, per bracket.json/openfootball): Spain 1-0 Argentina (a.e.t.), Ferran Torres 106', Spain champions. Built the narrative FROM this scoreline; not corrected against the web.
 - Rosters/numbers/blurbs reused from sibling guides: Spain from `matches/2026-07-06-1200-portugal-spain/data.md`; Argentina from `matches/2026-07-07-0900-argentina-egypt/data.md` (official 2026 WC numbers, kept consistent).
 - Historical facts (verified from general knowledge, pre-cutoff, high-confidence): Spain WC champions 2010 (beat Netherlands 1-0, Iniesta), Euro 2024 & 2023 Nations League winners; Argentina WC champions 2022 (Qatar); no repeat champion since Brazil 1962; Messi WC records (30 apps, 20 goals, sixth WC); Rodri 2024 Ballon d'Or; no Real Madrid players in Spain's squad.
-- Flagged uncertain (not invented): **referee** for the final (not asserted); **both XIs** are most-likely lineups carried from the R16 guides — front-three (Baena vs Nico Williams for Spain; Almada vs Álvarez for Argentina) are the soft calls; a few Spain squad clubs (Pubill, Y. Pino, J. García, V. Muñoz, B. Iglesias) less certain; **exact decider of the goalless final** deliberately not fabricated (presented as 0-0 a.e.t., Spain champions).
-- Judgment calls: dropped the group table (final — no standings) and the "What's Next" section (end of the tournament), replacing them with a Champions/How-It-Was-Won block in past tense. Four stars per side (a final earns it). Presented the score as **0–0 (a.e.t.)** with Spain crowned, per the authoritative brief, without inventing a shootout line.
+- Flagged uncertain (not invented): **referee** for the final (not asserted); **both XIs** are most-likely lineups carried from the R16 guides — front-three (Baena vs Nico Williams for Spain; Almada vs Álvarez for Argentina) are the soft calls; a few Spain squad clubs (Pubill, Y. Pino, J. García, V. Muñoz, B. Iglesias) less certain. **Scoreline and scorer (Spain 1-0, Ferran Torres 106') are authoritative** from bracket.json; Torres entering as a substitute is a narrative framing consistent with his bench listing (not independently sourced).
+- Judgment calls: dropped the group table (final — no standings) and the "What's Next" section (end of the tournament), replacing them with a Champions/How-It-Was-Won block in past tense. Four stars per side (a final earns it). Presented the score as **1–0 (a.e.t.)** with **Ferran Torres' 106th-minute winner**, per the authoritative bracket.
